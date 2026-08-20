@@ -224,8 +224,9 @@ function deck(src, marked, title) {
 <div id="stage">
 ${slides.map((s, i) => `<section class="slide${i === 0 ? ' active' : ''}">\n${s}\n</section>`).join('\n')}
 </div>
+<a id="back" href="../index.html" title="Back to the governance site (Esc)">&larr; Property Trust Framework</a>
 <div id="chrome"><span id="num">1</span> / ${slides.length}</div>
-<div id="hint">← → to navigate · F for fullscreen · P to print</div>
+<div id="hint">← → to navigate · F for fullscreen · P to print · Esc to leave</div>
 <script>
   const slides = [...document.querySelectorAll('.slide')];
   const num = document.getElementById('num');
@@ -244,6 +245,7 @@ ${slides.map((s, i) => `<section class="slide${i === 0 ? ' active' : ''}">\n${s}
     else if (e.key === 'End') show(slides.length - 1);
     else if (e.key.toLowerCase() === 'f') document.documentElement.requestFullscreen?.();
     else if (e.key.toLowerCase() === 'p') print();
+    else if (e.key === 'Escape') { location.href = '../index.html'; return; }
     hint.style.opacity = 0;
   });
   addEventListener('click', (e) => { if (!e.target.closest('a')) show(i + 1); });
