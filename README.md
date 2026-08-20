@@ -41,6 +41,8 @@ npm run serve      # → http://localhost:8080
 
 Every document renders as a reading page, every file in `sessions/` renders as a 16:9 deck (arrow keys to navigate, `F` for fullscreen, `P` to print to PDF), and the decision register is collated from the records. GitHub Pages publishes on push to `main`.
 
+Every page prints cleanly — navigation drops away, links resolve to their URLs, and tables and options avoid breaking across pages. Printing to PDF from the browser is the supported way to get a document on paper; there is no separate PDF build to keep in step.
+
 Not everyone who should be able to read this uses GitHub. The published site is the answer to that, and it matters that it stays readable without a login — the charter asks for balance across originators, professional users, platforms, suppliers and consumer interests, and a record only legible to people comfortable with pull requests does not deliver it.
 
 ## Licence
