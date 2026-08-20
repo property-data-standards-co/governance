@@ -34,10 +34,10 @@ Some decisions appear in two groups. S7-3 needs both a build round and originato
 
 For each flow of personal data through the framework, which party is controller, which is processor, and where are there joint controllers?
 
-**(a) Per-role determination.** The framework states, for each defined role — issuer, holder, verifier, intermediary — its default status under UK GDPR.
-**(b) Per-flow determination.** Status follows the specific flow rather than the role, since one organisation may be controller for some data and processor for other data in the same transaction.
-**(c) Framework silent.** Participants determine status bilaterally in their own contracts.
-**(d) Joint controllership** for defined shared operations, with an agreed Article 26 arrangement published as part of the framework.
+- **(a) Per-role determination.** The framework states, for each defined role — issuer, holder, verifier, intermediary — its default status under UK GDPR.
+- **(b) Per-flow determination.** Status follows the specific flow rather than the role, since one organisation may be controller for some data and processor for other data in the same transaction.
+- **(c) Framework silent.** Participants determine status bilaterally in their own contracts.
+- **(d) Joint controllership** for defined shared operations, with an agreed Article 26 arrangement published as part of the framework.
 
 **Why an opinion.** Controllership is determined by who decides the purposes and means of processing, as a matter of law. It is not established by what the parties agree to call themselves, so a framework can simply be wrong about it — and (c) does not avoid the problem, it distributes it. R15's test asks whether the controller for each flow is determinable from the framework's own model; (c) answers no.
 
@@ -48,10 +48,10 @@ For each flow of personal data through the framework, which party is controller,
 
 On what lawful basis does each processing operation rest, and does the answer differ by role and by data category?
 
-**(a) Consent throughout**, with the framework's consent artefacts as the evidence.
-**(b) Contract or legitimate interests** for transaction-necessary flows, with consent reserved for reuse beyond the immediate transaction.
-**(c) Mixed, determined per data category**, with special-category data treated separately.
-**(d) Framework states evidencing requirements** for whatever basis a participant relies on, without prescribing the basis.
+- **(a) Consent throughout**, with the framework's consent artefacts as the evidence.
+- **(b) Contract or legitimate interests** for transaction-necessary flows, with consent reserved for reuse beyond the immediate transaction.
+- **(c) Mixed, determined per data category**, with special-category data treated separately.
+- **(d) Framework states evidencing requirements** for whatever basis a participant relies on, without prescribing the basis.
 
 **Why an opinion.** Consent is fragile where processing is necessary to complete a transaction, and withdrawal mid-transaction has to be survivable. There is also a direct interaction with R11: if reuse rests on consent alone, reuse is revocable in ways that may make it unreliable in practice. Option (d) is the most flexible and gives a participant seeking certainty the least.
 
@@ -60,11 +60,11 @@ On what lawful basis does each processing operation rest, and does the answer di
 
 When a party relies on an assertion that proves wrong and suffers loss, who is answerable, on what basis, and what redress exists?
 
-**(a) Issuer liability.** The asserting party carries it, on the face of the assertion.
-**(b) Scheme liability.** A rulebook allocates liability contractually between participants, as card schemes do.
-**(c) Limited reliance.** Assertions carry stated limits, and a relying party takes them subject to those limits.
-**(d) Insurance-backed.** Liability sits with the issuer, with a scheme-level insurance requirement making it collectable.
-**(e) Framework silent.** Existing professional liability, PI insurance and negligence law apply unmodified.
+- **(a) Issuer liability.** The asserting party carries it, on the face of the assertion.
+- **(b) Scheme liability.** A rulebook allocates liability contractually between participants, as card schemes do.
+- **(c) Limited reliance.** Assertions carry stated limits, and a relying party takes them subject to those limits.
+- **(d) Insurance-backed.** Liability sits with the issuer, with a scheme-level insurance requirement making it collectable.
+- **(e) Framework silent.** Existing professional liability, PI insurance and negligence law apply unmodified.
 
 **Why an opinion.** The question is whether the framework creates new duties of care or relies on existing ones, and that is not answerable from within a design discussion. It is worth noting that (e) is what happens if nothing is decided, and that an assertion nobody is answerable for is not, in practice, one a professional will rely on — which makes this a decision with consequences for R11 as well as R13.
 
@@ -73,10 +73,10 @@ When a party relies on an assertion that proves wrong and suffers loss, who is a
 
 Under what licence are the framework text, schemas and conformance suite published, and who holds copyright?
 
-**(a) Permissive open licence** permitting commercial use and derivative works.
-**(b) Share-alike.** Derivatives must be published under the same terms.
-**(c) Free to use, no derivatives.** Read and implement, but no forks or modified versions.
-**(d) Membership-conditional.** Use is conditional on scheme participation.
+- **(a) Permissive open licence** permitting commercial use and derivative works.
+- **(b) Share-alike.** Derivatives must be published under the same terms.
+- **(c) Free to use, no derivatives.** Read and implement, but no forks or modified versions.
+- **(d) Membership-conditional.** Use is conditional on scheme participation.
 
 **Why an opinion, in part.** Whether a standard can be referenced by secondary legislation depends on its licence and its custody, and that is a question for whoever would do the referencing. Worth stating: "free to use" on its own does not settle this — it is satisfied by (c) and (d), both of which constrain what implementers may do.
 
@@ -91,10 +91,10 @@ Each of these is a question where argument has a known tendency to circle. The m
 
 When assertions about the same subject overlap, how is the resulting state computed — and what happens to dependent data when a discriminating value changes?
 
-**(a) Dependency-aware pruning.** Composition detects a discriminator change and removes the branch that has become invalid.
-**(b) Section-level replacement.** A new assertion replaces the entire section it covers.
-**(c) Pruning by default, with issuer opt-out** per section.
-**(d) No pruning.** Conflicts are surfaced and the consumer decides.
+- **(a) Dependency-aware pruning.** Composition detects a discriminator change and removes the branch that has become invalid.
+- **(b) Section-level replacement.** A new assertion replaces the entire section it covers.
+- **(c) Pruning by default, with issuer opt-out** per section.
+- **(d) No pruning.** Conflicts are surfaced and the consumer decides.
 
 **Why a build.** Correctness is not arguable in the abstract: it depends on the actual shape of the vocabulary and on real sequences of amendment. Pruning requires walking schema conditionals, and whether that is tractable across the real schema is an empirical question rather than a matter of opinion.
 
@@ -105,10 +105,10 @@ When assertions about the same subject overlap, how is the resulting state compu
 
 How is a real person bound to the identifier used for them, and at what assurance level?
 
-**(a) Reuse external assurance.** Carry the result from a certified identity provider.
-**(b) Framework-native binding.** The framework defines its own proofing requirements.
-**(c) Relying-party determined.** The framework carries whatever assurance evidence exists; consumers set their own thresholds.
-**(d) Role-differentiated.** Higher assurance for parties whose assertions others rely on than for parties only consuming.
+- **(a) Reuse external assurance.** Carry the result from a certified identity provider.
+- **(b) Framework-native binding.** The framework defines its own proofing requirements.
+- **(c) Relying-party determined.** The framework carries whatever assurance evidence exists; consumers set their own thresholds.
+- **(d) Role-differentiated.** Higher assurance for parties whose assertions others rely on than for parties only consuming.
 
 **Why a build.** The open question is whether externally-assured identity survives being carried across a transaction boundary and remains checkable by a party with no relationship to the original assurer. That is testable, and the answer is not obvious.
 
@@ -117,10 +117,10 @@ How is a real person bound to the identifier used for them, and at what assuranc
 
 How do many independent assertions become one coherent view, and is the result identical regardless of the order or packaging in which they arrive?
 
-**(a) Deterministic rules** published as normative text, each implementer building to them.
-**(b) Reference implementation** as the normative definition.
-**(c) Rules plus a conformance suite** of test vectors, with self-certification against it.
-**(d) Composition by a designated service** rather than by each consumer.
+- **(a) Deterministic rules** published as normative text, each implementer building to them.
+- **(b) Reference implementation** as the normative definition.
+- **(c) Rules plus a conformance suite** of test vectors, with self-certification against it.
+- **(d) Composition by a designated service** rather than by each consumer.
 
 **Why a build.** Composition invariance is a testable property, and its natural failure mode — two conformant implementations producing different state from the same inputs — only appears once there are two implementations. Note that (d) sits in tension with R4 and should be tested against it.
 
@@ -129,10 +129,10 @@ How do many independent assertions become one coherent view, and is the result i
 
 For each category of fact, how long may it be relied upon before refresh, and who decides?
 
-**(a) Framework-set** validity periods per category, published normatively.
-**(b) Issuer-set.** Each issuer states validity on the assertion.
-**(c) Consumer-set.** The relying party decides what age it will accept.
-**(d) Hybrid.** Framework sets a maximum, issuer may set shorter, consumer may require fresher.
+- **(a) Framework-set** validity periods per category, published normatively.
+- **(b) Issuer-set.** Each issuer states validity on the assertion.
+- **(c) Consumer-set.** The relying party decides what age it will accept.
+- **(d) Hybrid.** Framework sets a maximum, issuer may set shorter, consumer may require fresher.
 
 **Why a build and participation both.** The mechanism can be tested; the periods cannot be invented. What constitutes a stale local land charges search is a question for the bodies that produce them and the professionals who rely on them, and neither group is currently at the table.
 
@@ -141,10 +141,10 @@ For each category of fact, how long may it be relied upon before refresh, and wh
 
 When an assertion is reissued, how does the new one reference what it replaces, and how does a consumer holding the old one find out?
 
-**(a) Explicit back-reference.** The new assertion names the identifier of the one it supersedes.
-**(b) Status-driven.** The old assertion's status changes; the new one stands alone.
-**(c) Versioned subject.** Assertions carry a version, and the latest wins.
-**(d) Both (a) and (b)** — reference for audit, status for discovery.
+- **(a) Explicit back-reference.** The new assertion names the identifier of the one it supersedes.
+- **(b) Status-driven.** The old assertion's status changes; the new one stands alone.
+- **(c) Versioned subject.** Assertions carry a version, and the latest wins.
+- **(d) Both (a) and (b)** — reference for audit, status for discovery.
 
 **Why a build.** The difficulty is the interaction with per-type versioning, and it surfaces only with real reissue sequences across more than one implementation.
 
@@ -162,10 +162,10 @@ Already enumerated with the sub-decisions of S3-9. Included here because it carr
 
 What relationship does the framework's vocabulary have to the RICS Data Standard, OSCRE, ISO 20022, and to any vocabulary the reform programme adopts?
 
-**(a) Map.** Keep a distinct vocabulary, publish mappings to named external ones.
-**(b) Adopt.** Take an external vocabulary as the framework's own where one exists.
-**(c) Profile.** Define a constrained profile of an external vocabulary.
-**(d) No formal relationship.** Alignment left to implementers.
+- **(a) Map.** Keep a distinct vocabulary, publish mappings to named external ones.
+- **(b) Adopt.** Take an external vocabulary as the framework's own where one exists.
+- **(c) Profile.** Define a constrained profile of an external vocabulary.
+- **(d) No formal relationship.** Alignment left to implementers.
 
 **Why external.** Options (a) to (c) all require the other standards bodies to engage, and effort spent on a mapping nobody maintains is wasted. Their timetables are not the coalition's to set.
 
@@ -174,10 +174,10 @@ What relationship does the framework's vocabulary have to the RICS Data Standard
 
 In what format are assertions carried, and does the choice keep the framework inside the UK and EU wallet ecosystem?
 
-**(a) SD-JWT-VC.** Selective disclosure and type metadata, with broad wallet support.
-**(b) W3C Verifiable Credentials with Data Integrity proofs.** Richer semantics, JSON-LD processing requirements.
-**(c) ISO mdoc.** The format the mobile identity ecosystem is converging on.
-**(d) Multiple formats** with a required minimum.
+- **(a) SD-JWT-VC.** Selective disclosure and type metadata, with broad wallet support.
+- **(b) W3C Verifiable Credentials with Data Integrity proofs.** Richer semantics, JSON-LD processing requirements.
+- **(c) ISO mdoc.** The format the mobile identity ecosystem is converging on.
+- **(d) Multiple formats** with a required minimum.
 
 **Why external.** The deciding constraint is which formats GOV.UK Wallet and the relevant EU profiles will accept. That list is not the coalition's to set, and choosing against it strands the sector outside infrastructure R7 exists to keep it aligned with.
 
@@ -186,9 +186,9 @@ In what format are assertions carried, and does the choice keep the framework in
 
 What is the framework's relationship to DIATF and to any statutory trust framework — on top, inside, or alongside?
 
-**(a) On top.** Identity assurance certified externally; the framework adds domain authority — who is authoritative for which facts — as a separate layer.
-**(b) Inside.** Seek recognition of property data authority as a scheme within an existing framework.
-**(c) Alongside.** No formal relationship; participants may hold both.
+- **(a) On top.** Identity assurance certified externally; the framework adds domain authority — who is authoritative for which facts — as a separate layer.
+- **(b) Inside.** Seek recognition of property data authority as a scheme within an existing framework.
+- **(c) Alongside.** No formal relationship; participants may hold both.
 
 **Why external.** Option (b) depends entirely on whether the existing framework's owners want to take it on, and on their timetable. Worth noting for the record that certifying an organisation as a trustworthy identity provider is a different statement from establishing that a given body is authoritative for a given class of fact; whether the second needs a property-specific layer is the substance of this decision.
 
@@ -197,10 +197,10 @@ What is the framework's relationship to DIATF and to any statutory trust framewo
 
 What relationship does the framework have to the homebuying reform programme, and what would it need in order to be referenceable in legislation?
 
-**(a) Referenced standard.** Legislation names the framework, and conformance to it.
-**(b) Referenced outcomes.** Legislation states required outcomes; the framework is one way to meet them.
-**(c) Voluntary.** No statutory relationship; adoption is commercial.
-**(d) Scheme with statutory backing** and a designated operator.
+- **(a) Referenced standard.** Legislation names the framework, and conformance to it.
+- **(b) Referenced outcomes.** Legislation states required outcomes; the framework is one way to meet them.
+- **(c) Voluntary.** No statutory relationship; adoption is commercial.
+- **(d) Scheme with statutory backing** and a designated operator.
 
 **Why policy.** This is government's decision rather than the coalition's. What the coalition can do is ensure the framework satisfies the preconditions for (a) or (b), which are mostly questions of openness, custody and licensing — and therefore depend on S8-2 and S8-7.
 
@@ -211,38 +211,50 @@ What relationship does the framework have to the homebuying reform programme, an
 ### S0-2 — Which property types
 *Trace: R17*
 
-**(a)** Residential freehold and leasehold only. **(b)** Plus new build. **(c)** Plus shared ownership and social housing. **(d)** All residential plus commercial.
+- **(a)** Residential freehold and leasehold only.
+- **(b)** Plus new build.
+- **(c)** Plus shared ownership and social housing.
+- **(d)** All residential plus commercial.
 
 **Why participation.** The parties affected by the wider options — developers, housing associations, commercial agents — are not currently at the table. Separately: pilot scope and framework scope are different questions and should be decided separately, since exclusions that are sensible for a pilot become permanent if inherited by a specification.
 
 ### S0-7 — Which data categories are in and out of scope
 *Trace: R14*
 
-**(a)** Material information as currently defined. **(b)** Material information plus title and search data. **(c)** Everything in a standard property pack. **(d)** Open-ended — the framework carries any category, and scope is set by profiles.
+- **(a)** Material information as currently defined.
+- **(b)** Material information plus title and search data.
+- **(c)** Everything in a standard property pack.
+- **(d)** Open-ended — the framework carries any category, and scope is set by profiles.
 
 **Why participation.** What must be disclosed is being determined by the reform programme and the professional bodies, on their timetable rather than the coalition's.
 
 ### S8-2 — Legal form and funding of the framework operator
 *Trace: R3, R4*
 
-**(a)** Independent not-for-profit with sector governance. **(b)** An existing sector body, extended. **(c)** A government or arm's-length body. **(d)** A regulated scheme under statutory backing.
+- **(a)** Independent not-for-profit with sector governance.
+- **(b)** An existing sector body, extended.
+- **(c)** A government or arm's-length body.
+- **(d)** A regulated scheme under statutory backing.
 
 **Why partly policy.** Options (c) and (d) are not the coalition's to choose. Option (a) requires funding commitments no single participant can make. R3 and R4 constrain all four: whichever is chosen must not put the operator in the data path or let it refuse a conformant participant.
 
 ### S9-4 — Originator adoption sequence
 *Trace: R3*
 
-**(a) Originator-first.** Secure authoritative sources before building outward.
-**(b) Intermediary-first.** Platforms proxy authoritative data until originators issue directly.
-**(c) Parallel.**
-**(d) Demand-led.** Sequence follows whichever originators volunteer.
+- **(a) Originator-first.** Secure authoritative sources before building outward.
+- **(b) Intermediary-first.** Platforms proxy authoritative data until originators issue directly.
+- **(c) Parallel.**
+- **(d) Demand-led.** Sequence follows whichever originators volunteer.
 
 **Why participation.** This cannot be settled among software suppliers. The bodies concerned set their own timetables, and (a) is not the coalition's to choose — only to request.
 
 ### S9-5 — Incentives and mandates
 *Trace: R17*
 
-**(a)** Voluntary, with commercial incentives only. **(b)** A mandate on originators to publish. **(c)** A mandate on transaction parties to use. **(d)** A conditional mandate triggered by adoption thresholds.
+- **(a)** Voluntary, with commercial incentives only.
+- **(b)** A mandate on originators to publish.
+- **(c)** A mandate on transaction parties to use.
+- **(d)** A conditional mandate triggered by adoption thresholds.
 
 **Why policy.** Government's decision. The coalition's useful contribution is evidence on what voluntary adoption achieves and precisely where it stalls — which is a reason to instrument the pilot for that question specifically.
 

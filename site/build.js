@@ -44,7 +44,7 @@ async function main() {
   for (const doc of DOCS) {
     const src = path.join(ROOT, doc.file);
     if (!fs.existsSync(src)) { console.warn(`  skip (missing): ${doc.file}`); continue; }
-    const body = marked.parse(fs.readFileSync(src, 'utf8'));
+    const body = markOptionLists(marked.parse(fs.readFileSync(src, 'utf8')));
     write(`${doc.slug}.html`, page({ title: doc.nav, body, nav, active: doc.slug }));
     console.log(`  doc      ${doc.file} → ${doc.slug}.html`);
   }
@@ -64,7 +64,7 @@ async function main() {
       .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
     write(`decisions/${r.slug}.html`, page({
       title: r.pdr,
-      body: marked.parse(md),
+      body: markOptionLists(marked.parse(md)),
       nav,
       active: 'decisions',
       base: '../',
@@ -211,7 +211,7 @@ function page({ title, body, nav, active, base = '' }) {
 
 /** 16:9 deck. Slides split on a `---` line; first block is the title slide. */
 function deck(src, marked, title) {
-  const slides = src.split(/\n---\n/).map((s) => s.trim()).filter(Boolean).map((s) => marked.parse(s));
+  const slides = src.split(/\n---\n/).map((s) => s.trim()).filter(Boolean).map((s) => markOptionLists(marked.parse(s)));
   return `<!doctype html>
 <html lang="en-GB">
 <head>
@@ -257,6 +257,11 @@ ${slides.map((s, i) => `<section class="slide${i === 0 ? ' active' : ''}">\n${s}
 }
 
 /* ---------- util ---------- */
+
+/** Tag lists whose items are lettered options, so the letters carry the numbering. */
+function markOptionLists(html) {
+  return html.replace(/<ul>\s*<li>(?=\s*<strong>\()/g, '<ul class="options"><li>');
+}
 
 function write(rel, content) {
   const dest = path.join(OUT, rel);

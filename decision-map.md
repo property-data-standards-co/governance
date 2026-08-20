@@ -124,7 +124,13 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R11 (reuse across transactions materially depends on scope), R17.
 
-**Options.** (a) Residential sale and purchase, England & Wales, transaction-only. (b) As (a) plus the property's enduring record between transactions ("logbook"). (c) As (b) plus lettings, remortgage, new build. (d) UK-wide including Scotland's distinct process.
+**Options.**
+- **(a)** Residential sale and purchase, England & Wales, transaction-only.
+- **(b)** As
+- **(a)** plus the property's enduring record between transactions ("logbook").
+- **(c)** As
+- **(b)** plus lettings, remortgage, new build.
+- **(d)** UK-wide including Scotland's distinct process.
 
 
 **Opens.** Everything. Scope decisions cascade further than any other.
@@ -139,7 +145,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R6, R8, R17.
 
-**Options.** (a) Adopt the PDTF 1.0 data dictionary as baseline, extended by agreement. (b) Start from an external ontology. (c) Start fresh from sector consultation. (d) Adopt PDTF 1.0 plus mandatory alignment to named external vocabularies where they exist.
+**Options.**
+- **(a)** Adopt the PDTF 1.0 data dictionary as baseline, extended by agreement.
+- **(b)** Start from an external ontology.
+- **(c)** Start fresh from sector consultation.
+- **(d)** Adopt PDTF 1.0 plus mandatory alignment to named external vocabularies where they exist.
 
 
 
@@ -153,7 +163,10 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R1 (stable identifiers persisting beyond a transaction), R11 (reuse), R14 (a fact bound into a monolithic pack cannot be disclosed alone).
 
-**Options.** (a) Transaction-scoped: all facts belong to a transaction record. (b) Subject-scoped: facts attach to identified subjects (property, title, person, organisation), and transactions reference them. (c) Hybrid: subject-scoped for enduring facts, transaction-scoped for process facts.
+**Options.**
+- **(a)** Transaction-scoped: all facts belong to a transaction record.
+- **(b)** Subject-scoped: facts attach to identified subjects (property, title, person, organisation), and transactions reference them.
+- **(c)** Hybrid: subject-scoped for enduring facts, transaction-scoped for process facts.
 
 
 **Argument to make.** (a) fails R11 on its face and fails R14 structurally. The interesting argument is (b) versus (c), and the honest answer is (c): some facts genuinely are about *this sale* (number of sellers, existing lender, whether it is a limited company sale) and attaching them to the property would be wrong. The logbook test is a clean, checkable criterion for the boundary and is worth proposing as the decision rule rather than as a conclusion.
@@ -168,7 +181,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R9 (independent verifiability), R10 (provenance), R12 (withdrawal), R13 (liability), R14 (minimisation).
 
-**Options.** (a) API responses from an authoritative platform. (b) Signed documents/payloads with a defined provenance envelope. (c) Verifiable credentials in the W3C/IETF sense — independently verifiable signed assertions with issuer, subject, validity, status and evidence. (d) Notarised events on a shared ledger.
+**Options.**
+- **(a)** API responses from an authoritative platform.
+- **(b)** Signed documents/payloads with a defined provenance envelope.
+- **(c)** Verifiable credentials in the W3C/IETF sense — independently verifiable signed assertions with issuer, subject, validity, status and evidence.
+- **(d)** Notarised events on a shared ledger.
 
 
 **Argument to make.** This is the decision where the requirements do most of the work, and it should be argued *entirely* from them. (a) fails R9 outright — if trust in a fact reduces to trust in whoever served it, there is no trust framework. (b) is a partial answer and, pursued rigorously, converges on (c) while forgoing all external tooling and alignment, so fails R7. (d) fails R14 and R15 for personal data and introduces a shared-infrastructure dependency in tension with R4.
@@ -185,7 +202,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R3, R4, R5 (no gatekeeper, open entry), R9, R13.
 
-**Options.** (a) Bilateral: parties trust those they have contracts with. (b) Central registry: a single operator maintains the list of who may say what, queried at verification time. (c) Federated: a trust anchor publishes signed statements; authority is established by resolving a signed chain, verifiable offline, with intermediates able to onboard their own subordinates. (d) Reliance on an existing external scheme (DIATF, or a government register) without a property-specific layer.
+**Options.**
+- **(a)** Bilateral: parties trust those they have contracts with.
+- **(b)** Central registry: a single operator maintains the list of who may say what, queried at verification time.
+- **(c)** Federated: a trust anchor publishes signed statements; authority is established by resolving a signed chain, verifiable offline, with intermediates able to onboard their own subordinates.
+- **(d)** Reliance on an existing external scheme (DIATF, or a government register) without a property-specific layer.
 
 
 **Argument to make.** (a) does not scale past a handful of parties and fails R3 and R11 — a fact is only reusable by parties with a contract to the issuer. (b) is the strongest rival and needs to be beaten cleanly: it fails R4 (the operator becomes an availability and commercial chokepoint), it fails R3's test (a single organisation *can* refuse), and it concentrates a control point the government would then have to regulate. (d) is attractive for identity but has no mechanism to express *domain authority* — DIATF can say an organisation is a trustworthy identity service provider; it cannot say HMLR is authoritative for title extents and an EPC assessor is not. That gap is the entire substance of a property trust framework, and naming it is the cleanest way to show why a property-specific layer is needed on top of, not instead of, national infrastructure.
@@ -202,7 +223,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R3, R4, R7, R8, R14.
 
-**Options.** (a) Central hub/clearing house. (b) Point-to-point APIs against a common specification. (c) Standard credential issuance and presentation protocols (OID4VCI / OID4VP) with federation-based discovery. (d) Wallet-mediated, holder-presented only.
+**Options.**
+- **(a)** Central hub/clearing house.
+- **(b)** Point-to-point APIs against a common specification.
+- **(c)** Standard credential issuance and presentation protocols (OID4VCI / OID4VP) with federation-based discovery.
+- **(d)** Wallet-mediated, holder-presented only.
 
 
 **Note.** (a) fails R4 directly. The real argument is (b) vs (c), and it turns on R7 and R8: bespoke APIs work but strand the sector from the wallet ecosystem and require coordinated change for every extension.
@@ -217,7 +242,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R14, R15, R3, R13.
 
-**Options.** (a) Platform-enforced role checks. (b) Central access-control service. (c) Graph-derived: authority to read follows from verifiable relationships to the transaction, plus explicit delegated consent for parties outside it. (d) Holder-mediated only: nothing is disclosed except by the data subject presenting it.
+**Options.**
+- **(a)** Platform-enforced role checks.
+- **(b)** Central access-control service.
+- **(c)** Graph-derived: authority to read follows from verifiable relationships to the transaction, plus explicit delegated consent for parties outside it.
+- **(d)** Holder-mediated only: nothing is disclosed except by the data subject presenting it.
 
 
 **Note.** (d) is the purist wallet answer and fails R16/R17 in practice — a conveyancing transaction cannot stall on a seller being available to present each fact. (c) needs to be argued carefully against data protection law: the controller/processor analysis for each flow is a real piece of work and should be commissioned early, because getting it wrong invalidates decisions downstream in S6 and S7.
@@ -232,7 +261,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R12, R11, R13.
 
-**Options.** (a) Timestamp only — consumers judge staleness. (b) Issuer-declared validity periods. (c) Active status checking (revocation/suspension lists). (d) Re-issuance on demand.
+**Options.**
+- **(a)** Timestamp only — consumers judge staleness.
+- **(b)** Issuer-declared validity periods.
+- **(c)** Active status checking (revocation/suspension lists).
+- **(d)** Re-issuance on demand.
 
 
 **Note.** The status mechanism follows from S3-2 rather than being an independent choice — W3C Bitstring Status List and IETF Token Status List are the same design, paired with different securing mechanisms. These two decisions should be taken together or one will be redone.
@@ -247,7 +280,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R3, R4, R5, R13.
 
-**Options.** (a) Government body. (b) Independent not-for-profit with sector governance. (c) Existing sector body extended. (d) Regulated scheme under statutory backing.
+**Options.**
+- **(a)** Government body.
+- **(b)** Independent not-for-profit with sector governance.
+- **(c)** Existing sector body extended.
+- **(d)** Regulated scheme under statutory backing.
 
 
 **Note.** The distinction to hold firmly, whatever the answer: **operating the trust anchor is not the same as operating infrastructure that data flows through.** A trust anchor publishes signed statements that anyone can fetch and cache; it can be offline for a day without stopping a single transaction. Establishing that distinction early prevents an entirely avoidable objection ("this just creates a new monopoly") and is easy to demonstrate concretely.
@@ -262,7 +299,11 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement trace.** R17, R16.
 
-**Options.** (a) Flag day. (b) Parallel running with dual output. (c) Voluntary adoption with market incentives. (d) Mandated by regulation on a timetable.
+**Options.**
+- **(a)** Flag day.
+- **(b)** Parallel running with dual output.
+- **(c)** Voluntary adoption with market incentives.
+- **(d)** Mandated by regulation on a timetable.
 
 
 **Opens.** PDR-S9-2 (legacy format emission and for how long), PDR-S9-3 (small firm on-ramp), PDR-S9-4 (originator adoption sequence — HMLR, MHCLG, local authorities), PDR-S9-5 (incentives and mandates), PDR-S9-6 (pilot design).
@@ -341,7 +382,10 @@ Every decision below is open. Where one has a well-understood set of candidate a
 
 **Requirement trace.** R6 (shared machine-readable semantics), R8 (extend without coordinated upgrade), R13 (liability attaches to an identifiable entity), R9 (independent verifiability of what an issuer was entitled to say).
 
-**Options.** (a) A fixed set of named credential types — for example decomposed along the top-level properties of the property-pack schema, each separately versioned and separately authorisable. (b) A small number of entity-level types whose scope is delimited by the paths each instance asserts. (c) A named typology with a generic catch-all retained for data not yet covered.
+**Options.**
+- **(a)** A fixed set of named credential types — for example decomposed along the top-level properties of the property-pack schema, each separately versioned and separately authorisable.
+- **(b)** A small number of entity-level types whose scope is delimited by the paths each instance asserts.
+- **(c)** A named typology with a generic catch-all retained for data not yet covered.
 
 #### Why this decision is hard
 
