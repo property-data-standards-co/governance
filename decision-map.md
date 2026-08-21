@@ -560,7 +560,7 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 | Settled by | Roughly | Can it be compressed? |
 |---|---|---|
-| Argument in session, against the requirements | ~47 | Yes — these are what a sprint cadence is for |
+| Argument in session, against the requirements | ~45 | Yes — these are what a sprint cadence is for |
 | **External legal opinion** | 4 — S6-4, S6-8, S8-5, part of S8-7 | **No.** Weeks of elapsed time, and several downstream decisions are unsafe to close before they land |
 | **A build round** | 6 — S3-6 merge semantics, S3-9a decomposition axis, S2-7 field seams, S5-7 composition, S7-3 validity periods, S7-5 supersession | **No.** One sprint interval each, and they cannot run before their parent decision resolves |
 | **External confirmation or alignment** | 4 — S3-2 against the GOV.UK Wallet format list, S4-8 against DIATF, S1-3 against RICS/OSCRE/ISO 20022, S8-8 against the reform programme | **Partly.** Depends on other organisations' timetables |

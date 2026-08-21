@@ -6,7 +6,7 @@
 
 ## 1. What this document is
 
-The decision map enumerates eighty-seven decisions. Around forty-seven of them can be settled by argument in a working session against ratified requirements. The rest cannot, and this document sets out the candidate options for those.
+The decision map enumerates eighty-seven decisions. Around forty-five of them can be settled by argument in a working session against ratified requirements. The rest cannot, and this document sets out the candidate options for those.
 
 They are grouped by *how they would be settled* rather than by strand, because that is the property that matters for scheduling. A decision that needs a written legal opinion cannot be compressed by adding people to a sprint. Nor can one that needs a body who is not yet at the table.
 
@@ -18,7 +18,7 @@ They are grouped by *how they would be settled* rather than by strand, because t
 
 | | | |
 |---|---|---|
-| **Written legal opinion** | 4 decisions | Weeks of elapsed time. Several downstream decisions are unsafe to close before it lands. |
+| **Written legal opinion** | 6 decisions | Weeks of elapsed time. Several downstream decisions are unsafe to close before it lands. |
 | **A build round** | 6 decisions | One sprint interval each, and they cannot run before their parent decision resolves. |
 | **External confirmation** | 4 decisions | Depends on other organisations' timetables, not the coalition's. |
 | **Participation or policy** | 5 decisions | Cannot be settled among software suppliers alone. |
@@ -79,6 +79,46 @@ Under what licence are the framework text, schemas and conformance suite publish
 - **(d) Membership-conditional.** Use is conditional on scheme participation.
 
 **Why an opinion, in part.** Whether a standard can be referenced by secondary legislation depends on its licence and its custody, and that is a question for whoever would do the referencing. Worth stating: "free to use" on its own does not settle this — it is satisfied by (c) and (d), both of which constrain what implementers may do.
+
+### S6-9 — Disclosure classification
+*Trace: R18, R19, R20*
+
+What is the taxonomy of disclosure character, who assigns it, and does it travel with the fact?
+
+- **(a) Issuer-declared against a published taxonomy.** The party asserting the fact states its class from a fixed list.
+- **(b) Derived from the vocabulary.** Class is a property of the path a fact occupies, fixed centrally when the vocabulary is versioned, and not the issuer's to choose.
+- **(c) Derived from the source.** Class follows from where the fact came from — an authoritative public register, a subject-authored disclosure, or a regulated check — rather than being separately declared.
+- **(d) Relying-party need, matched against a published schedule.** No class on the fact; instead a published schedule of which roles may obtain which categories, evaluated at request time.
+- **(e) No classification.** Access policy expressed per assertion, as in S6-2, with no shared taxonomy above it.
+
+**Why it needs the opinions.** Classification is only useful if the classes line up with the lawful bases and controllership positions established in S6-4 and S6-8. A taxonomy that cuts across them creates facts whose class says one thing and whose lawful basis says another. Note also that (a) is self-declared by a party who may have an incentive to over- or under-classify, and that any scheme fine-grained enough to be useful leaks information about the content it protects — the R18-against-R14 tension recorded in the requirements.
+
+### S6-10 — Entitlement demonstration
+*Trace: R20, R21, R3, R4, R9, R14, R16*
+
+How does a requesting party demonstrate, at the point of request, that it is entitled to a fact?
+
+- **(a) Platform-enforced.** The holder knows who the parties are because they hold accounts with it, and entitlement is membership of the matter. Works today; does not survive the request crossing a platform boundary, and asks the requester to trust the platform's account model (R9, R3).
+- **(b) Relationship credential from an accredited issuer.** The requester presents a signed assertion of its relationship to the transaction, issued by a party accredited to make such assertions. Verification is of the signature and the issuer's authority, not a live entitlement query.
+- **(c) Subject-issued capability.** The data subject signs a delegation to a named party for a defined scope at the point of instructing them, and the requester presents that. Authority chains to the person rather than to any platform.
+- **(d) Counterparty-asserted relationship.** The relationship is asserted by the other party to it — a seller asserts that a firm represents them. Structurally close to (c), but the liability for a false assertion sits differently.
+- **(e) Accreditation plus transaction reference.** The requester proves it is a regulated firm of the relevant kind and supplies a reference for the matter. No per-transaction credential is minted at all.
+- **(f) Registry query at request time.** The holder asks a service whether the requester is entitled.
+- **(g) Subject presents.** Nothing is disclosed except by the data subject presenting it.
+- **(h) Cryptographic enforcement.** Facts are encrypted so that only parties holding particular attributes can decrypt, with no request-time check.
+- **(i) Negotiated usage policy.** Requester and holder agree machine-readable terms before transfer, as in the European data-space connector pattern.
+
+**These are not mutually exclusive, and the decision may be which combination.** If S6-9 establishes classes, different mechanisms can apply to each: no check at all over facts that are already public (R19), a lighter mechanism for facts disclosed in order to be disclosed, and a stronger one for restricted facts. A single mechanism applied uniformly will be over-engineered at one end and inadequate at the other.
+
+**Requirement notes, option by option, since several are decided before the argument starts.**
+
+(g) fails R21 — a transaction cannot stall on the subject being available at each request. (f) is in direct tension with R4 and fails R3's test if the service can refuse a conformant participant; the counter-argument is that consulting a registry about *authority* is different from routing *data* through it, which is a distinction the coalition should settle explicitly rather than assume. (h) satisfies R4 completely and fails R16 hard, and its revocation story is the weakest of the set — but it should be tested rather than dismissed, because it is the only option requiring no request-time infrastructure at all. (a) is the status quo and its failure mode is precisely what the framework exists to fix, which is a reason to state it fairly rather than omit it.
+
+(b), (c), (d) and (e) all survive first contact with the requirements, and the argument between them is the substance of this decision. The questions that separate them: who is liable for a false relationship assertion (R13); whether authority must chain to the data subject or may originate with an accredited third party (R9); whether a party changing mid-transaction invalidates what was issued (R12); and whether the mechanism works for a party who was not anticipated when the relationship was established (R11).
+
+**Why it needs the opinions.** Whether a presented relationship or capability constitutes a lawful basis for disclosure is a legal question, not a design one, and it is the same question as S6-8. Options (b) to (e) can be designed in advance but cannot be chosen until that lands.
+
+**Dependency.** (b) cannot resolve before S4-1: if relationship assertions are themselves issued under authority, the source of that authority is the locus-of-trust decision, and settling S6-10 first would decide S4-1 by implication.
 
 ---
 
@@ -262,6 +302,6 @@ What relationship does the framework have to the homebuying reform programme, an
 
 ## 7. What this means for scheduling
 
-Four legal opinions, six build rounds, four external dependencies and five decisions awaiting participation. The opinions and the external confirmations can be started early and run in parallel with sessions; the build rounds cannot begin until their parent decisions resolve, which puts them structurally after the root decisions close.
+Six legal opinions, six build rounds, four external dependencies and five decisions awaiting participation. The opinions and the external confirmations can be started early and run in parallel with sessions; the build rounds cannot begin until their parent decisions resolve, which puts them structurally after the root decisions close.
 
 That is the whole of the argument about how long the Develop phase needs. It is made by the dependencies rather than by assertion, and it can be checked decision by decision against this document.
