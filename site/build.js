@@ -79,9 +79,44 @@ async function main() {
   }
 
   checkRequirements();
+  checkDecisions();
 
   fs.copyFileSync(path.join(__dirname, 'styles.css'), path.join(OUT, 'styles.css'));
   console.log(`\n→ ${OUT}`);
+}
+
+/** The sizing table carries the Develop-duration argument. Verify it against the map. */
+function checkDecisions() {
+  const src = path.join(ROOT, 'decision-map.md');
+  if (!fs.existsSync(src)) return;
+  const md = fs.readFileSync(src, 'utf8');
+
+  const roots = (md.match(/^### PDR-S\d+-1 /gm) || []).length;
+  const rows = [...md.matchAll(/^\|\s*(S\d+-\d+[a-z]?)\s*\|/gm)].map((m) => m[1]);
+  const subs = rows.filter((r) => /[a-z]$/.test(r)).length;
+  const layer2 = rows.length - subs;
+  const total = roots + layer2 + subs;
+
+  const stated = {};
+  const table = md.match(/\|\s*Layer 1 root decisions\s*\|\s*(\d+)\s*\|/);
+  const l2 = md.match(/\|\s*Layer 2 decisions\s*\|\s*(\d+)\s*\|/);
+  const sb = md.match(/\|\s*Sub-decisions below Layer 2[^|]*\|\s*(\d+)\s*\|/);
+  const tt = md.match(/\|\s*\*\*Total decisions to close\*\*\s*\|\s*\*\*(\d+)\*\*\s*\|/);
+  if (table) stated.roots = Number(table[1]);
+  if (l2) stated.layer2 = Number(l2[1]);
+  if (sb) stated.subs = Number(sb[1]);
+  if (tt) stated.total = Number(tt[1]);
+
+  const actual = { roots, layer2, subs, total };
+  const bad = Object.keys(stated).filter((k) => stated[k] !== actual[k]);
+  const line = '  decisions ' + roots + ' roots + ' + layer2 + ' layer-2 + ' + subs +
+    ' sub = ' + total;
+  if (bad.length) {
+    console.log(line + '  ** SIZING TABLE DISAGREES: ' +
+      bad.map((k) => k + ' says ' + stated[k] + ', map has ' + actual[k]).join('; ') + ' **');
+  } else {
+    console.log(line + '  (sizing table agrees)');
+  }
 }
 
 /** Requirement numbers are identifiers, not an ordering. Verify none has been lost. */

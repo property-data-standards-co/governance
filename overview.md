@@ -20,7 +20,7 @@ Layer 0 opens with one sentence, and ratifying it is the most consequential act 
 
 The phrase carrying the weight is **"independently of whoever transmits it."** Adopt it and a large part of the architecture follows; several otherwise-reasonable designs are ruled out by it alone.
 
-Stating an ambition of that size is the easy part. Holding it through eighty-eight detailed decisions taken over months, mostly by people arguing in good faith about technical particulars, is the hard part — and it is what the requirement layer exists to do. Each requirement is written so that a design either meets it or does not, which is what keeps the ambition enforceable once the arguments have become specific and the original sentence is months old.
+Stating an ambition of that size is the easy part. Holding it through eighty-nine detailed decisions taken over months, mostly by people arguing in good faith about technical particulars, is the hard part — and it is what the requirement layer exists to do. Each requirement is written so that a design either meets it or does not, which is what keeps the ambition enforceable once the arguments have become specific and the original sentence is months old.
 
 ## The four layers
 
@@ -29,7 +29,7 @@ Nothing at a lower layer opens until its parent resolves.
 | Phase | Layer | Output |
 |---|---|---|
 | **Clarify** — to 22 Oct | **0 · Requirements** | Testable properties the framework must have, ratified individually |
-| | **1 · Root decisions** | One root question per strand; the decision map published |
+| | **1 · Root decisions** | One root question per strand (10); the decision map published |
 | **Develop** | **2 · Decisions** | The choices within each strand, as Decision Records |
 | **Implement** | **3 · Specification** | Normative text, conformance suite, interop results |
 
@@ -45,7 +45,7 @@ Four closing dispositions — resolved, provisional, referred on a full record, 
 
 ## Structure tabled, content open
 
-The requirements and the decision map were tabled as drafts, by participants with production deployment experience, expressly so the coalition could take them apart. Eleven weeks and five sessions would not produce a falsifiable requirement set and a nine-strand decision map by facilitation, and the attempt would consume the calendar the decisions themselves need. A draft that gets torn apart is faster than a blank flipchart and produces a better artefact, because the argument starts at the second version.
+The requirements and the decision map were tabled as drafts, by participants with production deployment experience, expressly so the coalition could take them apart. Eleven weeks and five sessions would not produce a falsifiable requirement set and a ten-strand decision map by facilitation, and the attempt would consume the calendar the decisions themselves need. A draft that gets torn apart is faster than a blank flipchart and produces a better artefact, because the argument starts at the second version.
 
 The answers are a different matter. No participant's prior work enters as a baseline. It enters decision by decision, with its weaknesses stated, as evidence weighed against ratified requirements like anything else. If the coalition ratifies requirements that some existing implementation fails, that implementation loses. That is what makes the output endorsable rather than merely agreed, and it is the condition the whole method rests on.
 

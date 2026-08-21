@@ -55,7 +55,7 @@ Layer 0   PURPOSE & REQUIREMENTS
                     │
 Layer 1   STRANDS
           The independent problem domains. One root question each.
-          ~9 strands, each with a working group.
+          ~10 strands, each with a working group.
                     │
 Layer 2   DECISIONS
           The 4–8 substantive choices within each strand.
@@ -177,7 +177,7 @@ CFIT deciding under disposition 3 is not that. CFIT is the convener, not a parti
 
 A strict tree would serialise the work and take years. Three mechanisms keep it parallel:
 
-- **Root-first.** All nine strand root questions (Layer 1) are decided in a single first wave, together, at plenary. These are the questions that determine the shape of everything. They are few, they are interdependent, and they deserve the coalition's whole attention at once.
+- **Root-first.** All ten strand root questions (Layer 1) are decided in a single first wave, together, at plenary. These are the questions that determine the shape of everything. They are few, they are interdependent, and they deserve the coalition's whole attention at once.
 - **Then fan out.** Once roots are fixed, strands run concurrently. Most Layer 2 decisions are genuinely independent of other strands.
 - **Cross-strand dependencies are declared, not discovered.** The architecture group maintains the dependency map. Where strand A needs an answer from strand B, A adopts a stated *working assumption*, publishes it, and B is notified that it is load-bearing. If B decides otherwise, A's dependent decisions automatically reopen. A published working-assumptions register is what allows progress without false precision.
 

@@ -95,7 +95,7 @@ The counterweight is genuine: **R21 and R22** will be uncomfortable for the pure
 
 ## 3. The strand map (Layer 1)
 
-Nine strands. Each has exactly one root question, all of which are decided together in the first wave.
+Ten strands, S0 to S9. Each has exactly one root question, all of which are decided together in the first wave.
 
 | # | Strand | Root question | Depends on |
 |---|---|---|---|
@@ -649,13 +649,13 @@ The tree's size is the honest basis for deciding how long Develop needs. Countin
 
 | | Count |
 |---|---|
-| Layer 0 requirements to ratify | 17 |
-| Layer 1 root decisions | 9 |
+| Layer 0 requirements to ratify | 22 |
+| Layer 1 root decisions | 10 |
 | Layer 2 decisions | 71 |
 | Sub-decisions below Layer 2 (PDR-S3-9 only) | 8 |
-| **Total decisions to close** | **88** |
+| **Total decisions to close** | **89** |
 
-Spread across nine strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 9, S5 7, S6 9, S7 6, S8 8, S9 5.
+Spread across ten strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 9, S5 7, S6 9, S7 6, S8 8, S9 5.
 
 ### What would actually settle each one
 
@@ -672,7 +672,7 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 ### The consequence for the Develop duration
 
-Around **22 of 88 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
+Around **22 of 89 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
 
 A one-month Develop can close the ~45 argument-settled decisions if everything else goes perfectly. It cannot accommodate a single legal opinion, a single build round, or a single decision that needs a body not yet at the table. Those would carry into Implement, where the framework is supposed to be being written rather than decided.
 
@@ -692,7 +692,7 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 Three uses, in the order they arise.
 
-**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 88 decisions carry a dependency no sprint cadence will shorten.
+**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 89 decisions carry a dependency no sprint cadence will shorten.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 

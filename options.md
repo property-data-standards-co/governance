@@ -6,7 +6,7 @@
 
 ## 1. What this document is
 
-The decision map enumerates eighty-eight decisions. Around sixty-nine of them can be settled by argument in a working session against ratified requirements, once any decision they depend on has resolved. The remaining nineteen cannot, and this document sets out the candidate options for those.
+The decision map enumerates eighty-nine decisions. Around seventy of them can be settled by argument in a working session against ratified requirements, once any decision they depend on has resolved. The remaining nineteen cannot, and this document sets out the candidate options for those.
 
 Options for decisions that *can* be settled in session — including every root decision — are in the decision map alongside the question, with their dependencies stated there.
 
