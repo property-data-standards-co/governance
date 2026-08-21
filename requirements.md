@@ -48,7 +48,9 @@ Four tests. They are offered as the working group's own quality bar, to be appli
 
 ## 4. The candidate requirements
 
-Seventeen, grouped for readability. Each is intended to be ratified, amended or rejected on its own.
+Twenty-two, grouped by theme. Each is intended to be ratified, amended or rejected on its own.
+
+**Requirement numbers are stable identifiers, not an ordering.** They are allocated when a requirement is proposed and never reused or renumbered, because every requirement trace in the decision map and the options paper cites them. A requirement added later therefore takes a high number and sits with whatever group it belongs to, so the groups below do not read in numeric sequence. The build checks that the set is contiguous and reports any gap; a missing number is a real omission rather than a presentational one.
 
 ### Findability and identity
 
@@ -196,4 +198,4 @@ Each requirement takes one of four dispositions, recorded with its reasoning:
 
 **On sustained objection.** An objection that a requirement is not falsifiable, is technology-specific, or cannot be traced to the purpose statement goes to the substance and blocks ratification until answered. An objection that a requirement is inconvenient for a particular participant's roadmap is recorded but does not block. The distinction should be agreed before the first reading, not litigated during it.
 
-**Where a requirement cannot be settled**, it is deferred with a test rather than argued to exhaustion. A requirement set of fourteen ratified and three deferred is a better Layer 0 output than seventeen agreed by fatigue.
+**Where a requirement cannot be settled**, it is deferred with a test rather than argued to exhaustion. A requirement set of nineteen ratified and three deferred is a better Layer 0 output than twenty-two agreed by fatigue.

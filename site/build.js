@@ -78,8 +78,29 @@ async function main() {
     console.log(`  deck     sessions/${s.file} → sessions/${s.slug}.html`);
   }
 
+  checkRequirements();
+
   fs.copyFileSync(path.join(__dirname, 'styles.css'), path.join(OUT, 'styles.css'));
   console.log(`\n→ ${OUT}`);
+}
+
+/** Requirement numbers are identifiers, not an ordering. Verify none has been lost. */
+function checkRequirements() {
+  const src = path.join(ROOT, 'requirements.md');
+  if (!fs.existsSync(src)) return;
+  const nums = [...fs.readFileSync(src, 'utf8').matchAll(/^\|\s*\*\*R(\d+)\*\*\s*\|/gm)]
+    .map((m) => Number(m[1]))
+    .sort((a, b) => a - b);
+  if (!nums.length) { console.warn('  ! requirements: none found'); return; }
+  const highest = nums[nums.length - 1];
+  const dupes = nums.filter((n, i) => nums[i - 1] === n);
+  const gaps = [];
+  for (let i = 1; i <= highest; i++) if (!nums.includes(i)) gaps.push('R' + i);
+  const notes = [];
+  if (gaps.length) notes.push('MISSING ' + gaps.join(', '));
+  if (dupes.length) notes.push('DUPLICATE R' + dupes.join(', R'));
+  console.log('  reqs     ' + nums.length + ' requirements, R1-R' + highest +
+    (notes.length ? '  ** ' + notes.join(' \u00b7 ') + ' **' : '  (contiguous)'));
 }
 
 /* ---------- inputs ---------- */

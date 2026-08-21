@@ -17,7 +17,7 @@ Four layers. Nothing at a lower layer opens until its parent resolves.
 
 | Layer | Content | Phase |
 |---|---|---|
-| 0 | ~17 testable requirements, ratified | Clarify |
+| 0 | 22 testable requirements, ratified | Clarify |
 | 1 | Nine root decisions, one per strand | Clarify |
 | 2 | ~68 decisions within the strands, as Decision Records | Develop |
 | 3 | Normative text, conformance suite, interop results | Implement |
@@ -144,7 +144,9 @@ gone wrong: fix the generator instead.
 
 **Options are lettered lists**, and the letters are literal text because other
 documents cite options by letter. Never renumber an existing option; add new ones
-at the end.
+at the end. The same applies to requirement numbers: they are identifiers cited in
+every requirement trace, allocated on addition and never reused, so the groups in
+`requirements.md` do not read in numeric sequence. The build checks contiguity.
 
 **Sessions** are markdown in `sessions/`, rendered as 16:9 decks. Slides split on a
 `---` line, first block is the title slide.
