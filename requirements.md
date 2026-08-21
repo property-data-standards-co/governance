@@ -8,7 +8,7 @@ Offered for the coalition to amend, reject or replace. Nothing here is settled, 
 
 ## 1. What this document is
 
-Layer 0 of the decision structure. Everything downstream — the nine root decisions, the decisions beneath them, and eventually the normative specification — is argued against the requirements ratified here. A design proposal is assessed by asking which requirements it meets and which it fails, not by asking who proposed it or what already exists.
+Layer 0 of the decision structure. Everything downstream — the ten root decisions, the decisions beneath them, and eventually the normative specification — is argued against the requirements ratified here. A design proposal is assessed by asking which requirements it meets and which it fails, not by asking who proposed it or what already exists.
 
 Three things follow from that, and they are worth stating before the first reading rather than discovering during it.
 

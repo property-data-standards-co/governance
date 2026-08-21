@@ -19,79 +19,18 @@ Decision identifiers use `PDR-{strand}-{n}`.
 
 ---
 
-## 2. Layer 0 — Purpose and requirements
+## 2. Layer 0 — requirements
 
-Everything descends from here. These must be **testable**: for each one it must be possible to say of a proposed design "this meets it" or "this does not", without appeal to taste. Vague requirements ("the framework should be secure and user-friendly") are worse than none, because they can be cited in support of anything.
+Everything below descends from the requirements, and they are not reproduced here.
+They live in [requirements.md](requirements.md), which is the single place they are
+maintained: the purpose statement, twenty-two candidate requirements each with an
+explicit test, which of them are architecturally determinative, the tensions between
+them, and the candidates considered and not proposed.
 
-### 2.1 Purpose statement (to be agreed)
-
-> A trust framework for property data in England and Wales that enables any fact about a property, its title, or the parties to a transaction to be established once, and thereafter relied upon by any authorised party, in any transaction, on any platform — with its origin and integrity verifiable independently of whoever transmits it.
-
-The phrase doing the work is **"independently of whoever transmits it."** If the coalition adopts that, a very large part of the architecture follows. If it does not, the coalition is building a data-sharing agreement rather than a trust framework, and it should say so.
-
-### 2.2 Candidate requirements
-
-Derived from FAIR data principles, open ecosystem, and reusable trust. Grouped for readability; each is intended to be individually ratified.
-
-**Findability and identity**
-
-| # | Requirement | Test |
-|---|---|---|
-| **R1** | Every fact is about a subject that has a stable, resolvable identifier persisting beyond any single transaction. | Can the same subject be referred to unambiguously in a later, unrelated transaction? |
-| **R2** | Identifiers are drawn from open schemes, not from any single operator's internal namespace. | Can a competitor mint and resolve identifiers without permission from any incumbent? |
-
-**Accessibility and openness**
-
-| # | Requirement | Test |
-|---|---|---|
-| **R3** | Any conformant participant can issue, hold, and consume data through published open interfaces, without bilateral negotiation with the framework operator. | Is there any point at which a single organisation can refuse a compliant participant? |
-| **R4** | The framework operator is not in the data path. | Does any transaction require data to transit a body that governs the framework? |
-| **R5** | Entry criteria are objective, published, and appealable. | Could a rejected applicant challenge the decision against written criteria? |
-
-**Interoperability**
-
-| # | Requirement | Test |
-|---|---|---|
-| **R6** | Facts carry machine-readable semantics from a shared, versioned, openly published vocabulary; no private knowledge is needed to interpret them. | Can a party with no prior relationship to the issuer interpret the data correctly? |
-| **R7** | The framework aligns with UK and EU digital identity and credentials infrastructure rather than defining a property-only stack. | Can a party already conformant with GOV.UK Wallet / DIATF / eIDAS 2.0 reuse that investment? |
-| **R8** | New data, new participants, and new versions can be added without coordinated upgrade of all parties. | Can one participant adopt a new data type without every other participant changing? |
-
-**Reusable trust**
-
-| # | Requirement | Test |
-|---|---|---|
-| **R9** | A consumer can establish the origin and integrity of a fact without trusting the party that transmitted it. | If the transmitting platform were hostile, would tampering be detectable? |
-| **R10** | Every fact carries who asserted it, on what basis, and when. | Given any single data point, can its provenance be recovered? |
-| **R11** | A fact established once can be relied upon again — by another party, in another transaction, on another platform — subject to consent and continued validity. | Is re-collection ever forced by the framework's own structure rather than by the fact's age? |
-| **R12** | An erroneous assertion can be withdrawn, and parties relying on it can determine that it has been. | Is there a path from "issuer discovers error" to "consumer learns of it"? |
-| **R13** | Liability for a false assertion attaches to an identifiable legal entity. | For any fact, can a relying party name who is answerable for it? |
-
-**Privacy and consumer protection**
-
-| # | Requirement | Test |
-|---|---|---|
-| **R15** | A party receives only the data required for its role; the framework must not require over-disclosure as a side effect of its structure. | Does obtaining one fact structurally force disclosure of others? |
-| **R16** | The data subject can determine who holds their personal data and on what basis, and can exercise data protection rights against an identifiable controller. | Is the controller for each personal data flow determinable from the framework's own model? |
-
-**Implementability**
-
-| # | Requirement | Test |
-|---|---|---|
-| **R21** | A sole practitioner or small firm can participate fully without operating specialist cryptographic infrastructure. | Can a two-person conveyancing firm participate using services they can buy? |
-| **R22** | The framework can be adopted incrementally, alongside existing practice, without a flag-day migration. | Can a participant adopt partially and still transact with non-adopters? |
-
-### 2.3 Why the requirement layer is where the real argument is
-
-Some of the requirements above are close to architecturally determinative. R9 in particular, if ratified, rules out any design in which trust in a fact reduces to trust in the platform serving it. R4 and R3 together rule out a central hub or registry through which data must flow. R11 rules out a purely transaction-scoped data model, because a transaction-scoped document cannot outlive its transaction. R1 pushes hard toward subjects — properties, titles, people — rather than documents.
-
-Two implications follow, and they should be stated openly rather than discovered:
-
-1. **Anyone who wants a different architecture should contest the requirements, not the architecture.** That is a legitimate and welcome argument, and it is the right place to have it. Somebody who believes the sector needs a data-sharing agreement rather than a trust framework should say so at Layer 0, where the coalition can decide it deliberately.
-2. **Ratifying these requirements is a substantive commitment, not a warm-up.** Chairs should resist the temptation to nod them through in a single session. Expect and budget for real debate here — it is much cheaper than the same debate surfacing at Layer 2 disguised as a technical objection.
-
-The counterweight is genuine: **R21 and R22** will be uncomfortable for the purest cryptographic designs, and should be. A framework only a large technology firm can implement fails, however elegant. This is the requirement that forces the honest answer about hosted keys, custodial signing, and orchestrator-mediated participation for small firms.
-
----
+Each decision below carries a **requirement trace** naming the requirements it is
+tested against. Those references are the link between the two documents, so a
+requirement that is amended or rejected changes what the traces mean — which is why
+Layer 0 is ratified before any decision beneath it opens.
 
 ## 3. The strand map (Layer 1)
 
@@ -114,7 +53,7 @@ Ten strands, S0 to S9. Each has exactly one root question, all of which are deci
 
 ---
 
-## 4. The first wave: nine root decisions
+## 4. The first wave: ten root decisions
 
 These are decided together, at plenary, tested directly against Layer 0. They are the decisions with the highest cost of being wrong and the lowest cost of being decided early.
 
@@ -126,11 +65,9 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Options.**
 - **(a)** Residential sale and purchase, England & Wales, transaction-only.
-- **(b)** As
-- **(a)** plus the property's enduring record between transactions ("logbook").
-- **(c)** As
-- **(b)** plus lettings, remortgage, new build.
-- **(d)** UK-wide including Scotland's distinct process.
+- **(b)** As (a), plus the property's enduring record between transactions — the "logbook".
+- **(c)** As (b), plus lettings, remortgage and new build.
+- **(d)** UK-wide, including Scotland's distinct process.
 
 
 **Opens.** Everything. Scope decisions cascade further than any other.

@@ -408,5 +408,5 @@ The decision record itself is a significant part of the deliverable. A governmen
 
 1. **Agree this charter** — or a version of it — before any substantive question is opened. Rules agreed behind a veil of ignorance are far more durable.
 2. **Publish the full decision tree** so that participants can see the whole map before the first decision is taken. Nothing corrodes trust in a process faster than decisions appearing that nobody knew were coming.
-3. **Draft and ratify Layer 0** (see the companion document, [Decision Hierarchy](01-hierarchy-map-only.md), §2 for a candidate requirement set).
+3. **Draft and ratify Layer 0** (see [requirements.md](requirements.md) for a candidate requirement set).
 4. **Table positions where you have them**, decision by decision, with the evidence attached — and say plainly where your own prior work is unresolved or wrong.
