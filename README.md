@@ -13,7 +13,7 @@ It does not hold the framework itself. Normative specification text, schemas and
 | [Overview](overview.md) | The method in two pages |
 | [Charter](charter.md) | How a decision is made: lifecycle, consensus rule, evidence tiers, chairing and recusal |
 | [Requirements](requirements.md) | Layer 0. The properties the framework must have, each with a test |
-| [Decision map](decision-map.md) | All 85 decisions, their dependencies, and what it would take to close them |
+| [Decision map](decision-map.md) | All 87 decisions, their dependencies, and what it would take to close them |
 | [Options](options.md) | Candidate options for the 18 decisions that cannot be settled in a session |
 | [`decision-records/`](decision-records/) | One record per decision, opened as the coalition reaches it |
 

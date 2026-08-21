@@ -95,10 +95,27 @@ Seventeen, grouped for readability. Each is intended to be ratified, amended or 
 
 | # | Requirement | Test |
 |---|---|---|
-| **R14** | A party receives only the data required for its role; the framework must not require over-disclosure as a side effect of its structure. | Does obtaining one fact structurally force disclosure of others? |
+| **R14** | A party receives only the data it needs; the framework must not require over-disclosure as a side effect of its structure. | Does obtaining one fact structurally force disclosure of others? |
 | **R15** | The data subject can determine who holds their personal data and on what basis, and can exercise data protection rights against an identifiable controller. | Is the controller for each personal data flow determinable from the framework's own model? |
 
 *R15 is not satisfied by a privacy policy. It is a question about whether the framework's own structure makes controllership determinable.*
+
+### Disclosure and permission
+
+Property facts are not uniform in character, and a permission model that treats them as though they were will be wrong in both directions at once.
+
+Some facts are already public: the title register is available to anyone on request, and an EPC sits on a public register searchable by address. Some are private but disclosed for a purpose — a seller's answers on a property information form are authored precisely in order to be shown to prospective buyers. Some are restricted and must not reach most parties to the transaction at all: an anti-money-laundering check result is the clearest case, and the party who needs it is not the party who holds the relationship with the subject.
+
+Applying a single consent gate across all of these produces consent theatre over facts that are public anyway — which trains people to click through, records a control that does not exist, and makes the framework worse than the status quo it replaces — while giving no additional protection to the facts that actually need it. These requirements exist so that the permission model is derived from the character of the fact rather than from an assumption imported from other sectors.
+
+| # | Requirement | Test |
+|---|---|---|
+| **R18** | Every fact carries a classification of its disclosure character, and that classification travels with the fact. | Given a fact in isolation, can a relying party determine its disclosure class without asking the issuer? |
+| **R19** | Where a fact is already available to any member of the public from its authoritative source, the framework does not require the data subject's permission to obtain it. | Does obtaining a public record through the framework require a step that obtaining it from the source does not? |
+| **R20** | A party's role in a transaction does not by itself entitle it to every fact in that transaction. | Can a party with a valid role be structurally prevented from obtaining a fact it has no need for? |
+| **R21** | A transaction can proceed without the data subject being online, responsive, or holding infrastructure that outlives the transaction. | Can a sale complete if the seller stops logging in after week two? Can a first-time buyer participate with no prior enrolment? |
+
+*R21 is the scale requirement. The data subjects here are the entire home-moving population — hundreds of thousands of people a year, each engaged for a few months and then gone, most of whom will never think about this framework again. Any design that requires them to enrol in advance, hold something durable, or respond promptly at each step will fail in practice, however sound it looks. It cuts against a purist holder-mediated model and against a permission model routed through a subject-operated consent service, and it does so on practical grounds rather than architectural preference.*
 
 ### Implementability
 
@@ -120,6 +137,8 @@ Stated openly, because the alternative is that it emerges at Layer 2 disguised a
 - **R11** rules out a purely transaction-scoped data model, because a transaction-scoped document cannot outlive its transaction.
 - **R1** pushes hard toward subjects — properties, titles, people — rather than documents.
 - **R16** forces an honest answer about hosted keys, custodial signing and intermediary-mediated participation, and constrains the purest cryptographic designs.
+- **R19 and R21 together** rule out any design in which every disclosure is gated on an act by the data subject — R19 because the gate adds nothing over public facts, R21 because the subject cannot be relied upon to perform it. They do not say what replaces that gate.
+- **R20** rules out access determined solely by role or by membership of the transaction, since both make entitlement follow from participation rather than from need.
 
 If the coalition wants a different architecture than these imply, the efficient path is to contest these five here, not to argue their consequences one by one over the following six months.
 
@@ -133,7 +152,9 @@ A requirement set with no internal tension has not been examined. Four are visib
 
 **R14 against R10.** Full provenance on every fact — who said it, on what basis, when — is itself information about the transaction and the parties. Minimisation and complete provenance are in direct tension at the margin.
 
-**R16 against R9.** Independent verifiability implies signing. Signing implies key custody. A two-person firm will not operate an HSM. Whether hosted signing satisfies R9 is a real question and not a formality.
+**R16 against R9.** Independent verifiability implies signing. Signing implies key custody. A two-person firm will not operate an HSM, and a first-time buyer will not operate anything at all. Whether hosted signing satisfies R9 is a real question and not a formality — and it is sharper for consumers than for firms, because a custodial arrangement for a data subject reintroduces exactly the "trust the platform" position that R9 exists to remove. Any answer that resolves this for small firms should be re-tested against consumers before it is treated as settled.
+
+**R18 against R14.** A classification that travels with a fact is itself information about that fact. Marking an assertion as restricted tells an observer something about its content, and a scheme fine-grained enough to be useful may leak by its own labels.
 
 **R12 against R11.** Reuse means facts travel to parties the issuer may not know about. Withdrawal means reaching those parties. The wider the reuse, the harder the revocation problem becomes.
 

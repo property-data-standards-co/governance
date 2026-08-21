@@ -6,7 +6,7 @@
 
 ## 1. What this document is
 
-The decision map enumerates eighty-five decisions. Around forty-five of them can be settled by argument in a working session against ratified requirements. The rest cannot, and this document sets out the candidate options for those.
+The decision map enumerates eighty-seven decisions. Around forty-seven of them can be settled by argument in a working session against ratified requirements. The rest cannot, and this document sets out the candidate options for those.
 
 They are grouped by *how they would be settled* rather than by strand, because that is the property that matters for scheduling. A decision that needs a written legal opinion cannot be compressed by adding people to a sprint. Nor can one that needs a body who is not yet at the table.
 

@@ -249,9 +249,9 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Holder-mediated only: nothing is disclosed except by the data subject presenting it.
 
 
-**Note.** (d) is the purist wallet answer and fails R16/R17 in practice — a conveyancing transaction cannot stall on a seller being available to present each fact. (c) needs to be argued carefully against data protection law: the controller/processor analysis for each flow is a real piece of work and should be commissioned early, because getting it wrong invalidates decisions downstream in S6 and S7.
+**Note.** R19 and R21 bear directly on this decision and should be settled before it opens: if permission is not the gate for public facts, and the subject cannot be relied on to act, then options resting on subject-mediated permission are constrained before the argument starts. (d) is the purist wallet answer and fails R16/R17 in practice — a conveyancing transaction cannot stall on a seller being available to present each fact. (c) needs to be argued carefully against data protection law: the controller/processor analysis for each flow is a real piece of work and should be commissioned early, because getting it wrong invalidates decisions downstream in S6 and S7.
 
-**Opens.** PDR-S6-2 (terms of use model), PDR-S6-3 (consent artefacts and revocation), PDR-S6-4 (controller/processor mapping), PDR-S6-5 (encryption at rest and in transit between parties), PDR-S6-6 (minimisation and selective disclosure policy), PDR-S6-7 (audit and subject access).
+**Opens.** PDR-S6-2 (terms of use model), PDR-S6-3 (consent artefacts and revocation), PDR-S6-4 (controller/processor mapping), PDR-S6-5 (encryption at rest and in transit between parties), PDR-S6-6 (minimisation and selective disclosure policy), PDR-S6-7 (audit and subject access), PDR-S6-9 (disclosure classification), PDR-S6-10 (entitlement demonstration).
 
 ---
 
@@ -458,6 +458,8 @@ Whether to retain the catch-all is itself contested: it is the safety valve for 
 | S6-6 | Minimisation — what must a verifier be able to obtain without over-disclosure? | R14 |
 | S6-7 | Audit and subject access — how does a data subject discover who holds what about them? | R15 |
 | S6-8 | Lawful basis for each flow | R15 |
+| S6-9 | Disclosure classification — what is the taxonomy, who assigns it, and does it travel with the fact? | R18, R19, R20 |
+| S6-10 | Entitlement demonstration — how does a requesting party show it is entitled to a fact at the point of request? | R20, R21, R3 |
 
 **Commission S6-4 and S6-8 first.** They are the longest-lead items in the whole tree, they cannot be compressed by adding people, and several S5 and S6 decisions are unsafe to close until they land.
 
@@ -546,11 +548,11 @@ The tree's size is the honest basis for deciding how long Develop needs. Countin
 |---|---|
 | Layer 0 requirements to ratify | 17 |
 | Layer 1 root decisions | 9 |
-| Layer 2 decisions | 68 |
+| Layer 2 decisions | 70 |
 | Sub-decisions below Layer 2 (PDR-S3-9 only) | 8 |
-| **Total decisions to close** | **85** |
+| **Total decisions to close** | **87** |
 
-Spread across nine strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 8, S5 7, S6 7, S7 6, S8 8, S9 5.
+Spread across nine strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 8, S5 7, S6 9, S7 6, S8 8, S9 5.
 
 ### What would actually settle each one
 
@@ -558,7 +560,7 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 | Settled by | Roughly | Can it be compressed? |
 |---|---|---|
-| Argument in session, against the requirements | ~45 | Yes — these are what a sprint cadence is for |
+| Argument in session, against the requirements | ~47 | Yes — these are what a sprint cadence is for |
 | **External legal opinion** | 4 — S6-4, S6-8, S8-5, part of S8-7 | **No.** Weeks of elapsed time, and several downstream decisions are unsafe to close before they land |
 | **A build round** | 6 — S3-6 merge semantics, S3-9a decomposition axis, S2-7 field seams, S5-7 composition, S7-3 validity periods, S7-5 supersession | **No.** One sprint interval each, and they cannot run before their parent decision resolves |
 | **External confirmation or alignment** | 4 — S3-2 against the GOV.UK Wallet format list, S4-8 against DIATF, S1-3 against RICS/OSCRE/ISO 20022, S8-8 against the reform programme | **Partly.** Depends on other organisations' timetables |
@@ -567,7 +569,7 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 ### The consequence for the Develop duration
 
-Around **22 of 85 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
+Around **22 of 87 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
 
 A one-month Develop can close the ~45 argument-settled decisions if everything else goes perfectly. It cannot accommodate a single legal opinion, a single build round, or a single decision that needs a body not yet at the table. Those would carry into Implement, where the framework is supposed to be being written rather than decided.
 
@@ -587,7 +589,7 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 Three uses, in the order they arise.
 
-**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 85 decisions carry a dependency no sprint cadence will shorten.
+**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 87 decisions carry a dependency no sprint cadence will shorten.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 
