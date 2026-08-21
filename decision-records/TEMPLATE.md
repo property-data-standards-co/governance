@@ -109,7 +109,7 @@ A question is badly framed if it names a technology, if it can be answered yes o
 
 **Cost of being wrong is the field that earns its keep.** Most of these decisions are cheap to reverse — a field name, a cardinality. A few are effectively permanent: the unit of assertion, the locus of trust, the subject model. The coalition should knowingly spend more time on the irreversible ones, and this field is what surfaces which those are. If it says "low" on a decision three others depend on, that is worth a second look before resolving.
 
-**Assess options requirement by requirement, not overall.** "Option (b) is better" is not a resolution. "Option (b) meets R9 and R11 where (a) fails R11; (a) is stronger on R16, and the working group judged R11 the harder constraint" is. The second survives being read by someone who was not there.
+**Assess options requirement by requirement, not overall.** "Option (b) is better" is not a resolution. "Option (b) meets R9 and R11 where (a) fails R11; (a) is stronger on R21, and the working group judged R11 the harder constraint" is. The second survives being read by someone who was not there.
 
 **A decision with no recorded objections is not automatically a good sign.** It may mean the question was well-framed and genuinely uncontested. It may also mean nobody who would have objected was in the room. The segment-balance check in method §4 exists for this, and a resolution reached by a group drawn from one segment is procedurally weak whatever its merits.
 

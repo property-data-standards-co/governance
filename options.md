@@ -32,7 +32,7 @@ Some decisions appear in two groups. S7-3 needs both a build round and originato
 ## 3. Needing a written legal opinion
 
 ### S6-4 — Controller and processor mapping for each personal-data flow
-*Trace: R15*
+*Trace: R16*
 
 For each flow of personal data through the framework, which party is controller, which is processor, and where are there joint controllers?
 
@@ -41,12 +41,12 @@ For each flow of personal data through the framework, which party is controller,
 - **(c) Framework silent.** Participants determine status bilaterally in their own contracts.
 - **(d) Joint controllership** for defined shared operations, with an agreed Article 26 arrangement published as part of the framework.
 
-**Why an opinion.** Controllership is determined by who decides the purposes and means of processing, as a matter of law. It is not established by what the parties agree to call themselves, so a framework can simply be wrong about it — and (c) does not avoid the problem, it distributes it. R15's test asks whether the controller for each flow is determinable from the framework's own model; (c) answers no.
+**Why an opinion.** Controllership is determined by who decides the purposes and means of processing, as a matter of law. It is not established by what the parties agree to call themselves, so a framework can simply be wrong about it — and (c) does not avoid the problem, it distributes it. R16's test asks whether the controller for each flow is determinable from the framework's own model; (c) answers no.
 
 **Sequencing.** Cannot be commissioned until the data flows are settled, so it depends on S5 and S6-2.
 
 ### S6-8 — Lawful basis for each flow
-*Trace: R15*
+*Trace: R16*
 
 On what lawful basis does each processing operation rest, and does the answer differ by role and by data category?
 
@@ -172,7 +172,7 @@ What relationship does the framework's vocabulary have to the RICS Data Standard
 **Why external.** Options (a) to (c) all require the other standards bodies to engage, and effort spent on a mapping nobody maintains is wasted. Their timetables are not the coalition's to set.
 
 ### S3-2 — Credential format
-*Trace: R7, R14*
+*Trace: R7, R15*
 
 In what format are assertions carried, and does the choice keep the framework inside the UK and EU wallet ecosystem?
 
@@ -211,7 +211,7 @@ What relationship does the framework have to the homebuying reform programme, an
 ## 6. Needing participation not yet secured, or policy
 
 ### S0-2 — Which property types
-*Trace: R17*
+*Trace: R22*
 
 - **(a)** Residential freehold and leasehold only.
 - **(b)** Plus new build.
@@ -221,7 +221,7 @@ What relationship does the framework have to the homebuying reform programme, an
 **Why participation.** The parties affected by the wider options — developers, housing associations, commercial agents — are not currently at the table. Separately: pilot scope and framework scope are different questions and should be decided separately, since exclusions that are sensible for a pilot become permanent if inherited by a specification.
 
 ### S0-7 — Which data categories are in and out of scope
-*Trace: R14*
+*Trace: R15*
 
 - **(a)** Material information as currently defined.
 - **(b)** Material information plus title and search data.
@@ -251,7 +251,7 @@ What relationship does the framework have to the homebuying reform programme, an
 **Why participation.** This cannot be settled among software suppliers. The bodies concerned set their own timetables, and (a) is not the coalition's to choose — only to request.
 
 ### S9-5 — Incentives and mandates
-*Trace: R17*
+*Trace: R22*
 
 - **(a)** Voluntary, with commercial incentives only.
 - **(b)** A mandate on originators to publish.

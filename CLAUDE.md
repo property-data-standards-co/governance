@@ -145,8 +145,10 @@ gone wrong: fix the generator instead.
 **Options are lettered lists**, and the letters are literal text because other
 documents cite options by letter. Never renumber an existing option; add new ones
 at the end. The same applies to requirement numbers: they are identifiers cited in
-every requirement trace, allocated on addition and never reused, so the groups in
-`requirements.md` do not read in numeric sequence. The build checks contiguity.
+every requirement trace, allocated on addition and never reused. They were
+renumbered once, before publication, so that they currently read in sequence — the
+first requirement added after that will break the sequence, and that is fine. Check
+the set with the build's contiguity report, not by scanning for order.
 
 **Sessions** are markdown in `sessions/`, rendered as 16:9 decks. Slides split on a
 `---` line, first block is the title slide.

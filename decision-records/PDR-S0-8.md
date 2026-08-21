@@ -4,7 +4,7 @@ title: Does framework scope equal pilot scope?
 layer: 2
 status: drafted
 strand: S0
-requirements: [R8, R17]
+requirements: [R8, R22]
 depends_on: []
 opens: [PDR-S0-2, PDR-S0-7]
 opened:
@@ -16,7 +16,7 @@ recusals: []
 ## PDR-S0-8 — Does framework scope equal pilot scope?
 
 > **Status:** drafted · **Layer:** 2 · **Strand:** S0 — Scope
-> **Requirements tested against:** R8, R17
+> **Requirements tested against:** R8, R22
 > **Opens:** PDR-S0-2 (property types), PDR-S0-7 (data categories)
 
 ## Question
