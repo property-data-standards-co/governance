@@ -6,7 +6,7 @@
 
 ## 1. What this document is
 
-The decision map enumerates eighty-nine decisions. Around seventy of them can be settled by argument in a working session against ratified requirements, once any decision they depend on has resolved. The remaining nineteen cannot, and this document sets out the candidate options for those.
+The decision map enumerates ninety-one decisions. Around seventy-two of them can be settled by argument in a working session against ratified requirements, once any decision they depend on has resolved. The remaining nineteen cannot, and this document sets out the candidate options for those.
 
 Options for decisions that *can* be settled in session — including every root decision — are in the decision map alongside the question, with their dependencies stated there.
 
@@ -32,7 +32,7 @@ Some decisions appear in two groups. S7-3 needs both a build round and originato
 ## 3. Needing a written legal opinion
 
 ### S6-4 — Controller and processor mapping for each personal-data flow
-*Trace: R16*
+*Trace: R17*
 
 For each flow of personal data through the framework, which party is controller, which is processor, and where are there joint controllers?
 
@@ -41,12 +41,12 @@ For each flow of personal data through the framework, which party is controller,
 - **(c) Framework silent.** Participants determine status bilaterally in their own contracts.
 - **(d) Joint controllership** for defined shared operations, with an agreed Article 26 arrangement published as part of the framework.
 
-**Why an opinion.** Controllership is determined by who decides the purposes and means of processing, as a matter of law. It is not established by what the parties agree to call themselves, so a framework can simply be wrong about it — and (c) does not avoid the problem, it distributes it. R16's test asks whether the controller for each flow is determinable from the framework's own model; (c) answers no.
+**Why an opinion.** Controllership is determined by who decides the purposes and means of processing, as a matter of law. It is not established by what the parties agree to call themselves, so a framework can simply be wrong about it — and (c) does not avoid the problem, it distributes it. R17's test asks whether the controller for each flow is determinable from the framework's own model; (c) answers no.
 
 **Sequencing.** Cannot be commissioned until the data flows are settled, so it depends on S5 and S6-2.
 
 ### S6-8 — Lawful basis for each flow
-*Trace: R16*
+*Trace: R17*
 
 On what lawful basis does each processing operation rest, and does the answer differ by role and by data category?
 
@@ -55,10 +55,10 @@ On what lawful basis does each processing operation rest, and does the answer di
 - **(c) Mixed, determined per data category**, with special-category data treated separately.
 - **(d) Framework states evidencing requirements** for whatever basis a participant relies on, without prescribing the basis.
 
-**Why an opinion.** Consent is fragile where processing is necessary to complete a transaction, and withdrawal mid-transaction has to be survivable. There is also a direct interaction with R11: if reuse rests on consent alone, reuse is revocable in ways that may make it unreliable in practice. Option (d) is the most flexible and gives a participant seeking certainty the least.
+**Why an opinion.** Consent is fragile where processing is necessary to complete a transaction, and withdrawal mid-transaction has to be survivable. There is also a direct interaction with R12: if reuse rests on consent alone, reuse is revocable in ways that may make it unreliable in practice. Option (d) is the most flexible and gives a participant seeking certainty the least.
 
 ### S8-5 — Liability allocation and redress
-*Trace: R13*
+*Trace: R14*
 
 When a party relies on an assertion that proves wrong and suffers loss, who is answerable, on what basis, and what redress exists?
 
@@ -68,10 +68,10 @@ When a party relies on an assertion that proves wrong and suffers loss, who is a
 - **(d) Insurance-backed.** Liability sits with the issuer, with a scheme-level insurance requirement making it collectable.
 - **(e) Framework silent.** Existing professional liability, PI insurance and negligence law apply unmodified.
 
-**Why an opinion.** The question is whether the framework creates new duties of care or relies on existing ones, and that is not answerable from within a design discussion. It is worth noting that (e) is what happens if nothing is decided, and that an assertion nobody is answerable for is not, in practice, one a professional will rely on — which makes this a decision with consequences for R11 as well as R13.
+**Why an opinion.** The question is whether the framework creates new duties of care or relies on existing ones, and that is not answerable from within a design discussion. It is worth noting that (e) is what happens if nothing is decided, and that an assertion nobody is answerable for is not, in practice, one a professional will rely on — which makes this a decision with consequences for R12 as well as R14.
 
 ### S8-7 — Intellectual property and licensing of the framework
-*Trace: R3*
+*Trace: R4*
 
 Under what licence are the framework text, schemas and conformance suite published, and who holds copyright?
 
@@ -89,7 +89,7 @@ Under what licence are the framework text, schemas and conformance suite publish
 Each of these is a question where argument has a known tendency to circle. The method's answer is to build against failure criteria pre-registered by the working group, in the open, before the build runs — and to discount any round that could only ever have confirmed its builder's position.
 
 ### S3-6 — Merge semantics
-*Trace: R6, R8*
+*Trace: R7, R9*
 
 When assertions about the same subject overlap, how is the resulting state computed — and what happens to dependent data when a discriminating value changes?
 
@@ -103,7 +103,7 @@ When assertions about the same subject overlap, how is the resulting state compu
 **Candidate failure criteria.** A corpus of real amendment sequences, agreed in advance. A design fails if any sequence produces state that no participant would call correct, or if two independent implementations produce different state from identical inputs.
 
 ### S2-7 — Person identity binding
-*Trace: R7, R11*
+*Trace: R8, R12*
 
 How is a real person bound to the identifier used for them, and at what assurance level?
 
@@ -115,7 +115,7 @@ How is a real person bound to the identifier used for them, and at what assuranc
 **Why a build.** The open question is whether externally-assured identity survives being carried across a transaction boundary and remains checkable by a party with no relationship to the original assurer. That is testable, and the answer is not obvious.
 
 ### S5-7 — State composition
-*Trace: R6*
+*Trace: R7*
 
 How do many independent assertions become one coherent view, and is the result identical regardless of the order or packaging in which they arrive?
 
@@ -124,10 +124,10 @@ How do many independent assertions become one coherent view, and is the result i
 - **(c) Rules plus a conformance suite** of test vectors, with self-certification against it.
 - **(d) Composition by a designated service** rather than by each consumer.
 
-**Why a build.** Composition invariance is a testable property, and its natural failure mode — two conformant implementations producing different state from the same inputs — only appears once there are two implementations. Note that (d) sits in tension with R4 and should be tested against it.
+**Why a build.** Composition invariance is a testable property, and its natural failure mode — two conformant implementations producing different state from the same inputs — only appears once there are two implementations. Note that (d) sits in tension with R5 and should be tested against it.
 
 ### S7-3 — Validity and refresh policy per data type
-*Trace: R11, R12*
+*Trace: R12, R13*
 
 For each category of fact, how long may it be relied upon before refresh, and who decides?
 
@@ -139,7 +139,7 @@ For each category of fact, how long may it be relied upon before refresh, and wh
 **Why a build and participation both.** The mechanism can be tested; the periods cannot be invented. What constitutes a stale local land charges search is a question for the bodies that produce them and the professionals who rely on them, and neither group is currently at the table.
 
 ### S7-5 — Supersession
-*Trace: R12*
+*Trace: R13*
 
 When an assertion is reissued, how does the new one reference what it replaces, and how does a consumer holding the old one find out?
 
@@ -151,7 +151,7 @@ When an assertion is reissued, how does the new one reference what it replaces, 
 **Why a build.** The difficulty is the interaction with per-type versioning, and it surfaces only with real reissue sequences across more than one implementation.
 
 ### S3-9a — Decomposition axis
-*Trace: R6, R8, R9, R13 — see §5.1 of the decision map*
+*Trace: R7, R9, R10, R14 — see §5.1 of the decision map*
 
 Already enumerated with the sub-decisions of S3-9. Included here because it carries the same build-round dependency: whether any single credential type spans two authorities is a question to be tested property by property, not argued.
 
@@ -160,7 +160,7 @@ Already enumerated with the sub-decisions of S3-9. Included here because it carr
 ## 5. Needing external confirmation
 
 ### S1-3 — Alignment with external vocabularies
-*Trace: R6, R7*
+*Trace: R7, R8*
 
 What relationship does the framework's vocabulary have to the RICS Data Standard, OSCRE, ISO 20022, and to any vocabulary the reform programme adopts?
 
@@ -172,7 +172,7 @@ What relationship does the framework's vocabulary have to the RICS Data Standard
 **Why external.** Options (a) to (c) all require the other standards bodies to engage, and effort spent on a mapping nobody maintains is wasted. Their timetables are not the coalition's to set.
 
 ### S3-2 — Credential format
-*Trace: R7, R15*
+*Trace: R8, R16*
 
 In what format are assertions carried, and does the choice keep the framework inside the UK and EU wallet ecosystem?
 
@@ -181,10 +181,10 @@ In what format are assertions carried, and does the choice keep the framework in
 - **(c) ISO mdoc.** The format the mobile identity ecosystem is converging on.
 - **(d) Multiple formats** with a required minimum.
 
-**Why external.** The deciding constraint is which formats GOV.UK Wallet and the relevant EU profiles will accept. That list is not the coalition's to set, and choosing against it strands the sector outside infrastructure R7 exists to keep it aligned with.
+**Why external.** The deciding constraint is which formats GOV.UK Wallet and the relevant EU profiles will accept. That list is not the coalition's to set, and choosing against it strands the sector outside infrastructure R8 exists to keep it aligned with.
 
 ### S4-8 — External alignment of the trust layer
-*Trace: R7*
+*Trace: R8*
 
 What is the framework's relationship to DIATF and to any statutory trust framework — on top, inside, or alongside?
 
@@ -211,7 +211,7 @@ What relationship does the framework have to the homebuying reform programme, an
 ## 6. Needing participation not yet secured, or policy
 
 ### S0-2 — Which property types
-*Trace: R22*
+*Trace: R25*
 
 - **(a)** Residential freehold and leasehold only.
 - **(b)** Plus new build.
@@ -221,7 +221,7 @@ What relationship does the framework have to the homebuying reform programme, an
 **Why participation.** The parties affected by the wider options — developers, housing associations, commercial agents — are not currently at the table. Separately: pilot scope and framework scope are different questions and should be decided separately, since exclusions that are sensible for a pilot become permanent if inherited by a specification.
 
 ### S0-7 — Which data categories are in and out of scope
-*Trace: R15*
+*Trace: R16*
 
 - **(a)** Material information as currently defined.
 - **(b)** Material information plus title and search data.
@@ -231,17 +231,17 @@ What relationship does the framework have to the homebuying reform programme, an
 **Why participation.** What must be disclosed is being determined by the reform programme and the professional bodies, on their timetable rather than the coalition's.
 
 ### S8-2 — Legal form and funding of the framework operator
-*Trace: R3, R4*
+*Trace: R4, R5*
 
 - **(a)** Independent not-for-profit with sector governance.
 - **(b)** An existing sector body, extended.
 - **(c)** A government or arm's-length body.
 - **(d)** A regulated scheme under statutory backing.
 
-**Why partly policy.** Options (c) and (d) are not the coalition's to choose. Option (a) requires funding commitments no single participant can make. R3 and R4 constrain all four: whichever is chosen must not put the operator in the data path or let it refuse a conformant participant.
+**Why partly policy.** Options (c) and (d) are not the coalition's to choose. Option (a) requires funding commitments no single participant can make. R4 and R5 constrain all four: whichever is chosen must not put the operator in the data path or let it refuse a conformant participant.
 
 ### S9-4 — Originator adoption sequence
-*Trace: R3*
+*Trace: R4*
 
 - **(a) Originator-first.** Secure authoritative sources before building outward.
 - **(b) Intermediary-first.** Platforms proxy authoritative data until originators issue directly.
@@ -251,7 +251,7 @@ What relationship does the framework have to the homebuying reform programme, an
 **Why participation.** This cannot be settled among software suppliers. The bodies concerned set their own timetables, and (a) is not the coalition's to choose — only to request.
 
 ### S9-5 — Incentives and mandates
-*Trace: R22*
+*Trace: R25*
 
 - **(a)** Voluntary, with commercial incentives only.
 - **(b)** A mandate on originators to publish.

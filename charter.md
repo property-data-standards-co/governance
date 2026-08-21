@@ -102,7 +102,7 @@ DRAFTED → OPEN → OPTIONS CLOSED → RESOLVED → RATIFIED
    └─ question framed and published with its requirement trace
 ```
 
-The **framing** step is the one most often skipped and most often decisive. A badly framed question ("should we use verifiable credentials?") imports an answer. A well-framed question ("what is the minimum unit of assertion that satisfies R5 independent verifiability?") admits options nobody has thought of. **Question framing is reviewed by the architecture group before publication**, precisely because framing is where capture happens most invisibly.
+The **framing** step is the one most often skipped and most often decisive. A badly framed question ("should we use verifiable credentials?") imports an answer. A well-framed question ("what is the minimum unit of assertion that satisfies R6 independent verifiability?") admits options nobody has thought of. **Question framing is reviewed by the architecture group before publication**, precisely because framing is where capture happens most invisibly.
 
 ### 5.2 Decision Record template
 

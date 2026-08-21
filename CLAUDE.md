@@ -17,7 +17,7 @@ Four layers. Nothing at a lower layer opens until its parent resolves.
 
 | Layer | Content | Phase |
 |---|---|---|
-| 0 | 22 testable requirements, ratified | Clarify |
+| 0 | 25 testable requirements, ratified | Clarify |
 | 1 | Ten root decisions, one per strand | Clarify |
 | 2 | ~68 decisions within the strands, as Decision Records | Develop |
 | 3 | Normative text, conformance suite, interop results | Implement |

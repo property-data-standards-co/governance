@@ -12,7 +12,7 @@ Layer 0 of the decision structure. Everything downstream — the ten root decisi
 
 Three things follow from that, and they are worth stating before the first reading rather than discovering during it.
 
-**Requirements are ratified individually, not as a set.** A block objection to "the requirements" is not actionable. An objection to R9 is.
+**Requirements are ratified individually, not as a set.** A block objection to "the requirements" is not actionable. An objection to R10 is.
 
 **This is not a warm-up.** Some of what follows is close to architecturally determinative — ratifying it forecloses whole families of design. That is the point, and it is why this layer deserves real debate rather than a nod. Section 5 says which ones, openly, so that nobody discovers it later.
 
@@ -48,9 +48,9 @@ Four tests. They are offered as the working group's own quality bar, to be appli
 
 ## 4. The candidate requirements
 
-Twenty-two, grouped by theme. Each is intended to be ratified, amended or rejected on its own.
+Twenty-five, grouped by theme. Each is intended to be ratified, amended or rejected on its own.
 
-**Requirement numbers are stable identifiers.** They currently read in sequence, and that will not survive the first addition: a requirement proposed later takes the next free number and sits with whatever group it belongs to, so the sequence will break. That is intended. Numbers are cited by every requirement trace in the decision map and the options paper, so they are allocated once and never reused or renumbered. The build reports the count and flags any gap, which is how the set is checked rather than by scanning for sequence.
+**Requirement numbers are stable identifiers.** They read in sequence now because the set has been renumbered while nothing outside this repository cites it. That stops at publication: from then on a requirement proposed later takes the next free number and sits with whatever group it belongs to, so the sequence will break, and that is intended. Numbers are cited by every requirement trace in the decision map and the options paper, so they are allocated once and never reused or renumbered. The build reports the count and flags any gap, which is how the set is checked rather than by scanning for sequence.
 
 ### Findability and identity
 
@@ -58,16 +58,19 @@ Twenty-two, grouped by theme. Each is intended to be ratified, amended or reject
 |---|---|---|
 | **R1** | Every fact is about a subject that has a stable, resolvable identifier persisting beyond any single transaction. | Can the same subject be referred to unambiguously in a later, unrelated transaction? |
 | **R2** | Identifiers are drawn from open schemes, not from any single operator's internal namespace. | Can a competitor mint and resolve identifiers without permission from any incumbent? |
+| **R3** | Given a subject identifier, an authorised party can locate the current holders of facts about that subject, without prior arrangement with them. | Can a newly instructed party find the data knowing only the identifier, rather than being told who holds it? |
 
 *R1 is what makes reuse structurally possible: a fact attached only to a transaction dies with it. R2 is what stops the identifier layer becoming a private toll.*
+
+*R3 is separable from R1 and often confused with it. R1 says an identifier is stable and unambiguous; it does not say anyone can find what the identifier refers to. A framework can satisfy R1 completely while leaving every party dependent on being told, out of band, which system holds the data — which is the present state of the market and is what makes reuse a matter of who you already know.*
 
 ### Accessibility and openness
 
 | # | Requirement | Test |
 |---|---|---|
-| **R3** | Any conformant participant can issue, hold, and consume data through published open interfaces, without bilateral negotiation with the framework operator. | Is there any point at which a single organisation can refuse a compliant participant? |
-| **R4** | The framework operator is not in the data path. | Does any transaction require data to transit a body that governs the framework? |
-| **R5** | Entry criteria are objective, published, and appealable. | Could a rejected applicant challenge the decision against written criteria? |
+| **R4** | Any conformant participant can issue, hold, and consume data through published open interfaces, without bilateral negotiation with the framework operator. | Is there any point at which a single organisation can refuse a compliant participant? |
+| **R5** | The framework operator is not in the data path. | Does any transaction require data to transit a body that governs the framework? |
+| **R6** | Entry criteria are objective, published, and appealable. | Could a rejected applicant challenge the decision against written criteria? |
 
 *These three together are what make the framework mandatable. Government will not create a regulated position for a market participant, and the first question officials ask is who can refuse whom.*
 
@@ -75,35 +78,38 @@ Twenty-two, grouped by theme. Each is intended to be ratified, amended or reject
 
 | # | Requirement | Test |
 |---|---|---|
-| **R6** | Facts carry machine-readable semantics from a shared, versioned, openly published vocabulary; no private knowledge is needed to interpret them. | Can a party with no prior relationship to the issuer interpret the data correctly? |
-| **R7** | The framework aligns with UK and EU digital identity and credentials infrastructure rather than defining a property-only stack. | Can a party already conformant with GOV.UK Wallet / DIATF / eIDAS 2.0 reuse that investment? |
-| **R8** | New data, new participants, and new versions can be added without coordinated upgrade of all parties. | Can one participant adopt a new data type without every other participant changing? |
+| **R7** | Facts carry machine-readable semantics from a shared, versioned, openly published vocabulary; no private knowledge is needed to interpret them. | Can a party with no prior relationship to the issuer interpret the data correctly? |
+| **R8** | The framework aligns with UK and EU digital identity and credentials infrastructure rather than defining a property-only stack. | Can a party already conformant with GOV.UK Wallet / DIATF / eIDAS 2.0 reuse that investment? |
+| **R9** | New data, new participants, and new versions can be added without coordinated upgrade of all parties. | Can one participant adopt a new data type without every other participant changing? |
 
-*R8 is the anti-ossification requirement. A framework that needs everyone to upgrade together will stop changing about eighteen months after launch.*
+*R9 is the anti-ossification requirement. A framework that needs everyone to upgrade together will stop changing about eighteen months after launch.*
 
 ### Reusable trust
 
 | # | Requirement | Test |
 |---|---|---|
-| **R9** | A consumer can establish the origin and integrity of a fact without trusting the party that transmitted it. | If the transmitting platform were hostile, would tampering be detectable? |
-| **R10** | Every fact carries who asserted it, on what basis, and when. | Given any single data point, can its provenance be recovered? |
-| **R11** | A fact established once can be relied upon again — by another party, in another transaction, on another platform — subject to consent and continued validity. | Is re-collection ever forced by the framework's own structure rather than by the fact's age? |
-| **R12** | An erroneous assertion can be withdrawn, and parties relying on it can determine that it has been. | Is there a path from "issuer discovers error" to "consumer learns of it"? |
-| **R13** | Liability for a false assertion attaches to an identifiable legal entity. | For any fact, can a relying party name who is answerable for it? |
-| **R14** | A statement of authority is itself an assertion: it carries who made it, on what basis, when, and until when, and is verifiable by the same means as the facts it authorises. | Can a relying party determine, without contacting the asserting party, both the basis and the currency of the authority it is relying on? |
+| **R10** | A consumer can establish the origin and integrity of a fact without trusting the party that transmitted it. | If the transmitting platform were hostile, would tampering be detectable? |
+| **R11** | Every fact carries who asserted it, on what basis, and when. | Given any single data point, can its provenance be recovered? |
+| **R12** | A fact established once can be relied upon again — by another party, in another transaction, on another platform — subject to consent and continued validity. | Is re-collection ever forced by the framework's own structure rather than by the fact's age? |
+| **R13** | An erroneous assertion can be withdrawn, and parties relying on it can determine that it has been. | Is there a path from "issuer discovers error" to "consumer learns of it"? |
+| **R14** | Liability for a false assertion attaches to an identifiable legal entity. | For any fact, can a relying party name who is answerable for it? |
+| **R15** | A statement of authority is itself an assertion: it carries who made it, on what basis, when, and until when, and is verifiable by the same means as the facts it authorises. | Can a relying party determine, without contacting the asserting party, both the basis and the currency of the authority it is relying on? |
 
-*R12 is the one most often forgotten and most expensive to retrofit. A framework that can publish facts but not withdraw them will eventually publish something wrong and have no way to stop people relying on it.*
+*R13 is the one most often forgotten and most expensive to retrofit. A framework that can publish facts but not withdraw them will eventually publish something wrong and have no way to stop people relying on it.*
 
-*R14 exists because authority is easy to describe and hard to represent. Saying that a body is authoritative because statute makes it so, or that a firm may assert because it is regulated, states where the authority comes from — it does not put anything on the wire that a verifier can check. Statute is not a signed artefact and professional registers are generally web lookups rather than credentials, so something must translate an externally-established authority into a checkable form. That translation is itself an assertion, made by somebody, and R14 requires it to carry the same provenance as the facts it underwrites. Without it, verifiable facts rest on unverifiable authority.*
+*R15 exists because authority is easy to describe and hard to represent. Saying that a body is authoritative because statute makes it so, or that a firm may assert because it is regulated, states where the authority comes from — it does not put anything on the wire that a verifier can check. Statute is not a signed artefact and professional registers are generally web lookups rather than credentials, so something must translate an externally-established authority into a checkable form. That translation is itself an assertion, made by somebody, and R15 requires it to carry the same provenance as the facts it underwrites. Without it, verifiable facts rest on unverifiable authority.*
 
 ### Privacy and consumer protection
 
 | # | Requirement | Test |
 |---|---|---|
-| **R15** | A party receives only the data it needs; the framework must not require over-disclosure as a side effect of its structure. | Does obtaining one fact structurally force disclosure of others? |
-| **R16** | The data subject can determine who holds their personal data and on what basis, and can exercise data protection rights against an identifiable controller. | Is the controller for each personal data flow determinable from the framework's own model? |
+| **R16** | A party receives only the data it needs; the framework must not require over-disclosure as a side effect of its structure. | Does obtaining one fact structurally force disclosure of others? |
+| **R17** | The data subject can determine who holds their personal data and on what basis, and can exercise data protection rights against an identifiable controller. | Is the controller for each personal data flow determinable from the framework's own model? |
+| **R18** | A fact whose disclosure is restricted remains unreadable to a party not entitled to it, independently of the access controls of whoever stores or transmits it. | If a holder's store were disclosed in full, would restricted facts be readable by a party not entitled to them? |
 
-*R16 is not satisfied by a privacy policy. It is a question about whether the framework's own structure makes controllership determinable.*
+*R17 is not satisfied by a privacy policy. It is a question about whether the framework's own structure makes controllership determinable.*
+
+*R18 is the counterpart to R10 for confidentiality. R10 says a fact's origin survives a hostile transmitter; R18 says a restricted fact's secrecy does. Both are statements about what happens when the party in the middle cannot be trusted, and neither is satisfied by a well-behaved holder — the test is what remains true when the holder is not.*
 
 ### Disclosure and permission
 
@@ -115,21 +121,24 @@ Applying a single consent gate across all of these produces consent theatre over
 
 | # | Requirement | Test |
 |---|---|---|
-| **R17** | Every fact carries a classification of its disclosure character, and that classification travels with the fact. | Given a fact in isolation, can a relying party determine its disclosure class without asking the issuer? |
-| **R18** | Where a fact is already available to any member of the public from its authoritative source, the framework does not require the data subject's permission to obtain it. | Does obtaining a public record through the framework require a step that obtaining it from the source does not? |
-| **R19** | A party's role in a transaction does not by itself entitle it to every fact in that transaction. | Can a party with a valid role be structurally prevented from obtaining a fact it has no need for? |
-| **R20** | A transaction can proceed without the data subject being online, responsive, or holding infrastructure that outlives the transaction. | Can a sale complete if the seller stops logging in after week two? Can a first-time buyer participate with no prior enrolment? |
+| **R19** | Every fact carries a classification of its disclosure character, and that classification travels with the fact. | Given a fact in isolation, can a relying party determine its disclosure class without asking the issuer? |
+| **R20** | Where a fact is already available to any member of the public from its authoritative source, the framework does not require the data subject's permission to obtain it. | Does obtaining a public record through the framework require a step that obtaining it from the source does not? |
+| **R21** | A party's role in a transaction does not by itself entitle it to every fact in that transaction. | Can a party with a valid role be structurally prevented from obtaining a fact it has no need for? |
+| **R22** | A transaction can proceed without the data subject being online, responsive, or holding infrastructure that outlives the transaction. | Can a sale complete if the seller stops logging in after week two? Can a first-time buyer participate with no prior enrolment? |
+| **R23** | Where a fact is copied into another system, its classification and the conditions on its use travel with it, and the copy is subject to the same rules as the original. | Can a party obtain by replication anything it could not have obtained by request? |
 
-*R20 is the scale requirement. The data subjects here are the entire home-moving population — hundreds of thousands of people a year, each engaged for a few months and then gone, most of whom will never think about this framework again. Any design that requires them to enrol in advance, hold something durable, or respond promptly at each step will fail in practice, however sound it looks. It cuts against a purist holder-mediated model and against a permission model routed through a subject-operated consent service, and it does so on practical grounds rather than architectural preference.*
+*R22 is the scale requirement. The data subjects here are the entire home-moving population — hundreds of thousands of people a year, each engaged for a few months and then gone, most of whom will never think about this framework again. Any design that requires them to enrol in advance, hold something durable, or respond promptly at each step will fail in practice, however sound it looks. It cuts against a purist holder-mediated model and against a permission model routed through a subject-operated consent service, and it does so on practical grounds rather than architectural preference.*
+
+*R23 exists because property data does not only move by request. Platforms synchronise whole transaction states between themselves, and a system holding a copy has already received everything in it — there is no disclosure decision left to make at the point a question is asked. A permission model that only governs requests governs the smaller half of the traffic. R23 does not say whether replication should be permitted; it says the rules cannot be escaped by choosing it.*
 
 ### Implementability
 
 | # | Requirement | Test |
 |---|---|---|
-| **R21** | A sole practitioner or small firm can participate fully without operating specialist cryptographic infrastructure. | Can a two-person conveyancing firm participate using services they can buy? |
-| **R22** | The framework can be adopted incrementally, alongside existing practice, without a flag-day migration. | Can a participant adopt partially and still transact with non-adopters? |
+| **R24** | A sole practitioner or small firm can participate fully without operating specialist cryptographic infrastructure. | Can a two-person conveyancing firm participate using services they can buy? |
+| **R25** | The framework can be adopted incrementally, alongside existing practice, without a flag-day migration. | Can a participant adopt partially and still transact with non-adopters? |
 
-*R21 and R22 are the counterweight to everything above, and they should be uncomfortable. A framework only a large technology firm can implement has failed, however elegant. Most of the conveyancing market is small firms.*
+*R24 and R25 are the counterweight to everything above, and they should be uncomfortable. A framework only a large technology firm can implement has failed, however elegant. Most of the conveyancing market is small firms.*
 
 ---
 
@@ -137,13 +146,15 @@ Applying a single consent gate across all of these produces consent theatre over
 
 Stated openly, because the alternative is that it emerges at Layer 2 disguised as a technical objection.
 
-- **R9**, if ratified, rules out any design in which trust in a fact reduces to trust in the platform serving it.
-- **R4 and R3 together** rule out a central hub or registry through which data must flow.
-- **R11** rules out a purely transaction-scoped data model, because a transaction-scoped document cannot outlive its transaction.
+- **R10**, if ratified, rules out any design in which trust in a fact reduces to trust in the platform serving it.
+- **R5 and R4 together** rule out a central hub or registry through which data must flow.
+- **R12** rules out a purely transaction-scoped data model, because a transaction-scoped document cannot outlive its transaction.
 - **R1** pushes hard toward subjects — properties, titles, people — rather than documents.
-- **R21** forces an honest answer about hosted keys, custodial signing and intermediary-mediated participation, and constrains the purest cryptographic designs.
-- **R18 and R20 together** rule out any design in which every disclosure is gated on an act by the data subject — R18 because the gate adds nothing over public facts, R20 because the subject cannot be relied upon to perform it. They do not say what replaces that gate.
-- **R19** rules out access determined solely by role or by membership of the transaction, since both make entitlement follow from participation rather than from need.
+- **R24** forces an honest answer about hosted keys, custodial signing and intermediary-mediated participation, and constrains the purest cryptographic designs.
+- **R20 and R22 together** rule out any design in which every disclosure is gated on an act by the data subject — R20 because the gate adds nothing over public facts, R22 because the subject cannot be relied upon to perform it. They do not say what replaces that gate.
+- **R21** rules out access determined solely by role or by membership of the transaction, since both make entitlement follow from participation rather than from need.
+- **R23** rules out treating bulk synchronisation between platforms as outside the permission model, whatever is decided about whether it is permitted at all.
+- **R18**, if ratified, rules out designs in which confidentiality rests solely on a holder behaving correctly — which includes most access-control-only models.
 
 If the coalition wants a different architecture than these imply, the efficient path is to contest these five here, not to argue their consequences one by one over the following six months.
 
@@ -153,15 +164,19 @@ If the coalition wants a different architecture than these imply, the efficient 
 
 A requirement set with no internal tension has not been examined. Four are visible already, and each will need a deliberate resolution rather than a preference.
 
-**R8 against R6.** Extending without coordinated upgrade pulls toward loose, self-describing data. Shared machine-readable semantics pull toward agreed, versioned structure. The resolution determines how much the framework must agree centrally versus what it can leave to issuers.
+**R9 against R7.** Extending without coordinated upgrade pulls toward loose, self-describing data. Shared machine-readable semantics pull toward agreed, versioned structure. The resolution determines how much the framework must agree centrally versus what it can leave to issuers.
 
-**R15 against R10.** Full provenance on every fact — who said it, on what basis, when — is itself information about the transaction and the parties. Minimisation and complete provenance are in direct tension at the margin.
+**R16 against R11.** Full provenance on every fact — who said it, on what basis, when — is itself information about the transaction and the parties. Minimisation and complete provenance are in direct tension at the margin.
 
-**R21 against R9.** Independent verifiability implies signing. Signing implies key custody. A two-person firm will not operate an HSM, and a first-time buyer will not operate anything at all. Whether hosted signing satisfies R9 is a real question and not a formality — and it is sharper for consumers than for firms, because a custodial arrangement for a data subject reintroduces exactly the "trust the platform" position that R9 exists to remove. Any answer that resolves this for small firms should be re-tested against consumers before it is treated as settled.
+**R24 against R10.** Independent verifiability implies signing. Signing implies key custody. A two-person firm will not operate an HSM, and a first-time buyer will not operate anything at all. Whether hosted signing satisfies R10 is a real question and not a formality — and it is sharper for consumers than for firms, because a custodial arrangement for a data subject reintroduces exactly the "trust the platform" position that R10 exists to remove. Any answer that resolves this for small firms should be re-tested against consumers before it is treated as settled.
 
-**R17 against R15.** A classification that travels with a fact is itself information about that fact. Marking an assertion as restricted tells an observer something about its content, and a scheme fine-grained enough to be useful may leak by its own labels.
+**R19 against R16.** A classification that travels with a fact is itself information about that fact. Marking an assertion as restricted tells an observer something about its content, and a scheme fine-grained enough to be useful may leak by its own labels.
 
-**R12 against R11.** Reuse means facts travel to parties the issuer may not know about. Withdrawal means reaching those parties. The wider the reuse, the harder the revocation problem becomes.
+**R3 against R17 and R21.** Discovery leaks. A mechanism that lets any party resolve who holds data about a property also tells them that the property is in a transaction, which is information about the seller nobody asked to publish. Restricting discovery to authorised parties creates a circularity — a party may need to discover the data before it can demonstrate entitlement to it — and resolving that circularity without either leaking or requiring prior arrangement is the substance of the discovery decision.
+
+**R18 against R24 and R22.** Confidentiality that survives copying implies keys held by every entitled party. A two-person firm will not manage keys, and a consumer will not manage anything — so either the keys are held on their behalf, which reintroduces a trusted intermediary, or the requirement is not met for the parties who most need it. This is the same tension as R24 against R10, arriving from the other direction, and it should be resolved once for both.
+
+**R13 against R12.** Reuse means facts travel to parties the issuer may not know about. Withdrawal means reaching those parties. The wider the reuse, the harder the revocation problem becomes.
 
 Naming these now means the working group can decide where each is resolved, rather than rediscovering them as blockers.
 
@@ -173,7 +188,7 @@ Included so the omissions are visible and can be challenged.
 
 **Performance and latency requirements.** Real, but they belong to an implementation profile rather than to the framework's properties. Premature at Layer 0 and likely to be set against whatever today's systems happen to achieve.
 
-**Cost ceilings for participation.** The concern is real and is addressed by R21 in a falsifiable form. A stated cost figure would be arbitrary and would date immediately.
+**Cost ceilings for participation.** The concern is real and is addressed by R24 in a falsifiable form. A stated cost figure would be arbitrary and would date immediately.
 
 **Any named technology.** Verifiable credentials, DIDs, particular protocols, particular registries. All are Layer 2 decisions. Naming one here would settle the architecture by the back door.
 
@@ -198,4 +213,4 @@ Each requirement takes one of four dispositions, recorded with its reasoning:
 
 **On sustained objection.** An objection that a requirement is not falsifiable, is technology-specific, or cannot be traced to the purpose statement goes to the substance and blocks ratification until answered. An objection that a requirement is inconvenient for a particular participant's roadmap is recorded but does not block. The distinction should be agreed before the first reading, not litigated during it.
 
-**Where a requirement cannot be settled**, it is deferred with a test rather than argued to exhaustion. A requirement set of nineteen ratified and three deferred is a better Layer 0 output than twenty-two agreed by fatigue.
+**Where a requirement cannot be settled**, it is deferred with a test rather than argued to exhaustion. A requirement set of twenty ratified and five deferred is a better Layer 0 output than twenty-five agreed by fatigue.

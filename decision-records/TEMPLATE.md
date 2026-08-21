@@ -27,7 +27,7 @@ recusals: []
 
 *One sentence. Neutral framing. No embedded answer.*
 
-A question is badly framed if it names a technology, if it can be answered yes or no in a way that settles the architecture, or if one option is the obvious reading of the words. "Should we use verifiable credentials?" imports its answer. "What is the minimum unit of assertion that satisfies R9?" does not.
+A question is badly framed if it names a technology, if it can be answered yes or no in a way that settles the architecture, or if one option is the obvious reading of the words. "Should we use verifiable credentials?" imports its answer. "What is the minimum unit of assertion that satisfies R10?" does not.
 
 **Framing is reviewed by the architecture group before publication.** This is where capture happens most invisibly, and it is the step most often skipped.
 
@@ -109,7 +109,7 @@ A question is badly framed if it names a technology, if it can be answered yes o
 
 **Cost of being wrong is the field that earns its keep.** Most of these decisions are cheap to reverse — a field name, a cardinality. A few are effectively permanent: the unit of assertion, the locus of trust, the subject model. The coalition should knowingly spend more time on the irreversible ones, and this field is what surfaces which those are. If it says "low" on a decision three others depend on, that is worth a second look before resolving.
 
-**Assess options requirement by requirement, not overall.** "Option (b) is better" is not a resolution. "Option (b) meets R9 and R11 where (a) fails R11; (a) is stronger on R21, and the working group judged R11 the harder constraint" is. The second survives being read by someone who was not there.
+**Assess options requirement by requirement, not overall.** "Option (b) is better" is not a resolution. "Option (b) meets R10 and R12 where (a) fails R12; (a) is stronger on R24, and the working group judged R12 the harder constraint" is. The second survives being read by someone who was not there.
 
 **A decision with no recorded objections is not automatically a good sign.** It may mean the question was well-framed and genuinely uncontested. It may also mean nobody who would have objected was in the room. The segment-balance check in method §4 exists for this, and a resolution reached by a group drawn from one segment is procedurally weak whatever its merits.
 
