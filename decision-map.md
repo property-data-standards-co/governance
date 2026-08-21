@@ -217,7 +217,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **A question this decision should not assume away.** Authority in property may not be role-shaped. An issuer can be authoritative for particular facts without being authoritative for a whole category — the parties authoritative for a title extent, a flood risk, and a seller's answer about a boundary dispute are all different, and one of them is not authoritative for the others. Whether authorisation binds to roles or to specific data paths is PDR-S4-3, and this decision should be framed so that it does not settle S4-3 by implication.
 
-**Opens.** PDR-S4-2 (trust anchor operation), PDR-S4-3 (authorisation granularity — path-level vs role-level), PDR-S4-4 (accreditation criteria and process), PDR-S4-5 (intermediates and delegation), PDR-S4-6 (assurance levels), PDR-S4-7 (multiple issuers for the same fact), PDR-S4-8 (relationship to DIATF and GOV.UK Wallet).
+**Opens.** PDR-S4-2 (trust anchor operation), PDR-S4-3 (authorisation granularity — path-level vs role-level), PDR-S4-4 (accreditation criteria and process), PDR-S4-5 (intermediates and delegation), PDR-S4-6 (assurance levels), PDR-S4-7 (multiple issuers for the same fact), PDR-S4-8 (relationship to external identity infrastructure), PDR-S4-10 (representation of externally-established authority).
 
 ---
 
@@ -434,8 +434,9 @@ Whether to retain the catch-all is itself contested: it is the safety valve for 
 | S4-7 | Competing issuers | R3 |
 | S4-8 | External alignment | R7 |
 | S4-9 | Small firm participation | R16 |
+| S4-10 | Representation — how is externally-established authority expressed so a machine can check it, and how current must it be? | R22, R10, R12, R5 |
 
-**S4-7 and S4-9 are worth leading with in this strand**, ahead of the technical material. S4-7 answers the "is this a land grab?" question before it is asked — the framework explicitly permits competition for the same data. S4-9 answers "can my members actually do this?", which is the question the professional bodies will care about most and the one on which a technically superior framework most often loses.
+**S4-7 and S4-9 bear on adoption rather than architecture**, and both are commonly settled late by default. S4-7 determines whether the framework permits competition for the same data or confers exclusivity, which R3 constrains. S4-9 determines whether a small firm can participate at all, which R16 constrains — and a framework that satisfies every other requirement while failing this one will not be adopted.
 
 ---
 
@@ -552,11 +553,11 @@ The tree's size is the honest basis for deciding how long Develop needs. Countin
 |---|---|
 | Layer 0 requirements to ratify | 17 |
 | Layer 1 root decisions | 9 |
-| Layer 2 decisions | 70 |
+| Layer 2 decisions | 71 |
 | Sub-decisions below Layer 2 (PDR-S3-9 only) | 8 |
-| **Total decisions to close** | **87** |
+| **Total decisions to close** | **88** |
 
-Spread across nine strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 8, S5 7, S6 9, S7 6, S8 8, S9 5.
+Spread across nine strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 9, S5 7, S6 9, S7 6, S8 8, S9 5.
 
 ### What would actually settle each one
 
@@ -573,7 +574,7 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 ### The consequence for the Develop duration
 
-Around **22 of 87 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
+Around **22 of 88 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
 
 A one-month Develop can close the ~45 argument-settled decisions if everything else goes perfectly. It cannot accommodate a single legal opinion, a single build round, or a single decision that needs a body not yet at the table. Those would carry into Implement, where the framework is supposed to be being written rather than decided.
 
@@ -593,7 +594,7 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 Three uses, in the order they arise.
 
-**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 87 decisions carry a dependency no sprint cadence will shorten.
+**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 88 decisions carry a dependency no sprint cadence will shorten.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 

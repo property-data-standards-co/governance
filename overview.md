@@ -19,7 +19,7 @@ A trust framework has to be believed before it can be used, and one arrived at p
 
 > A trust framework for property data in England and Wales that enables any fact about a property, its title, or the parties to a transaction to be established once, and thereafter relied upon by any authorised party, in any transaction, on any platform — with its origin and integrity verifiable independently of whoever transmits it.
 
-Stating an ambition of that size is the easy part. Holding it through eighty-seven detailed decisions taken over months is not, and that is what testable requirements are for.
+Stating an ambition of that size is the easy part. Holding it through eighty-eight detailed decisions taken over months is not, and that is what testable requirements are for.
 
 **How decisions are taken.** Rough consensus, not voting. Objections recorded and named. Evidence tiered, with the tiers published before anyone knows who can satisfy them, counting only results that could have gone the other way. Four closing dispositions: resolved, provisional, referred to CFIT on a full record, or deferred against a stated evidence test. **The method recommends; CFIT decides.**
 
