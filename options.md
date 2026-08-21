@@ -80,6 +80,46 @@ Under what licence are the framework text, schemas and conformance suite publish
 
 **Why an opinion, in part.** Whether a standard can be referenced by secondary legislation depends on its licence and its custody, and that is a question for whoever would do the referencing. Worth stating: "free to use" on its own does not settle this — it is satisfied by (c) and (d), both of which constrain what implementers may do.
 
+### S4-1 — Locus of trust
+*Trace: R3, R4, R5, R9, R13 — root decision, S4*
+
+How does a relying party establish that an issuer was entitled to assert what it asserted?
+
+**A distinction that may matter more than the option.** Property has two kinds of authority, and they may not want the same mechanism. Some facts have a single authoritative source that is already settled outside this framework — the title register is the title register, and there is no competing claimant. Other facts are asserted by professionals of whom there are many: a surveyor's valuation, a conveyancer's assertion about a matter, an agent's listing. The first kind needs a way to *express* an authority that already exists; the second needs a way to *establish* one. A decision that assumes both are the same problem may answer neither well.
+
+- **(a) Bilateral.** Parties trust those they hold contracts with.
+- **(b) Central registry.** One operator maintains the list of who may assert what, queried at verification time.
+- **(c) Federated.** A trust anchor publishes signed statements; authority is resolved by following a signed chain, verifiable offline, with intermediates able to onboard subordinates.
+- **(d) External scheme reliance.** An existing identity or assurance scheme carries it, with no property-specific layer.
+- **(e) Statutory designation.** Legislation names the authoritative source for each class of fact, and the framework expresses rather than establishes it.
+- **(f) Regulator-derived.** Authority follows from existing professional regulation — the bodies that already license conveyancers, surveyors and agents — mapped onto classes of assertion.
+- **(g) Relying-party policy.** Each verifier maintains its own trust list, assembled from published sources, as browsers do with root stores.
+- **(h) Multi-attestor.** Authority is established by several independent attestations rather than a single anchor, with a relying party setting its own threshold.
+
+**Requirement consequences, option by option.**
+
+(a) fails R3 and R11 — a fact is reusable only by parties holding a contract with the issuer, which is the condition the framework exists to remove.
+
+(b) is the mechanism most comparable sectors have actually built, and it works. It is in tension with R4 and fails R3's test if the operator can refuse a conformant participant. The counter-argument is that a registry consulted about *authority* is not a registry that data flows through; whether that distinction survives when the registry is universally required is contestable and should be tested rather than assumed. It also concentrates a control point that government would subsequently have to regulate, which bears on S8-2 and S8-8.
+
+(c) satisfies R3 and R4 well and depends on operational capability that is not widely deployed in the UK. The burden of operating an anchor falls on somebody, and who that is becomes S8-1 and S8-2. Verification being possible offline is its strongest property against R4.
+
+(d) is attractive for identity and has no established mechanism for expressing *domain* authority. Certifying that an organisation is a trustworthy identity provider is a different statement from establishing that a particular body is authoritative for title extents and an energy assessor is not. Whether that gap can be closed inside an existing scheme is S4-8 and depends on that scheme's owners.
+
+(e) is strong where it applies: statutory authority is objective, published and appealable almost by definition, which satisfies R5 without the framework doing anything. Much authoritative property data already has a statutory home. It is slow, inflexible, covers only the sources that legislation names, and is not the coalition's to decide — but it may mean the framework needs to establish authority for far fewer parties than it first appears.
+
+(f) is politically strong and cheap, because the firms concerned already hold regulated status and R16 is easier if nothing new must be obtained. Its weakness is coverage and fit: not every data source has a regulator, and regulatory permission to practise is not the same statement as authority over a class of fact.
+
+(g) satisfies R3 and R4 trivially, since no one can refuse anyone. It weakens R6 and R11 in practice — reuse becomes contingent on each verifier's list — and pushes cost onto every relying party, which cuts against R16.
+
+(h) removes the single point of refusal and is resilient, at the cost of being hard to reason about and weak on R13: when several attestors disagree, it may be unclear who is answerable for a false assertion.
+
+**These compose.** (e) for statutorily-designated sources, (f) for regulated professionals, and (c) or (b) for everyone else is a coherent combination, and probably a more honest description of the domain than any single option. The decision may be which mechanism applies to which class of issuer rather than which mechanism wins outright.
+
+**Framing constraint.** This decision should not settle PDR-S4-3 by implication. Whether authorisation binds to a coarse role or to specific classes of fact is a separate question, and several of the options above are compatible with either answer.
+
+**Dependency.** PDR-S6-10 cannot resolve before this one: if entitlement is demonstrated by presenting an assertion issued under authority, the source of that authority is decided here.
+
 ### S6-9 — Disclosure classification
 *Trace: R18, R19, R20*
 

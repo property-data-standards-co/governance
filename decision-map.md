@@ -169,7 +169,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(c)** Hybrid: subject-scoped for enduring facts, transaction-scoped for process facts.
 
 
-**Argument to make.** (a) fails R11 on its face and fails R14 structurally. The interesting argument is (b) versus (c), and the honest answer is (c): some facts genuinely are about *this sale* (number of sellers, existing lender, whether it is a limited company sale) and attaching them to the property would be wrong. The logbook test is a clean, checkable criterion for the boundary and is worth proposing as the decision rule rather than as a conclusion.
+**Requirement consequences.** (a) fails R11 on its face and fails R14 structurally. That leaves (b) against (c), and the difference turns on whether facts that are genuinely about *this sale* — the number of sellers, the existing lender, whether it is a limited company sale — can be attached to the property without distortion. Whichever is chosen, the boundary needs a criterion that can be applied consistently by different parties, and agreeing that criterion may matter more than agreeing the option.
 
 **Opens.** PDR-S2-2 (entity set), PDR-S2-3 (identifier schemes per subject type), PDR-S2-4 (relationship model), PDR-S2-5 (identifier evolution: unregistered title → registered, new build → UPRN), PDR-S2-6 (multi-property / multi-title cardinality).
 
@@ -188,7 +188,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Notarised events on a shared ledger.
 
 
-**Argument to make.** This is the decision where the requirements do most of the work, and it should be argued *entirely* from them. (a) fails R9 outright — if trust in a fact reduces to trust in whoever served it, there is no trust framework. (b) is a partial answer and, pursued rigorously, converges on (c) while forgoing all external tooling and alignment, so fails R7. (d) fails R14 and R15 for personal data and introduces a shared-infrastructure dependency in tension with R4.
+**Requirement consequences.** This is the decision where the requirements do most of the work. (a) fails R9 outright — if trust in a fact reduces to trust in whoever served it, there is no trust framework. (b) is a partial answer and, pursued rigorously, converges on (c) while forgoing all external tooling and alignment, so fails R7. (d) fails R14 and R15 for personal data and introduces a shared-infrastructure dependency in tension with R4.
 
 **Deliberately not decided here.** Two things sit below this decision and must not be run together with it: the *format* (SD-JWT-VC vs mdoc vs JSON-LD Data Integrity, PDR-S3-2) and the *typology* (whether the framework defines named credential types, PDR-S3-9). Conflating either with the root concept is the most likely way to lose this decision on an irrelevance — a participant with a view about JSON-LD, or about how many credential types there should be, should not thereby be voting on whether facts are independently verifiable at all.
 
@@ -205,13 +205,17 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 **Options.**
 - **(a)** Bilateral: parties trust those they have contracts with.
 - **(b)** Central registry: a single operator maintains the list of who may say what, queried at verification time.
-- **(c)** Federated: a trust anchor publishes signed statements; authority is established by resolving a signed chain, verifiable offline, with intermediates able to onboard their own subordinates.
-- **(d)** Reliance on an existing external scheme (DIATF, or a government register) without a property-specific layer.
+- **(c)** Federated: a trust anchor publishes signed statements; authority is resolved by a signed chain, verifiable offline, with intermediates able to onboard subordinates.
+- **(d)** Reliance on an existing external scheme without a property-specific layer.
+- **(e)** Statutory designation: legislation names who is authoritative for what.
+- **(f)** Regulator-derived: authority follows from existing professional regulation and accreditation.
+- **(g)** Relying-party policy: each verifier maintains its own trust list, chosen from published sources.
+- **(h)** Multi-attestor: authority established by several independent attestations rather than one anchor.
 
 
-**Argument to make.** (a) does not scale past a handful of parties and fails R3 and R11 — a fact is only reusable by parties with a contract to the issuer. (b) is the strongest rival and needs to be beaten cleanly: it fails R4 (the operator becomes an availability and commercial chokepoint), it fails R3's test (a single organisation *can* refuse), and it concentrates a control point the government would then have to regulate. (d) is attractive for identity but has no mechanism to express *domain authority* — DIATF can say an organisation is a trustworthy identity service provider; it cannot say HMLR is authoritative for title extents and an EPC assessor is not. That gap is the entire substance of a property trust framework, and naming it is the cleanest way to show why a property-specific layer is needed on top of, not instead of, national infrastructure.
+**Requirement consequences.** Set out per option in the companion options paper, which enumerates this decision in full.
 
-**The distinctive contribution to argue for.** Authority in property is not role-shaped, it is *path*-shaped: an issuer is authoritative for particular facts, not for a whole category. Binding authorisation to specific data paths — rather than to a coarse role — is the thing that makes trust in this domain tractable, and it is the strongest single idea to put in front of the coalition. It is also easy to demonstrate: it takes one worked example (who is authoritative for a title extent vs a flood risk vs a seller's answer about a boundary dispute) to make the point.
+**A question this decision should not assume away.** Authority in property may not be role-shaped. An issuer can be authoritative for particular facts without being authoritative for a whole category — the parties authoritative for a title extent, a flood risk, and a seller's answer about a boundary dispute are all different, and one of them is not authoritative for the others. Whether authorisation binds to roles or to specific data paths is PDR-S4-3, and this decision should be framed so that it does not settle S4-3 by implication.
 
 **Opens.** PDR-S4-2 (trust anchor operation), PDR-S4-3 (authorisation granularity — path-level vs role-level), PDR-S4-4 (accreditation criteria and process), PDR-S4-5 (intermediates and delegation), PDR-S4-6 (assurance levels), PDR-S4-7 (multiple issuers for the same fact), PDR-S4-8 (relationship to DIATF and GOV.UK Wallet).
 
@@ -287,7 +291,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Regulated scheme under statutory backing.
 
 
-**Note.** The distinction to hold firmly, whatever the answer: **operating the trust anchor is not the same as operating infrastructure that data flows through.** A trust anchor publishes signed statements that anyone can fetch and cache; it can be offline for a day without stopping a single transaction. Establishing that distinction early prevents an entirely avoidable objection ("this just creates a new monopoly") and is easy to demonstrate concretely.
+**Note.** The distinction to hold firmly, whatever the answer: **operating the trust anchor is not the same as operating infrastructure that data flows through.** A trust anchor publishes signed statements that anyone can fetch and cache; it can be offline for a day without stopping a single transaction. Whether the distinction holds is itself contestable — an anchor that is universally required is a dependency even if it is not in the data path — and it should be tested rather than assumed.
 
 **Opens.** PDR-S8-2 (legal form and funding), PDR-S8-3 (accreditation and appeals), PDR-S8-4 (conformance and certification), PDR-S8-5 (liability allocation and redress), PDR-S8-6 (change control), PDR-S8-7 (IP and licensing), PDR-S8-8 (relationship to government reform programme and any statutory footing).
 
