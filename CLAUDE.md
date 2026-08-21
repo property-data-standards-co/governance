@@ -73,6 +73,43 @@ by its examples is not yet neutral.
 Some option text legitimately names PDTF 1.0 as a candidate vocabulary in
 `decision-map.md` — that is a real option in an open question, not a preference.
 
+### The check that actually works
+
+Pattern matching does not find advocacy. It has been found here three times, and
+on each occasion keyword sweeps came back clean while the problem sat in plain
+prose. Advocacy lives in commentary blocks, not in detectable phrases.
+
+The reliable check is structural. Enumerate every commentary block in a document
+and read them:
+
+```
+grep -oE '^\*\*[A-Z][^.*]{2,75}\.?\*\*' decision-map.md | sort | uniq -c | sort -rn
+```
+
+Anything that is not `Question`, `Options`, `Requirement trace` or `Opens` is
+commentary, and commentary is where it hides. There are around seventy-five such
+blocks in the decision map; reading them takes a few minutes and is the only
+method that has worked.
+
+### The tell
+
+**Advocacy reasons about the reader. Analysis reasons about the decision.**
+
+Removed from this repository on that test: *"the one most worth investing in
+explaining"*, *"the one most likely to succeed"*, *"does more for the credibility
+of the process than a dozen resolved ones"*, *"the strongest single idea to put in
+front of the coalition"*, *"answers the question before it is asked"*. Every one is
+a claim about how an audience will respond.
+
+Kept on the same test: *"constrains what is available to PDR-S6-10"*, *"the options
+differ in how they behave over real sequences of amendment"*, *"a transaction-scoped
+document cannot outlive its transaction"*. Every one is a claim about the subject
+matter.
+
+The question to ask of any sentence: **would it still make sense if there were no
+audience in the room?** If not, it is positioning, and it belongs in a participant's
+own working material rather than here.
+
 ## Supporting material stays out
 
 Participants will keep private working material — worked positions, build
