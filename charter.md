@@ -329,44 +329,40 @@ Preference, absence from the original discussion, or a change of personnel are n
 
 ---
 
-## 11. Tabled positions, and the incumbent-contribution problem
+## 11. Tabled positions and declared interests
 
-There is an obvious tension: the parties most able to supply E1/E2 evidence are the parties with the most commercial interest in the outcome. Pretending otherwise is more damaging than naming it.
+The participants best able to supply implementation and operational evidence are generally those with a commercial interest in the outcome. That is a feature of the domain rather than a problem to be solved, and the arrangements below let such evidence be used without it settling anything by itself.
 
 **Tabled positions.** Any participant may table a worked position on any open decision: the option they favour, the reasoning, and the evidence. A tabled position is an argument, not a status. It carries no procedural weight, it is not a default, and it is weighed on the evidence hierarchy exactly like any other contribution. Participants are encouraged to table positions early and in detail — a well-reasoned position with working evidence behind it is the most useful thing anyone can bring to a decision, and tabling it early gives others time to test it.
 
 Where two or more participants table the same position independently, that is recorded — not because agreement between vendors settles anything, but because it tells the working group where the real disagreements are and where they are not.
 
-**Handling the conflict:**
+**Alongside a tabled position:**
 
 - **Every participant publishes a declaration of interest** on joining: what they build, what they sell, and which decisions materially affect their commercial position.
 - **Contributed material is labelled with its origin** and licensed irrevocably to the coalition on contribution (an open licence agreed at the outset).
 - **Existing implementations may be cited as evidence but never adopted as a default** (§5.4). The distinction matters: "this works, here are the conformance results" is evidence; "this is what we already built, so it applies unless someone objects" is capture.
 - **Chairing is governed by §11.1**, below.
 
-Handled this way, having done the work in advance is a contribution rather than a conflict. Handled badly, it is the single thing most likely to cause the coalition to reject the output.
+On these terms, having done the work in advance is a contribution: it is offered as evidence, weighed as evidence, and carries no standing beyond what the evidence supports.
 
-### 11.1 Chairing where interests are declared
+### 11.1 Chairing
 
-The obvious rule — that nobody may chair a strand in which they have a material interest — is the wrong one, and it is worth saying why rather than quietly not applying it.
+Most participants able to contribute detailed technical work in this domain also build in it, so declared interests among chairs are expected rather than exceptional. The method's answer is that the evidence decides: a decision is resolved by argument against ratified requirements, on a published evidence hierarchy, with objections recorded and named. A chair does not add weight to a position by holding it.
 
-In a sector this size, the rule is close to unsatisfiable. The people with enough working knowledge of property data to chair a trust strand competently are, almost without exception, people who build in it. A rule that excludes all of them either produces chairs who cannot follow the argument, or is set aside informally the first time it becomes inconvenient. A rule that is set aside once is not a rule.
+What a chair does control is the framing of a question and the judgement that consensus has been reached, so those are the points the following arrangements protect.
 
-More importantly, it aims at the wrong risk. Chairing a session — setting agendas, keeping order, ensuring everyone is heard — is not where a conflicted party can do damage. The damage is done at one specific moment: **judging whether consensus has been reached** on a question where the chair's own organisation holds a position. That is the moment the rule needs to bite, and it is the only one.
+- **Every strand has two chairs, who should not share a material interest.** Where possible they are drawn from different segments — one from the professional or originator side, one from the technical or supplier side.
 
-So, in place of a prohibition:
+- **Where one chair's organisation has tabled a position on an open decision, the other chair runs that decision** — framing the question, judging consensus, and determining whether an objection has been answered. The first chair contributes and argues on the record, as any participant would.
 
-- **Every strand has two chairs, who must not share a material interest.** Where possible they are drawn from different segments — one from the professional or originator side, one from the technical or supplier side.
+- **A co-chair may determine that their counterpart has an interest in a decision**, and that determination stands without further process. It does not require the other chair to agree, and it is not an accusation — it is the ordinary operation of the pairing.
 
-- **Where a chair's organisation has tabled a position on an open decision, the other chair runs that decision.** The conflicted chair may contribute, present evidence and argue for their position — on the record, as any participant would — but does not frame the question, does not judge consensus on it, and does not determine whether an objection has been answered.
-
-- **Recusal is recorded in the Decision Record**, in the chair-of-record field, whether or not anyone asked for it. A recusal that is only visible to those present is not a control.
+- **Recusal is recorded in the Decision Record**, in the chair-of-record field, whether or not anyone asked for it.
 
 - **Any participant may challenge a consensus judgement to the architecture group.** Where the judging chair had a declared interest in the outcome, the challenge is heard automatically rather than at the architecture group's discretion.
 
-- **A chair who cannot find a co-chair without a shared interest should say so in plenary** rather than proceed. That is a signal about the balance of the strand, and it is worth surfacing.
-
-This is a tighter constraint than the blanket rule in the place that matters and a looser one everywhere else, which is the right shape. It also has the advantage of being a rule that a conflicted chair can visibly comply with, rather than one they must be trusted to have complied with.
+- **A strand that cannot field two chairs without a shared interest should say so in plenary**, as a signal about the balance of that strand.
 
 ---
 

@@ -123,14 +123,20 @@ competitor had written it?** If yes, it belongs here.
 ## Chairing and declared interests
 
 Most participants able to contribute detailed technical work in this domain also
-build in it. Charter §11.1 governs the resulting conflict: two chairs per strand who
-must not share a material interest, and where a chair's organisation has tabled a
-position on an open decision, **the other chair frames the question and judges
-consensus on it**.
+build in it, so declared interests among chairs are expected. Charter §11.1 sets
+the arrangements: two chairs per strand who should not share a material interest;
+where one chair's organisation has tabled a position, the other runs that decision;
+and either co-chair may determine that their counterpart has an interest, which
+stands without further process.
 
 Recusals are recorded in the decision record's chair-of-record field whether or not
 anyone asked for them. When drafting or reviewing a record, treat a missing
 chair-of-record entry as incomplete rather than optional.
+
+The underlying principle is that the evidence decides — a chair does not add weight
+to a position by holding it — so the arrangements protect the two things a chair
+actually controls: how a question is framed, and the judgement that consensus has
+been reached.
 
 ## Conventions
 
