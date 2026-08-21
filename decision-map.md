@@ -291,7 +291,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Regulated scheme under statutory backing.
 
 
-**Note.** The distinction to hold firmly, whatever the answer: **operating the trust anchor is not the same as operating infrastructure that data flows through.** A trust anchor publishes signed statements that anyone can fetch and cache; it can be offline for a day without stopping a single transaction. Whether the distinction holds is itself contestable — an anchor that is universally required is a dependency even if it is not in the data path — and it should be tested rather than assumed.
+**Note.** A distinction this decision turns on, whichever option is chosen: **operating the trust anchor is not the same as operating infrastructure that data flows through.** A trust anchor publishes signed statements that anyone can fetch and cache; it can be offline for a day without stopping a single transaction. Whether the distinction holds is itself contestable — an anchor that is universally required is a dependency even if it is not in the data path — and it should be tested rather than assumed.
 
 **Opens.** PDR-S8-2 (legal form and funding), PDR-S8-3 (accreditation and appeals), PDR-S8-4 (conformance and certification), PDR-S8-5 (liability allocation and redress), PDR-S8-6 (change control), PDR-S8-7 (IP and licensing), PDR-S8-8 (relationship to government reform programme and any statutory footing).
 
@@ -361,7 +361,7 @@ Every decision below is open. Where one has a well-understood set of candidate a
 | S2-7 | Person identity binding | R7, R11 |
 | S2-8 | Organisation identity | R13 |
 
-**The strongest argument in this strand** is S2-4. Making relationships signed assertions rather than fields is what allows authority to be *checked* rather than *asserted by the platform* — and it is what makes the access model in S6 work without a central access-control list. It is also the least obvious of the ideas and therefore the one most worth investing in explaining.
+**S2-4 carries further than its position in the strand suggests.** Whether relationships are signed assertions or fields on a record determines whether authority can be checked independently or must be taken from whoever serves the data (R9), and it constrains what is available to S6-10 for demonstrating entitlement. A decision taken here on ergonomic grounds will be discovered later as an access-control constraint.
 
 ### S3 — Assertions
 
@@ -376,7 +376,7 @@ Every decision below is open. Where one has a well-understood set of candidate a
 | S3-7 | Selective disclosure | R14 |
 | S3-8 | Assertion identifiers | R6 |
 
-**S3-6 is genuinely open and should be presented as such.** None of the tabled work resolves it. Bringing a real open question to the coalition, and saying plainly that detailed prior work could not settle it, does more for the credibility of the whole process than a dozen resolved ones. It is also a good candidate for settling by interop event rather than by argument.
+**S3-6 is genuinely open.** No prior work known to the coalition resolves it, and it is one of the decisions least likely to be settled by argument — the options differ in how they behave over real sequences of amendment, which is an empirical question. It is a candidate for a build round or an interop event rather than a session.
 
 **S3-3 and S3-9 are different questions and must not be run together.** *Instance granularity* is how much data one credential happens to carry; *typology* is whether the framework defines named types at all. They are independent: a framework can define `EnvironmentalCredential` as a type while leaving an issuer free to issue one instance covering the whole of it or several covering parts. Conflating them makes the typology question look like a mandate on issuer behaviour, which it need not be. S3-9 is worked through in §5.1.
 
@@ -492,7 +492,7 @@ Whether to retain the catch-all is itself contested: it is the safety valve for 
 | S8-8 | Relationship to the reform programme and any statutory footing | — |
 | S8-9 | Does the framework operator sit in the data path? | R4 |
 
-**S8-7 is where the licensing question belongs**, and stating it as a requirement of the framework — rather than as a complaint about anyone's terms — is both the legitimate route and the one most likely to succeed.
+**S8-7 is where the licensing question belongs.** It is a property the framework must have, testable against R3, and it is separable from any view about the terms on which particular existing material is published.
 
 ### S9 — Adoption
 
