@@ -61,7 +61,7 @@ own. That means:
 Before committing changes to any document, check for advocacy that has crept in:
 
 ```
-grep -rniE 'we (think|argue|would|believe)|our (own|position|view)|in our (view|experience)' \
+grep -rniE '\bwe (think|argue|would|believe)|\bour (own|position|view)|in our (view|experience)' \
   *.md decision-records/ sessions/ --exclude=CLAUDE.md
 ```
 
