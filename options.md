@@ -6,7 +6,9 @@
 
 ## 1. What this document is
 
-The decision map enumerates eighty-eight decisions. Around forty-five of them can be settled by argument in a working session against ratified requirements. The rest cannot, and this document sets out the candidate options for those.
+The decision map enumerates eighty-eight decisions. Around sixty-nine of them can be settled by argument in a working session against ratified requirements, once any decision they depend on has resolved. The remaining nineteen cannot, and this document sets out the candidate options for those.
+
+Options for decisions that *can* be settled in session — including every root decision — are in the decision map alongside the question, with their dependencies stated there.
 
 They are grouped by *how they would be settled* rather than by strand, because that is the property that matters for scheduling. A decision that needs a written legal opinion cannot be compressed by adding people to a sprint. Nor can one that needs a body who is not yet at the table.
 
@@ -18,7 +20,7 @@ They are grouped by *how they would be settled* rather than by strand, because t
 
 | | | |
 |---|---|---|
-| **Written legal opinion** | 6 decisions | Weeks of elapsed time. Several downstream decisions are unsafe to close before it lands. |
+| **Written legal opinion** | 4 decisions | Weeks of elapsed time. Several downstream decisions are unsafe to close before it lands. |
 | **A build round** | 6 decisions | One sprint interval each, and they cannot run before their parent decision resolves. |
 | **External confirmation** | 4 decisions | Depends on other organisations' timetables, not the coalition's. |
 | **Participation or policy** | 5 decisions | Cannot be settled among software suppliers alone. |
@@ -79,113 +81,6 @@ Under what licence are the framework text, schemas and conformance suite publish
 - **(d) Membership-conditional.** Use is conditional on scheme participation.
 
 **Why an opinion, in part.** Whether a standard can be referenced by secondary legislation depends on its licence and its custody, and that is a question for whoever would do the referencing. Worth stating: "free to use" on its own does not settle this — it is satisfied by (c) and (d), both of which constrain what implementers may do.
-
-### S4-1 — Locus of trust
-*Trace: R3, R4, R5, R9, R13 — root decision, S4*
-
-How does a relying party establish that an issuer was entitled to assert what it asserted?
-
-**A distinction that may matter more than the option.** Property has two kinds of authority, and they may not want the same mechanism. Some facts have a single authoritative source that is already settled outside this framework — the title register is the title register, and there is no competing claimant. Other facts are asserted by professionals of whom there are many: a surveyor's valuation, a conveyancer's assertion about a matter, an agent's listing. The first kind needs a way to *express* an authority that already exists; the second needs a way to *establish* one. A decision that assumes both are the same problem may answer neither well.
-
-- **(a) Bilateral.** Parties trust those they hold contracts with.
-- **(b) Central registry.** One operator maintains the list of who may assert what, queried at verification time.
-- **(c) Federated.** A trust anchor publishes signed statements; authority is resolved by following a signed chain, verifiable offline, with intermediates able to onboard subordinates.
-- **(d) External scheme reliance.** An existing identity or assurance scheme carries it, with no property-specific layer.
-- **(e) Statutory designation.** Legislation names the authoritative source for each class of fact, and the framework expresses rather than establishes it.
-- **(f) Regulator-derived.** Authority follows from existing professional regulation — the bodies that already license conveyancers, surveyors and agents — mapped onto classes of assertion.
-- **(g) Relying-party policy.** Each verifier maintains its own trust list, assembled from published sources, as browsers do with root stores.
-- **(h) Multi-attestor.** Authority is established by several independent attestations rather than a single anchor, with a relying party setting its own threshold.
-
-**Requirement consequences, option by option.**
-
-(a) fails R3 and R11 — a fact is reusable only by parties holding a contract with the issuer, which is the condition the framework exists to remove.
-
-(b) is the mechanism most comparable sectors have actually built, and it works. It is in tension with R4 and fails R3's test if the operator can refuse a conformant participant. The counter-argument is that a registry consulted about *authority* is not a registry that data flows through; whether that distinction survives when the registry is universally required is contestable and should be tested rather than assumed. It also concentrates a control point that government would subsequently have to regulate, which bears on S8-2 and S8-8.
-
-(c) satisfies R3 and R4 well and depends on operational capability that is not widely deployed in the UK. The burden of operating an anchor falls on somebody, and who that is becomes S8-1 and S8-2. Verification being possible offline is its strongest property against R4.
-
-(d) is attractive for identity and has no established mechanism for expressing *domain* authority. Certifying that an organisation is a trustworthy identity provider is a different statement from establishing that a particular body is authoritative for title extents and an energy assessor is not. Whether that gap can be closed inside an existing scheme is S4-8 and depends on that scheme's owners.
-
-(e) is strong where it applies: statutory authority is objective, published and appealable almost by definition, which satisfies R5 without the framework doing anything. Much authoritative property data already has a statutory home. It is slow, inflexible, covers only the sources that legislation names, and is not the coalition's to decide — but it may mean the framework needs to establish authority for far fewer parties than it first appears.
-
-(f) is politically strong and cheap, because the firms concerned already hold regulated status and R16 is easier if nothing new must be obtained. Its weakness is coverage and fit: not every data source has a regulator, and regulatory permission to practise is not the same statement as authority over a class of fact.
-
-(g) satisfies R3 and R4 trivially, since no one can refuse anyone. It weakens R6 and R11 in practice — reuse becomes contingent on each verifier's list — and pushes cost onto every relying party, which cuts against R16.
-
-(h) removes the single point of refusal and is resilient, at the cost of being hard to reason about and weak on R13: when several attestors disagree, it may be unclear who is answerable for a false assertion.
-
-**These compose.** (e) for statutorily-designated sources, (f) for regulated professionals, and (c) or (b) for everyone else is a coherent combination, and probably a more honest description of the domain than any single option. The decision may be which mechanism applies to which class of issuer rather than which mechanism wins outright.
-
-**Framing constraint.** This decision should not settle PDR-S4-3 by implication. Whether authorisation binds to a coarse role or to specific classes of fact is a separate question, and several of the options above are compatible with either answer.
-
-**Dependency.** PDR-S6-10 cannot resolve before this one: if entitlement is demonstrated by presenting an assertion issued under authority, the source of that authority is decided here.
-
-### S4-10 — Representation of externally-established authority
-*Trace: R22, R10, R12, R5*
-
-Where authority originates outside the framework — in statute, or in professional regulation — how is it expressed so that a verifier can check it, and how current must that expression be?
-
-**The problem this decision exists to solve.** Deciding that authority comes from statute for designated sources and from regulation for licensed professionals settles where authority *comes from*. It puts nothing on the wire. An Act of Parliament is not a signed artefact and has no key. A professional register is generally a website with a lookup, not a credential, and usually offers no way to verify an entry offline or to prove what it said last Tuesday. Something has to translate the external fact into a checkable form, and that translation is an assertion made by somebody who can be wrong.
-
-**There is also a gap between the two statements.** A regulator certifies that a firm is licensed to practise. It does not certify that the firm is authoritative for a particular class of assertion. Mapping "regulated conveyancer" onto "may assert these facts" is an act of judgement, and it has to be made explicitly and published by someone — it does not fall out of the regulatory status. Where that mapping lives, and who maintains it, is the substance of this decision and interacts directly with S4-3.
-
-- **(a) Mirrored with citation.** A trust anchor publishes signed statements of authority, each citing the external instrument or register entry it derives from. Cryptographic trust rests in the anchor; legal trust rests in the citation, and the two are distinguishable by a relying party.
-- **(b) Live lookup.** The verifier queries the external register at verification time. Always current, and introduces an availability dependency on a party outside the framework, with no offline path.
-- **(c) Source issues directly.** The regulator or statutory body operates as an issuer and signs its own authority statements. Best fidelity, and depends entirely on those bodies choosing to do it.
-- **(d) Signed periodic list.** A versioned, signed snapshot distributed on a published cadence, verifiable offline, stale by up to one cadence interval.
-- **(e) Not represented.** Each verifier establishes external authority however it wishes.
-
-**Requirement consequences.**
-
-(e) fails R22 directly: the basis and currency of authority become unrecoverable from anything on the wire, and every verifier solves the same problem separately, which also cuts against R16.
-
-(b) satisfies currency and is in tension with R4 — an external register that must be reachable for verification to succeed is a dependency in the path, even though it is not the framework's own. It also makes verification of historical assertions impossible if the register does not answer as-of questions.
-
-(c) is the strongest on fidelity and the weakest on timetable, since it requires bodies outside the coalition to change what they publish. It is worth pursuing for the sources where the volume justifies it, and it will not be available for all of them at once — which means (a) or (d) is needed regardless, at least as a transition.
-
-(a) and (d) differ mainly in staleness tolerance, and that is the question to put: **how long may a verifier rely on an authority statement after the underlying status has changed?** A firm struck off on Monday should not be issuing on Tuesday, and this is R12 applied to authority rather than to facts. The answer probably differs by class — statutory designation changes on a timescale of years, professional registration on a timescale of days.
-
-**Note on the anchor's role under (a).** Deriving authority rather than conferring it is a materially different position for whoever operates the anchor: the statement becomes "this body is authoritative, and here is the instrument that makes it so" rather than "this body is authoritative because we say so". That is easier to defend against the objection that the framework creates a new gatekeeper, and it is harder to operate, because someone must read the instruments correctly and keep the derivation current. Whether that is a governance function or a clerical one belongs in S8.
-
-### S6-9 — Disclosure classification
-*Trace: R18, R19, R20*
-
-What is the taxonomy of disclosure character, who assigns it, and does it travel with the fact?
-
-- **(a) Issuer-declared against a published taxonomy.** The party asserting the fact states its class from a fixed list.
-- **(b) Derived from the vocabulary.** Class is a property of the path a fact occupies, fixed centrally when the vocabulary is versioned, and not the issuer's to choose.
-- **(c) Derived from the source.** Class follows from where the fact came from — an authoritative public register, a subject-authored disclosure, or a regulated check — rather than being separately declared.
-- **(d) Relying-party need, matched against a published schedule.** No class on the fact; instead a published schedule of which roles may obtain which categories, evaluated at request time.
-- **(e) No classification.** Access policy expressed per assertion, as in S6-2, with no shared taxonomy above it.
-
-**Why it needs the opinions.** Classification is only useful if the classes line up with the lawful bases and controllership positions established in S6-4 and S6-8. A taxonomy that cuts across them creates facts whose class says one thing and whose lawful basis says another. Note also that (a) is self-declared by a party who may have an incentive to over- or under-classify, and that any scheme fine-grained enough to be useful leaks information about the content it protects — the R18-against-R14 tension recorded in the requirements.
-
-### S6-10 — Entitlement demonstration
-*Trace: R20, R21, R3, R4, R9, R14, R16*
-
-How does a requesting party demonstrate, at the point of request, that it is entitled to a fact?
-
-- **(a) Platform-enforced.** The holder knows who the parties are because they hold accounts with it, and entitlement is membership of the matter. Works today; does not survive the request crossing a platform boundary, and asks the requester to trust the platform's account model (R9, R3).
-- **(b) Relationship credential from an accredited issuer.** The requester presents a signed assertion of its relationship to the transaction, issued by a party accredited to make such assertions. Verification is of the signature and the issuer's authority, not a live entitlement query.
-- **(c) Subject-issued capability.** The data subject signs a delegation to a named party for a defined scope at the point of instructing them, and the requester presents that. Authority chains to the person rather than to any platform.
-- **(d) Counterparty-asserted relationship.** The relationship is asserted by the other party to it — a seller asserts that a firm represents them. Structurally close to (c), but the liability for a false assertion sits differently.
-- **(e) Accreditation plus transaction reference.** The requester proves it is a regulated firm of the relevant kind and supplies a reference for the matter. No per-transaction credential is minted at all.
-- **(f) Registry query at request time.** The holder asks a service whether the requester is entitled.
-- **(g) Subject presents.** Nothing is disclosed except by the data subject presenting it.
-- **(h) Cryptographic enforcement.** Facts are encrypted so that only parties holding particular attributes can decrypt, with no request-time check.
-- **(i) Negotiated usage policy.** Requester and holder agree machine-readable terms before transfer, as in the European data-space connector pattern.
-
-**These are not mutually exclusive, and the decision may be which combination.** If S6-9 establishes classes, different mechanisms can apply to each: no check at all over facts that are already public (R19), a lighter mechanism for facts disclosed in order to be disclosed, and a stronger one for restricted facts. A single mechanism applied uniformly will be over-engineered at one end and inadequate at the other.
-
-**Requirement notes, option by option, since several are decided before the argument starts.**
-
-(g) fails R21 — a transaction cannot stall on the subject being available at each request. (f) is in direct tension with R4 and fails R3's test if the service can refuse a conformant participant; the counter-argument is that consulting a registry about *authority* is different from routing *data* through it, which is a distinction the coalition should settle explicitly rather than assume. (h) satisfies R4 completely and fails R16 hard, and its revocation story is the weakest of the set — but it should be tested rather than dismissed, because it is the only option requiring no request-time infrastructure at all. (a) is the status quo and its failure mode is precisely what the framework exists to fix, which is a reason to state it fairly rather than omit it.
-
-(b), (c), (d) and (e) all survive first contact with the requirements, and the argument between them is the substance of this decision. The questions that separate them: who is liable for a false relationship assertion (R13); whether authority must chain to the data subject or may originate with an accredited third party (R9); whether a party changing mid-transaction invalidates what was issued (R12); and whether the mechanism works for a party who was not anticipated when the relationship was established (R11).
-
-**Why it needs the opinions.** Whether a presented relationship or capability constitutes a lawful basis for disclosure is a legal question, not a design one, and it is the same question as S6-8. Options (b) to (e) can be designed in advance but cannot be chosen until that lands.
-
-**Dependency.** (b) cannot resolve before S4-1: if relationship assertions are themselves issued under authority, the source of that authority is the locus-of-trust decision, and settling S6-10 first would decide S4-1 by implication.
 
 ---
 
@@ -369,6 +264,6 @@ What relationship does the framework have to the homebuying reform programme, an
 
 ## 7. What this means for scheduling
 
-Six legal opinions, six build rounds, four external dependencies and five decisions awaiting participation. The opinions and the external confirmations can be started early and run in parallel with sessions; the build rounds cannot begin until their parent decisions resolve, which puts them structurally after the root decisions close.
+Four legal opinions, six build rounds, four external dependencies and five decisions awaiting participation. The opinions and the external confirmations can be started early and run in parallel with sessions; the build rounds cannot begin until their parent decisions resolve, which puts them structurally after the root decisions close.
 
 That is the whole of the argument about how long the Develop phase needs. It is made by the dependencies rather than by assertion, and it can be checked decision by decision against this document.
