@@ -1,5 +1,10 @@
 # Property Trust Framework — coalition governance
 
+> **Coalition material.** Hosted here for the present and intended to transfer to
+> whoever holds the framework. The organisation this repository currently sits in
+> does not own the framework, does not speak for the coalition, and has no standing
+> in the decisions recorded here.
+
 The record of how the framework is decided, and what was decided.
 
 This repository holds the process, the requirements everything is tested against, the map of every decision the framework requires, and — as they close — a record of each decision with its options, evidence, resolution and objections.
@@ -53,4 +58,4 @@ Both permit commercial use and derivative works. That is deliberate: a standard 
 
 ## Custody
 
-This repository is coalition material. It is intended to sit with whoever holds the framework, and to transfer with it.
+See the notice at the top. In practice: the repository transfers on request, with its history, issues and published site intact. Nothing in it is licensed on terms that depend on where it is hosted.
