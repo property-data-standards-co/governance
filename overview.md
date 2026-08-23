@@ -2,8 +2,6 @@
 
 **How the framework is decided.** The method in short; the [charter](charter.md) carries it in full.
 
-*Status: describes the method as put to the coalition. Becomes the operative description on adoption.*
-
 ---
 
 A trust framework has to be believed before it can be used, and one arrived at privately reads as a vendor's product. But a blank page burns the window rediscovering solved problems, and the Clarify phase is five Trust, Legal & Policy sessions across eleven weeks.
