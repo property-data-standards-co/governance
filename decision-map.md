@@ -83,10 +83,10 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 **Requirement trace.** R-SEMANTICS, R-EXTENSION, R-INCREMENTAL.
 
 **Options.**
-- **(a)** Adopt the PDTF 1.0 data dictionary as baseline, extended by agreement.
+- **(a)** Adopt the PDTF Schema, currently v3.6, as baseline, extended by agreement.
 - **(b)** Start from an external ontology.
 - **(c)** Start fresh from sector consultation.
-- **(d)** Adopt PDTF 1.0 plus mandatory alignment to named external vocabularies where they exist.
+- **(d)** Adopt the PDTF Schema plus mandatory alignment to named external vocabularies where they exist.
 
 
 

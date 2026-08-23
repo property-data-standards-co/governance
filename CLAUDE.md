@@ -70,7 +70,7 @@ their own organisation's name, and for the names of any partners or services the
 have a commercial relationship with. A document that could be traced to its author
 by its examples is not yet neutral.
 
-Some option text legitimately names PDTF 1.0 as a candidate vocabulary in
+Some option text legitimately names the PDTF Schema as a candidate vocabulary in
 `decision-map.md` — that is a real option in an open question, not a preference.
 
 ### The check
