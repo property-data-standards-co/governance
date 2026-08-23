@@ -79,8 +79,12 @@ Some option text legitimately names the PDTF Schema as a candidate vocabulary in
 hook (`git config core.hooksPath .githooks`, already set locally). It fails the
 commit on: a participant's name in any document, first-person advocacy,
 positioning language, a requirement identifier defined twice, a requirement trace
-citing an identifier that does not exist, a sizing table that disagrees with the
-map, or a malformed option list.
+citing an identifier that does not exist, a decision carrying no trace and no
+stated reason for having none, a sizing table that disagrees with the map, or a
+malformed option list. It warns, rather than fails, on a requirement no decision
+traces to — that is the expected state between adding a requirement and
+enumerating the decisions beneath it, and failing it would mean inventing a
+decision to satisfy a hook.
 
 Every pattern in `site/check.js` is there because that thing went wrong at least
 once. If a hit is a false positive, narrow the pattern rather than bypassing the

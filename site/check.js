@@ -93,6 +93,53 @@ function checkRequirements() {
   else pass('requirement citations resolve');
 }
 
+/* ---------- traces ---------- */
+
+/**
+ * The trace is the link between Layer 0 and everything below it, and it is
+ * load-bearing in both directions.
+ *
+ * A decision with no trace has nothing to test it against, so it is settled by
+ * whoever argues best in the room. Every decision must therefore either carry a
+ * trace or say why it has none — "No Layer 0 trace — policy", "— method". A bare
+ * dash is the thing this catches: it reads as an omission and is indistinguishable
+ * from one.
+ *
+ * Sub-decisions (a letter suffix) inherit their parent's trace. They decompose a
+ * question already tested against Layer 0, and requiring each to restate the
+ * parent's trace would produce copying rather than thought.
+ *
+ * A requirement nothing traces to is a weaker signal: it is the expected state
+ * between the coalition adding a requirement and the working group enumerating
+ * the decisions beneath it. It warns rather than fails, because failing it would
+ * mean inventing a decision to satisfy a hook.
+ */
+function checkTraces() {
+  const reqSrc = path.join(ROOT, 'requirements.md');
+  const mapSrc = path.join(ROOT, 'decision-map.md');
+  if (!fs.existsSync(reqSrc) || !fs.existsSync(mapSrc)) return;
+  const defined = [...fs.readFileSync(reqSrc, 'utf8').matchAll(/^\|\s*\*\*(R-[A-Z][A-Z-]*)\*\*\s*\|/gm)].map((m) => m[1]);
+  const map = fs.readFileSync(mapSrc, 'utf8');
+
+  const traced = (cell) => /R-[A-Z]/.test(cell) || /No Layer 0 trace/i.test(cell);
+
+  const untraced = [];
+  for (const m of map.matchAll(/^\|\s*(S\d+-\d+)([a-z]?)\s*\|[^|]*\|([^|]*)\|\s*$/gm)) {
+    if (m[2]) continue;                       // sub-decision: inherits its parent
+    if (!traced(m[3])) untraced.push(m[1]);
+  }
+  for (const m of map.matchAll(/^### (PDR-S\d+-1) —.*$([\s\S]*?)(?=^### |\Z)/gm)) {
+    const trace = m[2].match(/^\*\*Requirement trace\.\*\*(.*)$/m);
+    if (!trace || !traced(trace[1])) untraced.push(m[1]);
+  }
+  if (untraced.length) fail('every decision carries a trace or states it has none', untraced.join(', '));
+  else pass('every decision carries a trace or states it has none');
+
+  const uncited = defined.filter((id) => !new RegExp(`\\b${id}\\b`).test(map));
+  if (uncited.length) warn('every requirement is traced to', uncited.join(', ') + ' — no decision tests against it, so it is either redundant or the map has a hole');
+  else pass('every requirement is traced to');
+}
+
 /* ---------- decisions ---------- */
 
 function checkDecisions() {
@@ -141,6 +188,7 @@ function checkOptions() {
 console.log('\ngovernance record checks\n');
 checkText();
 checkRequirements();
+checkTraces();
 checkDecisions();
 checkOptions();
 console.log('');

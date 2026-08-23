@@ -15,6 +15,8 @@ This is the proposed map of everything the coalition has to decide, arranged so 
 
 **Requirement trace** appears throughout: which Layer 0 requirements the decision is tested against. This is what makes a decision arguable on the merits rather than by preference. No requirement is yet ratified, so every trace is conditional: it names what the decision *would* be tested against, and a requirement amended or rejected at Layer 0 changes what its traces mean.
 
+A decision either carries a trace or states that it has none and why. The two that state it — one policy, one method — are decisions the requirements do not reach, and marking them is not a formality: a decision with nothing to test it against is settled by argument in the room, which is what the requirement layer exists to replace. Sub-decisions inherit the trace of the question they decompose.
+
 **The option sets are not exhaustive.** They are what drafting produced, and an option nobody has thought of is not evidence that the list is complete. Adding one is the expected first act of a working group opening a decision, and options are cited by letter elsewhere, so a new option takes the next free letter at the end of the list rather than displacing what is there.
 
 Reading the map before Layer 0 closes is how the consequences of a requirement can be seen before it is ratified. A requirement is a sentence; what it commits the coalition to is a set of decisions, and those are here.
@@ -570,7 +572,7 @@ How does a requesting party demonstrate, at the point of request, that it is ent
 | S8-5 | Liability allocation and redress — who is answerable when relied-upon data is wrong? | R-LIABILITY |
 | S8-6 | Change control — how does the framework itself change after v1? | R-EXTENSION |
 | S8-7 | IP and licensing of the framework | R-PARTICIPATION |
-| S8-8 | Relationship to the reform programme and any statutory footing | — |
+| S8-8 | Relationship to the reform programme and any statutory footing | No Layer 0 trace — policy, and not the coalition's to settle |
 | S8-9 | Does the framework operator sit in the data path? | R-DATA-PATH |
 
 **S8-7 is where the licensing question belongs.** It is a property the framework must have, testable against R-PARTICIPATION, and it is separable from any view about the terms on which particular existing material is published.
@@ -583,7 +585,7 @@ How does a requesting party demonstrate, at the point of request, that it is ent
 | S9-3 | Small firm on-ramp | R-SMALL-FIRM |
 | S9-4 | Originator adoption sequence — HMLR, MHCLG, local authorities, utilities | R-PARTICIPATION |
 | S9-5 | Incentives and mandates — what conditions would make a mandate backstop necessary? | R-INCREMENTAL |
-| S9-6 | Pilot design — what must a pilot demonstrate to count as evidence? | — |
+| S9-6 | Pilot design — what must a pilot demonstrate to count as evidence? | No Layer 0 trace — method; tested against the evidence hierarchy in charter §7 |
 
 ---
 
