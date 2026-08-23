@@ -156,7 +156,7 @@ Stated openly, because the alternative is that it emerges at Layer 2 disguised a
 - **R-COPIES** rules out treating bulk synchronisation between platforms as outside the permission model, whatever is decided about whether it is permitted at all.
 - **R-CONFIDENTIALITY**, if ratified, rules out designs in which confidentiality rests solely on a holder behaving correctly — which includes most access-control-only models.
 
-If the coalition wants a different architecture than these imply, the efficient path is to contest these five here, not to argue their consequences one by one over the following six months.
+If the coalition wants a different architecture than these imply, the efficient path is to contest the requirements named above, not to argue their consequences one by one over the following six months.
 
 ---
 
