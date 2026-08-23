@@ -95,7 +95,6 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Adopt the PDTF Schema plus mandatory alignment to named external vocabularies where they exist.
 
 
-
 **Opens.** PDR-S1-2 (extension and namespacing), PDR-S1-3 (external vocabulary alignment), PDR-S1-4 (form overlay mechanism), PDR-S1-5 (versioning of the vocabulary).
 
 ---
@@ -303,6 +302,8 @@ Every decision below is open. Where one has a well-understood set of candidate a
 
 **When a decision splits.** A decision divides into sub-decisions only when it cannot be resolved in a single working session because its parts have **different requirement traces, different evidence needs, or different owners**. Otherwise it stays whole, however large it looks. On that test only PDR-S3-9 currently splits (§5.1): its parts need schema analysis, legal input and implementation evidence respectively, and no one session could take them together.
 
+**Decisions are enumerated here, not worked through.** A row states the question and what it is tested against. Options, the assessment of options against requirements, and the reasoning that favours one are the work of the group that opens the decision, and they belong in its decision record with the positions attributed. Nothing at Layer 2 is open, so nothing here should read as though it has been argued.
+
 ### S0 — Scope
 
 | PDR | Question | Trace |
@@ -356,49 +357,22 @@ Every decision below is open. Where one has a well-understood set of candidate a
 
 **S3-6 is genuinely open.** No prior work known to the coalition resolves it, and it is one of the decisions least likely to be settled by argument — the options differ in how they behave over real sequences of amendment, which is an empirical question. It is a candidate for a build round or an interop event rather than a session.
 
-**S3-3 and S3-9 are different questions and must not be run together.** *Instance granularity* is how much data one credential happens to carry; *typology* is whether the framework defines named types at all. They are independent: a framework can define `EnvironmentalCredential` as a type while leaving an issuer free to issue one instance covering the whole of it or several covering parts. Conflating them makes the typology question look like a mandate on issuer behaviour, which it need not be. S3-9 is worked through in §5.1.
+**S3-3 and S3-9 are different questions and must not be run together.** *Instance granularity* is how much data one credential happens to carry; *typology* is whether the framework defines named types at all. They are independent: a framework can define `EnvironmentalCredential` as a type while leaving an issuer free to issue one instance covering the whole of it or several covering parts. Conflating them makes the typology question look like a mandate on issuer behaviour, which it need not be.
 
-### 5.1 PDR-S3-9 — Credential typology
+### 5.1 PDR-S3-9 — sub-decisions
 
-**Question.** Does the framework define a fixed set of named credential types with their own identifiers, schemas, versions and authorisation scope — or does it define a small number of entity-level credential types whose content is delimited by the paths each instance asserts?
-
-**Requirement trace.** R-SEMANTICS, R-EXTENSION (extend without coordinated upgrade), R-LIABILITY (liability attaches to an identifiable entity), R-INDEPENDENCE (independent verifiability of what an issuer was entitled to say).
-
-**Options.**
-- **(a)** A fixed set of named credential types — for example decomposed along the top-level properties of the property-pack schema, each separately versioned and separately authorisable.
-- **(b)** A small number of entity-level types whose scope is delimited by the paths each instance asserts.
-- **(c)** A named typology with a generic catch-all retained for data not yet covered.
-
-#### Why this decision is hard
-
-A fixed typology is a **coordination cost**, and it is in tension with **R-EXTENSION**: adding a new data category now requires a new type to be defined and agreed, where path-delimited assertion needed no coordination at all. Two mitigations, both of which need deciding:
-
-- Types are **additive** — a new type never invalidates existing credentials.
-- A **generic `PropertyCredential`** is retained as a catch-all for data not yet covered by a named type, so a new data category can be carried immediately and typed later.
-
-Whether to retain the catch-all is itself contested: it is the safety valve for R-EXTENSION, and it is also the loophole through which the typology gets ignored.
-
-#### Open sub-decisions
+The only decision in the map that currently splits, on the rule in §5. Its parts are enumerated because the sizing in §7 counts them; the question itself sits in the S3 table above.
 
 | # | Question | Note |
 |---|---|---|
-| S3-9a | **What is the decomposition axis?** | One candidate is the top-level schema properties. Alternatives that cut differently: by authoritative source, by refresh cadence, by confidentiality/PII class, by consumer need. The *authority* axis matters most for S4 — if any single type spans two authorities, type-level authorisation breaks down for that type and must fall back to paths. This should be tested property by property. |
-| S3-9b | **How many types, and do they nest?** | Is there a supertype (`PropertyCredential`) with subtypes, or only leaves? Nesting helps composition and query; flat is simpler to authorise. |
-| S3-9c | **Is the typology binding or advisory?** | MUST an issuer use the defined type for data falling within it, or MAY it? Binding gives authorisation its teeth; advisory preserves R-EXTENSION. |
-| S3-9d | **Versioning semantics.** | What constitutes a breaking change to a type? Verifiers MUST accept multiple concurrent versions — credentials outlive schema revisions — so the rule needs stating, not assuming. |
-| S3-9e | **Facts that span types.** | Boundary disputes, rights of way, flying freeholds. The same edge cases as the Property/Title seam (S2-7), now at finer grain and therefore more numerous. |
-| S3-9f | **Composition invariance.** | Composing the entity graph MUST yield the same property state regardless of how many credentials carried the data. This is a testable invariant and belongs in the conformance suite. |
-| S3-9g | **Catch-all type.** | Retain a generic `PropertyCredential` for uncovered data, or require a named type for everything? See the cost above. |
-| S3-9h | **Migration.** | What happens to credentials already issued as undifferentiated `PropertyCredential`? |
-
-#### Dependencies
-
-- **S3-2 (securing mechanism)** — SD-JWT-VC gives each type a `vct` and Type Metadata, so typology and versioning come almost free. A different securing mechanism still supports typology but needs another carrier for type identity and version. These interact; S3-2 should resolve first or alongside.
-- **S1 (vocabulary)** — the decomposition axis is defined in terms of the schema's top-level properties, so it depends on the vocabulary decision. If the coalition adopts a pluralist position on S1 (multiple vocabularies mapping in), the typology must be expressible for each, or defined at the conformance layer above them.
-- **S4-3 (authorisation granularity)** — the synthesis above. These should be taken together.
-- **S7-5 (supersession)** — per-type versioning changes what "supersedes" means.
-
-**Recommended handling.** This is a good early candidate for the Develop phase: it is well-formed, the requirement trace is clear, and the sub-decisions are tractable.
+| S3-9a | **What is the decomposition axis?** | Candidates cut differently: by the schema's top-level properties, by authoritative source, by refresh cadence, by confidentiality class, by consumer need. The authority axis bears on S4 — a type spanning two authorities cannot be authorised at type level and falls back to paths. |
+| S3-9b | **How many types, and do they nest?** | A supertype with subtypes, or only leaves. Nesting helps composition and query; flat is simpler to authorise. |
+| S3-9c | **Is the typology binding or advisory?** | MUST an issuer use the defined type for data falling within it, or MAY it? |
+| S3-9d | **Versioning semantics.** | What constitutes a breaking change to a type, given that credentials outlive schema revisions and verifiers must accept concurrent versions. |
+| S3-9e | **Facts that span types.** | Boundary disputes, rights of way, flying freeholds — the Property/Title seam of S2-7 at finer grain. |
+| S3-9f | **Composition invariance.** | Whether composing the entity graph must yield the same state regardless of how many credentials carried the data, and whether that belongs in the conformance suite. |
+| S3-9g | **Catch-all type.** | Retain a generic type for uncovered data, or require a named type for everything. |
+| S3-9h | **Migration.** | What happens to credentials already issued as an undifferentiated type. |
 
 ### S4 — Authority & trust
 
@@ -417,33 +391,6 @@ Whether to retain the catch-all is itself contested: it is the safety valve for 
 **S4-7 and S4-9 bear on adoption rather than architecture**, and both are commonly settled late by default. S4-7 determines whether the framework permits competition for the same data or confers exclusivity, which R-PARTICIPATION constrains. S4-9 determines whether a small firm can participate at all, which R-SMALL-FIRM constrains — and a framework that satisfies every other requirement while failing this one will not be adopted.
 
 ---
-
-### 5.2 PDR-S4-10 — Representation of externally-established authority
-Where authority originates outside the framework — in statute, or in professional regulation — how is it expressed so that a verifier can check it, and how current must that expression be?
-
-**The problem this decision exists to solve.** Deciding that authority comes from statute for designated sources and from regulation for licensed professionals settles where authority *comes from*. It puts nothing on the wire. An Act of Parliament is not a signed artefact and has no key. A professional register is generally a website with a lookup, not a credential, and usually offers no way to verify an entry offline or to prove what it said last Tuesday. Something has to translate the external fact into a checkable form, and that translation is an assertion made by somebody who can be wrong.
-
-**There is also a gap between the two statements.** A regulator certifies that a firm is licensed to practise. It does not certify that the firm is authoritative for a particular class of assertion. Mapping "regulated conveyancer" onto "may assert these facts" is an act of judgement, and it has to be made explicitly and published by someone — it does not fall out of the regulatory status. Where that mapping lives, and who maintains it, is the substance of this decision and interacts directly with S4-3.
-
-- **(a) Mirrored with citation.** A trust anchor publishes signed statements of authority, each citing the external instrument or register entry it derives from. Cryptographic trust rests in the anchor; legal trust rests in the citation, and the two are distinguishable by a relying party.
-- **(b) Live lookup.** The verifier queries the external register at verification time. Always current, and introduces an availability dependency on a party outside the framework, with no offline path.
-- **(c) Source issues directly.** The regulator or statutory body operates as an issuer and signs its own authority statements. Best fidelity, and depends entirely on those bodies choosing to do it.
-- **(d) Signed periodic list.** A versioned, signed snapshot distributed on a published cadence, verifiable offline, stale by up to one cadence interval.
-- **(e) Not represented.** Each verifier establishes external authority however it wishes.
-
-**Requirement consequences.**
-
-(e) fails R-AUTHORITY directly: the basis and currency of authority become unrecoverable from anything on the wire, and every verifier solves the same problem separately, which also cuts against R-SMALL-FIRM.
-
-(b) satisfies currency and is in tension with R-DATA-PATH — an external register that must be reachable for verification to succeed is a dependency in the path, even though it is not the framework's own. It also makes verification of historical assertions impossible if the register does not answer as-of questions.
-
-(c) is the strongest on fidelity and the weakest on timetable, since it requires bodies outside the coalition to change what they publish. It is worth pursuing for the sources where the volume justifies it, and it will not be available for all of them at once — which means (a) or (d) is needed regardless, at least as a transition.
-
-(a) and (d) differ mainly in staleness tolerance, and that is the question to put: **how long may a verifier rely on an authority statement after the underlying status has changed?** A firm struck off on Monday should not be issuing on Tuesday, and this is R-WITHDRAWAL applied to authority rather than to facts. The answer probably differs by class — statutory designation changes on a timescale of years, professional registration on a timescale of days.
-
-**Note on the anchor's role under (a).** Deriving authority rather than conferring it is a materially different position for whoever operates the anchor: the statement becomes "this body is authoritative, and here is the instrument that makes it so" rather than "this body is authoritative because we say so". That is easier to defend against the objection that the framework creates a new gatekeeper, and it is harder to operate, because someone must read the instruments correctly and keep the derivation current. Whether that is a governance function or a clerical one belongs in S8.
-
-**Dependencies.** Follows PDR-S4-1: what must be represented depends on where authority comes from. Option (c) additionally depends on bodies outside the coalition choosing to issue, which is not the coalition's to schedule.
 
 ### S5 — Exchange
 
@@ -474,82 +421,6 @@ Where authority originates outside the framework — in statute, or in professio
 | S6-10 | Entitlement demonstration — how does a requesting party show it is entitled to a fact at the point of request? | R-ENTITLEMENT, R-ABSENCE, R-PARTICIPATION |
 
 **Commission S6-4 and S6-8 first.** They are the longest-lead items in the whole tree, they cannot be compressed by adding people, and several S5 and S6 decisions are unsafe to close until they land.
-
-### 5.3 PDR-S5-9 — Replication
-
-**Question.** May a participating system hold a copy of transaction state that it did not individually request, and if so under what conditions?
-
-**Requirement trace.** R-COPIES, R-CONFIDENTIALITY, R-MINIMISATION, R-DATA-PATH, R-ENTITLEMENT.
-
-**Options.**
-- **(a)** No replication. Every fact is obtained by request at the point it is needed, and no system holds data about a transaction it is not a party to.
-- **(b)** Caching only. Copies are permitted but must be discarded on a stated schedule and may not be read after the requesting party's involvement ends.
-- **(c)** Open replication between accredited systems. Participating platforms synchronise full transaction state, and entitlement is enforced when a person or firm reads, not when a system receives.
-- **(d)** Replication of readable data, restricted facts excluded. Systems synchronise everything they are entitled to hold in clear, and restricted facts move only by request.
-- **(e)** Replication with confidentiality enforced on the data. Systems synchronise everything, including restricted facts, which remain encrypted to the parties entitled to them — so a holder can carry a fact it cannot read.
-- **(f)** Unspecified. Replication is a bilateral matter between platforms, outside the framework.
-
-**Why this matters more than it appears.** Under request-and-response, the permission model has a natural enforcement point: a party asks, and the holder decides. Under replication there is no such moment — the receiving system already has the data, and any control is retrospective. Whichever option is taken, R-COPIES means the rules cannot be escaped by choosing replication; the question is what those rules permit.
-
-**Note on (e).** Options (c) and (e) differ in whether a platform can read what it stores, and that difference is what determines whether replication can satisfy R-MINIMISATION at all. A system holding facts it cannot decrypt is in a materially different position under data protection law from one holding them in clear, and that is a question for the S6-4 controllership opinion rather than for this decision — but it should be asked of both together, because the answer determines whether (c) is available.
-
-**Dependencies.** Interacts with PDR-S6-4 and PDR-S6-8, as above. Option (e) depends on PDR-S6-5 for the encryption model and on PDR-S6-10 for who holds keys. (f) is in tension with R-COPIES and should be argued explicitly rather than arrived at by leaving the question open.
-
-### 5.4 PDR-S5-10 — Subject discovery
-
-**Question.** Given a subject identifier, how does a party locate the systems currently holding facts about it?
-
-**Requirement trace.** R-DISCOVERY, R-CONTROLLER, R-ENTITLEMENT, R-IDENTIFIERS.
-
-**Options.**
-- **(a)** Service endpoints published in the subject's own identifier document, resolved by whoever holds the identifier.
-- **(b)** A central register mapping subjects to current holders, queried at need.
-- **(c)** Federation metadata — holders publish what subjects they serve, discovered by traversing the trust structure.
-- **(d)** Well-known endpoint per participating system, with a query broadcast to accredited holders.
-- **(e)** Out of band. Parties are told where the data is when they are instructed, as they are today.
-
-**The circularity to resolve.** Discovery leaks. A mechanism that tells any enquirer which systems hold data about a property also tells them the property is in a transaction, which is information about the seller that nobody chose to publish (R-CONTROLLER, R-ENTITLEMENT). Restricting discovery to authorised parties creates the opposite problem: a party may need to find the data before it can demonstrate entitlement to it. Any workable answer resolves that circularity rather than choosing one horn of it — for example by making discovery reveal only that a holder exists rather than what it holds, or by pairing an unauthenticated discovery step with an authenticated one.
-
-**Note on (e).** This is the present state of the market and it satisfies nothing: it makes reuse contingent on already knowing who to ask, which is the condition R-DISCOVERY exists to remove. It is listed because it is the default that obtains if the decision is not taken.
-
-**Dependencies.** Option (a) depends on PDR-S2-1 and on the identifier decisions beneath it. Option (c) depends on PDR-S4-1. Option (b) faces the same R-PARTICIPATION and R-DATA-PATH arguments as any central register and should be tested against them rather than assumed to fail.
-
-### 5.5 PDR-S6-9 — Disclosure classification
-What is the taxonomy of disclosure character, who assigns it, and does it travel with the fact?
-
-- **(a) Issuer-declared against a published taxonomy.** The party asserting the fact states its class from a fixed list.
-- **(b) Derived from the vocabulary.** Class is a property of the path a fact occupies, fixed centrally when the vocabulary is versioned, and not the issuer's to choose.
-- **(c) Derived from the source.** Class follows from where the fact came from — an authoritative public register, a subject-authored disclosure, or a regulated check — rather than being separately declared.
-- **(d) Relying-party need, matched against a published schedule.** No class on the fact; instead a published schedule of which roles may obtain which categories, evaluated at request time.
-- **(e) No classification.** Access policy expressed per assertion, as in S6-2, with no shared taxonomy above it.
-
-**Dependencies.** Interacts with PDR-S6-4 and PDR-S6-8: a taxonomy whose classes cut across the controllership and lawful-basis positions creates facts whose class says one thing and whose basis says another. The taxonomy can be agreed before those opinions land, but should be validated against them before it is treated as settled.
-
-### 5.6 PDR-S6-10 — Entitlement demonstration
-How does a requesting party demonstrate, at the point of request, that it is entitled to a fact?
-
-- **(a) Platform-enforced.** The holder knows who the parties are because they hold accounts with it, and entitlement is membership of the matter. Works today; does not survive the request crossing a platform boundary, and asks the requester to trust the platform's account model (R-INDEPENDENCE, R-PARTICIPATION).
-- **(b) Relationship credential from an accredited issuer.** The requester presents a signed assertion of its relationship to the transaction, issued by a party accredited to make such assertions. Verification is of the signature and the issuer's authority, not a live entitlement query.
-- **(c) Subject-issued capability.** The data subject signs a delegation to a named party for a defined scope at the point of instructing them, and the requester presents that. Authority chains to the person rather than to any platform.
-- **(d) Counterparty-asserted relationship.** The relationship is asserted by the other party to it — a seller asserts that a firm represents them. Structurally close to (c), but the liability for a false assertion sits differently.
-- **(e) Accreditation plus transaction reference.** The requester proves it is a regulated firm of the relevant kind and supplies a reference for the matter. No per-transaction credential is minted at all.
-- **(f) Registry query at request time.** The holder asks a service whether the requester is entitled.
-- **(g) Subject presents.** Nothing is disclosed except by the data subject presenting it.
-- **(h) Cryptographic enforcement.** Facts are encrypted so that only parties holding particular attributes can decrypt, with no request-time check.
-- **(i) Negotiated usage policy.** Requester and holder agree machine-readable terms before transfer, as in the European data-space connector pattern.
-
-**These are not mutually exclusive, and the decision may be which combination.** If S6-9 establishes classes, different mechanisms can apply to each: no check at all over facts that are already public (R-PUBLIC), a lighter mechanism for facts disclosed in order to be disclosed, and a stronger one for restricted facts. A single mechanism applied uniformly will be over-engineered at one end and inadequate at the other.
-
-**Requirement notes, option by option, since several are decided before the argument starts.**
-
-(g) fails R-ABSENCE — a transaction cannot stall on the subject being available at each request. (f) is in direct tension with R-DATA-PATH and fails R-PARTICIPATION's test if the service can refuse a conformant participant; the counter-argument is that consulting a registry about *authority* is different from routing *data* through it, which is a distinction the coalition should settle explicitly rather than assume. (h) satisfies R-DATA-PATH completely and fails R-SMALL-FIRM hard, and its revocation story is the weakest of the set — but it should be tested rather than dismissed, because it is the only option requiring no request-time infrastructure at all. (a) is the status quo and its failure mode is precisely what the framework exists to fix, which is a reason to state it fairly rather than omit it.
-
-(b), (c), (d) and (e) all survive first contact with the requirements, and the argument between them is the substance of this decision. The questions that separate them: who is liable for a false relationship assertion (R-LIABILITY); whether authority must chain to the data subject or may originate with an accredited third party (R-INDEPENDENCE); whether a party changing mid-transaction invalidates what was issued (R-WITHDRAWAL); and whether the mechanism works for a party who was not anticipated when the relationship was established (R-REUSE).
-
-
-**Dependency.** (b) cannot resolve before S4-1: if relationship assertions are themselves issued under authority, the source of that authority is the locus-of-trust decision, and settling S6-10 first would decide S4-1 by implication.
-
-**Dependencies.** Cannot resolve before PDR-S4-1. If entitlement is demonstrated by presenting an assertion issued under authority, the source of that authority is decided there, and settling this decision first would decide PDR-S4-1 by implication. Options (b) to (e) also depend on PDR-S6-8 for whether a presented credential constitutes a lawful basis for disclosure.
 
 ### S7 — Lifecycle
 
@@ -627,6 +498,9 @@ Known cross-strand couplings to declare in advance rather than discover:
 - S3-9 (credential typology) ↔ S1 (vocabulary) — the decomposition axis is defined against the schema's top-level properties. If S1 resolves pluralist, the typology must be expressible across vocabularies or defined at the conformance layer above them.
 - S2-4 (relationships as assertions) ↔ S6-1 (access model) — if relationships are not verifiable assertions, the graph-derived access model is unavailable and S6 falls back to a central access-control service.
 - S4-3 (path-level authorisation) ↔ S1-1 (vocabulary) — path-level authorisation is only meaningful against a stable shared vocabulary. S1 must be at least provisionally settled before S4-3 can resolve.
+- S3-9 (credential typology) ↔ S3-2 (securing mechanism) — type identity and version have to be carried by whatever secures the credential, so a securing mechanism that does not carry them needs another mechanism that does.
+- S3-9 (credential typology) ↔ S7-5 (supersession) — per-type versioning changes what supersession means.
+- S5-9 (replication) ↔ S6-4 (controller/processor mapping) — whether a system holding a copy it cannot read is a controller determines what replication options remain available.
 - S6-4 (controller/processor mapping) ↔ almost everything in S5 and S6 — commission the data protection analysis early; it is a long-lead item and a wrong answer invalidates decisions downstream.
 
 ---
