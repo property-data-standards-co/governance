@@ -50,8 +50,6 @@ Four tests. They are offered as the working group's own quality bar, to be appli
 
 Twenty-five, grouped by theme. Each is intended to be ratified, amended or rejected on its own.
 
-**Requirement identifiers are names, not positions.** Each requirement carries a mnemonic identifier allocated once, on addition, and never changed or reused. It is a name rather than a description: where a requirement is amended in session, the wording changes and the identifier does not, even if that leaves the name a poor summary of what it now says. Identifiers are cited by every requirement trace in the decision map, the options paper and each decision record, so a requirement can be added or rejected without disturbing anything that cites its neighbours — there is no sequence to break and no gap to explain. The build checks that every identifier is defined once and that every identifier cited anywhere resolves to a requirement in this document.
-
 ### Findability and identity
 
 | ID | Requirement | Test |
@@ -209,7 +207,7 @@ Each requirement takes one of four dispositions, recorded with its reasoning:
 | **Rejected** | Not adopted. Recorded with the objection, so it is not silently reintroduced later. |
 | **Deferred** | Held, with a named owner and a stated test for what would settle it. Deferral is a legitimate outcome and should not be treated as failure. |
 
-**Additions are expected.** The set below is a starting draft, not a proposal for closure. A requirement the coalition adds is worth more than one it accepts.
+**Additions are expected.** The set above is a starting draft, not a proposal for closure. A requirement the coalition adds is worth more than one it accepts. An added requirement takes a new identifier; an amended one keeps the identifier it had, since the identifier is a name cited by every requirement trace rather than a description of the current wording.
 
 **On sustained objection.** An objection that a requirement is not falsifiable, is technology-specific, or cannot be traced to the purpose statement goes to the substance and blocks ratification until answered. An objection that a requirement is inconvenient for a particular participant's roadmap is recorded but does not block. The distinction should be agreed before the first reading, not litigated during it.
 

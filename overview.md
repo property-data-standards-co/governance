@@ -43,7 +43,7 @@ Four closing dispositions — resolved, provisional, referred on a full record, 
 
 ## Structure tabled, content open
 
-The requirements and the decision map were tabled as drafts, by participants with production deployment experience, expressly so the coalition could take them apart. Eleven weeks and five sessions would not produce a falsifiable requirement set and a ten-strand decision map by facilitation, and the attempt would consume the calendar the decisions themselves need. A draft that gets torn apart is faster than a blank flipchart and produces a better artefact, because the argument starts at the second version.
+The requirements and the decision map were tabled as drafts, expressly so the coalition could take them apart. Eleven weeks and five sessions would not produce a falsifiable requirement set and a ten-strand decision map by facilitation, and the attempt would consume the calendar the decisions themselves need.
 
 The answers are a different matter. No participant's prior work enters as a baseline. It enters decision by decision, with its weaknesses stated, as evidence weighed against ratified requirements like anything else. If the coalition ratifies requirements that some existing implementation fails, that implementation loses. That is what makes the output endorsable rather than merely agreed, and it is the condition the whole method rests on.
 
