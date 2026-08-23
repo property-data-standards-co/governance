@@ -119,23 +119,16 @@ function checkDecisions() {
   }
 }
 
-/** Requirement numbers are identifiers, not an ordering. Verify none has been lost. */
+/** Requirement identifiers are names allocated once. Report the set, and any defined twice. */
 function checkRequirements() {
   const src = path.join(ROOT, 'requirements.md');
   if (!fs.existsSync(src)) return;
-  const nums = [...fs.readFileSync(src, 'utf8').matchAll(/^\|\s*\*\*R(\d+)\*\*\s*\|/gm)]
-    .map((m) => Number(m[1]))
-    .sort((a, b) => a - b);
-  if (!nums.length) { console.warn('  ! requirements: none found'); return; }
-  const highest = nums[nums.length - 1];
-  const dupes = nums.filter((n, i) => nums[i - 1] === n);
-  const gaps = [];
-  for (let i = 1; i <= highest; i++) if (!nums.includes(i)) gaps.push('R' + i);
-  const notes = [];
-  if (gaps.length) notes.push('MISSING ' + gaps.join(', '));
-  if (dupes.length) notes.push('DUPLICATE R' + dupes.join(', R'));
-  console.log('  reqs     ' + nums.length + ' requirements, R1-R' + highest +
-    (notes.length ? '  ** ' + notes.join(' \u00b7 ') + ' **' : '  (contiguous)'));
+  const ids = [...fs.readFileSync(src, 'utf8').matchAll(/^\|\s*\*\*(R-[A-Z][A-Z-]*)\*\*\s*\|/gm)].map((m) => m[1]);
+  if (!ids.length) { console.warn('  ! requirements: none found'); return; }
+  const seen = new Set();
+  const dupes = [...new Set(ids.filter((id) => (seen.has(id) ? true : (seen.add(id), false))))];
+  console.log('  reqs     ' + ids.length + ' requirements' +
+    (dupes.length ? '  ** DUPLICATE ' + dupes.join(', ') + ' **' : ''));
 }
 
 /* ---------- inputs ---------- */

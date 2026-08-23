@@ -67,15 +67,30 @@ function checkText() {
 function checkRequirements() {
   const src = path.join(ROOT, 'requirements.md');
   if (!fs.existsSync(src)) return warn('requirements present', 'requirements.md not found');
-  const nums = [...fs.readFileSync(src, 'utf8').matchAll(/^\|\s*\*\*R(\d+)\*\*\s*\|/gm)].map((m) => Number(m[1])).sort((a, b) => a - b);
-  if (!nums.length) return fail('requirements parse', 'no requirement rows matched');
-  const highest = nums[nums.length - 1];
-  const gaps = [];
-  for (let i = 1; i <= highest; i++) if (!nums.includes(i)) gaps.push('R' + i);
-  const dupes = nums.filter((n, i) => nums[i - 1] === n);
-  if (gaps.length || dupes.length) {
-    fail('requirements contiguous', [gaps.length ? 'missing ' + gaps.join(', ') : '', dupes.length ? 'duplicate R' + dupes.join(', R') : ''].filter(Boolean).join('; '));
-  } else pass('requirements contiguous', `${nums.length}, R1-R${highest}`);
+  const md = fs.readFileSync(src, 'utf8');
+
+  // Defined by a table row in requirements.md. Nothing else defines a requirement.
+  const defined = [...md.matchAll(/^\|\s*\*\*(R-[A-Z][A-Z-]*)\*\*\s*\|/gm)].map((m) => m[1]);
+  if (!defined.length) return fail('requirements parse', 'no requirement rows matched');
+
+  const seen = new Set();
+  const dupes = defined.filter((id) => (seen.has(id) ? true : (seen.add(id), false)));
+  if (dupes.length) fail('requirement identifiers unique', 'defined twice: ' + [...new Set(dupes)].join(', '));
+  else pass('requirement identifiers unique', `${defined.length} requirements`);
+
+  // Every identifier cited anywhere must resolve to one of those rows. This is what
+  // makes identifiers safe to add and drop: a trace citing a requirement that no
+  // longer exists is caught here rather than read past in session.
+  const unresolved = [];
+  for (const { file, lines } of corpus()) {
+    lines.forEach((line, i) => {
+      for (const m of line.matchAll(/\bR-[A-Z][A-Z-]*\b/g)) {
+        if (!seen.has(m[0])) unresolved.push(`${file}:${i + 1}  ${m[0]}`);
+      }
+    });
+  }
+  if (unresolved.length) fail('requirement citations resolve', [...new Set(unresolved)].join('\n        '));
+  else pass('requirement citations resolve');
 }
 
 /* ---------- decisions ---------- */
