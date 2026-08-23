@@ -4,8 +4,9 @@
   "private": true,
   "description": "Governance record for the property trust framework: charter, requirements, decision map and decision records.",
   "scripts": {
-    "build": "node site/build.js",
-    "serve": "npm run build && python3 -m http.server 8080 --directory _site"
+    "build": "node site/check.js && node site/build.js",
+    "serve": "npm run build && python3 -m http.server 8080 --directory _site",
+    "check": "node site/check.js"
   },
   "dependencies": {
     "marked": "^12.0.0"

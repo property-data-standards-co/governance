@@ -1,0 +1,4 @@
+#!/bin/sh
+# Governance record integrity gate. Enable with:
+#   git config core.hooksPath .githooks
+exec node site/check.js

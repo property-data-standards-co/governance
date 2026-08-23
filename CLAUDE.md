@@ -73,23 +73,28 @@ by its examples is not yet neutral.
 Some option text legitimately names PDTF 1.0 as a candidate vocabulary in
 `decision-map.md` — that is a real option in an open question, not a preference.
 
-### The check that actually works
+### The check
 
-Pattern matching does not find advocacy. It has been found here three times, and
-on each occasion keyword sweeps came back clean while the problem sat in plain
-prose. Advocacy lives in commentary blocks, not in detectable phrases.
+`npm run check` is the gate. It runs on every build, in CI, and as a pre-commit
+hook (`git config core.hooksPath .githooks`, already set locally). It fails the
+commit on: a participant's name in any document, first-person advocacy,
+positioning language, a gap in the requirement numbering, a sizing table that
+disagrees with the map, or a malformed option list.
 
-The reliable check is structural. Enumerate every commentary block in a document
-and read them:
+Every pattern in `site/check.js` is there because that thing went wrong at least
+once. If a hit is a false positive, narrow the pattern rather than bypassing the
+hook — the pattern is the record.
+
+Pattern matching alone does not find advocacy, and did not on the three occasions
+it was found here. The complement is structural: enumerate every commentary block
+and read them.
 
 ```
 grep -oE '^\*\*[A-Z][^.*]{2,75}\.?\*\*' decision-map.md | sort | uniq -c | sort -rn
 ```
 
 Anything that is not `Question`, `Options`, `Requirement trace` or `Opens` is
-commentary, and commentary is where it hides. There are around seventy-five such
-blocks in the decision map; reading them takes a few minutes and is the only
-method that has worked.
+commentary, and commentary is where it hides.
 
 ### The tell
 
