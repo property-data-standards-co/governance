@@ -13,7 +13,11 @@ Offered for the coalition to use, amend or issue as its own. This is the Layer 1
 
 This is the proposed map of everything the coalition has to decide, arranged so that each decision is genuinely open, each is testable against agreed requirements, and each opens a known set of sub-decisions beneath it.
 
-**Requirement trace** appears throughout: which Layer 0 requirements the decision is tested against. This is what makes a decision arguable on the merits rather than by preference.
+**Requirement trace** appears throughout: which Layer 0 requirements the decision is tested against. This is what makes a decision arguable on the merits rather than by preference. No requirement is yet ratified, so every trace is conditional: it names what the decision *would* be tested against, and a requirement amended or rejected at Layer 0 changes what its traces mean.
+
+**The option sets are not exhaustive.** They are what drafting produced, and an option nobody has thought of is not evidence that the list is complete. Adding one is the expected first act of a working group opening a decision, and options are cited by letter elsewhere, so a new option takes the next free letter at the end of the list rather than displacing what is there.
+
+Reading the map before Layer 0 closes is how the consequences of a requirement can be seen before it is ratified. A requirement is a sentence; what it commits the coalition to is a set of decisions, and those are here.
 
 Decision identifiers use `PDR-{strand}-{n}`.
 
@@ -660,6 +664,21 @@ A one-month Develop can close the ~45 argument-settled decisions if everything e
 
 **That is the argument for the four-month option, and it is made by the map rather than by assertion.** It is also the reason to publish the tree in September rather than argue the point in October.
 
+### The count is a floor
+
+Requirements have been added three times since the tree was first sized, and each time the tree grew:
+
+| Requirements | Layer 2 | Total | Strands | Roots |
+|---|---|---|---|---|
+| 17 | 68 | 85 | 10 | 10 |
+| 21 | 70 | 87 | 10 | 10 |
+| 22 | 71 | 88 | 10 | 10 |
+| 25 | 73 | 91 | 10 | 10 |
+
+Eight requirements added five Layer 2 decisions — roughly two decisions for every three requirements — and left the strands and the root decisions untouched every time. That is the expected shape: strands come from the domain, and requirements add work inside them.
+
+Ratification is expected to add requirements, since a requirement the coalition adds is worth more than one it accepts. So **91 is a floor rather than an estimate**, and a Develop duration set against it is being set against the smallest tree the coalition is likely to have.
+
 ### What is not yet enumerated
 
 Stated plainly, because a map claiming completeness it does not have is worse than an honest one:
@@ -672,10 +691,12 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 ## 8. What this map is for
 
-Three uses, in the order they arise.
+Four uses, in the order they arise.
 
 **Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 91 decisions carry a dependency no sprint cadence will shorten.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 
 **Making the programme visible.** Publishing the whole tree before any of it is taken means nothing arrives as a surprise, and the coalition can see what it has taken on. That is worth more than any individual answer in it.
+
+**Reading the consequences of a requirement before ratifying it.** This is why the map is published while Layer 0 is still open rather than after it closes. A requirement is one sentence and its consequences are dozens of decisions; ratifying it on the sentence alone means discovering the consequences one at a time over the following months, at the point where each is expensive to revisit. Following a requirement's traces through the map shows what agreeing to it commits the coalition to, while the requirement can still be amended or rejected. It also shows the reverse: a requirement rejected at Layer 0 leaves the decisions it was the sole trace for standing with nothing to test them against, and those have to be re-traced or withdrawn deliberately rather than argued on preference.

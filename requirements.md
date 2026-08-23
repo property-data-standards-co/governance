@@ -142,17 +142,17 @@ Applying a single consent gate across all of these produces consent theatre over
 
 ## 5. Which of these are architecturally determinative
 
-Stated openly, because the alternative is that it emerges at Layer 2 disguised as a technical objection.
+Stated openly, because the alternative is that it emerges at Layer 2 disguised as a technical objection. Every consequence below is conditional on ratification: none of these requirements is agreed, and until one is, the designs it would exclude remain available and are enumerated as live options in the decision map. That is why the map can be read before Layer 0 closes — it is where the consequences of ratifying any of these can be seen in full, decision by decision, before the vote that makes them binding.
 
-- **R-INDEPENDENCE**, if ratified, rules out any design in which trust in a fact reduces to trust in the platform serving it.
-- **R-DATA-PATH and R-PARTICIPATION together** rule out a central hub or registry through which data must flow.
-- **R-REUSE** rules out a purely transaction-scoped data model, because a transaction-scoped document cannot outlive its transaction.
-- **R-SUBJECT** pushes hard toward subjects — properties, titles, people — rather than documents.
-- **R-SMALL-FIRM** forces an honest answer about hosted keys, custodial signing and intermediary-mediated participation, and constrains the purest cryptographic designs.
-- **R-PUBLIC and R-ABSENCE together** rule out any design in which every disclosure is gated on an act by the data subject — R-PUBLIC because the gate adds nothing over public facts, R-ABSENCE because the subject cannot be relied upon to perform it. They do not say what replaces that gate.
-- **R-ENTITLEMENT** rules out access determined solely by role or by membership of the transaction, since both make entitlement follow from participation rather than from need.
-- **R-COPIES** rules out treating bulk synchronisation between platforms as outside the permission model, whatever is decided about whether it is permitted at all.
-- **R-CONFIDENTIALITY**, if ratified, rules out designs in which confidentiality rests solely on a holder behaving correctly — which includes most access-control-only models.
+- **R-INDEPENDENCE** would rule out any design in which trust in a fact reduces to trust in the platform serving it.
+- **R-DATA-PATH and R-PARTICIPATION together** would rule out a central hub or registry through which data must flow.
+- **R-REUSE** would rule out a purely transaction-scoped data model, because a transaction-scoped document cannot outlive its transaction.
+- **R-SUBJECT** would push hard toward subjects — properties, titles, people — rather than documents.
+- **R-SMALL-FIRM** would force an honest answer about hosted keys, custodial signing and intermediary-mediated participation, and would constrain the purest cryptographic designs.
+- **R-PUBLIC and R-ABSENCE together** would rule out any design in which every disclosure is gated on an act by the data subject — R-PUBLIC because the gate adds nothing over public facts, R-ABSENCE because the subject cannot be relied upon to perform it. They do not say what replaces that gate.
+- **R-ENTITLEMENT** would rule out access determined solely by role or by membership of the transaction, since both make entitlement follow from participation rather than from need.
+- **R-COPIES** would rule out treating bulk synchronisation between platforms as outside the permission model, whatever is decided about whether it is permitted at all.
+- **R-CONFIDENTIALITY** would rule out designs in which confidentiality rests solely on a holder behaving correctly — which includes most access-control-only models.
 
 If the coalition wants a different architecture than these imply, the efficient path is to contest the requirements named above, not to argue their consequences one by one over the following six months.
 
@@ -204,10 +204,14 @@ Each requirement takes one of four dispositions, recorded with its reasoning:
 |---|---|
 | **Ratified** | Adopted as written. Everything downstream is testable against it. |
 | **Amended** | Adopted with changed wording. The change and its reason are recorded. |
-| **Rejected** | Not adopted. Recorded with the objection, so it is not silently reintroduced later. |
+| **Rejected** | Not adopted. Recorded with the objection, so it is not silently reintroduced later, and the decisions it was the sole trace for are re-traced or withdrawn. |
 | **Deferred** | Held, with a named owner and a stated test for what would settle it. Deferral is a legitimate outcome and should not be treated as failure. |
 
 **Additions are expected.** The set above is a starting draft, not a proposal for closure. A requirement the coalition adds is worth more than one it accepts. An added requirement takes a new identifier; an amended one keeps the identifier it had, since the identifier is a name cited by every requirement trace rather than a description of the current wording.
+
+**Rejection and amendment reach into the decision map.** Most decisions in the map are tested against more than one requirement, but a little over half of the Layer 2 decisions cite exactly one, and around two-thirds of the requirements here are the sole trace for at least one decision. None is uncited. Rejecting a requirement therefore leaves decisions standing with nothing to test them against — which does not make them go away, because the framework still has to decide vocabulary versioning or status mechanics whatever Layer 0 says. What it removes is the claim that the decision is being argued against something the coalition agreed, and a decision with no trace is decided on preference, which is the failure this layer exists to prevent.
+
+So a rejection is not complete when it is minuted. The decisions whose sole trace it was are listed, and each is either re-traced to a requirement that survives or withdrawn from the map, on the record. The same applies in weaker form to amendment: a requirement whose wording changes materially should have its traces re-read rather than assumed to still hold.
 
 **On sustained objection.** An objection that a requirement is not falsifiable, is technology-specific, or cannot be traced to the purpose statement goes to the substance and blocks ratification until answered. An objection that a requirement is inconvenient for a particular participant's roadmap is recorded but does not block. The distinction should be agreed before the first reading, not litigated during it.
 
