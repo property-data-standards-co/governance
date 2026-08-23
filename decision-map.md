@@ -23,9 +23,9 @@ Decision identifiers use `PDR-{strand}-{n}`.
 
 Everything below descends from the requirements, and they are not reproduced here.
 They live in [requirements.md](requirements.md), which is the single place they are
-maintained: the purpose statement, twenty-two candidate requirements each with an
-explicit test, which of them are architecturally determinative, the tensions between
-them, and the candidates considered and not proposed.
+maintained: the purpose statement, the candidate requirements each with an explicit
+test, which of them are architecturally determinative, the tensions between them,
+and the candidates considered and not proposed.
 
 Each decision below carries a **requirement trace** naming the requirements it is
 tested against. Those references are the link between the two documents, so a
