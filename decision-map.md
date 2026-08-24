@@ -324,7 +324,7 @@ Every decision below is open. Where one has a well-understood set of candidate a
 |---|---|---|
 | S1-2 | Extension and namespacing — how does a participant add a data category without central coordination? | R-EXTENSION |
 | S1-3 | Alignment with external vocabularies (RICS Data Standard, OSCRE, ISO 20022) | R-SEMANTICS, R-ALIGNMENT |
-| S1-4 | Form overlay mechanism — BASPI, NTS, TA forms, CON29R | R-SEMANTICS |
+| S1-4 | Form overlay mechanism — BASPI, NTS, TA forms, CON29R | R-SEMANTICS, R-RENDERING |
 | S1-5 | Vocabulary versioning — what constitutes a breaking change, and may versions coexist? | R-EXTENSION |
 | S1-6 | Who maintains the vocabulary, and under what change process? | R-PARTICIPATION, R-ENTRY |
 
@@ -349,7 +349,7 @@ Every decision below is open. Where one has a well-understood set of candidate a
 | S3-2 | Credential format | R-ALIGNMENT, R-MINIMISATION |
 | S3-3 | Instance granularity — how much data a single credential covers | R-EXTENSION |
 | S3-9 | Credential typology — does the framework define a fixed set of named credential types? | R-SEMANTICS, R-EXTENSION, R-LIABILITY, R-INDEPENDENCE |
-| S3-4 | Evidence model | R-PROVENANCE |
+| S3-4 | Evidence model — how is documentary evidence bound to an assertion, carried or referenced, and protected | R-PROVENANCE, R-ARTEFACT, R-CONFIDENTIALITY |
 | S3-5 | Assurance levels | R-PROVENANCE, R-LIABILITY |
 | S3-6 | Merge semantics | R-SEMANTICS, R-EXTENSION |
 | S3-7 | Selective disclosure | R-MINIMISATION |
@@ -402,7 +402,7 @@ The only decision in the map that currently splits, on the rule in §5. Its part
 | S5-5 | API security profile | R-ALIGNMENT |
 | S5-6 | API surface over composed state — what does a consumer actually call? | R-PARTICIPATION |
 | S5-7 | State composition — how do many assertions become one coherent view? | R-SEMANTICS |
-| S5-8 | Backward-compatible output for existing consumers | R-INCREMENTAL |
+| S5-8 | Backward-compatible output for existing consumers, and rendered documents for human review | R-INCREMENTAL, R-RENDERING |
 | S5-9 | Replication — may systems hold copies of transaction state, and under what conditions? | R-COPIES, R-CONFIDENTIALITY, R-MINIMISATION, R-DATA-PATH |
 | S5-10 | Subject discovery — given an identifier, how does a party locate the holders? | R-DISCOVERY, R-CONTROLLER, R-ENTITLEMENT |
 
@@ -413,7 +413,7 @@ The only decision in the map that currently splits, on the rule in §5. Its part
 | S6-2 | Terms of use — how is access policy expressed on an assertion? | R-MINIMISATION |
 | S6-3 | Consent artefacts — how is consent granted, evidenced, scoped and withdrawn? | R-MINIMISATION, R-CONTROLLER |
 | S6-4 | Controller/processor mapping for each personal-data flow | R-CONTROLLER |
-| S6-5 | Encryption between parties and at rest | R-CONFIDENTIALITY, R-MINIMISATION, R-CONTROLLER |
+| S6-5 | Encryption between parties and at rest, for assertions and for referenced artefacts | R-CONFIDENTIALITY, R-MINIMISATION, R-CONTROLLER, R-ARTEFACT |
 | S6-6 | Minimisation — what must a verifier be able to obtain without over-disclosure? | R-MINIMISATION |
 | S6-7 | Audit and subject access — how does a data subject discover who holds what about them? | R-CONTROLLER |
 | S6-8 | Lawful basis for each flow | R-CONTROLLER |
@@ -550,8 +550,9 @@ Requirements have been added three times since the tree was first sized, and eac
 | 21 | 70 | 87 | 10 | 10 |
 | 22 | 71 | 88 | 10 | 10 |
 | 25 | 73 | 91 | 10 | 10 |
+| 27 | 73 | 91 | 10 | 10 |
 
-Eight requirements added five Layer 2 decisions — roughly two decisions for every three requirements — and left the strands and the root decisions untouched every time. That is the expected shape: strands come from the domain, and requirements add work inside them.
+Ten requirements have been added since the tree was first sized. They added five Layer 2 decisions between them and left the strands and the root decisions untouched every time. The rate is not constant and should not be projected: the most recent two landed on decisions that already existed and added none, because the gap they closed was in Layer 0 rather than in the tree. What holds across all four rounds is the direction and the ceiling — additions add work inside strands, and they have never added a strand or a root.
 
 Ratification is expected to add requirements, since a requirement the coalition adds is worth more than one it accepts. So **91 is a floor rather than an estimate**, and a Develop duration set against it is being set against the smallest tree the coalition is likely to have.
 

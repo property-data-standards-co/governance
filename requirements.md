@@ -48,7 +48,7 @@ Four tests. They are offered as the working group's own quality bar, to be appli
 
 ## 4. The candidate requirements
 
-Twenty-five, grouped by theme. Each is intended to be ratified, amended or rejected on its own.
+Grouped by theme. Each is intended to be ratified, amended or rejected on its own.
 
 ### Findability and identity
 
@@ -88,12 +88,17 @@ Twenty-five, grouped by theme. Each is intended to be ratified, amended or rejec
 |---|---|---|
 | **R-INDEPENDENCE** | A consumer can establish the origin and integrity of a fact without trusting the party that transmitted it. | If the transmitting platform were hostile, would tampering be detectable? |
 | **R-PROVENANCE** | Every fact carries who asserted it, on what basis, and when. | Given any single data point, can its provenance be recovered? |
+| **R-ARTEFACT** | Where an assertion rests on a document or other artefact, a relying party can obtain that artefact and establish that it is the one the issuer relied on. | If the stored artefact were substituted or altered, would a relying party detect it? |
 | **R-REUSE** | A fact established once can be relied upon again — by another party, in another transaction, on another platform — subject to consent and continued validity. | Is re-collection ever forced by the framework's own structure rather than by the fact's age? |
 | **R-WITHDRAWAL** | An erroneous assertion can be withdrawn, and parties relying on it can determine that it has been. | Is there a path from "issuer discovers error" to "consumer learns of it"? |
 | **R-LIABILITY** | Liability for a false assertion attaches to an identifiable legal entity. | For any fact, can a relying party name who is answerable for it? |
 | **R-AUTHORITY** | A statement of authority is itself an assertion: it carries who made it, on what basis, when, and until when, and is verifiable by the same means as the facts it authorises. | Can a relying party determine, without contacting the asserting party, both the basis and the currency of the authority it is relying on? |
 
 *R-WITHDRAWAL is the one most often forgotten and most expensive to retrofit. A framework that can publish facts but not withdraw them will eventually publish something wrong and have no way to stop people relying on it.*
+
+*R-ARTEFACT exists because many property facts are established by looking at a document, and will be for as long as a person is answerable for the conclusion. A surveyor's report, a consent to a building alteration, a photograph of a boundary feature: the assertion is the machine-readable claim, and the artefact is what a human checks it against. Provenance records that an issuer relied on something; it does not let anyone retrieve that something and confirm it is unchanged. Without R-ARTEFACT an assertion can cite evidence that no longer exists, or that has been quietly replaced, and nothing on the wire distinguishes the two.*
+
+*R-ARTEFACT says nothing about whether the artefact is carried inside the assertion or referenced from it — that is the evidence model decision in S3, and the answer plainly differs between a two-page consent and a three-gigabyte survey video. It does constrain the referenced case more than it first appears: if R-CONFIDENTIALITY is also ratified, a restricted artefact held behind its host's own access controls does not satisfy it, because that is precisely the protection R-CONFIDENTIALITY declines to rely on. A reference to a protected resource is therefore not automatically available as an answer, and the interaction should be settled before S3's evidence model is closed rather than after.*
 
 *R-AUTHORITY exists because authority is easy to describe and hard to represent. Saying that a body is authoritative because statute makes it so, or that a firm may assert because it is regulated, states where the authority comes from — it does not put anything on the wire that a verifier can check. Statute is not a signed artefact and professional registers are generally web lookups rather than credentials, so something must translate an externally-established authority into a checkable form. That translation is itself an assertion, made by somebody, and R-AUTHORITY requires it to carry the same provenance as the facts it underwrites. Without it, verifiable facts rest on unverifiable authority.*
 
@@ -133,8 +138,11 @@ Applying a single consent gate across all of these produces consent theatre over
 
 | ID | Requirement | Test |
 |---|---|---|
+| **R-RENDERING** | The framework can produce a human-readable presentation of the facts it carries, and a party can establish that the presentation and the assertions behind it agree. | Can an existing form or report be produced from framework data alone, and would a disagreement between the rendered document and the assertions be detectable? |
 | **R-SMALL-FIRM** | A sole practitioner or small firm can participate fully without operating specialist cryptographic infrastructure. | Can a two-person conveyancing firm participate using services they can buy? |
 | **R-INCREMENTAL** | The framework can be adopted incrementally, alongside existing practice, without a flag-day migration. | Can a participant adopt partially and still transact with non-adopters? |
+
+*R-RENDERING is not the migration requirement, and the distinction matters because conflating them makes it expire. R-INCREMENTAL is about adoption: a participant can adopt partially and still transact with non-adopters, and it stops binding once everyone has adopted. The human-readable document does not stop being needed. A fully digital conveyancer still has a client who reviews and signs, a file that is inspected, and a regulator who asks to see what the client saw — and a court that may be shown it years later. The rendered form is not a bridge to the framework; for some purposes it remains the operative artefact, which is why the requirement is about the presentation and the data agreeing rather than about the framework being able to emit a document.*
 
 *R-SMALL-FIRM and R-INCREMENTAL are the counterweight to everything above, and they should be uncomfortable. A framework only a large technology firm can implement has failed, however elegant. Most of the conveyancing market is small firms.*
 
@@ -167,6 +175,8 @@ A requirement set with no internal tension has not been examined. Four are visib
 **R-MINIMISATION against R-PROVENANCE.** Full provenance on every fact — who said it, on what basis, when — is itself information about the transaction and the parties. Minimisation and complete provenance are in direct tension at the margin.
 
 **R-SMALL-FIRM against R-INDEPENDENCE.** Independent verifiability implies signing. Signing implies key custody. A two-person firm will not operate an HSM, and a first-time buyer will not operate anything at all. Whether hosted signing satisfies R-INDEPENDENCE is a real question and not a formality — and it is sharper for consumers than for firms, because a custodial arrangement for a data subject reintroduces exactly the "trust the platform" position that R-INDEPENDENCE exists to remove. Any answer that resolves this for small firms should be re-tested against consumers before it is treated as settled.
+
+**R-ARTEFACT against R-MINIMISATION and R-SMALL-FIRM.** An artefact carried inside the assertion travels wherever the assertion travels, which over-discloses and puts weight on parties who wanted one field. An artefact referenced instead needs a resolvable and appropriately protected home, which somebody has to operate and keep available for as long as anyone may rely on the fact. Neither resolution is free, and the choice may differ by artefact size and disclosure class rather than being settled once.
 
 **R-CLASSIFICATION against R-MINIMISATION.** A classification that travels with a fact is itself information about that fact. Marking an assertion as restricted tells an observer something about its content, and a scheme fine-grained enough to be useful may leak by its own labels.
 
