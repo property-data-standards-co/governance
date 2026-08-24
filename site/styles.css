@@ -243,3 +243,13 @@ body.deck ul.options > li { padding-left: 1.9em; text-indent: -1.9em; margin-bot
 }
 #back:hover { color: #e7ecef; background: rgba(255,255,255,.1); }
 @media print { #back { display: none; } }
+
+/* Build-stamped last-change date. Sourced from git, never hand-written. */
+.updated {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule, #e2e2e2);
+  font-size: 0.85rem;
+  color: var(--muted, #6b6b6b);
+}
+@media print { .updated { border-top: 1px solid #ccc; } }
