@@ -67,15 +67,77 @@ function checkText() {
 function checkRequirements() {
   const src = path.join(ROOT, 'requirements.md');
   if (!fs.existsSync(src)) return warn('requirements present', 'requirements.md not found');
-  const nums = [...fs.readFileSync(src, 'utf8').matchAll(/^\|\s*\*\*R(\d+)\*\*\s*\|/gm)].map((m) => Number(m[1])).sort((a, b) => a - b);
-  if (!nums.length) return fail('requirements parse', 'no requirement rows matched');
-  const highest = nums[nums.length - 1];
-  const gaps = [];
-  for (let i = 1; i <= highest; i++) if (!nums.includes(i)) gaps.push('R' + i);
-  const dupes = nums.filter((n, i) => nums[i - 1] === n);
-  if (gaps.length || dupes.length) {
-    fail('requirements contiguous', [gaps.length ? 'missing ' + gaps.join(', ') : '', dupes.length ? 'duplicate R' + dupes.join(', R') : ''].filter(Boolean).join('; '));
-  } else pass('requirements contiguous', `${nums.length}, R1-R${highest}`);
+  const md = fs.readFileSync(src, 'utf8');
+
+  // Defined by a table row in requirements.md. Nothing else defines a requirement.
+  const defined = [...md.matchAll(/^\|\s*\*\*(R-[A-Z][A-Z-]*)\*\*\s*\|/gm)].map((m) => m[1]);
+  if (!defined.length) return fail('requirements parse', 'no requirement rows matched');
+
+  const seen = new Set();
+  const dupes = defined.filter((id) => (seen.has(id) ? true : (seen.add(id), false)));
+  if (dupes.length) fail('requirement identifiers unique', 'defined twice: ' + [...new Set(dupes)].join(', '));
+  else pass('requirement identifiers unique', `${defined.length} requirements`);
+
+  // Every identifier cited anywhere must resolve to one of those rows. This is what
+  // makes identifiers safe to add and drop: a trace citing a requirement that no
+  // longer exists is caught here rather than read past in session.
+  const unresolved = [];
+  for (const { file, lines } of corpus()) {
+    lines.forEach((line, i) => {
+      for (const m of line.matchAll(/\bR-[A-Z][A-Z-]*\b/g)) {
+        if (!seen.has(m[0])) unresolved.push(`${file}:${i + 1}  ${m[0]}`);
+      }
+    });
+  }
+  if (unresolved.length) fail('requirement citations resolve', [...new Set(unresolved)].join('\n        '));
+  else pass('requirement citations resolve');
+}
+
+/* ---------- traces ---------- */
+
+/**
+ * The trace is the link between Layer 0 and everything below it, and it is
+ * load-bearing in both directions.
+ *
+ * A decision with no trace has nothing to test it against, so it is settled by
+ * whoever argues best in the room. Every decision must therefore either carry a
+ * trace or say why it has none — "No Layer 0 trace — policy", "— method". A bare
+ * dash is the thing this catches: it reads as an omission and is indistinguishable
+ * from one.
+ *
+ * Sub-decisions (a letter suffix) inherit their parent's trace. They decompose a
+ * question already tested against Layer 0, and requiring each to restate the
+ * parent's trace would produce copying rather than thought.
+ *
+ * A requirement nothing traces to is a weaker signal: it is the expected state
+ * between the coalition adding a requirement and the working group enumerating
+ * the decisions beneath it. It warns rather than fails, because failing it would
+ * mean inventing a decision to satisfy a hook.
+ */
+function checkTraces() {
+  const reqSrc = path.join(ROOT, 'requirements.md');
+  const mapSrc = path.join(ROOT, 'decision-map.md');
+  if (!fs.existsSync(reqSrc) || !fs.existsSync(mapSrc)) return;
+  const defined = [...fs.readFileSync(reqSrc, 'utf8').matchAll(/^\|\s*\*\*(R-[A-Z][A-Z-]*)\*\*\s*\|/gm)].map((m) => m[1]);
+  const map = fs.readFileSync(mapSrc, 'utf8');
+
+  const traced = (cell) => /R-[A-Z]/.test(cell) || /No Layer 0 trace/i.test(cell);
+
+  const untraced = [];
+  for (const m of map.matchAll(/^\|\s*(S\d+-\d+)([a-z]?)\s*\|[^|]*\|([^|]*)\|\s*$/gm)) {
+    if (m[2]) continue;                       // sub-decision: inherits its parent
+    if (!traced(m[3])) untraced.push(m[1]);
+  }
+  for (const m of map.matchAll(/^### (PDR-S\d+-1) —.*$([\s\S]*?)(?=^### |\Z)/gm)) {
+    const trace = m[2].match(/^\*\*Requirement trace\.\*\*(.*)$/m);
+    if (!trace || !traced(trace[1])) untraced.push(m[1]);
+  }
+  if (untraced.length) fail('every decision carries a trace or states it has none', untraced.join(', '));
+  else pass('every decision carries a trace or states it has none');
+
+  const uncited = defined.filter((id) => !new RegExp(`\\b${id}\\b`).test(map));
+  if (uncited.length) warn('every requirement is traced to', uncited.join(', ') + ' — no decision tests against it, so it is either redundant or the map has a hole');
+  else pass('every requirement is traced to');
 }
 
 /* ---------- decisions ---------- */
@@ -126,6 +188,7 @@ function checkOptions() {
 console.log('\ngovernance record checks\n');
 checkText();
 checkRequirements();
+checkTraces();
 checkDecisions();
 checkOptions();
 console.log('');

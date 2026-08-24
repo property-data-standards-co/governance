@@ -13,7 +13,13 @@ Offered for the coalition to use, amend or issue as its own. This is the Layer 1
 
 This is the proposed map of everything the coalition has to decide, arranged so that each decision is genuinely open, each is testable against agreed requirements, and each opens a known set of sub-decisions beneath it.
 
-**Requirement trace** appears throughout: which Layer 0 requirements the decision is tested against. This is what makes a decision arguable on the merits rather than by preference.
+**Requirement trace** appears throughout: which Layer 0 requirements the decision is tested against. This is what makes a decision arguable on the merits rather than by preference. No requirement is yet ratified, so every trace is conditional: it names what the decision *would* be tested against, and a requirement amended or rejected at Layer 0 changes what its traces mean.
+
+A decision either carries a trace or states that it has none and why. The two that state it — one policy, one method — are decisions the requirements do not reach, and marking them is not a formality: a decision with nothing to test it against is settled by argument in the room, which is what the requirement layer exists to replace. Sub-decisions inherit the trace of the question they decompose.
+
+**The option sets are not exhaustive.** They are what drafting produced, and an option nobody has thought of is not evidence that the list is complete. Adding one is the expected first act of a working group opening a decision, and options are cited by letter elsewhere, so a new option takes the next free letter at the end of the list rather than displacing what is there.
+
+Reading the map before Layer 0 closes is how the consequences of a requirement can be seen before it is ratified. A requirement is a sentence; what it commits the coalition to is a set of decisions, and those are here.
 
 Decision identifiers use `PDR-{strand}-{n}`.
 
@@ -23,9 +29,9 @@ Decision identifiers use `PDR-{strand}-{n}`.
 
 Everything below descends from the requirements, and they are not reproduced here.
 They live in [requirements.md](requirements.md), which is the single place they are
-maintained: the purpose statement, twenty-two candidate requirements each with an
-explicit test, which of them are architecturally determinative, the tensions between
-them, and the candidates considered and not proposed.
+maintained: the purpose statement, the candidate requirements each with an explicit
+test, which of them are architecturally determinative, the tensions between them,
+and the candidates considered and not proposed.
 
 Each decision below carries a **requirement trace** naming the requirements it is
 tested against. Those references are the link between the two documents, so a
@@ -61,7 +67,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** What is in scope: which transaction types, which parties, which jurisdictions, and does the framework cover only sale/purchase or also the wider property lifecycle?
 
-**Requirement trace.** R12 (reuse across transactions materially depends on scope), R25.
+**Requirement trace.** R-REUSE (reuse across transactions materially depends on scope), R-INCREMENTAL.
 
 **Options.**
 - **(a)** Residential sale and purchase, England & Wales, transaction-only.
@@ -72,7 +78,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Opens.** Everything. Scope decisions cascade further than any other.
 
-**Note for the coalition.** (a) and (b) look similar but are architecturally very different. R12 is close to unsatisfiable under (a): if nothing outlives the transaction, nothing can be reused by the next one.
+**Note for the coalition.** (a) and (b) look similar but are architecturally very different. R-REUSE is close to unsatisfiable under (a): if nothing outlives the transaction, nothing can be reused by the next one.
 
 ---
 
@@ -80,14 +86,13 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** From where does the framework take its vocabulary of property facts?
 
-**Requirement trace.** R7, R9, R25.
+**Requirement trace.** R-SEMANTICS, R-EXTENSION, R-INCREMENTAL.
 
 **Options.**
-- **(a)** Adopt the PDTF 1.0 data dictionary as baseline, extended by agreement.
+- **(a)** Adopt the PDTF Schema, currently v3.6, as baseline, extended by agreement.
 - **(b)** Start from an external ontology.
 - **(c)** Start fresh from sector consultation.
-- **(d)** Adopt PDTF 1.0 plus mandatory alignment to named external vocabularies where they exist.
-
+- **(d)** Adopt the PDTF Schema plus mandatory alignment to named external vocabularies where they exist.
 
 
 **Opens.** PDR-S1-2 (extension and namespacing), PDR-S1-3 (external vocabulary alignment), PDR-S1-4 (form overlay mechanism), PDR-S1-5 (versioning of the vocabulary).
@@ -98,7 +103,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** What are facts attached to: the transaction, or persistent real-world subjects?
 
-**Requirement trace.** R1 (stable identifiers persisting beyond a transaction), R12 (reuse), R16 (a fact bound into a monolithic pack cannot be disclosed alone).
+**Requirement trace.** R-SUBJECT (stable identifiers persisting beyond a transaction), R-REUSE, R-MINIMISATION (a fact bound into a monolithic pack cannot be disclosed alone).
 
 **Options.**
 - **(a)** Transaction-scoped: all facts belong to a transaction record.
@@ -106,7 +111,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(c)** Hybrid: subject-scoped for enduring facts, transaction-scoped for process facts.
 
 
-**Requirement consequences.** (a) fails R12 on its face and fails R16 structurally. That leaves (b) against (c), and the difference turns on whether facts that are genuinely about *this sale* — the number of sellers, the existing lender, whether it is a limited company sale — can be attached to the property without distortion. Whichever is chosen, the boundary needs a criterion that can be applied consistently by different parties, and agreeing that criterion may matter more than agreeing the option.
+**Requirement consequences.** (a) fails R-REUSE on its face and fails R-MINIMISATION structurally. That leaves (b) against (c), and the difference turns on whether facts that are genuinely about *this sale* — the number of sellers, the existing lender, whether it is a limited company sale — can be attached to the property without distortion. Whichever is chosen, the boundary needs a criterion that can be applied consistently by different parties, and agreeing that criterion may matter more than agreeing the option.
 
 **Opens.** PDR-S2-2 (entity set), PDR-S2-3 (identifier schemes per subject type), PDR-S2-4 (relationship model), PDR-S2-5 (identifier evolution: unregistered title → registered, new build → UPRN), PDR-S2-6 (multi-property / multi-title cardinality).
 
@@ -116,7 +121,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** What is the atomic unit in which a fact enters the framework, and what must it carry?
 
-**Requirement trace.** R10 (independent verifiability), R11 (provenance), R13 (withdrawal), R14 (liability), R16 (minimisation).
+**Requirement trace.** R-INDEPENDENCE, R-PROVENANCE, R-WITHDRAWAL, R-LIABILITY, R-MINIMISATION.
 
 **Options.**
 - **(a)** API responses from an authoritative platform.
@@ -125,7 +130,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Notarised events on a shared ledger.
 
 
-**Requirement consequences.** This is the decision where the requirements do most of the work. (a) fails R10 outright — if trust in a fact reduces to trust in whoever served it, there is no trust framework. (b) is a partial answer and, pursued rigorously, converges on (c) while forgoing all external tooling and alignment, so fails R8. (d) fails R16 and R17 for personal data and introduces a shared-infrastructure dependency in tension with R5.
+**Requirement consequences.** This is the decision where the requirements do most of the work. (a) fails R-INDEPENDENCE outright — if trust in a fact reduces to trust in whoever served it, there is no trust framework. (b) is a partial answer and, pursued rigorously, converges on (c) while forgoing all external tooling and alignment, so fails R-ALIGNMENT. (d) fails R-MINIMISATION and R-CONTROLLER for personal data and introduces a shared-infrastructure dependency in tension with R-DATA-PATH.
 
 **Deliberately not decided here.** Two things sit below this decision and must not be run together with it: the *format* (SD-JWT-VC vs mdoc vs JSON-LD Data Integrity, PDR-S3-2) and the *typology* (whether the framework defines named credential types, PDR-S3-9). Conflating either with the root concept is the most likely way to lose this decision on an irrelevance — a participant with a view about JSON-LD, or about how many credential types there should be, should not thereby be voting on whether facts are independently verifiable at all.
 
@@ -137,7 +142,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** How does a relying party establish that an issuer was entitled to assert what it asserted?
 
-**Requirement trace.** R4, R5, R6 (no gatekeeper, open entry), R10, R14.
+**Requirement trace.** R-PARTICIPATION, R-DATA-PATH, R-ENTRY (no gatekeeper, open entry), R-INDEPENDENCE, R-LIABILITY.
 
 **Options.**
 - **(a)** Bilateral: parties trust those they have contracts with.
@@ -163,21 +168,21 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement consequences, option by option.**
 
-(a) fails R4 and R12 — a fact is reusable only by parties holding a contract with the issuer, which is the condition the framework exists to remove.
+(a) fails R-PARTICIPATION and R-REUSE — a fact is reusable only by parties holding a contract with the issuer, which is the condition the framework exists to remove.
 
-(b) is the mechanism most comparable sectors have actually built, and it works. It is in tension with R5 and fails R4's test if the operator can refuse a conformant participant. The counter-argument is that a registry consulted about *authority* is not a registry that data flows through; whether that distinction survives when the registry is universally required is contestable and should be tested rather than assumed. It also concentrates a control point that government would subsequently have to regulate, which bears on S8-2 and S8-8.
+(b) is the mechanism most comparable sectors have actually built, and it works. It is in tension with R-DATA-PATH and fails R-PARTICIPATION's test if the operator can refuse a conformant participant. The counter-argument is that a registry consulted about *authority* is not a registry that data flows through; whether that distinction survives when the registry is universally required is contestable and should be tested rather than assumed. It also concentrates a control point that government would subsequently have to regulate, which bears on S8-2 and S8-8.
 
-(c) satisfies R4 and R5 well and depends on operational capability that is not widely deployed in the UK. The burden of operating an anchor falls on somebody, and who that is becomes S8-1 and S8-2. Verification being possible offline is its strongest property against R5.
+(c) satisfies R-PARTICIPATION and R-DATA-PATH well and depends on operational capability that is not widely deployed in the UK. The burden of operating an anchor falls on somebody, and who that is becomes S8-1 and S8-2. Verification being possible offline is its strongest property against R-DATA-PATH.
 
 (d) is attractive for identity and has no established mechanism for expressing *domain* authority. Certifying that an organisation is a trustworthy identity provider is a different statement from establishing that a particular body is authoritative for title extents and an energy assessor is not. Whether that gap can be closed inside an existing scheme is S4-8 and depends on that scheme's owners.
 
-(e) is strong where it applies: statutory authority is objective, published and appealable almost by definition, which satisfies R6 without the framework doing anything. Much authoritative property data already has a statutory home. It is slow, inflexible, covers only the sources that legislation names, and is not the coalition's to decide — but it may mean the framework needs to establish authority for far fewer parties than it first appears.
+(e) is strong where it applies: statutory authority is objective, published and appealable almost by definition, which satisfies R-ENTRY without the framework doing anything. Much authoritative property data already has a statutory home. It is slow, inflexible, covers only the sources that legislation names, and is not the coalition's to decide — but it may mean the framework needs to establish authority for far fewer parties than it first appears.
 
-(f) is politically strong and cheap, because the firms concerned already hold regulated status and R24 is easier if nothing new must be obtained. Its weakness is coverage and fit: not every data source has a regulator, and regulatory permission to practise is not the same statement as authority over a class of fact.
+(f) is politically strong and cheap, because the firms concerned already hold regulated status and R-SMALL-FIRM is easier if nothing new must be obtained. Its weakness is coverage and fit: not every data source has a regulator, and regulatory permission to practise is not the same statement as authority over a class of fact.
 
-(g) satisfies R4 and R5 trivially, since no one can refuse anyone. It weakens R7 and R12 in practice — reuse becomes contingent on each verifier's list — and pushes cost onto every relying party, which cuts against R24.
+(g) satisfies R-PARTICIPATION and R-DATA-PATH trivially, since no one can refuse anyone. It weakens R-SEMANTICS and R-REUSE in practice — reuse becomes contingent on each verifier's list — and pushes cost onto every relying party, which cuts against R-SMALL-FIRM.
 
-(h) removes the single point of refusal and is resilient, at the cost of being hard to reason about and weak on R14: when several attestors disagree, it may be unclear who is answerable for a false assertion.
+(h) removes the single point of refusal and is resilient, at the cost of being hard to reason about and weak on R-LIABILITY: when several attestors disagree, it may be unclear who is answerable for a false assertion.
 
 **These compose.** (e) for statutorily-designated sources, (f) for regulated professionals, and (c) or (b) for everyone else is a coherent combination, and probably a more honest description of the domain than any single option. The decision may be which mechanism applies to which class of issuer rather than which mechanism wins outright.
 
@@ -193,7 +198,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** How does data move between parties?
 
-**Requirement trace.** R4, R5, R8, R9, R16.
+**Requirement trace.** R-PARTICIPATION, R-DATA-PATH, R-ALIGNMENT, R-EXTENSION, R-MINIMISATION.
 
 **Options.**
 - **(a)** Central hub/clearing house.
@@ -204,9 +209,9 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(f)** A combination — replication between platforms, presentation to parties outside them.
 
 
-**Note.** (a) fails R5 directly. Between (b) and (c) the question turns on R8 and R9: bespoke APIs work but strand the sector from the wallet ecosystem and require coordinated change for every extension.
+**Note.** (a) fails R-DATA-PATH directly. Between (b) and (c) the question turns on R-ALIGNMENT and R-EXTENSION: bespoke APIs work but strand the sector from the wallet ecosystem and require coordinated change for every extension.
 
-(e) is how much property data moves today, and it was absent from earlier drafts of this decision. It is not a variant of the others: under request-and-response there is a disclosure decision at the moment a question is asked, and under replication there is not, because the receiving system already holds everything. R23 applies the permission model to copies regardless; what remains open is whether replication is permitted, and under what conditions. See PDR-S5-9.
+(e) is how much property data moves today, and it was absent from earlier drafts of this decision. It is not a variant of the others: under request-and-response there is a disclosure decision at the moment a question is asked, and under replication there is not, because the receiving system already holds everything. R-COPIES applies the permission model to copies regardless; what remains open is whether replication is permitted, and under what conditions. See PDR-S5-9.
 
 **Opens.** PDR-S5-9 (replication), PDR-S5-10 (subject discovery), PDR-S5-2 (issuance protocol), PDR-S5-3 (presentation protocol), PDR-S5-4 (issuer discovery), PDR-S5-5 (security profile), PDR-S5-6 (API surface over composed state), PDR-S5-7 (state composition rules), PDR-S5-8 (backward-compatible output for existing consumers).
 
@@ -216,7 +221,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** What determines whether a party may see a given fact?
 
-**Requirement trace.** R16, R17, R4, R14.
+**Requirement trace.** R-MINIMISATION, R-CONTROLLER, R-PARTICIPATION, R-LIABILITY.
 
 **Options.**
 - **(a)** Platform-enforced role checks.
@@ -225,7 +230,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Holder-mediated only: nothing is disclosed except by the data subject presenting it.
 
 
-**Note.** R20 and R22 bear directly on this decision and should be settled before it opens: if permission is not the gate for public facts, and the subject cannot be relied on to act, then options resting on subject-mediated permission are constrained before the argument starts. (d) is the purist wallet answer and fails R24/R25 in practice — a conveyancing transaction cannot stall on a seller being available to present each fact. (c) needs to be argued carefully against data protection law: the controller/processor analysis for each flow is a real piece of work and should be commissioned early, because getting it wrong invalidates decisions downstream in S6 and S7.
+**Note.** R-PUBLIC and R-ABSENCE bear directly on this decision and should be settled before it opens: if permission is not the gate for public facts, and the subject cannot be relied on to act, then options resting on subject-mediated permission are constrained before the argument starts. (d) is the purist wallet answer and fails R-SMALL-FIRM/R-INCREMENTAL in practice — a conveyancing transaction cannot stall on a seller being available to present each fact. (c) needs to be argued carefully against data protection law: the controller/processor analysis for each flow is a real piece of work and should be commissioned early, because getting it wrong invalidates decisions downstream in S6 and S7.
 
 **Opens.** PDR-S6-2 (terms of use model), PDR-S6-3 (consent artefacts and revocation), PDR-S6-4 (controller/processor mapping), PDR-S6-5 (encryption at rest and in transit between parties), PDR-S6-6 (minimisation and selective disclosure policy), PDR-S6-7 (audit and subject access), PDR-S6-9 (disclosure classification), PDR-S6-10 (entitlement demonstration).
 
@@ -235,7 +240,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** How does a relying party know that a fact is still true?
 
-**Requirement trace.** R13, R12, R14.
+**Requirement trace.** R-WITHDRAWAL, R-REUSE, R-LIABILITY.
 
 **Options.**
 - **(a)** Timestamp only — consumers judge staleness.
@@ -254,7 +259,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** What body operates the framework, and what powers does it have?
 
-**Requirement trace.** R4, R5, R6, R14.
+**Requirement trace.** R-PARTICIPATION, R-DATA-PATH, R-ENTRY, R-LIABILITY.
 
 **Options.**
 - **(a)** Government body.
@@ -273,7 +278,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** How does the sector move from current practice to the framework?
 
-**Requirement trace.** R25, R24.
+**Requirement trace.** R-INCREMENTAL, R-SMALL-FIRM.
 
 **Options.**
 - **(a)** Flag day.
@@ -297,17 +302,19 @@ Every decision below is open. Where one has a well-understood set of candidate a
 
 **When a decision splits.** A decision divides into sub-decisions only when it cannot be resolved in a single working session because its parts have **different requirement traces, different evidence needs, or different owners**. Otherwise it stays whole, however large it looks. On that test only PDR-S3-9 currently splits (§5.1): its parts need schema analysis, legal input and implementation evidence respectively, and no one session could take them together.
 
+**Decisions are enumerated here, not worked through.** A row states the question and what it is tested against. Options, the assessment of options against requirements, and the reasoning that favours one are the work of the group that opens the decision, and they belong in its decision record with the positions attributed. Nothing at Layer 2 is open, so nothing here should read as though it has been argued.
+
 ### S0 — Scope
 
 | PDR | Question | Trace |
 |---|---|---|
-| S0-2 | Which property types — residential only, or new build, leasehold, shared ownership, commercial? | R25 |
-| S0-3 | Which jurisdictions? | R9, R25 |
-| S0-4 | Which transaction types — sale and purchase only, or also remortgage, transfer of equity, lettings? | R12 |
-| S0-5 | Where is the boundary between the transaction record and the enduring property record? | R1, R12 |
-| S0-6 | Which party types must the framework model? | R14 |
-| S0-7 | Which data categories are in and out of scope? | R16 |
-| S0-8 | **Does framework scope equal pilot scope?** CFIT's Product & Service Design paper scopes out new build, commercial, social housing, shared ownership and Scotland *for the pilot*. Does the framework inherit those exclusions? | R9, R25 |
+| S0-2 | Which property types — residential only, or new build, leasehold, shared ownership, commercial? | R-INCREMENTAL |
+| S0-3 | Which jurisdictions? | R-EXTENSION, R-INCREMENTAL |
+| S0-4 | Which transaction types — sale and purchase only, or also remortgage, transfer of equity, lettings? | R-REUSE |
+| S0-5 | Where is the boundary between the transaction record and the enduring property record? | R-SUBJECT, R-REUSE |
+| S0-6 | Which party types must the framework model? | R-LIABILITY |
+| S0-7 | Which data categories are in and out of scope? | R-MINIMISATION |
+| S0-8 | **Does framework scope equal pilot scope?** CFIT's Product & Service Design paper scopes out new build, commercial, social housing, shared ownership and Scotland *for the pilot*. Does the framework inherit those exclusions? | R-EXTENSION, R-INCREMENTAL |
 
 **S0-8 is the one to raise early.** It is not in anyone's question list and it is cheap to get wrong by inattention — the exclusions are sensible for a pilot and would be damaging in a standard.
 
@@ -315,271 +322,141 @@ Every decision below is open. Where one has a well-understood set of candidate a
 
 | PDR | Question | Trace |
 |---|---|---|
-| S1-2 | Extension and namespacing — how does a participant add a data category without central coordination? | R9 |
-| S1-3 | Alignment with external vocabularies (RICS Data Standard, OSCRE, ISO 20022) | R7, R8 |
-| S1-4 | Form overlay mechanism — BASPI, NTS, TA forms, CON29R | R7 |
-| S1-5 | Vocabulary versioning — what constitutes a breaking change, and may versions coexist? | R9 |
-| S1-6 | Who maintains the vocabulary, and under what change process? | R4, R6 |
+| S1-2 | Extension and namespacing — how does a participant add a data category without central coordination? | R-EXTENSION |
+| S1-3 | Alignment with external vocabularies (RICS Data Standard, OSCRE, ISO 20022) | R-SEMANTICS, R-ALIGNMENT |
+| S1-4 | Form overlay mechanism — BASPI, NTS, TA forms, CON29R | R-SEMANTICS, R-RENDERING |
+| S1-5 | Vocabulary versioning — what constitutes a breaking change, and may versions coexist? | R-EXTENSION |
+| S1-6 | Who maintains the vocabulary, and under what change process? | R-PARTICIPATION, R-ENTRY |
 
 ### S2 — Subjects & identity
 
 | PDR | Question | Trace |
 |---|---|---|
-| S2-2 | What is the entity set? | R1, R12 |
-| S2-3 | Identifier scheme per subject type | R1, R2 |
-| S2-4 | Relationship model | R10, R13 |
-| S2-5 | Identifier evolution | R1 |
-| S2-6 | Cardinality | R7 |
-| S2-7 | Person identity binding | R8, R12 |
-| S2-8 | Organisation identity | R14 |
+| S2-2 | What is the entity set? | R-SUBJECT, R-REUSE |
+| S2-3 | Identifier scheme per subject type | R-SUBJECT, R-IDENTIFIERS |
+| S2-4 | Relationship model | R-INDEPENDENCE, R-WITHDRAWAL |
+| S2-5 | Identifier evolution | R-SUBJECT |
+| S2-6 | Cardinality | R-SEMANTICS |
+| S2-7 | Person identity binding | R-ALIGNMENT, R-REUSE |
+| S2-8 | Organisation identity | R-LIABILITY |
 
-**S2-4 carries further than its position in the strand suggests.** Whether relationships are signed assertions or fields on a record determines whether authority can be checked independently or must be taken from whoever serves the data (R10), and it constrains what is available to S6-10 for demonstrating entitlement. A decision taken here on ergonomic grounds will be discovered later as an access-control constraint.
+**S2-4 carries further than its position in the strand suggests.** Whether relationships are signed assertions or fields on a record determines whether authority can be checked independently or must be taken from whoever serves the data (R-INDEPENDENCE), and it constrains what is available to S6-10 for demonstrating entitlement. A decision taken here on ergonomic grounds will be discovered later as an access-control constraint.
 
 ### S3 — Assertions
 
 | PDR | Question | Trace |
 |---|---|---|
-| S3-2 | Credential format | R8, R16 |
-| S3-3 | Instance granularity — how much data a single credential covers | R9 |
-| S3-9 | Credential typology — does the framework define a fixed set of named credential types? | R7, R9, R14, R10 |
-| S3-4 | Evidence model | R11 |
-| S3-5 | Assurance levels | R11, R14 |
-| S3-6 | Merge semantics | R7, R9 |
-| S3-7 | Selective disclosure | R16 |
-| S3-8 | Assertion identifiers | R7 |
+| S3-2 | Credential format | R-ALIGNMENT, R-MINIMISATION |
+| S3-3 | Instance granularity — how much data a single credential covers | R-EXTENSION |
+| S3-9 | Credential typology — does the framework define a fixed set of named credential types? | R-SEMANTICS, R-EXTENSION, R-LIABILITY, R-INDEPENDENCE |
+| S3-4 | Evidence model — how is documentary evidence bound to an assertion, carried or referenced, and protected | R-PROVENANCE, R-ARTEFACT, R-CONFIDENTIALITY |
+| S3-5 | Assurance levels | R-PROVENANCE, R-LIABILITY |
+| S3-6 | Merge semantics | R-SEMANTICS, R-EXTENSION |
+| S3-7 | Selective disclosure | R-MINIMISATION |
+| S3-8 | Assertion identifiers | R-SEMANTICS |
 
 **S3-6 is genuinely open.** No prior work known to the coalition resolves it, and it is one of the decisions least likely to be settled by argument — the options differ in how they behave over real sequences of amendment, which is an empirical question. It is a candidate for a build round or an interop event rather than a session.
 
-**S3-3 and S3-9 are different questions and must not be run together.** *Instance granularity* is how much data one credential happens to carry; *typology* is whether the framework defines named types at all. They are independent: a framework can define `EnvironmentalCredential` as a type while leaving an issuer free to issue one instance covering the whole of it or several covering parts. Conflating them makes the typology question look like a mandate on issuer behaviour, which it need not be. S3-9 is worked through in §5.1.
+**S3-3 and S3-9 are different questions and must not be run together.** *Instance granularity* is how much data one credential happens to carry; *typology* is whether the framework defines named types at all. They are independent: a framework can define `EnvironmentalCredential` as a type while leaving an issuer free to issue one instance covering the whole of it or several covering parts. Conflating them makes the typology question look like a mandate on issuer behaviour, which it need not be.
 
-### 5.1 PDR-S3-9 — Credential typology
+### 5.1 PDR-S3-9 — sub-decisions
 
-**Question.** Does the framework define a fixed set of named credential types with their own identifiers, schemas, versions and authorisation scope — or does it define a small number of entity-level credential types whose content is delimited by the paths each instance asserts?
-
-**Requirement trace.** R7 (shared machine-readable semantics), R9 (extend without coordinated upgrade), R14 (liability attaches to an identifiable entity), R10 (independent verifiability of what an issuer was entitled to say).
-
-**Options.**
-- **(a)** A fixed set of named credential types — for example decomposed along the top-level properties of the property-pack schema, each separately versioned and separately authorisable.
-- **(b)** A small number of entity-level types whose scope is delimited by the paths each instance asserts.
-- **(c)** A named typology with a generic catch-all retained for data not yet covered.
-
-#### Why this decision is hard
-
-A fixed typology is a **coordination cost**, and it is in tension with **R9**: adding a new data category now requires a new type to be defined and agreed, where path-delimited assertion needed no coordination at all. Two mitigations, both of which need deciding:
-
-- Types are **additive** — a new type never invalidates existing credentials.
-- A **generic `PropertyCredential`** is retained as a catch-all for data not yet covered by a named type, so a new data category can be carried immediately and typed later.
-
-Whether to retain the catch-all is itself contested: it is the safety valve for R9, and it is also the loophole through which the typology gets ignored.
-
-#### Open sub-decisions
+The only decision in the map that currently splits, on the rule in §5. Its parts are enumerated because the sizing in §7 counts them; the question itself sits in the S3 table above.
 
 | # | Question | Note |
 |---|---|---|
-| S3-9a | **What is the decomposition axis?** | One candidate is the top-level schema properties. Alternatives that cut differently: by authoritative source, by refresh cadence, by confidentiality/PII class, by consumer need. The *authority* axis matters most for S4 — if any single type spans two authorities, type-level authorisation breaks down for that type and must fall back to paths. This should be tested property by property. |
-| S3-9b | **How many types, and do they nest?** | Is there a supertype (`PropertyCredential`) with subtypes, or only leaves? Nesting helps composition and query; flat is simpler to authorise. |
-| S3-9c | **Is the typology binding or advisory?** | MUST an issuer use the defined type for data falling within it, or MAY it? Binding gives authorisation its teeth; advisory preserves R9. |
-| S3-9d | **Versioning semantics.** | What constitutes a breaking change to a type? Verifiers MUST accept multiple concurrent versions — credentials outlive schema revisions — so the rule needs stating, not assuming. |
-| S3-9e | **Facts that span types.** | Boundary disputes, rights of way, flying freeholds. The same edge cases as the Property/Title seam (S2-7), now at finer grain and therefore more numerous. |
-| S3-9f | **Composition invariance.** | Composing the entity graph MUST yield the same property state regardless of how many credentials carried the data. This is a testable invariant and belongs in the conformance suite. |
-| S3-9g | **Catch-all type.** | Retain a generic `PropertyCredential` for uncovered data, or require a named type for everything? See the cost above. |
-| S3-9h | **Migration.** | What happens to credentials already issued as undifferentiated `PropertyCredential`? |
-
-#### Dependencies
-
-- **S3-2 (securing mechanism)** — SD-JWT-VC gives each type a `vct` and Type Metadata, so typology and versioning come almost free. A different securing mechanism still supports typology but needs another carrier for type identity and version. These interact; S3-2 should resolve first or alongside.
-- **S1 (vocabulary)** — the decomposition axis is defined in terms of the schema's top-level properties, so it depends on the vocabulary decision. If the coalition adopts a pluralist position on S1 (multiple vocabularies mapping in), the typology must be expressible for each, or defined at the conformance layer above them.
-- **S4-3 (authorisation granularity)** — the synthesis above. These should be taken together.
-- **S7-5 (supersession)** — per-type versioning changes what "supersedes" means.
-
-**Recommended handling.** This is a good early candidate for the Develop phase: it is well-formed, the requirement trace is clear, and the sub-decisions are tractable.
+| S3-9a | **What is the decomposition axis?** | Candidates cut differently: by the schema's top-level properties, by authoritative source, by refresh cadence, by confidentiality class, by consumer need. The authority axis bears on S4 — a type spanning two authorities cannot be authorised at type level and falls back to paths. |
+| S3-9b | **How many types, and do they nest?** | A supertype with subtypes, or only leaves. Nesting helps composition and query; flat is simpler to authorise. |
+| S3-9c | **Is the typology binding or advisory?** | MUST an issuer use the defined type for data falling within it, or MAY it? |
+| S3-9d | **Versioning semantics.** | What constitutes a breaking change to a type, given that credentials outlive schema revisions and verifiers must accept concurrent versions. |
+| S3-9e | **Facts that span types.** | Boundary disputes, rights of way, flying freeholds — the Property/Title seam of S2-7 at finer grain. |
+| S3-9f | **Composition invariance.** | Whether composing the entity graph must yield the same state regardless of how many credentials carried the data, and whether that belongs in the conformance suite. |
+| S3-9g | **Catch-all type.** | Retain a generic type for uncovered data, or require a named type for everything. |
+| S3-9h | **Migration.** | What happens to credentials already issued as an undifferentiated type. |
 
 ### S4 — Authority & trust
 
 | PDR | Question | Trace |
 |---|---|---|
-| S4-2 | Trust anchor operation | R5 |
-| S4-3 | Authorisation granularity | R10, R14 |
-| S4-4 | Accreditation | R6 |
-| S4-5 | Intermediates | R4, R24 |
-| S4-6 | Assurance levels | R11 |
-| S4-7 | Competing issuers | R4 |
-| S4-8 | External alignment | R8 |
-| S4-9 | Small firm participation | R24 |
-| S4-10 | Representation — how is externally-established authority expressed so a machine can check it, and how current must it be? | R15, R11, R13, R6 |
+| S4-2 | Trust anchor operation | R-DATA-PATH |
+| S4-3 | Authorisation granularity | R-INDEPENDENCE, R-LIABILITY |
+| S4-4 | Accreditation | R-ENTRY |
+| S4-5 | Intermediates | R-PARTICIPATION, R-SMALL-FIRM |
+| S4-6 | Assurance levels | R-PROVENANCE |
+| S4-7 | Competing issuers | R-PARTICIPATION |
+| S4-8 | External alignment | R-ALIGNMENT |
+| S4-9 | Small firm participation | R-SMALL-FIRM |
+| S4-10 | Representation — how is externally-established authority expressed so a machine can check it, and how current must it be? | R-AUTHORITY, R-PROVENANCE, R-WITHDRAWAL, R-ENTRY |
 
-**S4-7 and S4-9 bear on adoption rather than architecture**, and both are commonly settled late by default. S4-7 determines whether the framework permits competition for the same data or confers exclusivity, which R4 constrains. S4-9 determines whether a small firm can participate at all, which R24 constrains — and a framework that satisfies every other requirement while failing this one will not be adopted.
+**S4-7 and S4-9 bear on adoption rather than architecture**, and both are commonly settled late by default. S4-7 determines whether the framework permits competition for the same data or confers exclusivity, which R-PARTICIPATION constrains. S4-9 determines whether a small firm can participate at all, which R-SMALL-FIRM constrains — and a framework that satisfies every other requirement while failing this one will not be adopted.
 
 ---
-
-### 5.2 PDR-S4-10 — Representation of externally-established authority
-Where authority originates outside the framework — in statute, or in professional regulation — how is it expressed so that a verifier can check it, and how current must that expression be?
-
-**The problem this decision exists to solve.** Deciding that authority comes from statute for designated sources and from regulation for licensed professionals settles where authority *comes from*. It puts nothing on the wire. An Act of Parliament is not a signed artefact and has no key. A professional register is generally a website with a lookup, not a credential, and usually offers no way to verify an entry offline or to prove what it said last Tuesday. Something has to translate the external fact into a checkable form, and that translation is an assertion made by somebody who can be wrong.
-
-**There is also a gap between the two statements.** A regulator certifies that a firm is licensed to practise. It does not certify that the firm is authoritative for a particular class of assertion. Mapping "regulated conveyancer" onto "may assert these facts" is an act of judgement, and it has to be made explicitly and published by someone — it does not fall out of the regulatory status. Where that mapping lives, and who maintains it, is the substance of this decision and interacts directly with S4-3.
-
-- **(a) Mirrored with citation.** A trust anchor publishes signed statements of authority, each citing the external instrument or register entry it derives from. Cryptographic trust rests in the anchor; legal trust rests in the citation, and the two are distinguishable by a relying party.
-- **(b) Live lookup.** The verifier queries the external register at verification time. Always current, and introduces an availability dependency on a party outside the framework, with no offline path.
-- **(c) Source issues directly.** The regulator or statutory body operates as an issuer and signs its own authority statements. Best fidelity, and depends entirely on those bodies choosing to do it.
-- **(d) Signed periodic list.** A versioned, signed snapshot distributed on a published cadence, verifiable offline, stale by up to one cadence interval.
-- **(e) Not represented.** Each verifier establishes external authority however it wishes.
-
-**Requirement consequences.**
-
-(e) fails R15 directly: the basis and currency of authority become unrecoverable from anything on the wire, and every verifier solves the same problem separately, which also cuts against R24.
-
-(b) satisfies currency and is in tension with R5 — an external register that must be reachable for verification to succeed is a dependency in the path, even though it is not the framework's own. It also makes verification of historical assertions impossible if the register does not answer as-of questions.
-
-(c) is the strongest on fidelity and the weakest on timetable, since it requires bodies outside the coalition to change what they publish. It is worth pursuing for the sources where the volume justifies it, and it will not be available for all of them at once — which means (a) or (d) is needed regardless, at least as a transition.
-
-(a) and (d) differ mainly in staleness tolerance, and that is the question to put: **how long may a verifier rely on an authority statement after the underlying status has changed?** A firm struck off on Monday should not be issuing on Tuesday, and this is R13 applied to authority rather than to facts. The answer probably differs by class — statutory designation changes on a timescale of years, professional registration on a timescale of days.
-
-**Note on the anchor's role under (a).** Deriving authority rather than conferring it is a materially different position for whoever operates the anchor: the statement becomes "this body is authoritative, and here is the instrument that makes it so" rather than "this body is authoritative because we say so". That is easier to defend against the objection that the framework creates a new gatekeeper, and it is harder to operate, because someone must read the instruments correctly and keep the derivation current. Whether that is a governance function or a clerical one belongs in S8.
-
-**Dependencies.** Follows PDR-S4-1: what must be represented depends on where authority comes from. Option (c) additionally depends on bodies outside the coalition choosing to issue, which is not the coalition's to schedule.
 
 ### S5 — Exchange
 
 | PDR | Question | Trace |
 |---|---|---|
-| S5-2 | Issuance protocol | R8 |
-| S5-3 | Presentation protocol | R8, R16 |
-| S5-4 | Discovery — how does a party find an issuer and its metadata? | R4 |
-| S5-5 | API security profile | R8 |
-| S5-6 | API surface over composed state — what does a consumer actually call? | R4 |
-| S5-7 | State composition — how do many assertions become one coherent view? | R7 |
-| S5-8 | Backward-compatible output for existing consumers | R25 |
-| S5-9 | Replication — may systems hold copies of transaction state, and under what conditions? | R23, R18, R16, R5 |
-| S5-10 | Subject discovery — given an identifier, how does a party locate the holders? | R3, R17, R21 |
+| S5-2 | Issuance protocol | R-ALIGNMENT |
+| S5-3 | Presentation protocol | R-ALIGNMENT, R-MINIMISATION |
+| S5-4 | Discovery — how does a party find an issuer and its metadata? | R-PARTICIPATION |
+| S5-5 | API security profile | R-ALIGNMENT |
+| S5-6 | API surface over composed state — what does a consumer actually call? | R-PARTICIPATION |
+| S5-7 | State composition — how do many assertions become one coherent view? | R-SEMANTICS |
+| S5-8 | Backward-compatible output for existing consumers, and rendered documents for human review | R-INCREMENTAL, R-RENDERING |
+| S5-9 | Replication — may systems hold copies of transaction state, and under what conditions? | R-COPIES, R-CONFIDENTIALITY, R-MINIMISATION, R-DATA-PATH |
+| S5-10 | Subject discovery — given an identifier, how does a party locate the holders? | R-DISCOVERY, R-CONTROLLER, R-ENTITLEMENT |
 
 ### S6 — Consent & privacy
 
 | PDR | Question | Trace |
 |---|---|---|
-| S6-2 | Terms of use — how is access policy expressed on an assertion? | R16 |
-| S6-3 | Consent artefacts — how is consent granted, evidenced, scoped and withdrawn? | R16, R17 |
-| S6-4 | Controller/processor mapping for each personal-data flow | R17 |
-| S6-5 | Encryption between parties and at rest | R18, R16, R17 |
-| S6-6 | Minimisation — what must a verifier be able to obtain without over-disclosure? | R16 |
-| S6-7 | Audit and subject access — how does a data subject discover who holds what about them? | R17 |
-| S6-8 | Lawful basis for each flow | R17 |
-| S6-9 | Disclosure classification — what is the taxonomy, who assigns it, and does it travel with the fact? | R19, R20, R21 |
-| S6-10 | Entitlement demonstration — how does a requesting party show it is entitled to a fact at the point of request? | R21, R22, R4 |
+| S6-2 | Terms of use — how is access policy expressed on an assertion? | R-MINIMISATION |
+| S6-3 | Consent artefacts — how is consent granted, evidenced, scoped and withdrawn? | R-MINIMISATION, R-CONTROLLER |
+| S6-4 | Controller/processor mapping for each personal-data flow | R-CONTROLLER |
+| S6-5 | Encryption between parties and at rest, for assertions and for referenced artefacts | R-CONFIDENTIALITY, R-MINIMISATION, R-CONTROLLER, R-ARTEFACT |
+| S6-6 | Minimisation — what must a verifier be able to obtain without over-disclosure? | R-MINIMISATION |
+| S6-7 | Audit and subject access — how does a data subject discover who holds what about them? | R-CONTROLLER |
+| S6-8 | Lawful basis for each flow | R-CONTROLLER |
+| S6-9 | Disclosure classification — what is the taxonomy, who assigns it, and does it travel with the fact? | R-CLASSIFICATION, R-PUBLIC, R-ENTITLEMENT |
+| S6-10 | Entitlement demonstration — how does a requesting party show it is entitled to a fact at the point of request? | R-ENTITLEMENT, R-ABSENCE, R-PARTICIPATION |
 
 **Commission S6-4 and S6-8 first.** They are the longest-lead items in the whole tree, they cannot be compressed by adding people, and several S5 and S6 decisions are unsafe to close until they land.
-
-### 5.3 PDR-S5-9 — Replication
-
-**Question.** May a participating system hold a copy of transaction state that it did not individually request, and if so under what conditions?
-
-**Requirement trace.** R23, R18, R16, R5, R21.
-
-**Options.**
-- **(a)** No replication. Every fact is obtained by request at the point it is needed, and no system holds data about a transaction it is not a party to.
-- **(b)** Caching only. Copies are permitted but must be discarded on a stated schedule and may not be read after the requesting party's involvement ends.
-- **(c)** Open replication between accredited systems. Participating platforms synchronise full transaction state, and entitlement is enforced when a person or firm reads, not when a system receives.
-- **(d)** Replication of readable data, restricted facts excluded. Systems synchronise everything they are entitled to hold in clear, and restricted facts move only by request.
-- **(e)** Replication with confidentiality enforced on the data. Systems synchronise everything, including restricted facts, which remain encrypted to the parties entitled to them — so a holder can carry a fact it cannot read.
-- **(f)** Unspecified. Replication is a bilateral matter between platforms, outside the framework.
-
-**Why this matters more than it appears.** Under request-and-response, the permission model has a natural enforcement point: a party asks, and the holder decides. Under replication there is no such moment — the receiving system already has the data, and any control is retrospective. Whichever option is taken, R23 means the rules cannot be escaped by choosing replication; the question is what those rules permit.
-
-**Note on (e).** Options (c) and (e) differ in whether a platform can read what it stores, and that difference is what determines whether replication can satisfy R16 at all. A system holding facts it cannot decrypt is in a materially different position under data protection law from one holding them in clear, and that is a question for the S6-4 controllership opinion rather than for this decision — but it should be asked of both together, because the answer determines whether (c) is available.
-
-**Dependencies.** Interacts with PDR-S6-4 and PDR-S6-8, as above. Option (e) depends on PDR-S6-5 for the encryption model and on PDR-S6-10 for who holds keys. (f) is in tension with R23 and should be argued explicitly rather than arrived at by leaving the question open.
-
-### 5.4 PDR-S5-10 — Subject discovery
-
-**Question.** Given a subject identifier, how does a party locate the systems currently holding facts about it?
-
-**Requirement trace.** R3, R17, R21, R2.
-
-**Options.**
-- **(a)** Service endpoints published in the subject's own identifier document, resolved by whoever holds the identifier.
-- **(b)** A central register mapping subjects to current holders, queried at need.
-- **(c)** Federation metadata — holders publish what subjects they serve, discovered by traversing the trust structure.
-- **(d)** Well-known endpoint per participating system, with a query broadcast to accredited holders.
-- **(e)** Out of band. Parties are told where the data is when they are instructed, as they are today.
-
-**The circularity to resolve.** Discovery leaks. A mechanism that tells any enquirer which systems hold data about a property also tells them the property is in a transaction, which is information about the seller that nobody chose to publish (R17, R21). Restricting discovery to authorised parties creates the opposite problem: a party may need to find the data before it can demonstrate entitlement to it. Any workable answer resolves that circularity rather than choosing one horn of it — for example by making discovery reveal only that a holder exists rather than what it holds, or by pairing an unauthenticated discovery step with an authenticated one.
-
-**Note on (e).** This is the present state of the market and it satisfies nothing: it makes reuse contingent on already knowing who to ask, which is the condition R3 exists to remove. It is listed because it is the default that obtains if the decision is not taken.
-
-**Dependencies.** Option (a) depends on PDR-S2-1 and on the identifier decisions beneath it. Option (c) depends on PDR-S4-1. Option (b) faces the same R4 and R5 arguments as any central register and should be tested against them rather than assumed to fail.
-
-### 5.5 PDR-S6-9 — Disclosure classification
-What is the taxonomy of disclosure character, who assigns it, and does it travel with the fact?
-
-- **(a) Issuer-declared against a published taxonomy.** The party asserting the fact states its class from a fixed list.
-- **(b) Derived from the vocabulary.** Class is a property of the path a fact occupies, fixed centrally when the vocabulary is versioned, and not the issuer's to choose.
-- **(c) Derived from the source.** Class follows from where the fact came from — an authoritative public register, a subject-authored disclosure, or a regulated check — rather than being separately declared.
-- **(d) Relying-party need, matched against a published schedule.** No class on the fact; instead a published schedule of which roles may obtain which categories, evaluated at request time.
-- **(e) No classification.** Access policy expressed per assertion, as in S6-2, with no shared taxonomy above it.
-
-**Dependencies.** Interacts with PDR-S6-4 and PDR-S6-8: a taxonomy whose classes cut across the controllership and lawful-basis positions creates facts whose class says one thing and whose basis says another. The taxonomy can be agreed before those opinions land, but should be validated against them before it is treated as settled.
-
-### 5.6 PDR-S6-10 — Entitlement demonstration
-How does a requesting party demonstrate, at the point of request, that it is entitled to a fact?
-
-- **(a) Platform-enforced.** The holder knows who the parties are because they hold accounts with it, and entitlement is membership of the matter. Works today; does not survive the request crossing a platform boundary, and asks the requester to trust the platform's account model (R10, R4).
-- **(b) Relationship credential from an accredited issuer.** The requester presents a signed assertion of its relationship to the transaction, issued by a party accredited to make such assertions. Verification is of the signature and the issuer's authority, not a live entitlement query.
-- **(c) Subject-issued capability.** The data subject signs a delegation to a named party for a defined scope at the point of instructing them, and the requester presents that. Authority chains to the person rather than to any platform.
-- **(d) Counterparty-asserted relationship.** The relationship is asserted by the other party to it — a seller asserts that a firm represents them. Structurally close to (c), but the liability for a false assertion sits differently.
-- **(e) Accreditation plus transaction reference.** The requester proves it is a regulated firm of the relevant kind and supplies a reference for the matter. No per-transaction credential is minted at all.
-- **(f) Registry query at request time.** The holder asks a service whether the requester is entitled.
-- **(g) Subject presents.** Nothing is disclosed except by the data subject presenting it.
-- **(h) Cryptographic enforcement.** Facts are encrypted so that only parties holding particular attributes can decrypt, with no request-time check.
-- **(i) Negotiated usage policy.** Requester and holder agree machine-readable terms before transfer, as in the European data-space connector pattern.
-
-**These are not mutually exclusive, and the decision may be which combination.** If S6-9 establishes classes, different mechanisms can apply to each: no check at all over facts that are already public (R20), a lighter mechanism for facts disclosed in order to be disclosed, and a stronger one for restricted facts. A single mechanism applied uniformly will be over-engineered at one end and inadequate at the other.
-
-**Requirement notes, option by option, since several are decided before the argument starts.**
-
-(g) fails R22 — a transaction cannot stall on the subject being available at each request. (f) is in direct tension with R5 and fails R4's test if the service can refuse a conformant participant; the counter-argument is that consulting a registry about *authority* is different from routing *data* through it, which is a distinction the coalition should settle explicitly rather than assume. (h) satisfies R5 completely and fails R24 hard, and its revocation story is the weakest of the set — but it should be tested rather than dismissed, because it is the only option requiring no request-time infrastructure at all. (a) is the status quo and its failure mode is precisely what the framework exists to fix, which is a reason to state it fairly rather than omit it.
-
-(b), (c), (d) and (e) all survive first contact with the requirements, and the argument between them is the substance of this decision. The questions that separate them: who is liable for a false relationship assertion (R14); whether authority must chain to the data subject or may originate with an accredited third party (R10); whether a party changing mid-transaction invalidates what was issued (R13); and whether the mechanism works for a party who was not anticipated when the relationship was established (R12).
-
-
-**Dependency.** (b) cannot resolve before S4-1: if relationship assertions are themselves issued under authority, the source of that authority is the locus-of-trust decision, and settling S6-10 first would decide S4-1 by implication.
-
-**Dependencies.** Cannot resolve before PDR-S4-1. If entitlement is demonstrated by presenting an assertion issued under authority, the source of that authority is decided there, and settling this decision first would decide PDR-S4-1 by implication. Options (b) to (e) also depend on PDR-S6-8 for whether a presented credential constitutes a lawful basis for disclosure.
 
 ### S7 — Lifecycle
 
 | PDR | Question | Trace |
 |---|---|---|
-| S7-2 | Status mechanism | R13 |
-| S7-3 | Validity and refresh policy per data type | R12, R13 |
-| S7-4 | Correction versus withdrawal — distinct operations? | R13 |
-| S7-5 | Supersession — how does a reissued assertion reference what it replaces? | R13 |
-| S7-6 | Privacy of status checking — lookups leak interest in a subject | R16 |
-| S7-7 | Long-term verifiability after key rotation | R10 |
+| S7-2 | Status mechanism | R-WITHDRAWAL |
+| S7-3 | Validity and refresh policy per data type | R-REUSE, R-WITHDRAWAL |
+| S7-4 | Correction versus withdrawal — distinct operations? | R-WITHDRAWAL |
+| S7-5 | Supersession — how does a reissued assertion reference what it replaces? | R-WITHDRAWAL |
+| S7-6 | Privacy of status checking — lookups leak interest in a subject | R-MINIMISATION |
+| S7-7 | Long-term verifiability after key rotation | R-INDEPENDENCE |
 
 ### S8 — Governance
 
 | PDR | Question | Trace |
 |---|---|---|
-| S8-2 | Legal form and funding of the framework operator | R4, R5 |
-| S8-3 | Accreditation and appeals — who admits participants, against what criteria, with what right of appeal? | R6 |
-| S8-4 | Conformance and certification — what does "conformant" mean and who tests it? | R4, R6 |
-| S8-5 | Liability allocation and redress — who is answerable when relied-upon data is wrong? | R14 |
-| S8-6 | Change control — how does the framework itself change after v1? | R9 |
-| S8-7 | IP and licensing of the framework | R4 |
-| S8-8 | Relationship to the reform programme and any statutory footing | — |
-| S8-9 | Does the framework operator sit in the data path? | R5 |
+| S8-2 | Legal form and funding of the framework operator | R-PARTICIPATION, R-DATA-PATH |
+| S8-3 | Accreditation and appeals — who admits participants, against what criteria, with what right of appeal? | R-ENTRY |
+| S8-4 | Conformance and certification — what does "conformant" mean and who tests it? | R-PARTICIPATION, R-ENTRY |
+| S8-5 | Liability allocation and redress — who is answerable when relied-upon data is wrong? | R-LIABILITY |
+| S8-6 | Change control — how does the framework itself change after v1? | R-EXTENSION |
+| S8-7 | IP and licensing of the framework | R-PARTICIPATION |
+| S8-8 | Relationship to the reform programme and any statutory footing | No Layer 0 trace — policy, and not the coalition's to settle |
+| S8-9 | Does the framework operator sit in the data path? | R-DATA-PATH |
 
-**S8-7 is where the licensing question belongs.** It is a property the framework must have, testable against R4, and it is separable from any view about the terms on which particular existing material is published.
+**S8-7 is where the licensing question belongs.** It is a property the framework must have, testable against R-PARTICIPATION, and it is separable from any view about the terms on which particular existing material is published.
 
 ### S9 — Adoption
 
 | PDR | Question | Trace |
 |---|---|---|
-| S9-2 | Legacy format emission — which format, and for how long? | R25 |
-| S9-3 | Small firm on-ramp | R24 |
-| S9-4 | Originator adoption sequence — HMLR, MHCLG, local authorities, utilities | R4 |
-| S9-5 | Incentives and mandates — what conditions would make a mandate backstop necessary? | R25 |
-| S9-6 | Pilot design — what must a pilot demonstrate to count as evidence? | — |
+| S9-2 | Legacy format emission — which format, and for how long? | R-INCREMENTAL |
+| S9-3 | Small firm on-ramp | R-SMALL-FIRM |
+| S9-4 | Originator adoption sequence — HMLR, MHCLG, local authorities, utilities | R-PARTICIPATION |
+| S9-5 | Incentives and mandates — what conditions would make a mandate backstop necessary? | R-INCREMENTAL |
+| S9-6 | Pilot design — what must a pilot demonstrate to count as evidence? | No Layer 0 trace — method; tested against the evidence hierarchy in charter §7 |
 
 ---
 
@@ -621,6 +498,9 @@ Known cross-strand couplings to declare in advance rather than discover:
 - S3-9 (credential typology) ↔ S1 (vocabulary) — the decomposition axis is defined against the schema's top-level properties. If S1 resolves pluralist, the typology must be expressible across vocabularies or defined at the conformance layer above them.
 - S2-4 (relationships as assertions) ↔ S6-1 (access model) — if relationships are not verifiable assertions, the graph-derived access model is unavailable and S6 falls back to a central access-control service.
 - S4-3 (path-level authorisation) ↔ S1-1 (vocabulary) — path-level authorisation is only meaningful against a stable shared vocabulary. S1 must be at least provisionally settled before S4-3 can resolve.
+- S3-9 (credential typology) ↔ S3-2 (securing mechanism) — type identity and version have to be carried by whatever secures the credential, so a securing mechanism that does not carry them needs another mechanism that does.
+- S3-9 (credential typology) ↔ S7-5 (supersession) — per-type versioning changes what supersession means.
+- S5-9 (replication) ↔ S6-4 (controller/processor mapping) — whether a system holding a copy it cannot read is a controller determines what replication options remain available.
 - S6-4 (controller/processor mapping) ↔ almost everything in S5 and S6 — commission the data protection analysis early; it is a long-lead item and a wrong answer invalidates decisions downstream.
 
 ---
@@ -660,6 +540,22 @@ A one-month Develop can close the ~45 argument-settled decisions if everything e
 
 **That is the argument for the four-month option, and it is made by the map rather than by assertion.** It is also the reason to publish the tree in September rather than argue the point in October.
 
+### The count is a floor
+
+Requirements have been added three times since the tree was first sized, and each time the tree grew:
+
+| Requirements | Layer 2 | Total | Strands | Roots |
+|---|---|---|---|---|
+| 17 | 68 | 85 | 10 | 10 |
+| 21 | 70 | 87 | 10 | 10 |
+| 22 | 71 | 88 | 10 | 10 |
+| 25 | 73 | 91 | 10 | 10 |
+| 27 | 73 | 91 | 10 | 10 |
+
+Ten requirements have been added since the tree was first sized. They added five Layer 2 decisions between them and left the strands and the root decisions untouched every time. The rate is not constant and should not be projected: the most recent two landed on decisions that already existed and added none, because the gap they closed was in Layer 0 rather than in the tree. What holds across all four rounds is the direction and the ceiling — additions add work inside strands, and they have never added a strand or a root.
+
+Ratification is expected to add requirements, since a requirement the coalition adds is worth more than one it accepts. So **91 is a floor rather than an estimate**, and a Develop duration set against it is being set against the smallest tree the coalition is likely to have.
+
 ### What is not yet enumerated
 
 Stated plainly, because a map claiming completeness it does not have is worse than an honest one:
@@ -672,10 +568,12 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 ## 8. What this map is for
 
-Three uses, in the order they arise.
+Four uses, in the order they arise.
 
 **Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 91 decisions carry a dependency no sprint cadence will shorten.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 
 **Making the programme visible.** Publishing the whole tree before any of it is taken means nothing arrives as a surprise, and the coalition can see what it has taken on. That is worth more than any individual answer in it.
+
+**Reading the consequences of a requirement before ratifying it.** This is why the map is published while Layer 0 is still open rather than after it closes. A requirement is one sentence and its consequences are dozens of decisions; ratifying it on the sentence alone means discovering the consequences one at a time over the following months, at the point where each is expensive to revisit. Following a requirement's traces through the map shows what agreeing to it commits the coalition to, while the requirement can still be amended or rejected. It also shows the reverse: a requirement rejected at Layer 0 leaves the decisions it was the sole trace for standing with nothing to test them against, and those have to be re-traced or withdrawn deliberately rather than argued on preference.

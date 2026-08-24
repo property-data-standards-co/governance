@@ -70,7 +70,7 @@ their own organisation's name, and for the names of any partners or services the
 have a commercial relationship with. A document that could be traced to its author
 by its examples is not yet neutral.
 
-Some option text legitimately names PDTF 1.0 as a candidate vocabulary in
+Some option text legitimately names the PDTF Schema as a candidate vocabulary in
 `decision-map.md` — that is a real option in an open question, not a preference.
 
 ### The check
@@ -78,8 +78,13 @@ Some option text legitimately names PDTF 1.0 as a candidate vocabulary in
 `npm run check` is the gate. It runs on every build, in CI, and as a pre-commit
 hook (`git config core.hooksPath .githooks`, already set locally). It fails the
 commit on: a participant's name in any document, first-person advocacy,
-positioning language, a gap in the requirement numbering, a sizing table that
-disagrees with the map, or a malformed option list.
+positioning language, a requirement identifier defined twice, a requirement trace
+citing an identifier that does not exist, a decision carrying no trace and no
+stated reason for having none, a sizing table that disagrees with the map, or a
+malformed option list. It warns, rather than fails, on a requirement no decision
+traces to — that is the expected state between adding a requirement and
+enumerating the decisions beneath it, and failing it would mean inventing a
+decision to satisfy a hook.
 
 Every pattern in `site/check.js` is there because that thing went wrong at least
 once. If a hit is a false positive, narrow the pattern rather than bypassing the
@@ -155,11 +160,18 @@ gone wrong: fix the generator instead.
 
 **Options are lettered lists**, and the letters are literal text because other
 documents cite options by letter. Never renumber an existing option; add new ones
-at the end. The same applies to requirement numbers: they are identifiers cited in
-every requirement trace, allocated on addition and never reused. They were
-renumbered once, before publication, so that they currently read in sequence — the
-first requirement added after that will break the sequence, and that is fine. Check
-the set with the build's contiguity report, not by scanning for order.
+at the end.
+
+**Requirement identifiers are mnemonic names** — `R-INDEPENDENCE`, `R-REUSE` — not
+numbers. They were numbers until the set was renamed before first reading, and the
+reason for the change is that a numbered set makes addition and rejection expensive:
+the sequence acquires gaps that read as errors, and everyone starts thinking about
+position rather than content. A name is allocated once, on addition, and never
+changed or reused — including when the requirement is amended and the name stops
+describing it well. The name is an identifier, not a summary, and renaming it to
+match new wording would reintroduce exactly the instability the scheme removes.
+New requirements take a neutral noun naming the subject, never the verdict:
+`R-ENTITLEMENT` rather than `R-NOGATEKEEPER`.
 
 **Sessions** are markdown in `sessions/`, rendered as 16:9 decks. Slides split on a
 `---` line, first block is the title slide.

@@ -45,7 +45,7 @@ async function main() {
     const src = path.join(ROOT, doc.file);
     if (!fs.existsSync(src)) { console.warn(`  skip (missing): ${doc.file}`); continue; }
     const body = markOptionLists(marked.parse(fs.readFileSync(src, 'utf8')));
-    write(`${doc.slug}.html`, page({ title: doc.nav, body, nav, active: doc.slug }));
+    write(`${doc.slug}.html`, page({ title: doc.nav, body, nav, active: doc.slug, updated: humanDate(lastUpdated(doc.file)) }));
     console.log(`  doc      ${doc.file} → ${doc.slug}.html`);
   }
 
@@ -54,6 +54,7 @@ async function main() {
     body: decisionIndex(records, marked),
     nav,
     active: 'decisions',
+    updated: humanDate(lastUpdated('decision-records')),
   }));
   console.log(`  index    ${records.length} decision record(s) → decisions.html`);
 
@@ -68,13 +69,14 @@ async function main() {
       nav,
       active: 'decisions',
       base: '../',
+      updated: humanDate(lastUpdated(`decision-records/${r.file}`)),
     }));
     console.log(`  record   ${r.file} → decisions/${r.slug}.html`);
   }
 
   for (const s of sessions) {
     const md = fs.readFileSync(path.join(ROOT, 'sessions', s.file), 'utf8');
-    write(`sessions/${s.slug}.html`, deck(md, marked, s.title));
+    write(`sessions/${s.slug}.html`, deck(md, marked, s.title, humanDate(lastUpdated(`sessions/${s.file}`))));
     console.log(`  deck     sessions/${s.file} → sessions/${s.slug}.html`);
   }
 
@@ -119,23 +121,16 @@ function checkDecisions() {
   }
 }
 
-/** Requirement numbers are identifiers, not an ordering. Verify none has been lost. */
+/** Requirement identifiers are names allocated once. Report the set, and any defined twice. */
 function checkRequirements() {
   const src = path.join(ROOT, 'requirements.md');
   if (!fs.existsSync(src)) return;
-  const nums = [...fs.readFileSync(src, 'utf8').matchAll(/^\|\s*\*\*R(\d+)\*\*\s*\|/gm)]
-    .map((m) => Number(m[1]))
-    .sort((a, b) => a - b);
-  if (!nums.length) { console.warn('  ! requirements: none found'); return; }
-  const highest = nums[nums.length - 1];
-  const dupes = nums.filter((n, i) => nums[i - 1] === n);
-  const gaps = [];
-  for (let i = 1; i <= highest; i++) if (!nums.includes(i)) gaps.push('R' + i);
-  const notes = [];
-  if (gaps.length) notes.push('MISSING ' + gaps.join(', '));
-  if (dupes.length) notes.push('DUPLICATE R' + dupes.join(', R'));
-  console.log('  reqs     ' + nums.length + ' requirements, R1-R' + highest +
-    (notes.length ? '  ** ' + notes.join(' \u00b7 ') + ' **' : '  (contiguous)'));
+  const ids = [...fs.readFileSync(src, 'utf8').matchAll(/^\|\s*\*\*(R-[A-Z][A-Z-]*)\*\*\s*\|/gm)].map((m) => m[1]);
+  if (!ids.length) { console.warn('  ! requirements: none found'); return; }
+  const seen = new Set();
+  const dupes = [...new Set(ids.filter((id) => (seen.has(id) ? true : (seen.add(id), false))))];
+  console.log('  reqs     ' + ids.length + ' requirements' +
+    (dupes.length ? '  ** DUPLICATE ' + dupes.join(', ') + ' **' : ''));
 }
 
 /* ---------- inputs ---------- */
@@ -240,7 +235,29 @@ function buildNav(sessions, base = '') {
   return { items, sessionLinks };
 }
 
-function page({ title, body, nav, active, base = '' }) {
+/**
+ * Last change to a file, from git. Dates are never hand-written in the documents:
+ * a date maintained by hand is wrong from the first commit that forgets it, and a
+ * governance record that shows a stale date is worse than one showing none.
+ */
+function lastUpdated(relPath) {
+  try {
+    const out = require('child_process')
+      .execSync(`git log -1 --format=%cs -- "${relPath}"`, { cwd: ROOT, encoding: 'utf8' })
+      .trim();
+    return out || null;
+  } catch { return null; }
+}
+
+/** 2026-08-24 → 24 August 2026 */
+function humanDate(iso) {
+  if (!iso) return null;
+  const [y, m, d] = iso.split('-').map(Number);
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return `${d} ${months[m - 1]} ${y}`;
+}
+
+function page({ title, body, nav, active, base = '', updated = null }) {
   const links = nav.items
     .map((i) => `<a href="${base}${i.href}"${i.key === active ? ' class="active"' : ''}>${esc(i.label)}</a>`)
     .join('');
@@ -259,14 +276,15 @@ function page({ title, body, nav, active, base = '' }) {
   <div class="nav-group">${links}</div>
   ${typeof nav.sessionLinks === 'function' ? nav.sessionLinks(base) : nav.sessionLinks}
 </nav>
-<main>${body}</main>
+<main>${body}
+${updated ? `<p class="updated">Last updated ${esc(updated)}</p>` : ''}</main>
 </body>
 </html>
 `;
 }
 
 /** 16:9 deck. Slides split on a `---` line; first block is the title slide. */
-function deck(src, marked, title) {
+function deck(src, marked, title, updated = null) {
   const slides = src.split(/\n---\n/).map((s) => s.trim()).filter(Boolean).map((s) => markOptionLists(marked.parse(s)));
   return `<!doctype html>
 <html lang="en-GB">
@@ -281,7 +299,7 @@ function deck(src, marked, title) {
 ${slides.map((s, i) => `<section class="slide${i === 0 ? ' active' : ''}">\n${s}\n</section>`).join('\n')}
 </div>
 <a id="back" href="../index.html" title="Back to the governance site (Esc)">&larr; Property Trust Framework</a>
-<div id="chrome"><span id="num">1</span> / ${slides.length}</div>
+<div id="chrome"><span id="num">1</span> / ${slides.length}${updated ? ` · ${esc(updated)}` : ''}</div>
 <div id="hint">← → to navigate · F for fullscreen · P to print · Esc to leave</div>
 <script>
   const slides = [...document.querySelectorAll('.slide')];
