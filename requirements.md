@@ -1,6 +1,6 @@
 # Requirements for the Property Trust Framework
 
-**Layer 0 — draft for first reading, Trust, Legal & Policy Sprint 1**
+**Layer 0 — draft, published ahead of first reading**
 
 Offered for the coalition to amend, reject or replace. Nothing here is settled, and a requirement removed in session is the process working rather than failing.
 
