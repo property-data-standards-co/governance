@@ -37,6 +37,7 @@ async function main() {
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
 
+  const brokenLinks = [];
   const sessions = listSessions();
   const records = readRecords();
   const nav = buildNav(sessions);
@@ -44,7 +45,9 @@ async function main() {
   for (const doc of DOCS) {
     const src = path.join(ROOT, doc.file);
     if (!fs.existsSync(src)) { console.warn(`  skip (missing): ${doc.file}`); continue; }
-    const body = markOptionLists(marked.parse(fs.readFileSync(src, 'utf8')));
+    const resolved = resolveLinks(markOptionLists(marked.parse(fs.readFileSync(src, 'utf8'))));
+    if (resolved.broken.length) brokenLinks.push(`${doc.file} → ${[...new Set(resolved.broken)].join(', ')}`);
+    const body = resolved.html;
     write(`${doc.slug}.html`, page({ title: doc.nav, body, nav, active: doc.slug, updated: humanDate(lastUpdated(doc.file)) }));
     console.log(`  doc      ${doc.file} → ${doc.slug}.html`);
   }
@@ -63,9 +66,11 @@ async function main() {
   for (const r of records) {
     const md = fs.readFileSync(path.join(ROOT, 'decision-records', r.file), 'utf8')
       .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '');
+    const rec = resolveLinks(markOptionLists(marked.parse(md)), '../');
+    if (rec.broken.length) brokenLinks.push(`decision-records/${r.file} → ${[...new Set(rec.broken)].join(', ')}`);
     write(`decisions/${r.slug}.html`, page({
       title: r.pdr,
-      body: markOptionLists(marked.parse(md)),
+      body: rec.html,
       nav,
       active: 'decisions',
       base: '../',
@@ -78,6 +83,14 @@ async function main() {
     const md = fs.readFileSync(path.join(ROOT, 'sessions', s.file), 'utf8');
     write(`sessions/${s.slug}.html`, deck(md, marked, s.title, humanDate(lastUpdated(`sessions/${s.file}`))));
     console.log(`  deck     sessions/${s.file} → sessions/${s.slug}.html`);
+  }
+
+  if (brokenLinks.length) {
+    console.error('\n  ! link targets that are not built pages:');
+    for (const b of brokenLinks) console.error(`      ${b}`);
+    console.error('\n  A .md link on a published page is broken for every reader who is not');
+    console.error('  looking at the repository. Point it at a built document or remove it.\n');
+    process.exitCode = 1;
   }
 
   checkRequirements();
@@ -255,6 +268,24 @@ function humanDate(iso) {
   const [y, m, d] = iso.split('-').map(Number);
   const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   return `${d} ${months[m - 1]} ${y}`;
+}
+
+/**
+ * Rewrite in-repository .md links to the pages they are built as. Documents are
+ * written to be read as markdown on the repository *and* as pages on the site, so
+ * the links are authored as .md and translated here. A link whose target is not a
+ * built page is a broken link on a public site, so it fails the build rather than
+ * being silently rewritten.
+ */
+function resolveLinks(html, base = '') {
+  const map = new Map(DOCS.map((d) => [d.file, `${d.slug}.html`]));
+  const broken = [];
+  const out = html.replace(/href="([^"#?]+\.md)((?:[#?][^"]*)?)"/g, (whole, target, frag) => {
+    const built = map.get(target);
+    if (!built) { broken.push(target); return whole; }
+    return `href="${base}${built}${frag}"`;
+  });
+  return { html: out, broken };
 }
 
 function page({ title, body, nav, active, base = '', updated = null }) {

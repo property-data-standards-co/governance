@@ -368,7 +368,7 @@ What a chair does control is the framing of a question and the judgement that co
 
 ## 12. Outputs
 
-> **Note.** The month-numbered timetable below is the generic shape. For the actual CFIT Coalition 4 Phase 2 calendar — five TLP sessions in Clarify to 22 October 2026, then Develop and Implement — and the recompression of these layers onto it, see [Aligning to CFIT Coalition 4 Phase 2](02-cfit-alignment.md). In short: **Clarify delivers Layers 0 and 1, Develop delivers Layer 2, Implement delivers Layer 3.**
+> **Note.** The month-numbered timetable below is the generic shape. The phase calendar it is fitted to runs five Trust, Legal & Policy sessions in Clarify to 22 October 2026, then Develop and then Implement, and the layers recompress onto it as follows: **Clarify delivers Layers 0 and 1, Develop delivers Layer 2, Implement delivers Layer 3.** The Develop duration is itself open, and the decision map sizes it.
 
 | Output | When | Purpose |
 |---|---|---|
