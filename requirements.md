@@ -170,7 +170,7 @@ If the coalition wants a different architecture than these imply, the efficient 
 
 ## 6. Tensions to be resolved, not hidden
 
-A requirement set with no internal tension has not been examined. Four are visible already, and each will need a deliberate resolution rather than a preference.
+A requirement set with no internal tension has not been examined. Those visible already are named below, and each will need a deliberate resolution rather than a preference. The list is expected to grow as requirements are added.
 
 **R-EXTENSION against R-SEMANTICS.** Extending without coordinated upgrade pulls toward loose, self-describing data. Shared machine-readable semantics pull toward agreed, versioned structure. The resolution determines how much the framework must agree centrally versus what it can leave to issuers.
 
