@@ -406,6 +406,8 @@ The only decision in the map that currently splits, on the rule in §5. Its part
 | S5-9 | Replication — may systems hold copies of transaction state, and under what conditions? | R-COPIES, R-CONFIDENTIALITY, R-MINIMISATION, R-DATA-PATH |
 | S5-10 | Subject discovery — given an identifier, how does a party locate the holders? | R-DISCOVERY, R-CONTROLLER, R-ENTITLEMENT |
 
+**S5-10 need not resolve the same way for every subject type.** Discovery of a property or a title is a different question from discovery of a transaction: the first serves a party who must find facts without prior arrangement, and the second serves a party who must be admitted to a relationship. An answer that resolves subject discovery for durable subjects and declines it for transaction-scoped ones is a live shape of answer rather than an evasion of the question — but it is only an answer to R-DISCOVERY if the facts a party needs without an invitation are attached to the durable subjects, which is settled by PDR-S0-5 rather than here.
+
 **S5-10 turns on two questions that are easily run together.** Whether a subject exists, and what is true of it, are separately disclosable: a mechanism may reveal that a transaction relates to a property while revealing nothing about its progress, parties or contents. The visibility of an entity's existence is therefore its own question, and the requirement trace applies to it in its own right rather than by inheritance from the facts inside. S5-10 also presupposes what R-DISCOVERY presupposes — that the requesting party already holds the identifier — so how one is obtained from an address, a title number or a UPRN sits above this decision and is not enumerated anywhere below it.
 
 ### S6 — Consent & privacy
@@ -503,6 +505,7 @@ Known cross-strand couplings to declare in advance rather than discover:
 - S3-9 (credential typology) ↔ S3-2 (securing mechanism) — type identity and version have to be carried by whatever secures the credential, so a securing mechanism that does not carry them needs another mechanism that does.
 - S3-9 (credential typology) ↔ S7-5 (supersession) — per-type versioning changes what supersession means.
 - S5-9 (replication) ↔ S6-4 (controller/processor mapping) — whether a system holding a copy it cannot read is a controller determines what replication options remain available.
+- Authority over transaction membership ↔ S4-1, S6-10 and S5-10 together — who is in a transaction has to be established by something, and the same shape recurs at each of the three: whatever issues a relationship, whatever admits a party, and whatever answers a discovery query is either a service that can refuse, which R-PARTICIPATION and R-DATA-PATH constrain, or a subject who may be unavailable, which R-ABSENCE constrains. Deciding any of the three without the other two settles the question by implication in the other two.
 - S6-4 (controller/processor mapping) ↔ almost everything in S5 and S6 — commission the data protection analysis early; it is a long-lead item and a wrong answer invalidates decisions downstream.
 
 ---
