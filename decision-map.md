@@ -406,6 +406,8 @@ The only decision in the map that currently splits, on the rule in §5. Its part
 | S5-9 | Replication — may systems hold copies of transaction state, and under what conditions? | R-COPIES, R-CONFIDENTIALITY, R-MINIMISATION, R-DATA-PATH |
 | S5-10 | Subject discovery — given an identifier, how does a party locate the holders? | R-DISCOVERY, R-CONTROLLER, R-ENTITLEMENT |
 
+**S5-10 turns on two questions that are easily run together.** Whether a subject exists, and what is true of it, are separately disclosable: a mechanism may reveal that a transaction relates to a property while revealing nothing about its progress, parties or contents. The visibility of an entity's existence is therefore its own question, and the requirement trace applies to it in its own right rather than by inheritance from the facts inside. S5-10 also presupposes what R-DISCOVERY presupposes — that the requesting party already holds the identifier — so how one is obtained from an address, a title number or a UPRN sits above this decision and is not enumerated anywhere below it.
+
 ### S6 — Consent & privacy
 
 | PDR | Question | Trace |
