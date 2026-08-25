@@ -346,7 +346,7 @@ Every decision below is open. Where one has a well-understood set of candidate a
 
 | PDR | Question | Trace |
 |---|---|---|
-| S3-2 | Credential format | R-ALIGNMENT, R-MINIMISATION |
+| S3-2 | Credential format | R-ALIGNMENT, R-MINIMISATION, R-CLASSIFICATION, R-ARTEFACT |
 | S3-3 | Instance granularity — how much data a single credential covers | R-EXTENSION |
 | S3-9 | Credential typology — does the framework define a fixed set of named credential types? | R-SEMANTICS, R-EXTENSION, R-LIABILITY, R-INDEPENDENCE |
 | S3-4 | Evidence model — how is documentary evidence bound to an assertion, carried or referenced, and protected | R-PROVENANCE, R-ARTEFACT, R-CONFIDENTIALITY |

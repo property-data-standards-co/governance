@@ -172,7 +172,7 @@ What relationship does the framework's vocabulary have to the RICS Data Standard
 **Why external.** Options (a) to (c) all require the other standards bodies to engage, and effort spent on a mapping nobody maintains is wasted. Their timetables are not the coalition's to set.
 
 ### S3-2 — Credential format
-*Trace: R-ALIGNMENT, R-MINIMISATION*
+*Trace: R-ALIGNMENT, R-MINIMISATION, R-CLASSIFICATION, R-ARTEFACT*
 
 In what format are assertions carried, and does the choice keep the framework inside the UK and EU wallet ecosystem?
 
@@ -180,6 +180,8 @@ In what format are assertions carried, and does the choice keep the framework in
 - **(b) W3C Verifiable Credentials with Data Integrity proofs.** Richer semantics, JSON-LD processing requirements.
 - **(c) ISO mdoc.** The format the mobile identity ecosystem is converging on.
 - **(d) Multiple formats** with a required minimum.
+
+**The choice constrains more than interoperability.** A format determines what an assertion can carry alongside the fact itself. Whether a disclosure classification can travel with a fact, and whether a reference to the artefact an assertion rests on can be carried and bound to it, are properties of the format as much as of the framework — so a format that carries neither natively pushes both into extensions the framework must define and test for itself. That is a cost rather than a disqualification, and it should be counted rather than discovered.
 
 **Why external.** The deciding constraint is which formats GOV.UK Wallet and the relevant EU profiles will accept. That list is not the coalition's to set, and choosing against it strands the sector outside infrastructure R-ALIGNMENT exists to keep it aligned with.
 
