@@ -540,21 +540,15 @@ A one-month Develop can close the ~45 argument-settled decisions if everything e
 
 **That is the argument for the four-month option, and it is made by the map rather than by assertion.** It is also the reason to publish the tree in September rather than argue the point in October.
 
-### The count is a floor
+### The count depends on ratification
 
-Requirements have been added three times since the tree was first sized, and each time the tree grew:
+Ninety-one is what the tree holds against the requirements as drafted. It is not independent of them, and it moves in both directions once Layer 0 is decided.
 
-| Requirements | Layer 2 | Total | Strands | Roots |
-|---|---|---|---|---|
-| 17 | 68 | 85 | 10 | 10 |
-| 21 | 70 | 87 | 10 | 10 |
-| 22 | 71 | 88 | 10 | 10 |
-| 25 | 73 | 91 | 10 | 10 |
-| 27 | 73 | 91 | 10 | 10 |
+A requirement the coalition adds adds work inside the strands beneath it, in the form of decisions that had nothing to test them against before. A requirement the coalition rejects works the other way, and less tidily: a little over half of the Layer 2 decisions cite exactly one requirement, and rejecting that requirement does not delete the decision — the framework still has to decide vocabulary versioning or status mechanics whatever Layer 0 says. What it removes is the basis on which the decision was going to be argued, so each such decision is re-traced to a requirement that survives, or withdrawn from the map deliberately. Either way the count changes.
 
-Ten requirements have been added since the tree was first sized. They added five Layer 2 decisions between them and left the strands and the root decisions untouched every time. The rate is not constant and should not be projected: the most recent two landed on decisions that already existed and added none, because the gap they closed was in Layer 0 rather than in the tree. What holds across all four rounds is the direction and the ceiling — additions add work inside strands, and they have never added a strand or a root.
+What does not change with the requirement set is the shape above Layer 2. The strands come from the domain rather than from Layer 0, so requirements move the work inside them rather than adding or removing a strand or a root decision.
 
-Ratification is expected to add requirements, since a requirement the coalition adds is worth more than one it accepts. So **91 is a floor rather than an estimate**, and a Develop duration set against it is being set against the smallest tree the coalition is likely to have.
+The consequence for sizing is that the Develop duration should be set against the tree that follows ratification rather than against this one, and that the dependency classes above matter more than the total. A count moves; a legal opinion that takes weeks, a build round that cannot start before its parent resolves, and a decision that needs a body not yet at the table do not become faster because the tree turned out smaller.
 
 ### What is not yet enumerated
 
