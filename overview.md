@@ -18,7 +18,7 @@ Layer 0 opens with one sentence, and ratifying it is the most consequential act 
 
 The phrase carrying the weight is **"independently of whoever transmits it."** Adopt it and a large part of the architecture follows; several otherwise-reasonable designs are ruled out by it alone.
 
-Stating an ambition of that size is the easy part. Holding it through ninety-one detailed decisions taken over months, mostly by people arguing in good faith about technical particulars, is the hard part — and it is what the requirement layer exists to do. Each requirement is written so that a design either meets it or does not, which is what keeps the ambition enforceable once the arguments have become specific and the original sentence is months old.
+Stating an ambition of that size is the easy part. Holding it through ninety-two detailed decisions taken over months, mostly by people arguing in good faith about technical particulars, is the hard part — and it is what the requirement layer exists to do. Each requirement is written so that a design either meets it or does not, which is what keeps the ambition enforceable once the arguments have become specific and the original sentence is months old.
 
 ## The four layers
 

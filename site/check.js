@@ -143,6 +143,7 @@ function checkTraces() {
 /* ---------- decisions ---------- */
 
 function checkDecisions() {
+  let computedTotal = null;
   const src = path.join(ROOT, 'decision-map.md');
   if (!fs.existsSync(src)) return warn('decision map present', 'decision-map.md not found');
   const md = fs.readFileSync(src, 'utf8');
@@ -161,6 +162,43 @@ function checkDecisions() {
   const bad = Object.keys(stated).filter((k) => stated[k] !== null && stated[k] !== actual[k]);
   if (bad.length) fail('sizing table agrees with the map', bad.map((k) => `${k}: table says ${stated[k]}, map has ${actual[k]}`).join('; '));
   else pass('sizing table agrees with the map', `${actual.roots} roots + ${actual.layer2} layer-2 + ${actual.subs} sub = ${actual.total}`);
+  return actual.total;
+}
+
+/* ---------- decision counts in prose ---------- */
+
+// The sizing table is checked against the map above. Prose that states the total
+// separately is not, and has drifted every time a decision was added: "all 91
+// decisions", "ninety-one detailed decisions", "22 of 91". This finds a number
+// word or digit within three words of "decisions" and requires it to match.
+const NUMBER_WORDS = {
+  eighty: 80, ninety: 90, hundred: 100,
+  'eighty-one': 81, 'eighty-two': 82, 'eighty-three': 83, 'eighty-four': 84, 'eighty-five': 85,
+  'eighty-six': 86, 'eighty-seven': 87, 'eighty-eight': 88, 'eighty-nine': 89,
+  'ninety-one': 91, 'ninety-two': 92, 'ninety-three': 93, 'ninety-four': 94, 'ninety-five': 95,
+  'ninety-six': 96, 'ninety-seven': 97, 'ninety-eight': 98, 'ninety-nine': 99,
+};
+
+function checkDecisionCounts(total) {
+  if (!total) return;
+  const problems = [];
+  for (const { file, lines } of corpus()) {
+    lines.forEach((line, i) => {
+      for (const m of line.matchAll(/((?:[\w-]+\s+){0,3})decisions\b/gi)) {
+        const before = m[1].trim().split(/\s+/);
+        // "Layer 2 decisions" is a layer number, not a count.
+        if (before.some((w) => /^layer$/i.test(w))) continue;
+        for (const w of before) {
+          const key = w.toLowerCase().replace(/[^a-z-]/g, '');
+          const n = /^\d+$/.test(w) ? Number(w) : NUMBER_WORDS[key];
+          if (n === undefined || n < 50) continue; // small numbers are sub-counts, not the total
+          if (n !== total) problems.push(`${file}:${i + 1}  says ${w}, map has ${total}`);
+        }
+      }
+    });
+  }
+  if (problems.length) fail('prose decision counts agree with the map', [...new Set(problems)].join('\n        '));
+  else pass('prose decision counts agree with the map', `${total}`);
 }
 
 /* ---------- option lists ---------- */
@@ -189,7 +227,7 @@ console.log('\ngovernance record checks\n');
 checkText();
 checkRequirements();
 checkTraces();
-checkDecisions();
+checkDecisionCounts(checkDecisions());
 checkOptions();
 console.log('');
 if (failures) {
