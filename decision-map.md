@@ -449,6 +449,9 @@ The only decision in the map that currently splits, on the rule in §5. Its part
 | S8-7 | IP and licensing of the framework | R-PARTICIPATION |
 | S8-8 | Relationship to the reform programme and any statutory footing | No Layer 0 trace — policy, and not the coalition's to settle |
 | S8-9 | Does the framework operator sit in the data path? | R-DATA-PATH |
+| S8-10 | Implementation support — what does the framework publish beyond the specification, and is any of it normative? | R-SMALL-FIRM, R-PARTICIPATION |
+
+**S8-10 is not S8-4 in different words.** Conformance answers what a claim of conformance means and who tests it. This asks what the framework hands an implementer before they get there — reference libraries, worked examples, test vectors, documentation — and whether any of it binds. The options separate on how much implementation cost the framework absorbs against how far a published implementation becomes the definition in practice, which R-PARTICIPATION constrains: a route that runs through one supplier's library is a route that supplier can withdraw.
 
 **S8-7 is where the licensing question belongs.** It is a property the framework must have, testable against R-PARTICIPATION, and it is separable from any view about the terms on which particular existing material is published.
 
@@ -518,11 +521,11 @@ The tree's size is the honest basis for deciding how long Develop needs. Countin
 |---|---|
 | Layer 0 requirements to ratify | 25 |
 | Layer 1 root decisions | 10 |
-| Layer 2 decisions | 73 |
+| Layer 2 decisions | 74 |
 | Sub-decisions below Layer 2 (PDR-S3-9 only) | 8 |
-| **Total decisions to close** | **91** |
+| **Total decisions to close** | **92** |
 
-Spread across ten strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 9, S5 9, S6 9, S7 6, S8 8, S9 5.
+Spread across ten strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 9, S5 9, S6 9, S7 6, S8 9, S9 5.
 
 ### What would actually settle each one
 
@@ -539,7 +542,7 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 ### The consequence for the Develop duration
 
-Around **22 of 91 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
+Around **22 of 92 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
 
 A one-month Develop can close the ~45 argument-settled decisions if everything else goes perfectly. It cannot accommodate a single legal opinion, a single build round, or a single decision that needs a body not yet at the table. Those would carry into Implement, where the framework is supposed to be being written rather than decided.
 
@@ -569,7 +572,7 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 Four uses, in the order they arise.
 
-**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 91 decisions carry a dependency no sprint cadence will shorten.
+**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 92 decisions carry a dependency no sprint cadence will shorten.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 

@@ -143,10 +143,12 @@ Applying a single consent gate across all of these produces consent theatre over
 | ID | Requirement | Test |
 |---|---|---|
 | **R-RENDERING** | The framework can produce a human-readable presentation of the facts it carries, and a party can establish that the presentation and the assertions behind it agree. | Can an existing form or report be produced from framework data alone, and would a disagreement between the rendered document and the assertions be detectable? |
-| **R-SMALL-FIRM** | A sole practitioner or small firm can participate fully without operating specialist cryptographic infrastructure. | Can a two-person conveyancing firm participate using services they can buy? |
+| **R-SMALL-FIRM** | A sole practitioner or small firm can participate fully without operating specialist cryptographic infrastructure. | Can a two-person conveyancing firm participate fully without operating specialist infrastructure, by a route that exists rather than one presupposing a market that does not? |
 | **R-INCREMENTAL** | The framework can be adopted incrementally, alongside existing practice, without a flag-day migration. | Can a participant adopt partially and still transact with non-adopters? |
 
 *R-RENDERING is not the migration requirement, and the distinction matters because conflating them makes it expire. R-INCREMENTAL is about adoption: a participant can adopt partially and still transact with non-adopters, and it stops binding once everyone has adopted. The human-readable document does not stop being needed. A fully digital conveyancer still has a client who reviews and signs, a file that is inspected, and a regulator who asks to see what the client saw — and a court that may be shown it years later. The rendered form is not a bridge to the framework; for some purposes it remains the operative artefact, which is why the requirement is about the presentation and the data agreeing rather than about the framework being able to emit a document.*
+
+*The test is deliberately silent on which route. Buying a conformant service and implementing against published specifications and tooling both satisfy the requirement, and they fail differently: the first depends on suppliers choosing to enter a market that does not yet exist, the second on the framework being specified and supported well enough that implementation is cheap. A design whose only answer is the first has not yet met the requirement — it has identified who would have to meet it.*
 
 *R-SMALL-FIRM and R-INCREMENTAL are the counterweight to everything above, and they should be uncomfortable. A framework only a large technology firm can implement has failed, however elegant. Most of the conveyancing market is small firms.*
 
