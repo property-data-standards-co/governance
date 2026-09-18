@@ -197,6 +197,11 @@ function frontmatter(src) {
 
 const STATUSES = ['drafted', 'open', 'resolved', 'ratified', 'superseded'];
 
+// What a resolved decision binds on a conformant implementation (charter §9).
+// Collated across the tree, the distribution is the record's answer to how much
+// the sector needed to hold in common — which is why it is generated, not written.
+const NORMATIVITY = ['normative', 'profile', 'non-decision'];
+
 function decisionIndex(records, marked) {
   const preamble = marked.parse(`
 # Decision register
@@ -214,26 +219,34 @@ Every decision the framework requires is listed in the [decision map](decision-m
     .map((s) => `<span class="pill s-${s}">${records.filter((r) => r.status === s).length} ${s}</span>`)
     .join(' ');
 
+  const bound = records.filter((r) => NORMATIVITY.includes(r.normativity));
+  const binds = bound.length
+    ? `<p class="counts">${NORMATIVITY
+        .map((n) => `<span class="pill n-${n}">${bound.filter((r) => r.normativity === n).length} ${n}</span>`)
+        .join(' ')} <span class="counts-note">of ${bound.length} classified — what resolved decisions bind on a conformant implementation</span></p>`
+    : '';
+
   const byStrand = {};
   for (const r of records) (byStrand[r.strand || '—'] ||= []).push(r);
 
   const tables = Object.keys(byStrand).sort().map((strand) => `
     <h2>${esc(strand)}</h2>
     <table>
-      <thead><tr><th>PDR</th><th>Question</th><th>Status</th><th>Requirements</th><th>Chair of record</th></tr></thead>
+      <thead><tr><th>PDR</th><th>Question</th><th>Status</th><th>Binds</th><th>Requirements</th><th>Chair of record</th></tr></thead>
       <tbody>
       ${byStrand[strand].map((r) => `
         <tr>
           <td><a href="decisions/${esc(r.slug)}.html"><code>${esc(r.pdr)}</code></a></td>
           <td>${esc(r.title || '')}</td>
           <td><span class="pill s-${esc(r.status || 'drafted')}">${esc(r.status || 'drafted')}</span></td>
+          <td>${NORMATIVITY.includes(r.normativity) ? `<span class="pill n-${esc(r.normativity)}">${esc(r.normativity)}</span>` : '—'}</td>
           <td>${(Array.isArray(r.requirements) ? r.requirements : []).map((x) => `<code>${esc(x)}</code>`).join(' ') || '—'}</td>
           <td>${esc(r.chair_of_record || '—')}${(Array.isArray(r.recusals) && r.recusals.length) ? ` <span class="recusal" title="recusal recorded">⚑</span>` : ''}</td>
         </tr>`).join('')}
       </tbody>
     </table>`).join('\n');
 
-  return preamble + `<p class="counts">${counts}</p>` + tables;
+  return preamble + `<p class="counts">${counts}</p>` + binds + tables;
 }
 
 function buildNav(sessions, base = '') {

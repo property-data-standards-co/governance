@@ -198,7 +198,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Question.** How does data move between parties?
 
-**Requirement trace.** R-PARTICIPATION, R-DATA-PATH, R-ALIGNMENT, R-EXTENSION, R-MINIMISATION.
+**Requirement trace.** R-PARTICIPATION, R-DATA-PATH, R-ALIGNMENT, R-EXTENSION, R-MINIMISATION, R-INTEROPERATION.
 
 **Options.**
 - **(a)** Central hub/clearing house.
@@ -315,15 +315,18 @@ Every decision below is open. Where one has a well-understood set of candidate a
 | S0-6 | Which party types must the framework model? | R-LIABILITY |
 | S0-7 | Which data categories are in and out of scope? | R-MINIMISATION |
 | S0-8 | **Does framework scope equal pilot scope?** CFIT's Product & Service Design paper scopes out new build, commercial, social housing, shared ownership and Scotland *for the pilot*. Does the framework inherit those exclusions? | R-EXTENSION, R-INCREMENTAL |
+| S0-9 | Which cross-scheme use cases are in scope — for which named services does a fact need to cross between this framework and another scheme, in either direction? | R-BOUNDARY, R-REUSE |
 
 **S0-8 is the one to raise early.** It is not in anyone's question list and it is cheap to get wrong by inattention — the exclusions are sensible for a pilot and would be damaging in a standard.
+
+**S0-9 sets the reach of R-BOUNDARY.** The requirement is testable only per use case, so the list of use cases is where the coalition decides how much cross-scheme interoperation the framework promises. Candidates arrive from both directions: facts drawn into a transaction from banking, energy or identity schemes, and facts the transaction produces that another scheme's services would consume. Each needs the parties on the far side of the boundary, which is why it sits with the decisions awaiting participation.
 
 ### S1 — Semantics
 
 | PDR | Question | Trace |
 |---|---|---|
 | S1-2 | Extension and namespacing — how does a participant add a data category without central coordination? | R-EXTENSION |
-| S1-3 | Alignment with external vocabularies (RICS Data Standard, OSCRE, ISO 20022) | R-SEMANTICS, R-ALIGNMENT |
+| S1-3 | Alignment with external vocabularies (RICS Data Standard, OSCRE, ISO 20022) | R-SEMANTICS, R-ALIGNMENT, R-INTEROPERATION |
 | S1-4 | Form overlay mechanism — BASPI, NTS, TA forms, CON29R | R-SEMANTICS, R-RENDERING |
 | S1-5 | Vocabulary versioning — what constitutes a breaking change, and may versions coexist? | R-EXTENSION |
 | S1-6 | Who maintains the vocabulary, and under what change process? | R-PARTICIPATION, R-ENTRY |
@@ -354,6 +357,9 @@ Every decision below is open. Where one has a well-understood set of candidate a
 | S3-6 | Merge semantics | R-SEMANTICS, R-EXTENSION |
 | S3-7 | Selective disclosure | R-MINIMISATION |
 | S3-8 | Assertion identifiers | R-SEMANTICS |
+| S3-10 | Boundary assertions — how is a fact derived from another scheme represented, who may issue it, and what must it carry about its source? | R-BOUNDARY, R-PROVENANCE, R-LIABILITY, R-ARTEFACT |
+
+**S3-10 is where cross-scheme reuse is made or lost.** A source-of-funds result drawn from banking data, an identity check carried from a certified verification service, an energy rating drawn from the register: each enters as an assertion made by whoever performed the cross-scheme act, and the options differ in what that assertion carries about its source and how far a relying party can get behind it. Who may issue one is an authority question and follows PDR-S4-1; whether the issuing party is a controller of what it obtained follows S6-4.
 
 **S3-6 is genuinely open.** No prior work known to the coalition resolves it, and it is one of the decisions least likely to be settled by argument — the options differ in how they behave over real sequences of amendment, which is an empirical question. It is a candidate for a build round or an interop event rather than a session.
 
@@ -443,13 +449,16 @@ The only decision in the map that currently splits, on the rule in §5. Its part
 |---|---|---|
 | S8-2 | Legal form and funding of the framework operator | R-PARTICIPATION, R-DATA-PATH |
 | S8-3 | Accreditation and appeals — who admits participants, against what criteria, with what right of appeal? | R-ENTRY |
-| S8-4 | Conformance and certification — what does "conformant" mean and who tests it? | R-PARTICIPATION, R-ENTRY |
+| S8-4 | Conformance and certification — what does "conformant" mean and who tests it? | R-PARTICIPATION, R-ENTRY, R-INTEROPERATION |
 | S8-5 | Liability allocation and redress — who is answerable when relied-upon data is wrong? | R-LIABILITY |
 | S8-6 | Change control — how does the framework itself change after v1? | R-EXTENSION |
 | S8-7 | IP and licensing of the framework | R-PARTICIPATION |
 | S8-8 | Relationship to the reform programme and any statutory footing | No Layer 0 trace — policy, and not the coalition's to settle |
 | S8-9 | Does the framework operator sit in the data path? | R-DATA-PATH |
 | S8-10 | Implementation support — what does the framework publish beyond the specification, and is any of it normative? | R-SMALL-FIRM, R-PARTICIPATION |
+| S8-11 | Cross-economy baselines — which provisions of the smart data guidebook bind the framework, and how is a divergence from a baseline recorded and justified? | R-ALIGNMENT, R-BOUNDARY |
+
+**S8-11 cannot close before its input exists.** The guidebook is expected in early 2027, after the Develop phase. Rather than wait, each decision taken before then records in its consequences which baseline, if any, it would be sensitive to, so that alignment can be checked in one pass when the text lands rather than by reopening the tree.
 
 **S8-10 is not S8-4 in different words.** Conformance answers what a claim of conformance means and who tests it. This asks what the framework hands an implementer before they get there — reference libraries, worked examples, test vectors, documentation — and whether any of it binds. The options separate on how much implementation cost the framework absorbs against how far a published implementation becomes the definition in practice, which R-PARTICIPATION constrains: a route that runs through one supplier's library is a route that supplier can withdraw.
 
@@ -464,6 +473,22 @@ The only decision in the map that currently splits, on the rule in §5. Its part
 | S9-4 | Originator adoption sequence — HMLR, MHCLG, local authorities, utilities | R-PARTICIPATION |
 | S9-5 | Incentives and mandates — what conditions would make a mandate backstop necessary? | R-INCREMENTAL |
 | S9-6 | Pilot design — what must a pilot demonstrate to count as evidence? | No Layer 0 trace — method; tested against the evidence hierarchy in charter §7 |
+
+**S9-6 is also where evidence across candidate shapes is designed.** Where the programme is asked whether the requirements can be met with less held in common than a single specification, the test is R-INTEROPERATION run against each candidate shape, and it is a build round like any other: what would count as failure for each shape is pre-registered before anyone builds, and a shape is not shown to work by a demonstration that could not have failed.
+
+### 5.2 What each decision binds
+
+A resolved decision does one of three things, and its record says which.
+
+| | |
+|---|---|
+| **Normative** | One answer, binding on every conformant implementation. |
+| **Profile** | Enumerated alternatives, each conformance-tested, with a conformant implementation declaring which it supports. |
+| **Non-decision** | Deliberately left to implementers, with the reasoning recorded. |
+
+The classification is not chosen in advance and it is not chosen once. It falls out of the requirements at each decision: an option is made normative where every alternative fails a ratified requirement, profiled where more than one alternative survives and R-INTEROPERATION can be met across them, and left open where the requirements do not reach it. The register collates the field across the tree.
+
+That collation is the evidence CFIT has been asked to produce across its three candidate models: a common standard, a common conformance framework, or a federated model (*From Roadmap to Real-World Evidence*, September 2026). Put as one choice the question has no test. Put decision by decision it does, because the three are the shapes the distribution can take. A tree in which almost everything is normative is a common standard; one in which almost everything is a profile or a non-decision is a federated model; a common conformance framework is the requirements held in common with profiles beneath them; and the case for any of them is the per-decision record of what had to be held in common for the ratified requirements to hold, and what did not. CFIT will not prejudge which model prevails, the map does not, and the requirements are written so that the distribution can come out any of the three ways.
 
 ---
 
@@ -510,6 +535,8 @@ Known cross-strand couplings to declare in advance rather than discover:
 - S5-9 (replication) ↔ S6-4 (controller/processor mapping) — whether a system holding a copy it cannot read is a controller determines what replication options remain available.
 - Authority over transaction membership ↔ S4-1, S6-10 and S5-10 together — who is in a transaction has to be established by something, and the same shape recurs at each of the three: whatever issues a relationship, whatever admits a party, and whatever answers a discovery query is either a service that can refuse, which R-PARTICIPATION and R-DATA-PATH constrain, or a subject who may be unavailable, which R-ABSENCE constrains. Deciding any of the three without the other two settles the question by implication in the other two.
 - S6-4 (controller/processor mapping) ↔ almost everything in S5 and S6 — commission the data protection analysis early; it is a long-lead item and a wrong answer invalidates decisions downstream.
+- S3-10 (boundary assertions) ↔ S4-1 and S6-4 — who may vouch for a fact from another scheme is an authority question, and whether the vouching party is a controller of what it obtained is a data protection one; S3-10 can settle representation but neither of those.
+- S8-11 (cross-economy baselines) ↔ every decision citing R-ALIGNMENT — the baselines arrive after Develop, so each such decision records what it would be sensitive to rather than waiting for them.
 
 ---
 
@@ -519,13 +546,13 @@ The tree's size is the honest basis for deciding how long Develop needs. Countin
 
 | | Count |
 |---|---|
-| Layer 0 requirements to ratify | 25 |
+| Layer 0 requirements to ratify | 29 |
 | Layer 1 root decisions | 10 |
-| Layer 2 decisions | 74 |
+| Layer 2 decisions | 77 |
 | Sub-decisions below Layer 2 (PDR-S3-9 only) | 8 |
-| **Total decisions to close** | **92** |
+| **Total decisions to close** | **95** |
 
-Spread across ten strands: S0 7, S1 5, S2 7, S3 8 (+8), S4 9, S5 9, S6 9, S7 6, S8 9, S9 5.
+Spread across ten strands: S0 8, S1 5, S2 7, S3 9 (+8), S4 9, S5 9, S6 9, S7 6, S8 10, S9 5.
 
 ### What would actually settle each one
 
@@ -533,24 +560,24 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 | Settled by | Roughly | Can it be compressed? |
 |---|---|---|
-| Argument in session, against the requirements | ~45 | Yes — these are what a sprint cadence is for |
+| Argument in session, against the requirements | ~46 | Yes — these are what a sprint cadence is for |
 | **External legal opinion** | 4 — S6-4, S6-8, S8-5, part of S8-7 | **No.** Weeks of elapsed time, and several downstream decisions are unsafe to close before they land |
 | **A build round** | 6 — S3-6 merge semantics, S3-9a decomposition axis, S2-7 field seams, S5-7 composition, S7-3 validity periods, S7-5 supersession | **No.** One sprint interval each, and they cannot run before their parent decision resolves |
-| **External confirmation or alignment** | 4 — S3-2 against the GOV.UK Wallet format list, S4-8 against DIATF, S1-3 against RICS/OSCRE/ISO 20022, S8-8 against the reform programme | **Partly.** Depends on other organisations' timetables |
-| **Participation not yet secured** | 5 — S9-4 originator sequence, S7-3 validity periods, S0-2, S0-7, S9-5 | **No.** Cannot be settled among suppliers; needs HMLR, MHCLG, local authorities and the professions at the table |
+| **External confirmation or alignment** | 5 — S3-2 against the GOV.UK Wallet format list, S4-8 against DIATF, S1-3 against RICS/OSCRE/ISO 20022, S8-8 against the reform programme, S8-11 against the smart data guidebook | **Partly.** Depends on other organisations' timetables |
+| **Participation not yet secured** | 6 — S9-4 originator sequence, S7-3 validity periods, S0-2, S0-7, S0-9, S9-5 | **No.** Cannot be settled among suppliers; needs HMLR, MHCLG, local authorities, the professions and the schemes on the far side of each boundary at the table |
 | Policy, sitting with government | 3 — S8-8, S9-5, part of S8-2 | Out of the coalition's hands |
 
 ### The consequence for the Develop duration
 
-Around **22 of 92 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
+Around **24 of 95 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
 
-A one-month Develop can close the ~45 argument-settled decisions if everything else goes perfectly. It cannot accommodate a single legal opinion, a single build round, or a single decision that needs a body not yet at the table. Those would carry into Implement, where the framework is supposed to be being written rather than decided.
+A one-month Develop can close the ~46 argument-settled decisions if everything else goes perfectly. It cannot accommodate a single legal opinion, a single build round, or a single decision that needs a body not yet at the table. Those would carry into Implement, where the framework is supposed to be being written rather than decided.
 
 **That is the argument for the four-month option, and it is made by the map rather than by assertion.** It is also the reason to publish the tree in September rather than argue the point in October.
 
 ### The count depends on ratification
 
-Ninety-one is what the tree holds against the requirements as drafted. It is not independent of them, and it moves in both directions once Layer 0 is decided.
+Ninety-five is what the tree holds against the requirements as drafted. It is not independent of them, and it moves in both directions once Layer 0 is decided.
 
 A requirement the coalition adds adds work inside the strands beneath it, in the form of decisions that had nothing to test them against before. A requirement the coalition rejects works the other way, and less tidily: a little over half of the Layer 2 decisions cite exactly one requirement, and rejecting that requirement does not delete the decision — the framework still has to decide vocabulary versioning or status mechanics whatever Layer 0 says. What it removes is the basis on which the decision was going to be argued, so each such decision is re-traced to a requirement that survives, or withdrawn from the map deliberately. Either way the count changes.
 
@@ -572,7 +599,7 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 Four uses, in the order they arise.
 
-**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 22 of 92 decisions carry a dependency no sprint cadence will shorten.
+**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 24 of 95 decisions carry a dependency no sprint cadence will shorten.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 

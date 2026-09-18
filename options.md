@@ -6,7 +6,7 @@
 
 ## 1. What this document is
 
-The decision map enumerates ninety-two decisions. Around seventy-three of them can be settled by argument in a working session against ratified requirements, once any decision they depend on has resolved. The remaining nineteen cannot, and this document sets out the candidate options for those.
+The decision map enumerates ninety-five decisions. Around seventy-four of them can be settled by argument in a working session against ratified requirements, once any decision they depend on has resolved. The remaining twenty-one cannot, and this document sets out the candidate options for those.
 
 Options for decisions that *can* be settled in session — including every root decision — are in the decision map alongside the question, with their dependencies stated there.
 
@@ -22,8 +22,8 @@ They are grouped by *how they would be settled* rather than by strand, because t
 |---|---|---|
 | **Written legal opinion** | 4 decisions | Weeks of elapsed time. Several downstream decisions are unsafe to close before it lands. |
 | **A build round** | 6 decisions | One sprint interval each, and they cannot run before their parent decision resolves. |
-| **External confirmation** | 4 decisions | Depends on other organisations' timetables, not the coalition's. |
-| **Participation or policy** | 5 decisions | Cannot be settled among software suppliers alone. |
+| **External confirmation** | 5 decisions | Depends on other organisations' timetables, not the coalition's. |
+| **Participation or policy** | 6 decisions | Cannot be settled among software suppliers alone. |
 
 Some decisions appear in two groups. S7-3 needs both a build round and originator participation; S9-5 and S8-8 are both policy and external.
 
@@ -160,7 +160,7 @@ Already enumerated with the sub-decisions of S3-9. Included here because it carr
 ## 5. Needing external confirmation
 
 ### S1-3 — Alignment with external vocabularies
-*Trace: R-SEMANTICS, R-ALIGNMENT*
+*Trace: R-SEMANTICS, R-ALIGNMENT, R-INTEROPERATION*
 
 What relationship does the framework's vocabulary have to the RICS Data Standard, OSCRE, ISO 20022, and to any vocabulary the reform programme adopts?
 
@@ -208,6 +208,18 @@ What relationship does the framework have to the homebuying reform programme, an
 
 **Why policy.** This is government's decision rather than the coalition's. What the coalition can do is ensure the framework satisfies the preconditions for (a) or (b), which are mostly questions of openness, custody and licensing — and therefore depend on S8-2 and S8-7.
 
+### S8-11 — Cross-economy baselines
+*Trace: R-ALIGNMENT, R-BOUNDARY*
+
+Which provisions of the cross-economy smart data guidebook bind the framework, and how is a divergence from a baseline recorded and justified?
+
+- **(a) Adopt.** Guidebook baselines bind wherever they apply, and the framework records its conformance to each.
+- **(b) Adopt with recorded divergence.** Baselines bind by default; a decision may diverge where a ratified requirement demands it, with the divergence and its reason published.
+- **(c) Advisory.** Baselines are weighed as evidence at each decision and bind nowhere.
+- **(d) Deferred until published.** No relationship is decided until the text exists.
+
+**Why external.** The guidebook is expected in early 2027, after the Develop phase, and its content is not the coalition's to set. Worth noting that (b) is the only option under which the framework can both meet a baseline and satisfy a requirement the baseline did not anticipate. A requirement on reuse across parties who hold no relationship with each other has no counterpart in schemes built on access at the moment of request, and a baseline written for those schemes may not fit it. Each decision taken before the text lands records what it would be sensitive to, so that the alignment pass can be made once.
+
 ---
 
 ## 6. Needing participation not yet secured, or policy
@@ -231,6 +243,16 @@ What relationship does the framework have to the homebuying reform programme, an
 - **(d)** Open-ended — the framework carries any category, and scope is set by profiles.
 
 **Why participation.** What must be disclosed is being determined by the reform programme and the professional bodies, on their timetable rather than the coalition's.
+
+### S0-9 — Which cross-scheme use cases are in scope
+*Trace: R-BOUNDARY, R-REUSE*
+
+- **(a) None in the first version.** The framework is designed not to obstruct cross-scheme reuse, and no use case is promised.
+- **(b) Inbound only.** Named facts drawn from other schemes into a transaction, such as a source-of-funds check on banking data or an identity check from a certified verification service.
+- **(c) Inbound and outbound.** As (b), plus named facts the transaction produces for consumption elsewhere, such as a mortgage offer or a completion.
+- **(d) Open-ended.** Any use case a participant proposes, subject to the boundary assertion model.
+
+**Why participation.** Every use case has a far side, and the scheme on that side sets its own rules and timetable. A use case can be named unilaterally; it can only be delivered with the other scheme's participation, so the list should be settled with those parties rather than for them. Separately, (d) is not a scope decision but the absence of one, and R-BOUNDARY has no test under it.
 
 ### S8-2 — Legal form and funding of the framework operator
 *Trace: R-PARTICIPATION, R-DATA-PATH*
@@ -266,6 +288,6 @@ What relationship does the framework have to the homebuying reform programme, an
 
 ## 7. What this means for scheduling
 
-Four legal opinions, six build rounds, four external dependencies and five decisions awaiting participation. The opinions and the external confirmations can be started early and run in parallel with sessions; the build rounds cannot begin until their parent decisions resolve, which puts them structurally after the root decisions close.
+Four legal opinions, six build rounds, five external dependencies and six decisions awaiting participation. The opinions and the external confirmations can be started early and run in parallel with sessions; the build rounds cannot begin until their parent decisions resolve, which puts them structurally after the root decisions close.
 
 That is the whole of the argument about how long the Develop phase needs. It is made by the dependencies rather than by assertion, and it can be checked decision by decision against this document.
