@@ -6,7 +6,7 @@
 
 ## Where this sits
 
-CFIT's paper *From Roadmap to Real-World Evidence: CFIT and the DPMSG in Phase 2 of Open Property* (September 2026) sets the relationships this record operates within, and every reader of it should hold them in mind.
+CFIT's paper *From Roadmap to Real-World Evidence: CFIT and the DPMSG in Phase 2 of Open Property* (September 2026) sets the relationships this record operates within.
 
 The Digital Property Market Steering Group is the primary delivery vehicle for the government's Open Property roadmap. It owns the decisions on policy, regulation, governance and scheme design, including whether the scheme is mandated or voluntary, and it sets direction for CFIT's testing. CFIT complements it: convening a time-bound, neutral coalition, aligning each workstream to a DPMSG delivery group, testing what works in live transactions, and sharing the evidence with the DPMSG working groups and government through a bilateral reporting channel. CFIT is not a standards body and will not set or own a new property standard; the existing standards remain with their owners, and the conformance and governance work of the DPMSG sits with its own Trust and Interoperability Group.
 
