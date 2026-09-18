@@ -41,10 +41,16 @@ instance somebody operates. Much follows: a specification is conformed to, so it
 needs conformance criteria, which is what the requirements are; and it binds every
 implementer, not only the pilot.
 
-The record is also **evidence for decisions other bodies own**. The programme is
-asked whether the sector needs one common specification, common requirements with
-divergence permitted beneath them, or interoperation between existing standards
-without convergence. The record does not answer that as one question. Every
+The record is also **evidence for decisions the DPMSG and government own**. CFIT's
+public paper *From Roadmap to Real-World Evidence* (September 2026) sets the
+framing every stakeholder has seen, and the documents lead with it: the DPMSG is
+the primary delivery vehicle and owns policy, governance and scheme design; CFIT
+convenes and tests and will not set or own a standard; the Trust, Legal & Policy
+workstream defines and tests the minimum requirements a conformance framework must
+meet; and CFIT is asked to evidence three candidate models — a common standard, a
+common conformance framework, or a federated model — without prejudging which
+prevails. Cite the paper by title; reference it wherever the framing is invoked.
+The record does not answer the three-model question as one question. Every
 resolved decision classifies what it binds — `normativity: normative | profile |
 non-decision` in the frontmatter — and the register collates the field; the
 distribution is the answer. Do not write any document as though the distribution

@@ -4,6 +4,18 @@
 
 ---
 
+## Where this sits
+
+CFIT's paper *From Roadmap to Real-World Evidence: CFIT and the DPMSG in Phase 2 of Open Property* (September 2026) sets the relationships this record operates within, and every reader of it should hold them in mind.
+
+The Digital Property Market Steering Group is the primary delivery vehicle for the government's Open Property roadmap. It owns the decisions on policy, regulation, governance and scheme design, including whether the scheme is mandated or voluntary, and it sets direction for CFIT's testing. CFIT complements it: convening a time-bound, neutral coalition, aligning each workstream to a DPMSG delivery group, testing what works in live transactions, and sharing the evidence with the DPMSG working groups and government through a bilateral reporting channel. CFIT is not a standards body and will not set or own a new property standard; the existing standards remain with their owners, and the conformance and governance work of the DPMSG sits with its own Trust and Interoperability Group.
+
+The question CFIT has been asked to evidence is put as three candidate models: **a common standard, a common conformance framework, or a federated model**. The evidence is to show either how existing and emerging standards can interoperate or, where it supports it, the case for the market to converge on a single approach. CFIT will not prejudge which model prevails, and neither does anything here.
+
+Within that, the Trust, Legal & Policy workstream's remit is to define and test the minimum legal, policy and trust requirements a conformance framework must meet, and to generate the evidence for the decisions the DPMSG and government own. This record is the method for doing that. Its requirements are the minimum a conformance framework must meet; its decision records are the evidence of what those requirements entail; and its output is addressed to the DPMSG rather than to the market.
+
+## The problem the method solves
+
 A trust framework has to be believed before it can be used, and one arrived at privately reads as a vendor's product. But a blank page burns the window rediscovering solved problems, and the Clarify phase is five Trust, Legal & Policy sessions across eleven weeks.
 
 The method resolves that tension with a single rule:
@@ -43,9 +55,11 @@ Four closing dispositions — resolved, provisional, referred on a full record, 
 
 ## What the record is evidence of
 
-Three shapes are commonly proposed for a sector framework: a single common specification; a set of common requirements with divergence permitted beneath them; and a way for existing standards to interoperate without converging. Put as one choice, the question has no test. The record answers it decision by decision instead. Each resolved decision states whether it binds every implementer, enumerates alternatives that are each conformance-tested, or is deliberately left to implementers, and the register collates that across the tree. The distribution is the answer, and the requirements are written so that it can come out any of the three ways.
+CFIT's three candidate models are three answers to one question: how much must be held in common. A common standard holds almost everything in common. A common conformance framework holds the requirements in common and permits divergence beneath them. A federated model holds little in common and bridges what exists. Put as one choice, the question has no test, and the answer differs by layer: a vocabulary can be plural with published mappings while the unit of assertion is single.
 
-That makes the record usable by bodies other than the coalition. Whoever owns the policy, governance and scheme design decisions for the sector receives, for each decision, the options considered, the evidence weighed against ratified requirements, the objections sustained, and what had to be held in common for the requirements to hold. It is evidence for decisions others own, in the form those decisions need.
+The record therefore answers it decision by decision. Each resolved decision states whether it binds every implementer, enumerates alternatives that are each conformance-tested, or is deliberately left to implementers, and the register collates that across the tree. A tree in which nearly everything is normative is the evidence for a common standard; one in which nearly everything is a profile or a non-decision is the evidence for a federated model; and the reasoning at each decision is the evidence for why. The distribution is the answer, and the requirements are written so that it can come out any of the three ways.
+
+That is what makes the record usable by the DPMSG. For each decision it receives the options considered, the evidence weighed against ratified requirements, the objections sustained, and what had to be held in common for the requirements to hold. It is evidence for decisions the DPMSG and government own, in the form those decisions need.
 
 ## Structure tabled, content open
 
