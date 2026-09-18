@@ -3,6 +3,7 @@ pdr: PDR-S0-0
 title: One-sentence question, neutrally framed
 layer: 2
 status: drafted
+normativity:
 strand: S0
 requirements: []
 depends_on: []
@@ -19,7 +20,7 @@ recusals: []
 
 ## PDR-S0-0 — {short title}
 
-> **Status:** drafted · **Layer:** 2 · **Strand:** S0
+> **Status:** drafted · **Layer:** 2 · **Strand:** S0 · **Binds:** —
 > **Requirements tested against:** —
 > **Depends on:** — · **Opens:** —
 
@@ -75,6 +76,12 @@ A question is badly framed if it names a technology, if it can be answered yes o
 *If **referred**: the full record goes with it. State what the working group could not settle and why.*
 *If **deferred**: the named owner, and the evidence test that would settle it.*
 
+## Normativity
+
+**This decision is:** normative | profile | non-decision
+
+*Set at resolution, and carried in the frontmatter so the register collates it across the tree (charter §9). **Normative:** one answer, binding on every conformant implementation. **Profile:** enumerated alternatives, each conformance-tested, with a conformant implementation declaring which it supports; list the alternatives here and state how R-INTEROPERATION is met across them. **Non-decision:** left to implementers; the reasoning goes under Non-decisions below.*
+
 ## Objections
 
 *Sustained objections, named, with the response given. Recorded permanently whether or not they changed the outcome.*
@@ -108,6 +115,8 @@ A question is badly framed if it names a technology, if it can be answered yes o
 ## Notes on filling this in
 
 **Cost of being wrong is the field that earns its keep.** Most of these decisions are cheap to reverse — a field name, a cardinality. A few are effectively permanent: the unit of assertion, the locus of trust, the subject model. The coalition should knowingly spend more time on the irreversible ones, and this field is what surfaces which those are. If it says "low" on a decision three others depend on, that is worth a second look before resolving.
+
+**Normativity is a finding, not a preference.** A decision is normative because every alternative failed a ratified requirement, not because one answer is tidier. If the record cannot name the requirement each rejected alternative fails, the decision is a profile or a non-decision and should say so. The collated field is the record's answer to how much the sector needed to hold in common, and it is only an answer if each entry was earned.
 
 **Assess options requirement by requirement, not overall.** "Option (b) is better" is not a resolution. "Option (b) meets R-INDEPENDENCE and R-REUSE where (a) fails R-REUSE; (a) is stronger on R-SMALL-FIRM, and the working group judged R-REUSE the harder constraint" is. The second survives being read by someone who was not there.
 

@@ -142,6 +142,10 @@ hr { border: none; border-top: 1px solid var(--rule); margin: 2.2rem 0; }
 .s-resolved  { border-color: #2e7d52; color: #2e7d52; }
 .s-ratified  { border-color: var(--accent); color: var(--accent); }
 .s-superseded{ opacity: .6; text-decoration: line-through; }
+.n-normative    { border-color: var(--accent); color: var(--accent); }
+.n-profile      { border-color: #2e7d52; color: #2e7d52; }
+.n-non-decision { border-style: dashed; }
+.counts-note    { color: var(--muted); font-size: .8rem; align-self: center; }
 .recusal { color: #b8860b; }
 .empty {
   color: var(--muted); background: var(--panel);

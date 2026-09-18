@@ -18,7 +18,7 @@ Layer 0 opens with one sentence, and ratifying it is the most consequential act 
 
 The phrase carrying the weight is **"independently of whoever transmits it."** Adopt it and a large part of the architecture follows; several otherwise-reasonable designs are ruled out by it alone.
 
-Stating an ambition of that size is the easy part. Holding it through ninety-two detailed decisions taken over months, mostly by people arguing in good faith about technical particulars, is the hard part — and it is what the requirement layer exists to do. Each requirement is written so that a design either meets it or does not, which is what keeps the ambition enforceable once the arguments have become specific and the original sentence is months old.
+Stating an ambition of that size is the easy part. Holding it through ninety-five detailed decisions taken over months, mostly by people arguing in good faith about technical particulars, is the hard part — and it is what the requirement layer exists to do. Each requirement is written so that a design either meets it or does not, which is what keeps the ambition enforceable once the arguments have become specific and the original sentence is months old.
 
 ## The four layers
 
@@ -29,7 +29,7 @@ Nothing at a lower layer opens until its parent resolves.
 | **Clarify** — to 22 Oct | **0 · Requirements** | Testable properties the framework must have, ratified individually |
 | | **1 · Root decisions** | One root question per strand (10); the decision map published |
 | **Develop** | **2 · Decisions** | The choices within each strand, as Decision Records |
-| **Implement** | **3 · Specification** | Normative text, conformance suite, interop results |
+| **Implement** | **3 · Specification and conformance** | Normative text traceable to Layer 2, the conformance suite that tests it, and interop results across independent implementations |
 
 The Develop-phase programme that Clarify releases **is** the Layer 2 decision schedule. That gives the phase a checkable deliverable rather than an open-ended one, and lets the Develop duration be set against a known quantity of work rather than a guess.
 
@@ -40,6 +40,12 @@ Rough consensus rather than voting. Objections are recorded permanently and name
 Four closing dispositions — resolved, provisional, referred on a full record, or deferred against a stated evidence test. Where argument cannot settle a question, it is built against criteria pre-registered by the working group before the build runs.
 
 **The method recommends; CFIT decides.** Nothing here displaces that. What it does is ensure that when that power is exercised, it is exercised on a documented record — which is defensible on its merits rather than by reference to who made the decision, and is the kind of thing secondary legislation can refer to.
+
+## What the record is evidence of
+
+Three shapes are commonly proposed for a sector framework: a single common specification; a set of common requirements with divergence permitted beneath them; and a way for existing standards to interoperate without converging. Put as one choice, the question has no test. The record answers it decision by decision instead. Each resolved decision states whether it binds every implementer, enumerates alternatives that are each conformance-tested, or is deliberately left to implementers, and the register collates that across the tree. The distribution is the answer, and the requirements are written so that it can come out any of the three ways.
+
+That makes the record usable by bodies other than the coalition. Whoever owns the policy, governance and scheme design decisions for the sector receives, for each decision, the options considered, the evidence weighed against ratified requirements, the objections sustained, and what had to be held in common for the requirements to hold. It is evidence for decisions others own, in the form those decisions need.
 
 ## Structure tabled, content open
 

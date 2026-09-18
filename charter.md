@@ -61,9 +61,11 @@ Layer 2   DECISIONS
           The 4–8 substantive choices within each strand.
           Each is a Decision Record with options, evidence, resolution.
                     │
-Layer 3   SPECIFICATION
-          Normative text, schemas, protocols, conformance tests.
+Layer 3   SPECIFICATION AND CONFORMANCE
+          Normative text, schemas, protocols, conformance tests, interop results.
           Editorial, not political — drafted by editors, checked against Layer 2.
+          The conformance suite and interop results are what other bodies consume;
+          the text is what they test.
 ```
 
 The strata are about *what gets decided when*, not about phases running in sequence — decisions at one layer are routinely revised by what building at the layer below reveals (§8).
@@ -126,6 +128,9 @@ OPTIONS           Each with: description, who proposed it, evidence submitted,
 EVIDENCE          Cited, with evidence tier (§7).
 
 RESOLUTION        Chosen option and why, in terms of the requirements.
+
+NORMATIVITY       normative | profile | non-decision — what this decision
+                  binds on a conformant implementation (§9).
 
 OBJECTIONS        Sustained objections, named, with the response given.
                   Recorded permanently whether or not they changed the outcome.
@@ -305,6 +310,10 @@ This reframes what can look like a demarcation problem between a standards works
 
 Pilots should therefore pre-register too. A pilot that reports only that it worked has told the coalition almost nothing.
 
+### 8.4 Testing across candidate shapes
+
+A programme may be asked to produce evidence on whether a sector needs one common specification, common requirements with divergence permitted beneath them, or interoperation between existing standards without convergence. That is a build round in the sense above, and it is run as one. The property under test is R-INTEROPERATION: whether two independently built implementations that each conform to the candidate shape can complete an exchange and verify what they received. What would count as failure for each shape is pre-registered before anyone builds, the alternatives are built as well as the favoured one, and a shape that is shown to work only by a demonstration that could not have failed has not been shown to work. The finding is evidence for the classification in §9, taken decision by decision, and not a verdict on the question as a whole.
+
 ---
 
 ## 9. Non-decisions: the under-used tool
@@ -314,6 +323,16 @@ A large fraction of standards disputes dissolve when the group notices it does n
 Examples already identified in existing work that are strong candidates: conflict-resolution logic between competing assertions; credential granularity (how much a single assertion covers); UI treatment of confidence and conflict. In each case the framework can make the *inputs* available and let consumers apply their own business logic — which is both better architecture and removes an entire contested decision from the tree.
 
 Where a genuine, irreducible split exists between two camps, the second tool is **profiles**: define both, conformance-test both, let the market choose, and require that a conformant implementation declare which it supports. Deadlock is nearly always avoidable by one of these two moves, and both should be explicitly available to chairs.
+
+**Every resolved decision therefore classifies what it binds**, and the record carries the classification in a field the register collates:
+
+| | |
+|---|---|
+| **Normative** | One answer, binding on every conformant implementation. |
+| **Profile** | Enumerated alternatives, each conformance-tested, with a conformant implementation declaring which it supports. Any two must interoperate or be bridged by the framework itself (R-INTEROPERATION). |
+| **Non-decision** | Left to implementers, with the reasoning recorded. |
+
+The classification is a finding rather than a preference. An option is made normative where every alternative fails a ratified requirement, profiled where more than one alternative survives and interoperation can be met across them, and left open where the requirements do not reach it. Collated across the tree, the field shows what had to be held in common for the requirements to hold and what did not, which is the evidence a body deciding between a single specification, a conformance framework with divergence beneath it, and bridged alternatives actually needs. The method does not prejudge that distribution.
 
 ---
 
@@ -379,9 +398,9 @@ What a chair does control is the framing of a question and the judgement that co
 | **Decision Records** (Layer 2) | Month 4–10 | Rolling, per strand, published as resolved |
 | **Draft framework** (Layer 3) | Month 8–12 | Normative spec, traceable clause-by-clause to decisions |
 | **Conformance suite + interop results** | Month 10–14 | Proof it is implementable by more than its authors |
-| **Recommendation to government** | Month 14 | With the full decision record as its evidence base |
+| **Evidence to the bodies that own the sector's policy decisions** | Month 14 | The full decision record, with the conformance and interop results, as the evidence base |
 
-The decision record itself is a significant part of the deliverable. A government asked to endorse a trust framework will be far more comfortable endorsing one that arrives with a complete, published account of every option considered and why it was rejected.
+The decision record itself is a significant part of the deliverable, and for some recipients it is the deliverable. A body that owns policy, governance or scheme design for the sector, and that will decide whether the sector converges on one specification or not, receives from this method a record of every option considered, the evidence weighed against ratified requirements, the objections sustained, and what each decision had to bind for the requirements to hold. Whether the normative text is adopted as the sector's specification is that body's decision, PDR-S8-8, and nothing in the method presumes its answer. A government asked to endorse a trust framework will be far more comfortable endorsing one that arrives with a complete, published account of every option considered and why it was rejected.
 
 ---
 

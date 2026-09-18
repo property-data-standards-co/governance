@@ -3,6 +3,7 @@ pdr: PDR-S0-8
 title: Does framework scope equal pilot scope?
 layer: 2
 status: drafted
+normativity:
 strand: S0
 requirements: [R-EXTENSION, R-INCREMENTAL]
 depends_on: []

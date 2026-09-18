@@ -79,8 +79,16 @@ Grouped by theme. Each is intended to be ratified, amended or rejected on its ow
 | **R-SEMANTICS** | Facts carry machine-readable semantics from a shared, versioned, openly published vocabulary; no private knowledge is needed to interpret them. | Can a party with no prior relationship to the issuer interpret the data correctly? |
 | **R-ALIGNMENT** | The framework aligns with UK and EU digital identity and credentials infrastructure rather than defining a property-only stack. | Can a party already conformant with GOV.UK Wallet / DIATF / eIDAS 2.0 reuse that investment? |
 | **R-EXTENSION** | New data, new participants, and new versions can be added without coordinated upgrade of all parties. | Can one participant adopt a new data type without every other participant changing? |
+| **R-INTEROPERATION** | Two participants that each conform to the framework can exchange and rely on facts with no agreement between them beyond the framework itself. | Can two independently built conformant implementations, with no prior contact, complete an exchange and verify what they received? |
+| **R-BOUNDARY** | For each cross-scheme use case the coalition names, a fact established under another scheme can be relied upon within the framework, and a fact established under the framework can be relied upon within the other scheme, without re-collection and without either scheme adopting the other's rules. | For a named use case, can a fact cross the scheme boundary once and be relied upon on the far side with its origin, integrity and accountable issuer intact? |
 
 *R-EXTENSION is the anti-ossification requirement. A framework that needs everyone to upgrade together will stop changing about eighteen months after launch.*
+
+*R-INTEROPERATION is what distinguishes conformance from compatibility. R-PARTICIPATION says nobody can refuse a conformant participant; R-REUSE says a fact survives the journey. Neither says that two participants who each conform can complete an exchange, and under a framework that permits divergence they may not, because each conforms to a different permitted variant. The requirement does not settle how much must be held in common. It settles that whatever is permitted to diverge must be declared, and that any two declared variants either interoperate or are bridged by the framework itself rather than by bilateral arrangement. That is the property a conformance suite tests, and it is the property that decides, decision by decision, what the framework must make normative.*
+
+*R-BOUNDARY is deliberately narrower than the form in which cross-sector interoperation is usually proposed. Interoperation across sectors is a property of a use case rather than of a framework: the government's smart data strategy defines it as the economy-wide system working well for services that involve data from more than one sector, and a use case is the unit at which that can be tested. A framework able to carry any other scheme's data is not a testable property, and no scheme has it. The requirement therefore attaches to named use cases — a source-of-funds check that draws on banking data, a mortgage offer consumed by an open finance service, an energy performance record drawn from the energy sector — and the list of use cases is a scope decision, PDR-S0-9, taken with the parties on the far side of each boundary.*
+
+*One asymmetry follows from the purpose statement and should be stated rather than discovered. Schemes built on authorised access at the moment of request produce data that is current when served and vouched for by the party serving it; they do not produce facts that a third party can rely upon later without its own access. A fact crossing from such a scheme into this framework therefore cannot cross as a live response. It crosses by being asserted, at the boundary, by a party that performed the cross-scheme act and is answerable for the result, with provenance naming the source scheme and R-ARTEFACT applying to whatever was obtained. In the other direction the asymmetry is milder: a fact leaving the framework is already an assertion, and whether another scheme can rely upon it turns on R-ALIGNMENT, since a party conformant to national credential infrastructure can verify it without a property-specific stack. How a boundary assertion is represented, who may issue one, and what it must carry about its source is PDR-S3-10.*
 
 ### Reusable trust
 
@@ -167,6 +175,7 @@ Stated openly, because the alternative is that it emerges at Layer 2 disguised a
 - **R-ENTITLEMENT** would rule out access determined solely by role or by membership of the transaction, since both make entitlement follow from participation rather than from need.
 - **R-COPIES** would rule out treating bulk synchronisation between platforms as outside the permission model, whatever is decided about whether it is permitted at all.
 - **R-CONFIDENTIALITY** would rule out designs in which confidentiality rests solely on a holder behaving correctly — which includes most access-control-only models.
+- **R-INTEROPERATION** would rule out permitted divergence that the framework does not itself specify: every variant a conformant implementation may choose must be enumerated, and any two must interoperate or be bridged by the framework rather than by bilateral arrangement. It does not say how many such variants there may be, and it is compatible with a framework in which most decisions are profiles.
 
 If the coalition wants a different architecture than these imply, the efficient path is to contest the requirements named above, not to argue their consequences one by one over the following six months.
 
@@ -194,6 +203,10 @@ Two things bound how much is actually at stake. How much a discovery mechanism l
 
 **R-WITHDRAWAL against R-REUSE.** Reuse means facts travel to parties the issuer may not know about. Withdrawal means reaching those parties. The wider the reuse, the harder the revocation problem becomes.
 
+**R-INTEROPERATION against R-EXTENSION.** Any two conformant parties interoperating pulls toward a fixed common core that changes rarely. Extension without coordinated upgrade pulls toward a small core with much that is optional. The resolution is the size of the common core, and it is taken decision by decision rather than once, which is what the normativity classification in the decision map records.
+
+**R-BOUNDARY against R-INDEPENDENCE and R-LIABILITY.** A fact from a scheme whose data is not independently verifiable can enter only through an issuer who vouches for it, and that issuer then carries liability for a fact it did not originate. The more the framework admits from other schemes, the more its reusable trust rests on a small number of bridge issuers, and R-INDEPENDENCE is satisfied for the assertion while remaining unavailable for the evidence behind it.
+
 Naming these now means the working group can decide where each is resolved, rather than rediscovering them as blockers.
 
 ---
@@ -211,6 +224,8 @@ Included so the omissions are visible and can be challenged.
 **User experience requirements.** Genuinely important, genuinely not properties of a trust framework. They belong to the Product and Service Design workstream, and the framework should be judged on whether it obstructs good experiences rather than on whether it specifies them.
 
 **A requirement that the framework be free to use.** Openness matters, but "free" is both insufficient and imprecise — it is satisfied by licences that forbid commercial use or derivative works. The licensing question is a governance decision with real options, and it is enumerated as one.
+
+**General cross-sector interoperability.** Often proposed as a requirement that the framework interoperate with other sector trust frameworks, and with the cross-economy baselines the smart data guidebook is expected to set. Not proposed in that form, because it has no test: nothing can be said of a design about whether it interoperates with schemes that do not yet exist, and a framework that could carry any scheme's data has never been built. What is testable is interoperation for a named use case, which is R-BOUNDARY, and alignment with infrastructure that exists, which is R-ALIGNMENT. Where the guidebook sets baselines the framework should meet, that is a conformance question, PDR-S8-11, taken when the baselines are published.
 
 ---
 

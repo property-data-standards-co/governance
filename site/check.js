@@ -221,6 +221,41 @@ function checkOptions() {
   else pass('option lists well-formed');
 }
 
+/* ---------- decision records ---------- */
+
+/**
+ * A resolved record classifies what it binds — normative, profile or
+ * non-decision — because the collated field is the record's answer to how much
+ * the sector needed to hold in common, and a resolved decision missing from
+ * that collation is a hole in the answer rather than an omission. It also
+ * carries a chair of record: a recusal visible only to those in the room is
+ * not a control.
+ */
+const NORMATIVITY = ['normative', 'profile', 'non-decision'];
+
+function checkRecords() {
+  const dir = path.join(ROOT, 'decision-records');
+  if (!fs.existsSync(dir)) return;
+  const problems = [];
+  for (const f of fs.readdirSync(dir)) {
+    if (!f.endsWith('.md') || f === 'TEMPLATE.md' || f === 'README.md') continue;
+    const src = fs.readFileSync(path.join(dir, f), 'utf8');
+    const fm = src.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    if (!fm) { problems.push(`decision-records/${f}: no frontmatter`); continue; }
+    // [ \t]* rather than \s*: an empty field must not capture the next line.
+    const field = (k) => { const m = fm[1].match(new RegExp(`^${k}:[ \\t]*(.*)$`, 'm')); return m ? m[1].trim() : ''; };
+    const status = field('status');
+    const normativity = field('normativity');
+    if (normativity && !NORMATIVITY.includes(normativity)) problems.push(`decision-records/${f}: normativity is "${normativity}" — expected ${NORMATIVITY.join(' | ')}`);
+    if (['resolved', 'ratified'].includes(status)) {
+      if (!normativity) problems.push(`decision-records/${f}: ${status} but does not say what it binds`);
+      if (!field('chair_of_record')) problems.push(`decision-records/${f}: ${status} with no chair of record`);
+    }
+  }
+  if (problems.length) fail('resolved records classify what they bind and name a chair', problems.join('\n        '));
+  else pass('resolved records classify what they bind and name a chair');
+}
+
 /* ---------- run ---------- */
 
 console.log('\ngovernance record checks\n');
@@ -229,6 +264,7 @@ checkRequirements();
 checkTraces();
 checkDecisionCounts(checkDecisions());
 checkOptions();
+checkRecords();
 console.log('');
 if (failures) {
   console.log(`${failures} check(s) failed.\n`);
