@@ -132,7 +132,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 **Requirement consequences.** This is the decision where the requirements do most of the work. (a) fails R-INDEPENDENCE outright — if trust in a fact reduces to trust in whoever served it, there is no trust framework. (b) is a partial answer and, pursued rigorously, converges on (c) while forgoing all external tooling and alignment, so fails R-ALIGNMENT. (d) fails R-MINIMISATION and R-CONTROLLER for personal data and introduces a shared-infrastructure dependency in tension with R-DATA-PATH.
 
-**Deliberately not decided here.** Two things sit below this decision and must not be run together with it: the *format* (SD-JWT-VC vs mdoc vs JSON-LD Data Integrity, PDR-S3-2) and the *typology* (whether the framework defines named credential types, PDR-S3-9). Conflating either with the root concept is the most likely way to lose this decision on an irrelevance — a participant with a view about JSON-LD, or about how many credential types there should be, should not thereby be voting on whether facts are independently verifiable at all.
+**Deliberately not decided here.** Two things sit below this decision and must not be run together with it: the *format* (SD-JWT-VC vs mdoc vs JSON-LD Data Integrity, PDR-S3-2) and the *typology* (whether the framework defines named credential types, PDR-S3-9). Conflating either with the root concept risks allowing disagreements about format or typology to determine the separate question of independent verifiability.
 
 **Opens.** PDR-S3-2 (credential format and securing mechanism), PDR-S3-3 (instance granularity), PDR-S3-4 (evidence and provenance model), PDR-S3-5 (assurance/trust levels), PDR-S3-6 (merge and conflict semantics), PDR-S3-7 (selective disclosure), PDR-S3-9 (credential typology).
 
@@ -178,7 +178,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 
 (e) is strong where it applies: statutory authority is objective, published and appealable almost by definition, which satisfies R-ENTRY without the framework doing anything. Much authoritative property data already has a statutory home. It is slow, inflexible, covers only the sources that legislation names, and is not the coalition's to decide — but it may mean the framework needs to establish authority for far fewer parties than it first appears.
 
-(f) is politically strong and cheap, because the firms concerned already hold regulated status and R-SMALL-FIRM is easier if nothing new must be obtained. Its weakness is coverage and fit: not every data source has a regulator, and regulatory permission to practise is not the same statement as authority over a class of fact.
+(f) may reduce additional accreditation work for firms that already hold regulated status, helping to satisfy R-SMALL-FIRM if no further accreditation is needed. Its weakness is coverage and fit: not every data source has a regulator, and regulatory permission to practise is not the same statement as authority over a class of fact.
 
 (g) satisfies R-PARTICIPATION and R-DATA-PATH trivially, since no one can refuse anyone. It weakens R-SEMANTICS and R-REUSE in practice — reuse becomes contingent on each verifier's list — and pushes cost onto every relying party, which cuts against R-SMALL-FIRM.
 
@@ -230,7 +230,7 @@ These are decided together, at plenary, tested directly against Layer 0. They ar
 - **(d)** Holder-mediated only: nothing is disclosed except by the data subject presenting it.
 
 
-**Note.** R-PUBLIC and R-ABSENCE bear directly on this decision and should be settled before it opens: if permission is not the gate for public facts, and the subject cannot be relied on to act, then options resting on subject-mediated permission are constrained before the argument starts. (d) is the purist wallet answer and fails R-SMALL-FIRM/R-INCREMENTAL in practice — a conveyancing transaction cannot stall on a seller being available to present each fact. (c) needs to be argued carefully against data protection law: the controller/processor analysis for each flow is a real piece of work and should be commissioned early, because getting it wrong invalidates decisions downstream in S6 and S7.
+**Note.** R-PUBLIC and R-ABSENCE bear directly on this decision and should be settled before it opens: if permission is not the gate for public facts, and the subject cannot be relied on to act, then options resting on subject-mediated permission are constrained before the argument starts. (d) requires the data subject to present each fact, creating a dependency on their availability that must be assessed against R-ABSENCE, R-SMALL-FIRM and R-INCREMENTAL. (c) needs to be argued carefully against data protection law: the controller/processor analysis for each flow is a real piece of work and should be commissioned early, because getting it wrong invalidates decisions downstream in S6 and S7.
 
 **Opens.** PDR-S6-2 (terms of use model), PDR-S6-3 (consent artefacts and revocation), PDR-S6-4 (controller/processor mapping), PDR-S6-5 (encryption at rest and in transit between parties), PDR-S6-6 (minimisation and selective disclosure policy), PDR-S6-7 (audit and subject access), PDR-S6-9 (disclosure classification), PDR-S6-10 (entitlement demonstration).
 
@@ -298,7 +298,7 @@ Every strand's Layer 2 decisions are enumerated below. **Enumeration is not the 
 - **Enumerated** — we know what the decision is. Needed so the work can be sized, and so nothing arrives by surprise.
 - **Answered** — resolved by the coalition against ratified requirements. That is Develop-phase work. Nothing below Layer 1 is answered here, and pre-empting it would defeat the purpose of the exercise.
 
-Every decision below is open. Where one has a well-understood set of candidate answers, the question is phrased so that they are visible in it.
+Every decision below remains undecided. Where one has a well-understood set of candidate answers, the question is phrased so that they are visible in it.
 
 **When a decision splits.** A decision divides into sub-decisions only when it cannot be resolved in a single working session because its parts have **different requirement traces, different evidence needs, or different owners**. Otherwise it stays whole, however large it looks. On that test only PDR-S3-9 currently splits (§5.1): its parts need schema analysis, legal input and implementation evidence respectively, and no one session could take them together.
 
@@ -560,20 +560,22 @@ Counting decisions is the weak version of this argument. What matters is that a 
 
 | Settled by | Roughly | Can it be compressed? |
 |---|---|---|
-| Argument in session, against the requirements | ~46 | Yes — these are what a sprint cadence is for |
+| Argument in session, against the requirements | Around 74 | Yes — these are what a sprint cadence is for |
 | **External legal opinion** | 4 — S6-4, S6-8, S8-5, part of S8-7 | **No.** Weeks of elapsed time, and several downstream decisions are unsafe to close before they land |
-| **A build round** | 6 — S3-6 merge semantics, S3-9a decomposition axis, S2-7 field seams, S5-7 composition, S7-3 validity periods, S7-5 supersession | **No.** One sprint interval each, and they cannot run before their parent decision resolves |
+| **A build round** | 6 — S3-6 merge semantics, S3-9a decomposition axis, S2-7 person identity binding, S5-7 composition, S7-3 validity periods, S7-5 supersession | **No.** One sprint interval each, and they cannot run before their parent decision resolves |
 | **External confirmation or alignment** | 5 — S3-2 against the GOV.UK Wallet format list, S4-8 against DIATF, S1-3 against RICS/OSCRE/ISO 20022, S8-8 against the reform programme, S8-11 against the smart data guidebook | **Partly.** Depends on other organisations' timetables |
 | **Participation not yet secured** | 6 — S9-4 originator sequence, S7-3 validity periods, S0-2, S0-7, S0-9, S9-5 | **No.** Cannot be settled among suppliers; needs HMLR, MHCLG, local authorities, the professions and the schemes on the far side of each boundary at the table |
 | Policy, sitting with government | 3 — S8-8, S9-5, part of S8-2 | Out of the coalition's hands |
 
+The dependency categories overlap: S7-3 needs both a build round and participation; S8-8 and S9-5 each need external or participant input as well as policy decisions. The 24 category entries therefore represent 21 distinct decisions, as listed in [Options](options.md).
+
 ### The consequence for the Develop duration
 
-Around **24 of 95 decisions have a dependency that no amount of sprint cadence will shorten** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
+**21 of 95 decisions have dependencies beyond discussion in a working session** — legal opinions take weeks, build rounds take a sprint each and must follow their parents, and originator participation has to be secured before the decisions that need it can even open.
 
-A one-month Develop can close the ~46 argument-settled decisions if everything else goes perfectly. It cannot accommodate a single legal opinion, a single build round, or a single decision that needs a body not yet at the table. Those would carry into Implement, where the framework is supposed to be being written rather than decided.
+Around 74 decisions are candidates for resolution in working sessions once their dependencies are settled. This count does not establish that they can all close within one month. The remaining 21 need legal advice, implementation evidence, external confirmation, participation or policy decisions. Their lead times and sequencing must be allowed for when setting the Develop timetable, or unresolved decisions may carry into Implement.
 
-**That is the argument for the four-month option, and it is made by the map rather than by assertion.** It is also the reason to publish the tree in September rather than argue the point in October.
+The four-month option should be assessed against these dependencies and their lead times. Publishing the map early allows the coalition to test the timetable before committing to it.
 
 ### The count depends on ratification
 
@@ -599,7 +601,7 @@ Stated plainly, because a map claiming completeness it does not have is worse th
 
 Four uses, in the order they arise.
 
-**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Around 24 of 95 decisions carry a dependency no sprint cadence will shorten.
+**Sizing the Develop phase.** §7 is the argument, and it is made by the map rather than by assertion. Twenty-one of 95 decisions need evidence or input beyond discussion in a working session.
 
 **Ordering the work.** The dependency map in §6 says which decisions cannot safely open before others resolve. Several of the most consequential sit behind decisions that look minor.
 

@@ -86,7 +86,7 @@ Under what licence are the framework text, schemas and conformance suite publish
 
 ## 4. Needing a build round
 
-Each of these is a question where argument has a known tendency to circle. The method's answer is to build against failure criteria pre-registered by the working group, in the open, before the build runs — and to discount any round that could only ever have confirmed its builder's position.
+Each of these is a question that needs implementation evidence to resolve. The method's answer is to build against failure criteria pre-registered by the working group, in the open, before the build runs — and to discount any round that could only ever have confirmed its builder's position.
 
 ### S3-6 — Merge semantics
 *Trace: R-SEMANTICS, R-EXTENSION*

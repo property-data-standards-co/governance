@@ -16,7 +16,7 @@ Within that, the Trust, Legal & Policy workstream's remit is to define and test 
 
 ## The problem the method solves
 
-A trust framework has to be believed before it can be used, and one arrived at privately reads as a vendor's product. But a blank page burns the window rediscovering solved problems, and the Clarify phase is five Trust, Legal & Policy sessions across eleven weeks.
+A trust framework has to be believed before it can be used, and one arrived at privately reads as a vendor's product. But a blank page wastes precious coalition time rediscovering solved problems, and the Clarify phase is five Trust, Legal & Policy sessions across eleven weeks.
 
 The method resolves that tension with a single rule:
 
@@ -63,9 +63,9 @@ That is what makes the record usable by the DPMSG. For each decision it receives
 
 ## Structure tabled, content open
 
-The requirements and the decision map were tabled as drafts, expressly so the coalition could take them apart. Eleven weeks and five sessions would not produce a falsifiable requirement set and a ten-strand decision map by facilitation, and the attempt would consume the calendar the decisions themselves need.
+The requirements and the decision map were tabled as drafts, for the coalition to challenge, amend or replace. Eleven weeks and five sessions would not produce a falsifiable requirement set and a ten-strand decision map by facilitation, and the attempt would consume the calendar the decisions themselves need.
 
-The answers are a different matter. No participant's prior work enters as a baseline. It enters decision by decision, with its weaknesses stated, as evidence weighed against ratified requirements like anything else. If the coalition ratifies requirements that some existing implementation fails, that implementation loses. That is what makes the output endorsable rather than merely agreed, and it is the condition the whole method rests on.
+The answers are a different matter. No participant's prior work enters as a baseline. It enters decision by decision, with its weaknesses stated, as evidence weighed against ratified requirements like anything else. If the coalition ratifies requirements that some existing implementation fails, that implementation must change to meet the agreed requirements. That is what makes the output endorsable rather than merely agreed, and it is the condition the whole method rests on.
 
 ## Reading the record
 
@@ -77,4 +77,4 @@ The answers are a different matter. No participant's prior work enters as a base
 | [Options](options.md) | Candidate options for the decisions that cannot be settled in a session |
 | [Decision register](decisions.html) | Each decision as it opens, with its record |
 
-The map is published before the decisions are taken, so nothing arrives by surprise and the work can be sized honestly. An empty register is the correct state before the first substantive session.
+The map is published before the decisions are taken, so nothing arrives by surprise and the work can be sized honestly.

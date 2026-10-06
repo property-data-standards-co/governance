@@ -188,6 +188,9 @@ function checkDecisionCounts(total) {
         const before = m[1].trim().split(/\s+/);
         // "Layer 2 decisions" is a layer number, not a count.
         if (before.some((w) => /^layer$/i.test(w))) continue;
+        // Decisions eligible for working sessions are an explicitly named subset.
+        const after = line.slice(m.index + m[0].length);
+        if (/^ are candidates for resolution in working sessions\b/.test(after)) continue;
         for (const w of before) {
           const key = w.toLowerCase().replace(/[^a-z-]/g, '');
           const n = /^\d+$/.test(w) ? Number(w) : NUMBER_WORDS[key];

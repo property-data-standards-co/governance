@@ -12,9 +12,9 @@ Annex to *Building the Trust Framework by Consensus*. Offered for the coalition 
 
 ## 1. The problem this method solves
 
-A trust framework has to be *believed* before it can be *used*. A specification that is technically correct but arrived at privately will be adopted by nobody: participants will treat it as one vendor's product, regulators will not endorse it, and the government will not build homebuying reform on top of it.
+A trust framework needs the confidence of those expected to use it. A technically correct specification developed privately may still struggle to secure adoption or endorsement if participants cannot see how its decisions were reached.
 
-At the same time, a coalition that starts from a blank page will spend eighteen months rediscovering questions the sector has already answered, and will produce something less good than the material already on the table.
+At the same time, a coalition that starts from a blank page risks wasting precious coalition time revisiting questions that existing work could help resolve.
 
 The method below is designed to get both: a framework whose every provision is traceable to an agreed requirement and an open decision, **and** one that can move at the speed of the reform programme by making full use of existing work as *evidence* rather than as a *premise*.
 
@@ -46,12 +46,12 @@ Before the coalition decides anything about property data, it should agree what 
 
 ## 3. The four-layer structure
 
-Decisions are made in strata. Nothing at a lower layer is opened until its parent is resolved, and nothing at a higher layer is reopened because of a lower-layer difficulty (that would be tail-wagging-dog; instead it becomes new evidence for a reopening request under §10).
+Decisions are made in strata. Nothing at a lower layer is opened until its parent is resolved. A difficulty at a lower layer must support a reopening request under §10 before a higher-layer decision is reconsidered.
 
 ```
 Layer 0   PURPOSE & REQUIREMENTS
           What the framework is for, and the testable properties it must have.
-          One document. Ratified by the full coalition. ~12–15 requirements.
+          One document. Ratified by the full coalition. 29 candidate requirements in the current draft.
                     │
 Layer 1   STRANDS
           The independent problem domains. One root question each.
@@ -153,7 +153,7 @@ Recommend **rough consensus in the IETF sense**, explicitly defined up front:
 
 > A decision is resolved when the chair judges that all objections have been either accommodated or answered, and no participant sustains an objection on the grounds that the decision violates an agreed requirement. Consensus is not unanimity, and it is not a vote. Objections are weighed on their argument, not on the size of the objector.
 
-Why not voting: voting rewards attendance and market share, produces winners and losers, and gives the government an output that looks like a negotiated carve-up rather than an engineered standard. Where consensus genuinely cannot be reached, CFIT decides (§5.4 below). That is a better backstop than a vote, provided CFIT decides on a documented record.
+Why not voting: voting rewards attendance and market share, produces winners and losers, and gives the government an outcome based on voting strength rather than evidence against agreed requirements. Where consensus genuinely cannot be reached, CFIT decides (§5.4 below). That is a better backstop than a vote, provided CFIT decides on a documented record.
 
 **Sustained objection handling.** If an objector maintains that a decision violates an agreed requirement, that is a genuine block and escalates to the architecture group, then to plenary, and if still unresolved to CFIT under §5.4. Any other objection — preference, cost to the objector's own roadmap, unfamiliarity — is recorded but does not block. Being clear about this distinction in advance prevents the most common stall.
 
@@ -232,7 +232,7 @@ The single most important qualification, and the one that separates evidence fro
 A contribution that reports only that the contributor's preferred option worked carries little weight, whatever tier it nominally sits in. What carries weight is a test that could have gone the other way. In practice this means:
 
 - **Where a decision is contested, test the alternatives too.** A build round that implements only the favoured option answers nothing the coalition was actually asking.
-- **Publish negative results**, including — especially — where your own preferred option performed worse. A participant who has never reported a result against their own interest has not yet produced any evidence.
+- **Publish negative results**, including — especially — where your own preferred option performed worse. Contributors should publish all results against the agreed criteria, including results that challenge their preferred option.
 - **Pre-register the criteria** (§7.3). What counts as success and failure is agreed *before* the work runs, not characterised afterwards.
 
 Chairs should apply this test explicitly when weighing a contribution, and should say so out loud when they discount something for failing it.
@@ -255,7 +255,7 @@ Before a build round runs, the working group publishes:
 4. **What result would count as a failure for each option**
 5. Who is building what, and by when
 
-Point 4 is the one that does the work. Agreeing in advance what would count as a bad result is what makes the finding credible whichever way it goes, and it is cheap to do. Without it, a build round produces a result that the builder characterises after the fact — which nobody outside the room should believe, and which a sharp participant will say so.
+Point 4 is the one that does the work. Agreeing in advance what would count as a bad result is what makes the finding credible whichever way it goes, and it is cheap to do. Without agreed failure criteria, readers cannot distinguish a successful test from a favourable interpretation of the result.
 
 ---
 
@@ -340,7 +340,7 @@ The classification is a finding rather than a preference. An option is made norm
 
 Once resolved, a decision is reopened only on one of three grounds, and a request must state which:
 
-1. **New evidence** at tier E1–E4 that was not available when the decision was taken.
+1. **New evidence** under the hierarchy in §7, excluding unsupported preference (A4), that was not available when the decision was taken.
 2. **A parent decision changed**, invalidating the basis.
 3. **Implementation experience** demonstrates the decision cannot be met by a class of participant (the small-firm test in particular).
 
@@ -415,7 +415,7 @@ The decision record itself is a significant part of the deliverable, and for its
 | Lowest-common-denominator design | Requirements are testable and ratified before positions are known; "does it meet R*n*?" beats "can everyone live with it?" |
 | Decisions taken by whoever turned up | Segment-balance check; plenary ratification of root decisions |
 | A technically pure framework nobody can implement | Small-firm implementability is a Layer 0 requirement, not an afterthought |
-| Divergence from national digital identity infrastructure | Alignment is a Layer 0 requirement; E3 evidence tier gives it weight |
+| Divergence from national digital identity infrastructure | Alignment is a Layer 0 requirement; A1 evidence tier gives it weight |
 
 ---
 

@@ -208,11 +208,11 @@ function decisionIndex(records, marked) {
 
 Generated from the records in \`decision-records/\`. It is not maintained by hand, so it cannot drift from what the records actually say.
 
-Every decision the framework requires is listed in the [decision map](decision-map.html). A decision appears here once it has a record — that is, once it has been drafted and opened. An empty register is the correct state before the first substantive session.
+Every decision the framework requires is listed in the [decision map](decision-map.html). A decision appears here once it has a record — that is, once its question has been drafted and published.
 `);
 
   if (!records.length) {
-    return preamble + `<p class="empty">No decision records yet. Copy <code>decision-records/TEMPLATE.md</code> to <code>decision-records/PDR-{strand}-{n}.md</code> to open the first one.</p>`;
+    return preamble + `<p class="empty">No decision records yet. Copy <code>decision-records/TEMPLATE.md</code> to <code>decision-records/PDR-{strand}-{n}.md</code> to draft the first one.</p>`;
   }
 
   const counts = STATUSES

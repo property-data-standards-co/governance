@@ -14,7 +14,7 @@ Three things follow from that, and they are worth stating before the first readi
 
 **Requirements are ratified individually, not as a set.** A block objection to "the requirements" is not actionable. An objection to R-INDEPENDENCE is.
 
-**This is not a warm-up.** Some of what follows is close to architecturally determinative — ratifying it forecloses whole families of design. That is the point, and it is why this layer deserves real debate rather than a nod. Section 5 says which ones, openly, so that nobody discovers it later.
+**These requirements shape the architecture.** Ratifying them may rule out whole families of design, so their consequences need explicit discussion. Section 5 sets out those consequences before ratification.
 
 **Anyone who wants a different architecture should contest the requirements, not the architecture.** That is a legitimate and welcome argument and this is the right place to have it. A participant who believes the sector needs a data-sharing agreement rather than a trust framework should say so here, where the coalition can decide it deliberately.
 
@@ -38,7 +38,7 @@ Four tests. They are offered as the working group's own quality bar, to be appli
 
 **Falsifiable.** It must be possible to say of a proposed design "this meets it" or "this does not", without appeal to taste. Every requirement below carries an explicit test for exactly this reason. Vague requirements — *the framework should be secure and user-friendly* — are worse than none, because they can be cited in support of anything and against anything.
 
-**Technology-neutral.** A requirement states a property the framework must have, not the mechanism that delivers it. "A consumer can establish origin and integrity without trusting the transmitter" is a requirement. "The framework uses verifiable credentials" is a design decision wearing a requirement's clothes, and admitting it here would settle at Layer 0 what belongs at Layer 2.
+**Technology-neutral.** A requirement states a property the framework must have, not the mechanism that delivers it. "A consumer can establish origin and integrity without trusting the transmitter" is a requirement. "The framework uses verifiable credentials" is a design choice presented as a requirement, and admitting it here would settle at Layer 0 what belongs at Layer 2.
 
 **Traceable to purpose.** Each should be derivable from the purpose statement, or from an obligation the framework cannot avoid — legal, regulatory, or practical.
 
@@ -82,7 +82,7 @@ Grouped by theme. Each is intended to be ratified, amended or rejected on its ow
 | **R-INTEROPERATION** | Two participants that each conform to the framework can exchange and rely on facts with no agreement between them beyond the framework itself. | Can two independently built conformant implementations, with no prior contact, complete an exchange and verify what they received? |
 | **R-BOUNDARY** | For each cross-scheme use case the coalition names, a fact established under another scheme can be relied upon within the framework, and a fact established under the framework can be relied upon within the other scheme, without re-collection and without either scheme adopting the other's rules. | For a named use case, can a fact cross the scheme boundary once and be relied upon on the far side with its origin, integrity and accountable issuer intact? |
 
-*R-EXTENSION is the anti-ossification requirement. A framework that needs everyone to upgrade together will stop changing about eighteen months after launch.*
+*R-EXTENSION supports continued evolution. Requiring everyone to upgrade together makes future changes dependent on every participant's readiness to upgrade.*
 
 *R-INTEROPERATION is what distinguishes conformance from compatibility. R-PARTICIPATION says nobody can refuse a conformant participant; R-REUSE says a fact survives the journey. Neither says that two participants who each conform can complete an exchange, and under a framework that permits divergence they may not, because each conforms to a different permitted variant. The requirement does not settle how much must be held in common. It settles that whatever is permitted to diverge must be declared, and that any two declared variants either interoperate or are bridged by the framework itself rather than by bilateral arrangement. That is the property a conformance suite tests, and it is the property that decides, decision by decision, what the framework must make normative.*
 
@@ -132,7 +132,7 @@ Property facts are not uniform in character, and a permission model that treats 
 
 Some facts are already public: the title register is available to anyone on request, and an EPC sits on a public register searchable by address. Some are private but disclosed for a purpose — a seller's answers on a property information form are authored precisely in order to be shown to prospective buyers. Some are restricted and must not reach most parties to the transaction at all: an anti-money-laundering check result is the clearest case, and the party who needs it is not the party who holds the relationship with the subject.
 
-Applying a single consent gate across all of these produces consent theatre over facts that are public anyway — which trains people to click through, records a control that does not exist, and makes the framework worse than the status quo it replaces — while giving no additional protection to the facts that actually need it. These requirements exist so that the permission model is derived from the character of the fact rather than from an assumption imported from other sectors.
+Applying a single consent gate across all of these adds a permission step for facts already available from public sources, without addressing the protection needed for restricted facts. These requirements exist so that the permission model is derived from the character of the fact rather than from an assumption imported from other sectors.
 
 | ID | Requirement | Test |
 |---|---|---|
@@ -164,7 +164,7 @@ Applying a single consent gate across all of these produces consent theatre over
 
 ## 5. Which of these are architecturally determinative
 
-Stated openly, because the alternative is that it emerges at Layer 2 disguised as a technical objection. Every consequence below is conditional on ratification: none of these requirements is agreed, and until one is, the designs it would exclude remain available and are enumerated as live options in the decision map. That is why the map can be read before Layer 0 closes — it is where the consequences of ratifying any of these can be seen in full, decision by decision, before the vote that makes them binding.
+Stated openly, because the alternative is that it emerges at Layer 2 disguised as a technical objection. Every consequence below is conditional on ratification: none of these requirements is agreed, and until one is, the designs it would exclude remain available and are enumerated as live options in the decision map. That is why the map can be read before Layer 0 closes — it is where the consequences of ratifying any of these can be seen in full, decision by decision, before ratification makes them binding.
 
 - **R-INDEPENDENCE** would rule out any design in which trust in a fact reduces to trust in the platform serving it.
 - **R-DATA-PATH and R-PARTICIPATION together** would rule out a central hub or registry through which data must flow.
@@ -240,7 +240,7 @@ Each requirement takes one of four dispositions, recorded with its reasoning:
 | **Rejected** | Not adopted. Recorded with the objection, so it is not silently reintroduced later, and the decisions it was the sole trace for are re-traced or withdrawn. |
 | **Deferred** | Held, with a named owner and a stated test for what would settle it. Deferral is a legitimate outcome and should not be treated as failure. |
 
-**Additions are expected.** The set above is a starting draft, not a proposal for closure. A requirement the coalition adds is worth more than one it accepts. An added requirement takes a new identifier; an amended one keeps the identifier it had, since the identifier is a name cited by every requirement trace rather than a description of the current wording.
+**Additions are expected.** The set above is a starting draft, not a proposal for closure. Participants are encouraged to identify missing requirements as well as challenge those proposed. An added requirement takes a new identifier; an amended one keeps the identifier it had, since the identifier is a name cited by every requirement trace rather than a description of the current wording.
 
 **Rejection and amendment reach into the decision map.** Most decisions in the map are tested against more than one requirement, but a little over half of the Layer 2 decisions cite exactly one, and around two-thirds of the requirements here are the sole trace for at least one decision. None is uncited. Rejecting a requirement therefore leaves decisions standing with nothing to test them against — which does not make them go away, because the framework still has to decide vocabulary versioning or status mechanics whatever Layer 0 says. What it removes is the claim that the decision is being argued against something the coalition agreed, and a decision with no trace is decided on preference, which is the failure this layer exists to prevent.
 
