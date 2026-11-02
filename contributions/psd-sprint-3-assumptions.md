@@ -34,17 +34,14 @@ can be cited by identifier, and §6 maps each assumption onto it. The full propo
   evidence for it is, favours the riskiest.
 - **Timing.** Three assumptions are worded against priority use cases, which Sprint 4 sets.
 
-**Smart Data Clusters.** The cluster set has already changed once, between the Phase 1
-roadmap and Sprint 2. It divides data along three different axes, and trust varies inside
-every cluster. An agreement test, run against alternative ways of dividing the data,
-would show whether the clusters work as the unit of standardisation or as views over
-something structural beneath.
+**Smart Data Clusters.** The set has already changed once since the Phase 1 roadmap, it
+divides data along three different axes, and trust varies inside every cluster. An
+agreement test against alternative axes would show whether clusters work as units of
+standardisation or as views.
 
-**Digital Property ID.** The property–title relationship is many-to-many. One UPRN can
-sit on several titles, only some of them sold, and one title can cover many UPRNs. A
-single identifier cannot express that. A graph can: UPRN and title number as canonical
-identifiers, links between them, and the transaction naming the titles being sold.
-Unregistered land has to be handled without waiting for registration.
+**Digital Property ID.** The property–title relationship is many-to-many, which a single
+identifier cannot express and a graph of UPRNs, titles and their links can. Unregistered
+land has to be handled without waiting for registration.
 
 **Suggested first three tests** (§4):
 1. **Conditions for reliance.** What would let conveyancers, lenders and insurers rely on
