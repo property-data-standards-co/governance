@@ -9,4 +9,4 @@ decided, and a contribution does not open or close a decision.
 
 | File | For |
 |---|---|
-| [`psd-sprint-3-assumptions.md`](psd-sprint-3-assumptions.md) | Product & Service Design Sprint 3, 5 November 2026: the ten assumptions typed, restated so each can fail, and mapped to the requirements and decision map |
+| [`psd-sprint-3-assumptions.md`](psd-sprint-3-assumptions.md) | Product & Service Design Sprint 3, 5 November 2026 (version 1, from a Trust, Legal & Policy participant): the ten assumptions typed, restated so each can fail, and mapped to the requirements and decision map |

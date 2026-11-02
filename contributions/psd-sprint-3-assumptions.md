@@ -1,7 +1,8 @@
 # The ten assumptions: what kind each is, how each could fail, and where each lands
 
-**Contribution to the Product & Service Design workstream, Sprint 3 (Thursday 5 November 2026).**
-Draft for review.
+**A contribution to the Product & Service Design workstream for Sprint 3 (Thursday 5 November
+2026), from a participant in the Trust, Legal & Policy workstream.** Version 1, 2 November
+2026.
 
 This note responds to *CFIT Open Property PSD Assumption Prioritisation* and the
 *PSD Sprint 2 Pre-Read* (22 October 2026). It offers four things:
@@ -15,6 +16,51 @@ This note responds to *CFIT Open Property PSD Assumption Prioritisation* and the
 The appendix summarises that governance record so requirements can be cited by
 identifier. The full record is at
 [property-data-standards-co.github.io/governance](https://property-data-standards-co.github.io/governance/).
+
+---
+
+## Summary
+
+**The ten are four kinds of thing, and each kind needs a different test.**
+
+| Kind | Assumptions | Tested by |
+|---|---|---|
+| Claims about the current state | Data availability, interoperability, the identifier half of the Digital Property ID | Measurement against a threshold set in advance |
+| Design hypotheses | Verification, consent, Smart Data Clusters, reusable information assets | A build or prototype with failure criteria agreed in advance, run against an alternative design |
+| Outcomes to be engineered | Trust and legal reliance, commercial incentives | Working out what would have to be true. The answer is a list of requirements and policy asks |
+| The programme thesis | Strategic outcomes | A baseline now, and the pilot |
+
+**Three points apply to all ten.**
+- **Failure conditions.** Each test method needs a failure condition agreed in advance, as
+  well as a pass condition. Several of the methods proposed cannot return a negative
+  result as written.
+- **Prioritisation.** Ranking by effort and value favours the cheapest and most widely
+  believed assumptions. Ranking by what depends on an assumption, and how weak the
+  evidence for it is, favours the riskiest.
+- **Timing.** Three assumptions are worded against priority use cases, which Sprint 4 sets.
+
+**Smart Data Clusters.** The cluster set has already changed once, between the Phase 1
+roadmap and Sprint 2. It divides data along three different axes, and trust varies inside
+every cluster. An agreement test, run against alternative ways of dividing the data,
+would show whether the clusters work as the unit of standardisation or as views over
+something structural beneath.
+
+**Digital Property ID.** The property–title relationship is many-to-many. One UPRN can
+sit on several titles, only some of them sold, and one title can cover many UPRNs. A
+single identifier cannot express that. A graph can: UPRN and title number as canonical
+identifiers, links between them, and the transaction naming the titles being sold.
+Unregistered land has to be handled without waiting for registration.
+
+**Suggested first three tests** (§4):
+1. **Conditions for reliance.** What would let conveyancers, lenders and insurers rely on
+   assertions they did not make, with the lawful-basis question for consent in the same
+   legal brief.
+2. **Clusters.** An agreement test against alternative axes.
+3. **The Digital Property ID anchor.** How often the full UPRN–title relationship can be
+   established at instruction, and in what shapes.
+
+§6 maps each assumption to the requirements and decisions it bears on, and proposes four
+ways each could carry forward into the Develop phase.
 
 ---
 
@@ -318,7 +364,7 @@ The roadmap's own examples already sit in more than one cluster:
 | Example | Placed in | Also belongs in |
 |---|---|---|
 | Offer data | Property identifiers | Chain progress |
-| Consumer ID, digital ID, qualified electronic signature data | Title and ownership | Identity |
+| Consumer ID, digital ID, qualified electronic signature data | Title and ownership | Fraud risk and intelligence (now trust, identity and reliance) |
 | Service charge | Title and ownership | Material information |
 | Land charges | Material information | Legal and compliance (LLC1) |
 | AML data | Valuation and mortgage readiness | Fraud risk |
@@ -404,21 +450,28 @@ for registered land. The data is not complete or wholly accurate, but no other s
 better standing. Three shapes of answer are available for the relationship model
 (PDR-S2-4):
 
-- **(a) Inferred from each transaction.** The link exists only within a sale. No
-  relationship is visible outside one, and the related-but-not-sold case cannot be
-  expressed.
+- **(a) Inferred from each transaction.** The parties to each sale state which titles
+  relate to the property.
+  - *For:* it needs no new issuer and works with current practice.
+  - *Against:* the link exists only within a sale, no relationship is visible outside
+    one, and the related-but-not-sold case cannot be expressed.
 - **(b) Asserted by the register holder.** The holder of the relationship data asserts
   each link independently of any sale, and the transaction names which linked titles are
-  being sold. Related-but-not-sold titles are then the links not selected. A missing link
-  shows up as a sold title with no link behind it, to be reported to the register holder.
-  A wrong link is not selected.
-- **(c) A composite key.** UPRN and title number combined into one identifier. This does
-  not handle either many-to-many case.
+  being sold.
+  - *For:* related-but-not-sold titles are the links not selected. A missing link shows
+    up as a sold title with no link behind it, to be reported to the register holder,
+    and a wrong link is simply not selected.
+  - *Against:* it depends on the register holder issuing links, which is a service it
+    does not offer today and would have to commit to. The links are also only as
+    accurate as the underlying data.
+- **(c) A composite key.** UPRN and title number combined into one identifier.
+  - *For:* it is simple to adopt.
+  - *Against:* it does not handle either many-to-many case.
 
-Option (b) depends on the register holder issuing links. Whether a seller's or
-conveyancer's correction should also be expressible within the graph introduces competing
-assertions about one fact (PDR-S4-7) and rules for conflicts between them (PDR-S3-6), so
-it is a separate question, best informed by how often corrections turn out to be needed.
+Under option (b), whether a seller's or conveyancer's correction should also be
+expressible within the graph is a separate question. It introduces competing assertions
+about one fact (PDR-S4-7) and rules for conflicts between them (PDR-S3-6), and is best
+informed by how often corrections turn out to be needed.
 
 **Unregistered land.** The case needs recognising even without a settled answer. An
 unregistered title has no title number and no register relationship to look up, and the
@@ -581,9 +634,10 @@ End-to-end time cannot.
 **Falsifies.** No fall in re-collection in pilot transactions against matched comparisons,
 whatever the lead metric does.
 
-**A small addition to Pathfinder.** The data request is well suited to the outcome
-baseline. Adding, per step, the number of facts obtained that had already been obtained
-earlier in the same or a previous transaction would baseline the mechanism as well.
+**A small addition to a future Pathfinder round.** The data request is well suited to the
+outcome baseline. Adding, per step, the number of facts obtained that had already been
+obtained earlier in the same or a previous transaction would baseline the mechanism as
+well.
 
 **Requirements and decisions.** No Layer 0 requirement; PDR-S9-6 (pilot design), tested
 against the evidence hierarchy (Appendix A.4).
@@ -637,10 +691,10 @@ and the Digital Property ID with reusable assets. The Trust, Legal & Policy reco
 Layers 0 to 3 for requirements, root decisions, decisions and specification. A
 distinguishing word on one side would avoid confusion in joint sessions.
 
-**The calendars differ.** The Trust, Legal & Policy record has Clarify closing on 22
-October and releasing the Develop programme. The P&SD sprint plan runs to 19 November,
-with Sprint 4 producing "direction for requirements". The two need reconciling, because
-the close of Clarify is what opens the Develop schedule.
+**When Clarify closes.** The P&SD sprint plan runs to 19 November, with Sprint 4
+producing "direction for requirements", while the Trust, Legal & Policy record works to
+an earlier close. It would help to confirm when Clarify closes for each workstream, since
+that close opens the Develop schedule.
 
 **"Direction for requirements" and Layer 0.** If Sprint 4 produces requirements and the
 Trust, Legal & Policy record holds a requirement set, the coalition will have two,
