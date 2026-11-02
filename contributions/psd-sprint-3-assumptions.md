@@ -4,17 +4,9 @@
 2026), from a participant in the Trust, Legal & Policy workstream.** Version 1, 2 November
 2026.
 
-This note responds to *CFIT Open Property PSD Assumption Prioritisation* and the
-*PSD Sprint 2 Pre-Read* (22 October 2026). It offers four things:
-
-- a way of typing the ten assumptions so that each is tested by a method that suits it;
-- a restatement of each one in a form that a result could contradict;
-- observations on Smart Data Clusters and the Digital Property ID in particular;
-- a crosswalk from each assumption to the requirement set and decision map kept by the
-  Trust, Legal & Policy workstream.
-
-The appendix summarises that governance record so requirements can be cited by
-identifier. The full record is at
+This note responds to *CFIT Open Property PSD Assumption Prioritisation* and the *PSD
+Sprint 2 Pre-Read* (22 October 2026). Appendix A summarises the Trust, Legal & Policy
+governance record so that requirements can be cited by identifier; the full record is at
 [property-data-standards-co.github.io/governance](https://property-data-standards-co.github.io/governance/).
 
 ---
