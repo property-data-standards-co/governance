@@ -759,14 +759,14 @@ The rule the method rests on:
 > The coalition agrees the requirements. The requirements decide the architecture.
 > Existing work enters as evidence — never as the starting assumption.
 
-The record is evidence for decisions the DPMSG and government own, within the framing of
+If adopted, the record would be evidence for decisions the DPMSG and government own, within the framing of
 CFIT's *From Roadmap to Real-World Evidence* (September 2026). The method recommends;
 CFIT decides.
 
 ### A.2 Requirements (Layer 0)
 
-Twenty-nine candidate requirements, each ratified, amended, rejected or deferred
-individually. Each carries a test in the full record. A requirement is admissible if it
+Twenty-nine candidate requirements, proposed to be ratified, amended, rejected or
+deferred individually. Each carries a test in the full record. A requirement is admissible if it
 is falsifiable, technology-neutral, traceable to the purpose, and not a preference.
 
 **Findability and identity**
