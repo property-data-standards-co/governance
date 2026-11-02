@@ -5,9 +5,11 @@
 2026.
 
 This note responds to *CFIT Open Property PSD Assumption Prioritisation* and the *PSD
-Sprint 2 Pre-Read* (22 October 2026). Appendix A summarises the Trust, Legal & Policy
-governance record so that requirements can be cited by identifier, and §6 maps each
-assumption onto it. The full record is at
+Sprint 2 Pre-Read* (22 October 2026). It refers throughout to a governance record that
+has been offered to CFIT as a candidate process for the Trust, Legal & Policy workstream.
+CFIT has not committed to adopting it; it is a proposal, written so that CFIT can adopt it
+and badge it as its own if it chooses. Appendix A summarises it so that its requirements
+can be cited by identifier, and §6 maps each assumption onto it. The full proposal is at
 [property-data-standards-co.github.io/governance](https://property-data-standards-co.github.io/governance/).
 
 ---
@@ -677,17 +679,18 @@ data layer" lists three items that are also open decisions.
 Each could be marked as a working assumption, pending the decision it depends on.
 
 **"Layer" has two meanings.** P&SD uses Layers 1 to 3 for sources, the shared data layer,
-and the Digital Property ID with reusable assets. The Trust, Legal & Policy record uses
+and the Digital Property ID with reusable assets. The proposed governance record uses
 Layers 0 to 3 for requirements, root decisions, decisions and specification. A
 distinguishing word on one side would avoid confusion in joint sessions.
 
 **When Clarify closes.** The P&SD sprint plan runs to 19 November, with Sprint 4
-producing "direction for requirements", while the Trust, Legal & Policy record works to
-an earlier close. It would help to confirm when Clarify closes for each workstream, since
+producing "direction for requirements", while the proposed governance record works to an
+earlier close. It would help to confirm when Clarify closes for each workstream, since
 that close opens the Develop schedule.
 
 **"Direction for requirements" and Layer 0.** If Sprint 4 produces requirements and the
-Trust, Legal & Policy record holds a requirement set, the coalition will have two,
+proposed governance record is adopted with its own requirement set, the coalition will
+have two,
 written to different tests. Filing anything P&SD produces as a requirement as a candidate
 at Layer 0 would avoid that. It would then be held to the same four admissibility tests
 (falsifiable, technology-neutral, traceable to purpose, not a preference), with P&SD's
@@ -697,8 +700,8 @@ prioritised use cases informing the scope decisions PDR-S0-4 and S0-9.
 
 ## 6. How the ten meet the requirement-and-decision record
 
-Each of the ten already corresponds to requirements and decisions in the governance
-record.
+Each of the ten already corresponds to requirements and decisions in the proposed
+governance record.
 
 | # | Assumption | Becomes | Requirements | Decisions |
 |---|---|---|---|---|
@@ -724,15 +727,21 @@ the four a requirement can take at ratification.
 | **Pilot measure** | It is an outcome. Its baseline and pre-registered criterion go into the pilot design (PDR-S9-6). |
 
 This leaves the assumption register as P&SD's own instrument. It gives each Clarify
-output a named place in the Develop programme, which the governance record treats as the
+output a named place in the Develop programme, which the proposed governance record treats as the
 schedule of decisions in its map.
 
 ---
 
-## Appendix A. The governance record in brief
+## Appendix A. The proposed governance record in brief
 
-The Trust, Legal & Policy workstream's method, requirements and decision map, summarised
-so requirements and decisions can be cited by identifier. The full record, including the
+**Status.** This method, its requirements and its decision map have been offered to CFIT as
+a candidate process for the Trust, Legal & Policy workstream. CFIT has made no commitment
+to adopt them. They are written to be neutral, so that CFIT can adopt them and badge them
+as its own if it chooses. Until then they are a proposal, and the requirements are
+candidates that no one has ratified.
+
+The summary below lets requirements and decisions be cited by identifier. The full
+proposal, including the
 test attached to every requirement and the options for every root decision:
 [property-data-standards-co.github.io/governance](https://property-data-standards-co.github.io/governance/)
 ([requirements](https://property-data-standards-co.github.io/governance/requirements.html),

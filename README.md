@@ -5,6 +5,11 @@
 > does not own the framework, does not speak for the coalition, and has no standing
 > in the decisions recorded here.
 
+> **Status: a proposal.** The method, requirements and decision map here have been offered
+> to CFIT as a candidate process for the Trust, Legal & Policy workstream. CFIT has made
+> no commitment to adopt them. They are written so that CFIT can adopt them and badge them
+> as its own if it chooses; until it does, they are a proposal.
+
 The record of how the framework is decided, and what was decided.
 
 This repository holds the process, the requirements everything is tested against, the map of every decision the framework requires, and — as they close — a record of each decision with its options, evidence, resolution and objections.
@@ -24,7 +29,7 @@ It does not hold the framework itself. Normative specification text, schemas and
 
 ## Where this sits
 
-The Digital Property Market Steering Group (DPMSG) is the primary delivery vehicle for the government's Open Property roadmap and owns policy, governance and scheme design. CFIT complements it, convening and testing, and has been asked to evidence three candidate models: a common standard, a common conformance framework, or a federated model, without prejudging which prevails. The Trust, Legal & Policy workstream's remit is to define and test the minimum legal, policy and trust requirements a conformance framework must meet. This record is that workstream's method, and its output is evidence for decisions the DPMSG and government own. See CFIT's *From Roadmap to Real-World Evidence* (September 2026) and the [overview](overview.md).
+The Digital Property Market Steering Group (DPMSG) is the primary delivery vehicle for the government's Open Property roadmap and owns policy, governance and scheme design. CFIT complements it, convening and testing, and has been asked to evidence three candidate models: a common standard, a common conformance framework, or a federated model, without prejudging which prevails. The Trust, Legal & Policy workstream's remit is to define and test the minimum legal, policy and trust requirements a conformance framework must meet. This record is proposed as that workstream's method, and its output would be evidence for decisions the DPMSG and government own. See CFIT's *From Roadmap to Real-World Evidence* (September 2026) and the [overview](overview.md).
 
 ## How the process works, in one paragraph
 

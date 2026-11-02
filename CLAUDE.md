@@ -8,6 +8,12 @@ The governance record for a property data trust framework being built by the CFI
 Open Property Coalition (Coalition 4), Phase 2. It holds the process, the
 requirements, the map of decisions, and the record of each decision as it closes.
 
+**Status: a proposal.** The method, requirements and decision map have been offered to
+CFIT as a candidate process for the Trust, Legal & Policy workstream. CFIT has made no
+commitment to adopt them. They are written so CFIT can badge them as its own if it
+chooses. Do not write any document as though CFIT or the coalition has adopted the
+process, ratified a requirement, or opened a decision, until that has happened.
+
 It does **not** hold the framework. Normative specification text, schemas and the
 conformance suite are separate repositories, populated from decisions resolved here.
 
