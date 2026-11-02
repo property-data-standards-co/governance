@@ -719,23 +719,36 @@ Twenty-nine candidate requirements, each ratified, amended, rejected or deferred
 individually. Each carries a test in the full record. A requirement is admissible if it
 is falsifiable, technology-neutral, traceable to the purpose, and not a preference.
 
+**Findability and identity**
+
 | ID | Requirement |
 |---|---|
-| | ***Findability and identity*** |
 | R-SUBJECT | Every fact is about a subject that has a stable, resolvable identifier persisting beyond any single transaction. |
 | R-IDENTIFIERS | Identifiers are drawn from open schemes, not from any single operator's internal namespace. |
 | R-DISCOVERY | Given a subject identifier, an authorised party can locate the current holders of facts about that subject, without prior arrangement with them. |
-| | ***Accessibility and openness*** |
+
+**Accessibility and openness**
+
+| ID | Requirement |
+|---|---|
 | R-PARTICIPATION | Any conformant participant can issue, hold, and consume data through published open interfaces, without bilateral negotiation with the framework operator. |
 | R-DATA-PATH | The framework operator is not in the data path. |
 | R-ENTRY | Entry criteria are objective, published, and appealable. |
-| | ***Interoperability*** |
+
+**Interoperability**
+
+| ID | Requirement |
+|---|---|
 | R-SEMANTICS | Facts carry machine-readable semantics from a shared, versioned, openly published vocabulary; no private knowledge is needed to interpret them. |
 | R-ALIGNMENT | The framework aligns with UK and EU digital identity and credentials infrastructure rather than defining a property-only stack. |
 | R-EXTENSION | New data, new participants, and new versions can be added without coordinated upgrade of all parties. |
 | R-INTEROPERATION | Two participants that each conform to the framework can exchange and rely on facts with no agreement between them beyond the framework itself. |
 | R-BOUNDARY | For each cross-scheme use case the coalition names, a fact established under another scheme can be relied upon within the framework, and vice versa, without re-collection and without either scheme adopting the other's rules. |
-| | ***Reusable trust*** |
+
+**Reusable trust**
+
+| ID | Requirement |
+|---|---|
 | R-INDEPENDENCE | A consumer can establish the origin and integrity of a fact without trusting the party that transmitted it. |
 | R-PROVENANCE | Every fact carries who asserted it, on what basis, and when. |
 | R-ARTEFACT | Where an assertion rests on a document or other artefact, a relying party can obtain that artefact and establish that it is the one the issuer relied on. |
@@ -743,17 +756,29 @@ is falsifiable, technology-neutral, traceable to the purpose, and not a preferen
 | R-WITHDRAWAL | An erroneous assertion can be withdrawn, and parties relying on it can determine that it has been. |
 | R-LIABILITY | Liability for a false assertion attaches to an identifiable legal entity. |
 | R-AUTHORITY | A statement of authority is itself an assertion: it carries who made it, on what basis, when, and until when, and is verifiable by the same means as the facts it authorises. |
-| | ***Privacy and consumer protection*** |
+
+**Privacy and consumer protection**
+
+| ID | Requirement |
+|---|---|
 | R-MINIMISATION | A party receives only the data it needs; the framework must not require over-disclosure as a side effect of its structure. |
 | R-CONTROLLER | The data subject can determine who holds their personal data and on what basis, and can exercise data protection rights against an identifiable controller. |
 | R-CONFIDENTIALITY | A fact whose disclosure is restricted remains unreadable to a party not entitled to it, independently of the access controls of whoever stores or transmits it. |
-| | ***Disclosure and permission*** |
+
+**Disclosure and permission**
+
+| ID | Requirement |
+|---|---|
 | R-CLASSIFICATION | Every fact carries a classification of its disclosure character, and that classification travels with the fact. |
 | R-PUBLIC | Where a fact is already available to any member of the public from its authoritative source, the framework does not require the data subject's permission to obtain it. |
 | R-ENTITLEMENT | A party's role in a transaction does not by itself entitle it to every fact in that transaction. |
 | R-ABSENCE | A transaction can proceed without the data subject being online, responsive, or holding infrastructure that outlives the transaction. |
 | R-COPIES | Where a fact is copied into another system, its classification and the conditions on its use travel with it, and the copy is subject to the same rules as the original. |
-| | ***Implementability*** |
+
+**Implementability**
+
+| ID | Requirement |
+|---|---|
 | R-RENDERING | The framework can produce a human-readable presentation of the facts it carries, and a party can establish that the presentation and the assertions behind it agree. |
 | R-SMALL-FIRM | A sole practitioner or small firm can participate fully without operating specialist cryptographic infrastructure. |
 | R-INCREMENTAL | The framework can be adopted incrementally, alongside existing practice, without a flag-day migration. |
