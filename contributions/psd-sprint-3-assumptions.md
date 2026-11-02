@@ -6,7 +6,8 @@
 
 This note responds to *CFIT Open Property PSD Assumption Prioritisation* and the *PSD
 Sprint 2 Pre-Read* (22 October 2026). Appendix A summarises the Trust, Legal & Policy
-governance record so that requirements can be cited by identifier; the full record is at
+governance record so that requirements can be cited by identifier, and §6 maps each
+assumption onto it. The full record is at
 [property-data-standards-co.github.io/governance](https://property-data-standards-co.github.io/governance/).
 
 ---
@@ -50,9 +51,6 @@ Unregistered land has to be handled without waiting for registration.
 2. **Clusters.** An agreement test against alternative axes.
 3. **The Digital Property ID anchor.** How often the full UPRN–title relationship can be
    established at instruction, and in what shapes.
-
-§6 maps each assumption to the requirements and decisions it bears on, and proposes four
-ways each could carry forward into the Develop phase.
 
 ---
 
