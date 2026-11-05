@@ -24,7 +24,7 @@ function pass(check, detail) { console.log(`  ok    ${check}${detail ? '  — ' 
 
 function corpus() {
   const files = [...DOCS];
-  for (const dir of ['decision-records', 'sessions', 'build-rounds']) {
+  for (const dir of ['decision-records', 'sessions', 'build-rounds', 'contributions']) {
     const d = path.join(ROOT, dir);
     if (fs.existsSync(d)) {
       for (const f of fs.readdirSync(d)) if (f.endsWith('.md')) files.push(path.join(dir, f));

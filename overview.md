@@ -2,6 +2,8 @@
 
 **How the framework is decided.** The method in short; the [charter](charter.md) carries it in full.
 
+**Status: a proposal.** This method has been offered to CFIT as a candidate process for the Trust, Legal & Policy workstream. CFIT has made no commitment to adopt it. It is written so that CFIT can adopt it and badge it as its own if it chooses; until then it is a proposal.
+
 ---
 
 ## Where this sits
@@ -12,7 +14,7 @@ The Digital Property Market Steering Group is the primary delivery vehicle for t
 
 The question CFIT has been asked to evidence is put as three candidate models: **a common standard, a common conformance framework, or a federated model**. The evidence is to show either how existing and emerging standards can interoperate or, where it supports it, the case for the market to converge on a single approach. CFIT will not prejudge which model prevails, and neither does anything here.
 
-Within that, the Trust, Legal & Policy workstream's remit is to define and test the minimum legal, policy and trust requirements a conformance framework must meet, and to generate the evidence for the decisions the DPMSG and government own. This record is the method for doing that. Its requirements are the minimum a conformance framework must meet; its decision records are the evidence of what those requirements entail; and its output is addressed to the DPMSG rather than to the market.
+Within that, the Trust, Legal & Policy workstream's remit is to define and test the minimum legal, policy and trust requirements a conformance framework must meet, and to generate the evidence for the decisions the DPMSG and government own. This record proposes a method for doing that. Its requirements are the minimum a conformance framework must meet; its decision records are the evidence of what those requirements entail; and its output is addressed to the DPMSG rather than to the market.
 
 ## The problem the method solves
 
